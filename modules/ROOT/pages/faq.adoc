@@ -1,0 +1,7 @@
+= Frequently Asked Questions (FAQ)
+
+[qanda]
+Can I see a built preview of this template to get a better idea about the result?::
+    Of course you can! Just look at the README of the repository — it should tell you everything.
+Is writing documentation hard and dreadful?::
+    Absolutely not. Writing documentation in asciidoc is very simple and straighforward. And in fact, writing documentation makes you very happy. Just try and see for yourself!

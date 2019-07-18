@@ -1,0 +1,9 @@
+= The Pizza Project
+John Doe; Jane Doe
+:page-authors: {author}, {author_2}
+
+The Pizza Project is a useful project with a very bad name — it helps you with writing some new documentation for Fedora.
+
+In fact, this is just a source template for a new piece of the Fedora Docs.
+
+image::pizza.png[Pizza]

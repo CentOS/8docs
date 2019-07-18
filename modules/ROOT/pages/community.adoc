@@ -1,0 +1,3 @@
+= Pizza Factory Community
+
+Our community is basically the same as the community of Fedora Docs. That's mostly because this is a template for new pieces of the Fedora Docs.

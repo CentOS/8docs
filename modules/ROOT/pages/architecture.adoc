@@ -1,0 +1,3 @@
+= Pizza Factory Architecture
+
+The architecture of our pizza factory is quite simple. We bake our very expensive xref:pizza-dough.adoc[pizza dough] in a very cheap xref:pizza-owen.adoc[pizza owen]. This way, we can achieve a medicore result for a high price and a reasonable number of failures.
