@@ -1,0 +1,22 @@
+[id="ports-for-network-based-installation_{context}"]
+= Ports for network-based installation
+
+The following table lists the ports that must be open on the server providing the files for each type of network-based installation.
+
+.Ports for network-based installation
+[options="header"]
+[cols="30%,70%"]
+|===
+| Protocol used  | Ports to open
+| HTTP  | 80
+| HTTPS  | 443
+| FTP | 21
+| NFS | 2049, 111, 20048
+| TFTP | 69
+|===
+
+
+.Additional resources
+
+* See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/securing_networks/index/[_Securing networks_] document for more information.
+

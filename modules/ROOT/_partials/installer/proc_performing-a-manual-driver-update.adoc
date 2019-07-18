@@ -1,0 +1,25 @@
+[id="performing-a-manual-driver-update_{context}"]
+= Performing a manual driver update
+
+This procedure describes how to perform a manual driver update during installation.
+
+[discrete]
+== Prerequisite
+
+Place the driver update ISO image file on a USB flash drive or a web server, and connect it to your computer.
+
+
+[discrete]
+== Procedure
+
+. From the boot menu window, press the *Tab* key on your keyboard to display the boot command line.
+. Append the `inst.dd=location` boot option to the command line, where location is a path to the driver update.
+Typically, the image file is located on a web server, for example, http://server.example.com/dd.iso, or on a USB flash drive, for example, `/dev/sdb1`. It is also possible to specify an RPM package containing the driver update, for example http://server.example.com/dd.rpm.
+
+. Press *Enter* to execute the boot process. The drivers available at the specified location are automatically loaded and the  installation process starts.
+
+[discrete]
+== Additional resources
+
+* For more information about the `inst.dd` boot option, see the upstream link:https://github.com/rhinstaller/anaconda/blob/rhel-8.0/docs/boot-options.rst/#instdd[inst.dd boot option] content.
+* For more information about all boot options, see the upstream link:https://github.com/rhinstaller/anaconda/blob/rhel-8.0/docs/boot-options.rst/[Boot Options] content.

@@ -1,0 +1,26 @@
+[id="adding-a-network-device_{context}"]
+= Adding a network device
+
+Network device driver modules are loaded automatically by [application]*udev*.
+
+You can add a network interface on IBM{nbsp}Z dynamically or persistently.
+
+* Dynamically
++
+.. Load the device driver
++
+.. Remove the network devices from the list of ignored devices.
++
+.. Create the group device.
++
+.. Configure the device.
++
+.. Set the device online.
+
+* Persistently
++
+.. Create a configuration script.
++
+.. Activate the interface.
+
+The following sections provide basic information for each task of each IBM{nbsp}Z network device driver. <<sect-post-installation-qeth-device-s390>> describes how to add a qeth device to an existing instance of {ProductName}. <<sect-post-installation-lcs-s390>> describes how to add an lcs device to an existing instance of {ProductName}.

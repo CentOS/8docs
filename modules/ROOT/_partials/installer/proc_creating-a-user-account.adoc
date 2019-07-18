@@ -1,0 +1,43 @@
+[id='creating-a-user-account_{context}']
+= Creating a user account
+
+It is recommended that you create a user account to finish the installation. If you do not create a user account, you must log in to the system as `root` directly, which is *not* recommended.
+
+.Procedure
+
+. From the *Configuration* window, click *User Creation*. The *Create User* window opens.
+
+. Type the user account name in to the *Full name* field, for example: John Smith.
+
+. Type the username in to the *User name* field, for example: jsmith.
++
+[NOTE]
+====
+The *User name* is used to log in from a command line; if you install a graphical environment, then your graphical login manager uses the *Full name*.
+====
+
+. Select the *Make this user administrator* check box if the user requires administrative rights (the installation program adds the user to the `wheel` group ).
++
+[IMPORTANT]
+====
+An administrator user can use the `sudo` command to perform tasks that are only available to `root` using the user password, instead of the `root` password. This may be more convenient, but it can also cause a security risk.
+====
+
+. Select the *Require a password to use this account* check box.
++
+[WARNING]
+====
+If you give administrator privileges to a user, verify that the account is password protected. Never give a user administrator privileges without assigning a password to the account.
+//TODO: link to some security docs about password security
+====
+
+. Type a password into the *Password* field.
+
+. Type the same password into the *Confirm password* field.
+
+.  *Save Changes* to apply the changes and return to the *Configuration* window.
+
+.  When the installation process is complete, click *Reboot* to reboot and log in to your {ProductName} {ProductNumber} system.
+
+include::proc_editing-advanced-user-settings.adoc[leveloffset=+1]
+

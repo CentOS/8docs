@@ -1,0 +1,43 @@
+[id="raid-and-other-disk-devices-x86_{context}"]
+= RAID requirements
+
+It is important to understand how storage technologies are configured and how support for them may have changed between major versions of {productname}.
+
+.Hardware RAID
+Any RAID functions provided by the mainboard of your computer, or attached controller cards, need to be configured before you begin the installation process. Each active RAID array appears as one drive within {productname}.
+
+.Software RAID
+On systems with more than one hard drive, you can use the {productname} installation program to operate several of the drives as a Linux software RAID array. With a software RAID array, RAID functions are controlled by the operating system rather than the dedicated hardware.
+
+[NOTE]
+====
+When a pre-existing RAID array's member devices are all unpartitioned disks/drives, the installation program treats the array as a disk and there is no method to remove the array.
+====
+
+.USB Disks
+You can connect and configure external USB storage after installation. Most devices are recognized by the kernel, but some devices may not be recognized.
+If it is not a requirement to configure these disks during installation, disconnect them to avoid potential problems.
+
+.NVDIMM devices
+To use a Non-Volatile Dual In-line Memory Module (NVDIMM) device as storage, the following conditions must be satisfied:
+
+* Version of Red Hat Enterprise Linux is 7.6 or later.
+* The architecture of the system is Intel 64 or AMD64.
+* The device is configured to sector mode. Anaconda can reconfigure NVDIMM devices to this mode.
+* The device must be supported by the nd_pmem driver.
+
+Booting from an NVDIMM device is possible under the following additional conditions:
+
+* The system uses UEFI.
+* The device must be supported by firmware available on the system, or by a UEFI driver. The UEFI driver may be loaded from an option ROM of the device itself.
+* The device must be made available under a namespace.
+
+To take advantage of the high performance of NVDIMM devices during booting, place the `/boot` and `/boot/efi` directories on the device. 
+
+[NOTE]
+====
+The Execute-in-place (XIP) feature of NVDIMM devices is not supported during booting and the kernel is loaded into conventional memory.
+====
+
+.Considerations for Intel BIOS RAID Sets
+{productname} uses `mdraid` for installing on Intel BIOS RAID sets. These sets are automatically detected during the boot process and their device node paths can change across several booting processes. For this reason, local modifications to the `/etc/fstab`, `/etc/crypttab` or other configuration files that refer to the devices by their device node paths may not work in {productname}. It is recommended that you replace device node paths (such as `/dev/sda`) with file system labels or device UUIDs. You can find the file system labels and device UUIDs using the `blkid` command.

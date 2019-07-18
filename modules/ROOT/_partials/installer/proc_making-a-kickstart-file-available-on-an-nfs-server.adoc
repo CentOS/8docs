@@ -1,0 +1,71 @@
+[id="making-a-kickstart-file-available-on-an-nfs-server_{context}"]
+= Making a Kickstart file available on an NFS server
+
+This procedure describes how to store the Kickstart script file on an NFS server. This method enables you to install multiple systems from a single source without having to use physical media for the Kickstart file.
+
+// A network-based installation is convenient when combined with a TFTP server for PXE boot. This approach eliminates the need to create physical media and enables simultaneous deployment of {RHEL} on multiple systems.
+
+
+.Prerequisites
+
+* You must have administrator level access to a server with {RHEL8} on the local network.
+* The system to be installed must be able to connect to the server.
+ifdef::installation-advanced-title[]
+* Firewall on the server must allow connections from the system you are installing to. See xref:ports-for-network-based-installation_making-kickstart-files-available-to-the-installation-program[] for more information.
+endif::[]
+ifndef::installation-advanced-title[]
+* Firewall on the server must allow connections from the system you are installing to.
+endif::[]
+
+
+.Procedure
+
+. Install the [package]`nfs-utils` package by running the following command as root:
++
+----
+# yum install nfs-utils
+----
+
+. Copy the Kickstart file to a directory on the NFS server.
+
+. Open the [filename]`/etc/exports` file using a text editor and add a line with the following syntax:
++
+[subs="quotes"]
+----
+/__exported_directory__/ __clients__
+----
+
+. Replace __/exported_directory/__ with the full path to the directory holding the Kickstart file. Instead of __clients__, use the host name or IP address of the computer that is to be installed from this NFS server, the subnetwork from which all computers are to have access the ISO image, or the asterisk sign (`*`) if you want to allow any computer with network access to the NFS server to use the ISO image. See the __exports(5)__ man page for detailed information about the format of this field.
++
+A basic configuration that makes the [filename]`/rhel8-install/` directory available as read-only to all clients is:
++
+----
+/rhel8-install *
+----
+
+. Save the [filename]`/etc/exports` file and exit the text editor.
+
+. Start the nfs service:
++
+----
+# systemctl start nfs-server.service
+----
++
+If the service was running before you changed the [filename]`/etc/exports` file, enter the following command, in order for the running NFS server to reload its configuration:
++
+----
+# systemctl reload nfs-server.service
+----
++
+The Kickstart file is now accessible over NFS and ready to be used for installation.
+
+NOTE: When specifying the Kickstart source, use `nfs:` as the protocol, the server’s host name or IP address, the colon sign (`:`), and the path inside directory holding the file. For example, if the server’s host name is `myserver.example.com` and you have saved the file in [filename]`/rhel8-install/my-ks.cfg`, specify `inst.ks=nfs:myserver.example.com:/rhel8-install/my-ks.cfg` as the installation source boot option.
+
+.Additional resources
+
+ifdef::installation-advanced-title[]
+* For details on setting up TFTP server for PXE boot from network, see xref:preparing-for-a-network-install_installing-rhel-as-an-experienced-user[].
+endif::[]
+ifndef::installation-advanced-title[]
+* For details on setting up TFTP server for PXE boot from network, see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index#preparing-for-a-network-install_installing-rhel-as-an-experienced-user[Preparing to install from the network using PXE] in the _Performing an advanced RHEL installation_ document.
+endif::[]

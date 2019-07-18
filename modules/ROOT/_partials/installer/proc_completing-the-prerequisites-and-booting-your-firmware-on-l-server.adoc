@@ -1,0 +1,24 @@
+[id="completing-the-prerequisites-and-booting-your-firmware-on-l-server_{context}"]
+= Completing the prerequisites and booting your firmware on L server
+
+Before you install Red Hat Enterprise Linux, ensure that you have the following items:
+
+* Ethernet cable
+
+* VGA monitor. The VGA resolution must be set to 1024x768-60Hz.
+
+* USB Keyboard
+
+* Power cords and outlet for your system
+
+Before you power on the system, follow these steps:
+
+* If your system belongs in a rack, install your system into that rack. For instructions, see IBM Power Systems information at link:https://www.ibm.com/support/knowledgecenter/[https://www.ibm.com/support/knowledgecenter/].
+
+* Remove the shipping brackets from the power supplies. Ensure that the power supplies are fully seated in the system
+
+* Access the server control panel.
+
+* Connect the power cords to the system and plug them into the outlets.
+
+At this point, your firmware is booting. Wait for the green power LED on the control panel to start flashing, indicating that it is ready to use, and for the prompt 01 N OPAL T to appear on the display.

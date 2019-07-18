@@ -1,0 +1,41 @@
+[id="configuring-storage-options_{context}"]
+= Filtering storage devices
+
+//TODO: The file name and ID needs to change to show that it's for filtering storage devices
+
+In the storage device selection window you can filter storage devices either by their World Wide Identifier (WWID) or by the port, target, or logical unit number (LUN).
+
+.Prerequisite
+The *Installation Summary* window is open.
+
+.Procedure
+
+. From the *Installation Summary* window, click *Installation Destination*. The *Installation Destination* window opens, listing all available drives.
+
+. Under the *Specialized & Network Disks* section, click *Add a disk…​*. The storage devices selection window opens.
+
+. Click the *Search by* tab to search by port, target, LUN, or WWID.
++
+Searching by WWID or LUN requires additional values in the corresponding input text fields.
+
+. Select the option that you require from the *Search* drop-down menu.
+
+. Click *Find* to start the search. Each device is presented on a separate row with a corresponding check box.
+
+. Select the check box to enable the device that you require during the installation process.
++
+Later in the installation process you can choose to install {productname} on any of the selected devices, and you can choose to mount any of the other selected devices as part of the installed system automatically.
++
+[NOTE]
+====
+* Selected devices are not automatically erased by the installation process and selecting a device does not put the data stored on the device at risk.
+* You can add devices to the system after installation by modifying the `/etc/fstab` file.
+====
+
+. Click *Done* to return to the *Installation Destination* window.
+
+
+[IMPORTANT]
+====
+Any storage devices that you do not select are hidden from the installation program entirely. To chain load the boot loader from a different boot loader, select all the devices present.
+====

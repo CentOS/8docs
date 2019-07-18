@@ -1,0 +1,22 @@
+[id="installing-red-hat-enterprise-linux-on-ibm-power-system-l-server_{context}"]
+=  Overview
+
+Use this information to install Red Hat Enterprise Linux on a non-virtualized or bare metal IBM Power System L server. This procedure follows these general steps:
+
+* Complete prerequisites
+
+* Connecting to the ASMI
+
+** Connect using DHCP
+
+** Connect using Static IP
+
+* Enabling IPMI
+
+* Powering on your server with IPMI
+
+** Connecting from Linux notebook
+
+** Connecting from Windows notebook
+
+* Configuring Petitboot and installing Red Hat Enterprise Linux

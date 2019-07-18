@@ -1,0 +1,21 @@
+[id="package-selection-section_{context}"]
+= Package selection section
+
+Use the `%packages` command to begin a Kickstart section which describes the software packages to be installed. The `%packages` section must end with the `%end` command.
+
+You can specify packages by environment, group, module stream, module profile, or by their package names. Several environments and groups that contain related packages are defined. See the [filename]`__repository__/repodata/*-comps-__repository__.__architecture__.xml` file on the {RHEL8} Installation DVD for a list of environments and groups.
+
+The [filename]`*-comps-__repository__.__architecture__.xml` file contains a structure describing available environments (marked by the `<environment>` tag) and groups (the `<group>` tag). Each entry has an ID, user visibility value, name, description, and package list. If the group is selected for installation, the packages marked `mandatory` in the package list are always installed, the packages marked `default` are installed if they are not specifically excluded elsewhere, and the packages marked `optional` must be specifically included elsewhere even when the group is selected.
+
+You can specify a package group or environment using either its ID (the `<id>` tag) or name (the `<name>` tag).
+
+If you are not sure what package should be installed, Red Hat recommends you to select the [GUI]*Minimal Install* environment. [GUI]*Minimal Install* provides only the packages which are essential for running {RHEL8}. This will substantially reduce the chance of the system being affected by a vulnerability. If necessary, additional packages can be added later after the installation. For more details on [GUI]*Minimal Install*, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/security_hardening/index#Minimal_install_configuring-and-managing-security[Installing the Minimum Amount of Packages Required] section of the _Security Hardening_ document. Note that [GUI]*Initial Setup* can not run after a system is installed from a Kickstart file unless a desktop environment and the X Window System were included in the installation and graphical login was enabled.
+
+[IMPORTANT]
+====
+To install a 32-bit package on a 64-bit system:
+
+* specify the [option]`--multilib` option for the `%packages` section
+* append the package name with the 32-bit architecture for which the package was built; for example, `glibc.i686`
+====
+

@@ -1,0 +1,42 @@
+// Module included in the following assemblies:
+//
+// <List assemblies here, each on a new line>
+
+// This module can be included from assemblies using the following include statement:
+// include::<path>/ref_installation-images-and-packages.adoc[leveloffset=+1]
+
+// The file name and the ID are based on the module title. For example:
+// * file name: ref_my-reference-a.adoc
+// * ID: [id='ref_my-reference-a_{context}']
+// * Title: = My reference A
+//
+// The ID is used as an anchor for linking to the module. Avoid changing
+// it after the module has been published to ensure existing links are not
+// broken.
+//
+// The `context` attribute enables module reuse. Every module's ID includes
+// {context}, which ensures that the module has a unique ID even if it is
+// reused multiple times in a guide.
+//
+// In the title, include nouns that are used in the body text. This helps
+// readers and search engines find information quickly.
+[id="installation-images-and-packages_{context}"]
+= Installation images and packages
+
+== Unified ISO
+In {productname} 8, a unified ISO automatically loads the *BaseOS* and *AppStream* installation source repositories. This feature works for the first base repository that is loaded during installation. For example, if you boot the installation with no repository configured and have the unified ISO as the base repository in the graphical user interface (GUI), or if you boot the installation using the `inst.repo=` option that points to the unified ISO.
+
+As a result, the AppStream repository is enabled under the *Additional Repositories* section of the *Installation Source* GUI window. You cannot remove the AppStream repository or change its settings but you can disable it in *Installation Source*. This feature does not work if you boot the installation using a different base repository and then change it to the unified ISO. If you do that, the base repository is replaced. However, the AppStream repository is not replaced and points to the original file.
+
+== Stage2 image
+In {productname} 8, multiple network locations of `stage2` or Kickstart files can be specified to prevent installation failure. This update enables the specification of multiple `inst.stage2` and `inst.ks` boot options with network locations of `stage2` and a Kickstart file. This avoids the situation in which the requested files cannot be reached and the installation fails because the contacted server with the `stage2` or the Kickstart file is inaccessible.
+
+With this new update, the installation failure can be avoided if multiple locations are specified. If all the defined locations are URLs, namely `HTTP`, `HTTPS`, or `FTP`, they will be tried sequentially until the requested file is fetched successfully. If there is a location that is not a URL, only the last specified location is tried. The remaining locations are ignored.
+
+== inst.addrepo parameter
+Previously, you could only specify a base repository from the kernel boot parameters. In {productname} 8, a new kernel parameter, `inst.addrepo=<name>,<url>`, allows you to specify an additional repository during installation. This parameter has two mandatory values: the name of the repository and the URL that points to the repository. For more information, see the link:https://anaconda-installer.readthedocs.io/en/latest/boot-options.html#inst-addrepo[inst-addrepo usage].
+
+== Installation from an expanded ISO
+{productname} 8 supports installing from a repository on a local hard drive. Previously, the only installation method from a hard drive was using an ISO image as the installation source.  However, the {productname} 8 ISO image might be too big for some file systems; for example, the FAT32 file system cannot store files larger than 4 GiB. In {productname} 8, you can enable installation from a repository on a local hard drive; you only need to specify the directory instead of the ISO image. For example: `inst.repo=hd:<device>:<path to the repository>`.
+
+For more information about the {productname} 8 BaseOS and AppStream repositories, see the _Repositories_ section of this document.

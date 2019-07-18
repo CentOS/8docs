@@ -1,0 +1,24 @@
+[id="configuring-routes_{context}"]
+= Configuring Routes
+
+Complete the following steps to configure routes.
+
+.Procedure
+
+. In the *IPv4 Settings* and *IPv6 Settings* tabs, click btn:[Routes] to configure routing settings for a specific IP protocol on an interface. An editing routes dialog specific to the interface opens.
+
+. Click btn:[Add] to add a route.
+
+. Select the *Ignore automatically obtained routes* check box to configure at least one static route and to disable all routes not specifically configured.
+
+. Select the *Use this connection only for resources on its network* check box to prevent the connection from becoming the default route.
++
+[NOTE]
+====
+This option can be selected even if you did not configure any static routes. This route is used only to access certain resources, such as intranet pages that require a local or VPN connection. Another (default) route is used for publicly available resources. Unlike the additional routes configured, this setting is transferred to the installed system. This option is useful only when you configure more than one interface.
+====
+
+. Click *OK* to save your settings and return to the editing routes dialog that is specific to the interface.
+
+. Click *Save* to apply the settings and return to the *Network and Host Name* window.
+

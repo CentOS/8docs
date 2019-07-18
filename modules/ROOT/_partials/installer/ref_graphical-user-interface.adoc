@@ -1,0 +1,27 @@
+// Module included in the following assemblies:
+//
+// <List assemblies here, each on a new line>
+
+// This module can be included from assemblies using the following include statement:
+// include::<path>/ref_graphical-user-interface.adoc[leveloffset=+1]
+
+// The file name and the ID are based on the module title. For example:
+// * file name: ref_my-reference-a.adoc
+// * ID: [id='ref_my-reference-a_{context}']
+// * Title: = My reference A
+//
+// The ID is used as an anchor for linking to the module. Avoid changing
+// it after the module has been published to ensure existing links are not
+// broken.
+//
+// The `context` attribute enables module reuse. Every module's ID includes
+// {context}, which ensures that the module has a unique ID even if it is
+// reused multiple times in a guide.
+//
+// In the title, include nouns that are used in the body text. This helps
+// readers and search engines find information quickly.
+[id="graphical-user-interface_{context}"]
+= Installer Graphical User Interface
+
+== The Installation Summary window
+The Installation Summary window of the {productname} 8 graphical installation has been updated to a new three-column layout that provides improved organization of graphical installation settings.

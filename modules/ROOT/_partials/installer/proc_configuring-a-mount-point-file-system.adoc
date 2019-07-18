@@ -1,0 +1,30 @@
+[id='configuring-a-mount-point-file-system_{context}']
+= Configuring a mount point file system
+
+This procedure describes how to set the partitioning scheme for each mount point that was created manually. The available options are `Standard Partition`, `LVM`, and `LVM Thin Provisioning`.
+
+[NOTE]
+====
+* Btfrs support has been removed in {ProductName} {ProductNumber}.
+* The `/boot` partition is always located on a standard partition, regardless of the value selected.
+====
+
+.Procedure
+
+. To change the devices that a single non-LVM mount point should be located on, select the required mount point from the left-hand pane.
+
+. Under the *Device(s)* heading, click *Modify...*. The *Configure Mount Point* dialog opens.
+
+. Select one or more devices and click *Select* to confirm your selection and return to the *Manual Partitioning* window.
+
+. Click *Update Settings* to apply the changes.
++
+[NOTE]
+====
+Click the *Rescan* button (circular arrow button) to refresh all local disks and partitions; this is only required after performing advanced partition configuration outside the installation program. Clicking the *Rescan Disks* button resets all configuration changes made in the installation program.
+====
+
+. In the lower left-hand side of the *Manual Partitioning* window, click the *storage device selected* link to open the *Selected Disks* dialog and review disk information.
+
++
+// At the bottom of the screen, a link states how many storage devices have been selected in `Installation Destination` (see <<sect-disk-partitioning-setup-x86>>). Clicking on this link opens the `Selected Disks` dialog, where you review the information about the disks. See <<sect-bootloader-x86>> for more information.

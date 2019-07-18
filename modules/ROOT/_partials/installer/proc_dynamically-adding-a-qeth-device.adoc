@@ -1,0 +1,150 @@
+[id="dynamically-adding-a-qeth-device_{context}"]
+= Dynamically adding a qeth device
+
+To add a `qeth` device dynamically, follow these steps:
+
+. Determine whether the `qeth` device driver modules are loaded. The following example shows loaded `qeth` modules:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] lsmod | grep qeth
+qeth_l3                69632  0
+qeth_l2                49152  1
+qeth                  131072  2 qeth_l3,qeth_l2
+qdio                   65536  3 qeth,qeth_l3,qeth_l2
+ccwgroup               20480  1 qeth
+....
++
+If the output of the [command]`lsmod` command shows that the `qeth` modules are not loaded, run the [command]`modprobe` command to load them:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] modprobe qeth
+....
+
+. Use the [command]`cio_ignore` utility to remove the network channels from the list of ignored devices and make them visible to Linux:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] cio_ignore -r read_device_bus_id,write_device_bus_id,data_device_bus_id
+....
++
+Replace _read_device_bus_id_,_write_device_bus_id_,_data_device_bus_id_ with the three device bus IDs representing a network device. For example, if the _read_device_bus_id_ is `0.0.f500`, the _write_device_bus_id_ is `0.0.f501`, and the _data_device_bus_id_ is `0.0.f502`:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] cio_ignore -r 0.0.f500,0.0.f501,0.0.f502
+....
+
+. Use the [application]*znetconf* utility to sense and list candidate configurations for network devices:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] znetconf -u
+Scanning for network devices...
+Device IDs                 Type    Card Type      CHPID Drv.
+------------------------------------------------------------
+0.0.f500,0.0.f501,0.0.f502 1731/01 OSA (QDIO)        00 qeth
+0.0.f503,0.0.f504,0.0.f505 1731/01 OSA (QDIO)        01 qeth
+0.0.0400,0.0.0401,0.0.0402 1731/05 HiperSockets      02 qeth
+....
+
+. Select the configuration you want to work with and use [application]*znetconf* to apply the configuration and to bring the configured group device online as network device.
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] znetconf -a f500
+Scanning for network devices...
+Successfully configured device 0.0.f500 (encf500)
+....
+
+. Optionally, you can also pass arguments that are configured on the group device before it is set online:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] znetconf -a f500 -o portname=myname
+Scanning for network devices...
+Successfully configured device 0.0.f500 (encf500)
+....
++
+Now you can continue to configure the `encf500` network interface.
+
+Alternatively, you can use `sysfs` attributes to set the device online as follows:
+
+. Create a `qeth` group device:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] echo read_device_bus_id,write_device_bus_id,data_device_bus_id > /sys/bus/ccwgroup/drivers/qeth/group
+....
++
+For example:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] echo 0.0.f500,0.0.f501,0.0.f502 > /sys/bus/ccwgroup/drivers/qeth/group
+....
+
+. Next, verify that the `qeth` group device was created properly by looking for the read channel:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] ls /sys/bus/ccwgroup/drivers/qeth/0.0.f500
+....
++
+You can optionally set additional parameters and features, depending on the way you are setting up your system and the features you require, such as:
++
+** `portno`
++
+** `layer2`
++
+** `portname`
+
+. Bring the device online by writing `1` to the online `sysfs` attribute:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] echo 1 > /sys/bus/ccwgroup/drivers/qeth/0.0.f500/online
+....
+
+. Then verify the state of the device:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] cat /sys/bus/ccwgroup/drivers/qeth/0.0.f500/online
+											1
+....
++
+A return value of `1` indicates that the device is online, while a return value `0` indicates that the device is offline.
+
+. Find the interface name that was assigned to the device:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] cat /sys/bus/ccwgroup/drivers/qeth/0.0.f500/if_name
+encf500
+....
++
+Now you can continue to configure the `encf500` network interface.
++
+The following command from the [package]*s390utils* package shows the most important settings of your `qeth` device:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] lsqeth encf500
+Device name                     : encf500
+-------------------------------------------------
+card_type               : OSD_1000
+cdev0                   : 0.0.f500
+cdev1                   : 0.0.f501
+cdev2                   : 0.0.f502
+chpid                   : 76
+online                  : 1
+portname                : OSAPORT
+portno                  : 0
+state                   : UP (LAN ONLINE)
+priority_queueing       : always queue 0
+buffer_count            : 16
+layer2                  : 1
+isolation               : none
+....

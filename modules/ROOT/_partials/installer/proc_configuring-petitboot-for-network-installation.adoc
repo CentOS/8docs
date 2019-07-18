@@ -1,0 +1,52 @@
+[id="configuring-petitboot-for-network-installation_{context}"]
+= Configuring Petitboot for network installation
+
+After the system powers on, the Petitboot bootloader scans local boot devices and network interfaces to find boot options that are available to the system. To install Red Hat Enterprise Linux from a network server, you need to set up a network interface (that is not the BMC network interface).
+
+Set up a network connection and provide the network boot detail to Petitboot by following these steps:
+
+.. Connect an Ethernet cable to the second Ethernet port on the back of your system. Connect the other end to your network.
+
+.. On the Petitboot main screen, select c to configure your system options.
+
+.. In the Network field of the configuration screen, enter your network information:
+
+... Select your network type
+
+... Select your network device (remember the interface name and mac address)
+
+... Specify your IP/mask, Gateway, and DNS server (remember these setting as you will need them in the next step)
+
+... Select OK to return to the main menu.
+
+.. Back on the Petitboot main screen, select `n` to create new options.
+
+.. Choose your boot device or select to Specify paths/URLs manually and then enter your boot options:
+
+... In the Kernel field, enter the path to the kernel. This field is mandatory. Enter a URL similar to this one for a network:
++
+[literal,subs="+quotes,verbatim"]
+....
+http://&lt;http_server_ip&gt;/ppc/ppc64/vmlinuz
+....
+
+... In the Initrd field, enter the path to the init ramdisk. Enter a URL similar to this one for a network:
++
+[literal,subs="+quotes,verbatim"]
+....
+http://&lt;http_server_ip&gt;/ppc/ppc64/initrd.gz
+....
+
+... In the Boot parameter field, set up the set up the repository path and the IP address of the server where the operating system is installed. For example:
++
+[subs="quotes, macros, attributes"]
+----
+append repo=http://&lt;http_server_ip&gt;/ root=live:http://&lt;http_server_ip&gt;/os/LiveOS/squashfs.img ipv6.disable=1 ifname=&lt;ethernet_interface_name&gt;:&lt;mac_addr&gt; ip=&lt;os ip&gt;::&lt;gateway&gt;:&lt;2 digit mask&gt;:&lt;hostname&gt;:&lt;ethernet_interface_name&gt;:none nameserver=&lt;anem_server&gt; inst.text
+----
++
+You can accept the defaults for the rest of the fields.
+
+.. After you set your netboot options, select OK and press Enter.
+
+.. On the Petitboot main window, select User Item 1 as your boot option and press Enter.
+

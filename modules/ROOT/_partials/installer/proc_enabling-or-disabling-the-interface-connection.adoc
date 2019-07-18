@@ -1,0 +1,20 @@
+[id="enabling-or-disabling-the-interface-connection_{context}"]
+= Enabling or Disabling the Interface Connection
+
+Follow the steps in this procedure to enable or disable an interface connection.
+
+.Procedure
+
+. Click the *General* tab.
+
+. Select the *Automatically connect to this network when it is available* check box to enable connection by default.
++
+[NOTE]
+====
+* When enabled on a wired connection, the system typically connects during startup (unless you unplug the network cable). On a wireless connection, the interface attempts to connect to any known wireless networks in range.
+* You can enable or disable all users on the system from connecting to this network using the *All users may connect to this network* option. If you disable this option, only [systemitem]`root` will be able to connect to this network.
+* It is not possible to only allow a specific user other than [systemitem]`root` to use this interface, as no other users are created at this point during the installation. If you need a connection for a different user, you must configure it after the installation.
+====
+
+. Click *Save* to apply the changes and return to the *Network and Host name* window.
+

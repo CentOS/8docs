@@ -1,0 +1,33 @@
+[id='configuring-kdump_{context}']
+= Configuring Kdump
+
+[application]*Kdump* is a kernel crash-dumping mechanism. In the event of a system crash, *Kdump* captures the contents of the system memory at the moment of failure. This captured memory can be analyzed to find the cause of the crash. If [application]*Kdump* is enabled, it must have a small portion of the system's memory (RAM) reserved to itself. This reserved memory is not accessible to the main kernel.
+
+[discrete]
+= Procedure
+
+. From the *Installation Summary* window, click *Kdump*. The *Kdump* window opens.
+
+. Select the *Enable kdump* check box.
+
+. Select either the *Automatic* or *Manual* memory reservation setting.
+
+.. If you select *Manual*, enter the amount of memory (in megabytes) that you want to reserve in the *Memory to be reserved* field using the *+* and *-* buttons. The *Usable System Memory* readout below the reservation input field shows how much memory is accessible to your main system after reserving the amount of RAM that you select.
+
+. Click *Done* to apply the settings and return to <<installation-summary_graphical-installation>>.
+
+[NOTE]
+====
+The amount of memory that you reserve is determined by your system architecture (AMD64 and Intel{nbsp}64 have different requirements than IBM Power) as well as the total amount of system memory. In most cases, automatic reservation is satisfactory.
+====
+
+//*TO DO: If you insist on manual settings, see the *LINK* for guidelines. This document also contains more in-depth information about how [application]*Kdump* works, how to configure additional settings, and how to analyze a saved crash dump.*
+//TODO: link to somewhere that talks abotu kdump memory reservation requirements
+//If you insist on manual settings, see the <<LINK>> for guidelines. This document also contains more in-depth information about how [application]*Kdump* works, how to configure additional settings, and how to analyze a saved crash dump.
+
+[IMPORTANT]
+====
+Additional settings, such as the location where kernel crash dumps will be saved, can only be configured after the installation using either the [application]*system-config-kdump* graphical interface, or manually in the `/etc/kdump.conf` configuration file.
+====
+
+//ToDO:QUESTION: HOW DOES THE CUSTOMER ACCESS system-config-kdump graphical interface??

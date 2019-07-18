@@ -1,0 +1,12 @@
+[id="preparing-to-use-a-driver-update-image-file-on-local-storage_{context}"]
+= Preparing to use a driver update image file on local storage
+
+If you use a local storage device to provide the ISO file, such as a hard drive or USB flash drive, you can make the installation program to recognize it automatically by properly labeling the device. Only if it is not possible, install the update manually as described below.
+
+* In order for the installation program to automatically recognize the driver disk, the volume label of the storage device must be `OEMDRV`. Also, you will need to extract the contents of the ISO image file to the root directory of the storage device rather than copy the ISO image itself. See
+//<<sect-driver-updates-automatic-ppc>>.
+Note that installation of a driver from a device labeled `OEMDRV` is always recommended and preferable to the manual installation.
+
+* For manual installation, simply copy the ISO image, as a single file, onto the storage device. You can rename the file if you find it helpful but you must not change the file name extension, which must remain `.iso`, for example `dd.iso`. See
+//<<sect-driver-updates-assited-ppc>>
+to learn how to select the driver update manually during installation.

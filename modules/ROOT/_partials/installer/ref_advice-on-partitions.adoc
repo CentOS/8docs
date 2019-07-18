@@ -1,0 +1,36 @@
+[id='advice-on-partitions_{context}']
+= Advice on partitions
+
+There is no best way to partition every system; the optimal setup depends on how you plan to use the system being installed. However, the following tips may help you find the optimal layout for your needs:
+
+* Create partitions that have specific requirements first, for example, if a particular partition must be on a specific disk.
+
+* Consider encrypting any partitions and volumes which might contain sensitive data. Encryption prevents unauthorized people from accessing the data on the partitions, even if they have access to the physical storage device. In most cases, you should at least encrypt the [filename]`/home` partition, which contains user data.
+
+* In some cases, creating separate mount points for directories other than [filename]`/`, [filename]`/boot` and [filename]`/home` may be useful; for example, on a server running a [application]*MySQL* database, having a separate mount point for [filename]`/var/lib/mysql` will allow you to preserve the database during a reinstallation without having to restore it from backup afterwards. However, having unnecessary separate mount points will make storage administration more difficult.
+
+* Some special restrictions apply to certain directories with regards on which partitioning layouts can they be placed. Notably, the [filename]`/boot` directory must always be on a physical partition (not on an LVM volume).
+
+* If you are new to Linux, consider reviewing the [citetitle]_Linux Filesystem Hierarchy Standard_ at link:++http://refspecs.linuxfoundation.org/FHS_2.3/fhs-2.3.html++[] for information about various system directories and their contents.
+
+* Each kernel installed on your system requires approximately 20 MB on the [filename]`/boot` partition. The default partition size of 1 GB for [filename]`/boot` should suffice for most common uses; increase the size of this partition if you plan to keep many kernels installed at the same time.
+
+* The [filename]`/var` directory holds content for a number of applications, including the [application]*Apache* web server, and is used by the [application]*DNF* package manager to temporarily store downloaded package updates. Make sure that the partition or volume containing [filename]`/var` has at least 3 GB.
+
+* The contents of the [filename]`/var` directory usually change very often. This may cause problems with older solid state drives (SSDs), as they can handle a lower number of read/write cycles before becoming unusable. If your system root is on an SSD, consider creating a separate mount point for [filename]`/var` on a classic (platter) HDD.
+
+* The [filename]`/usr` directory holds the majority of software on a typical {ProductName} installation. The partition or volume containing this directory should therefore be at least 5 GB for minimal installations, and at least 10 GB for installations with a graphical environment.
+
+* If [filename]`/usr` or [filename]`/var` is partitioned separately from the rest of the root volume, the boot process becomes much more complex because these directories contain boot-critical components. In some situations, such as when these directories are placed on an iSCSI drive or an FCoE location, the system may either be unable to boot, or it may hang with a [literal]`Device is busy` error when powering off or rebooting.
++
+This limitation only applies to [filename]`/usr` or [filename]`/var`, not to directories below them. For example, a separate partition for [filename]`/var/www` will work without issues.
+
+* Consider leaving a portion of the space in an LVM volume group unallocated. This unallocated space gives you flexibility if your space requirements change but you do not wish to remove data from other volumes. You can also select the [gui]`LVM Thin Provisioning` device type for the partition to have the unused space handled automatically by the volume.
+
+* The size of an XFS file system can not be reduced - if you need to make a partition or volume with this file system smaller, you must back up your data, destroy the file system, and create a new, smaller one in its place. Therefore, if you expect needing to manipulate your partitioning layout later, you should use the ext4 file system instead.
+
+* Use Logical Volume Management (LVM) if you anticipate expanding your storage by adding more hard drives or expanding virtual machine hard drives after the installation. With LVM, you can create physical volumes on the new drives, and then assign them to any volume group and logical volume as you see fit - for example, you can easily expand your system's [filename]`/home` (or any other directory residing on a logical volume).
+
+* Creating a BIOS Boot partition or an EFI System Partition may be necessary, depending on your system's firmware, boot drive size, and boot drive disk label. See <<recommended-partitioning-scheme_{context}>> for information about these partitions. Note that graphical installation will not let you create a BIOS Boot or EFI System Partition if your system does *not* require one - in that case, they will be hidden from the menu.
+
+* If you need to make any changes to your storage configuration after the installation, {ProductName} repositories offer several different tools which can help you do this. If you prefer a command line tool, try [package]*system-storage-manager*.

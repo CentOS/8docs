@@ -1,0 +1,30 @@
+[id="booting-the-installation_{context}"]
+= Booting the installation
+
+==== Booting the installation
+
+After establishing a connection with the mainframe, you need to perform an initial program load (IPL), or boot, from the medium containing the installation program. This document describes the most common methods of installing {ProductName} on IBM{nbsp}Z. In general, any method may be used to boot the Linux installation system, which consists of a kernel (`kernel.img`) and initial RAM disk (`initrd.img`) with parameters in the `generic.prm` file supplemented by user defined parameters. Additionally, a `generic.ins` file is loaded which determines file names and memory addresses for the initrd, kernel and `generic.prm`.
+
+The Linux installation system is also called the _installation program_ in this book.
+
+The control point from where you can start the IPL process depends on the environment where your Linux is to run. If your Linux is to run as a z/VM guest operating system, the control point is the _control program_ (CP) of the hosting z/VM. If your Linux is to run in LPAR mode, the control point is the mainframe's _Support Element_ (SE) or an attached IBM{nbsp}Z _Hardware Management Console_ (HMC).
+
+You can use the following boot media only if Linux is to run as a guest operating system under z/VM:
+
+* z/VM reader
+
+You can use the following boot media only if Linux is to run in LPAR mode:
+
+* SE or HMC through a remote FTP server
+
+* SE or HMC DVD
+
+You can use the following boot media for both z/VM and LPAR:
+
+* DASD
+
+* SCSI device that is attached through an FCP channel
+
+* FCP-attached SCSI DVD
+
+If you use DASD and FCP-attached SCSI devices (except SCSI DVDs) as boot media, you must have a configured `zipl` boot loader.

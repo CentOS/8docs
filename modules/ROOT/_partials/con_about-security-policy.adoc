@@ -1,0 +1,5 @@
+= About security policy
+
+The {productname} security policy adheres to restrictions and recommendations (compliance policies) defined by the Security Content Automation Protocol (SCAP) standard. The packages are automatically installed. However, by default, no policies are enforced and therefore no checks are performed during or after installation unless specifically configured.
+
+Applying a security policy is not a mandatory feature of the installation program. If you apply a security policy to the system, it is installed using restrictions and recommendations defined in the profile that you selected. The [package]*openscap-scanner* package is added to your package selection, providing a preinstalled tool for compliance and vulnerability scanning. After the installation finishes, the system is automatically scanned to verify compliance. The results of this scan are saved to the `/root/openscap_data` directory on the installed system. You can also load additional profiles from an HTTP, HTTPS, or FTP server.

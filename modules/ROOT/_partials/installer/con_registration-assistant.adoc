@@ -1,0 +1,4 @@
+[id="registration-assistance_{context}"]
+= Registration Assistant
+
+Registration Assistant is designed to help you choose the most suitable registration option for your Red Hat Enterprise Linux environment. See https://access.redhat.com/labs/registrationassistant/ for more information.	

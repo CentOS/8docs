@@ -1,0 +1,24 @@
+[id="anaconda-configuration-section_{context}"]
+= Anaconda configuration section
+
+Additional installation options can be configured in the `%anaconda` section of your Kickstart file. This section controls the behavior of the user interface of the installation system.
+
+This section must be placed towards the end of the Kickstart file, after Kickstart commands, and must start with `%anaconda` and end with `%end`.
+
+Currently, the only command that can be used in the `%anaconda` section is [command]`pwpolicy`.
+
+.Sample `%anaconda` script
+====
+
+The following is an example %anaconda section:
+
+----
+%anaconda
+pwpolicy root --minlen=10 --strict
+%end
+----
+
+This example `%anaconda` section sets a password policy which requires that the root password be at least 10 characters long, and strictly forbids passwords which do not match this requirement.
+
+====
+

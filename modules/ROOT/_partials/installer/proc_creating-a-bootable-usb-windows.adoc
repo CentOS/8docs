@@ -1,0 +1,38 @@
+[id="creating-a-bootable-usb-windows_{context}"]
+= Creating a bootable USB device on Windows
+
+Follow the steps in this procedure to create a bootable USB device on a Windows system. The procedure varies depending on the tool. Red Hat recommends using Fedora Media Writer, available for download at https://github.com/FedoraQt/MediaWriter/releases.
+
+[NOTE]
+====
+Fedora Media Writer is a community product and is not supported by Red Hat. You can report any issues with the tool at https://github.com/FedoraQt/MediaWriter/issues.
+====
+
+[discrete]
+== Prerequisites
+
+* You have downloaded an installation ISO image as described in <<downloading-beta-installation-images_preparing-for-your-installation>>.
+* The *Binary DVD* ISO image is larger than 4.7 GB, so you must have a USB flash drive that is large enough to hold the ISO image.
+
+
+[discrete]
+== Procedure
+
+[NOTE]
+====
+This procedure is destructive and data on the USB flash drive is destroyed without a warning.
+====
+
+. Download and install Fedora Media Writer from https://github.com/FedoraQt/MediaWriter/releases.
++
+[NOTE]
+====
+To install Fedora Media Writer on {productname}, use the pre-built Flatpak package. You can obtain the package from the official Flatpak repository Flathub.org at https://flathub.org/apps/details/org.fedoraproject.MediaWriter.
+====
+
+. Connect the USB flash drive to the system.
+. Open Fedora Media Writer.
+. From the main window, click *Custom Image* and select the previously downloaded {productname} ISO image.
+. From *Write Custom Image* window, select the drive that you want to use.
+. Click *Write to disk*. The boot media creation process starts. Do not unplug the drive until the operation completes. The operation may take several minutes, depending on the size of the ISO image, and the write speed of the USB drive.
+. When the operation completes, unmount the USB drive. The USB drive is now ready to be used as a boot device.

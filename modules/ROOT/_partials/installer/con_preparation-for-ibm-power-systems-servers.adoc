@@ -1,0 +1,17 @@
+[id="preparation-for-ibm-power-systems-servers_{context}"]
+= Overview
+
+Use this information to install {RHEL}{NBSP}8 on a non-virtualized or bare metal IBM Power System LC server. This procedure follows these general steps:
+
+* Create a bootable USB device
+* Connect to the BMC firmware to set up network connection
+* Connect to the BMC firmware with IPMI
+* Choose your installation method:
+** Install Red Hat Enterprise Linux from USB device
+** Install Red Hat Enterprise Linux with virtual media Download your ISO file from the Red Hat Enterprise Linux website.
+
+
+[discrete]
+== Additional Resources
+
+* For a list of virtualization options, see link:https://www.ibm.com/support/knowledgecenter/linuxonibm/liaam/liaamdistros.htm[Supported Linux distributions and virtualization options for POWER8 and POWER9 Linux on Power systems].

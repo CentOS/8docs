@@ -1,0 +1,24 @@
+[id="preparing-a-driver-update-disc_{context}"]
+= Preparing a driver update
+
+This procedure describes how to prepare a driver update on a CD and DVD.
+
+[discrete]
+== Prerequisites
+
+* You received the driver update ISO image from Red Hat, your hardware vendor, or a trusted third-party vendor.
+* You burned the driver update ISO image to a CD or DVD.
+
+[WARNING]
+====
+If only a single ISO image file ending in `.iso` is available on the CD or DVD, the burn process has not been successful.
+See your system's burning software documentation for instructions on how to burn ISO images to a CD or DVD.
+====
+
+
+[discrete]
+== Procedure
+
+. Insert the driver update CD or DVD into your system's CD/DVD drive, and browse it using the system's file manager tool.
+
+. Verify that a single file `rhdd3` is available. `rhdd3` is a signature file that contains the driver description and a directory named `rpms`, which contains the RPM packages with the actual drivers for various architectures.

@@ -1,0 +1,8 @@
+[id="adding-a-qeth-device_{context}"]
+= Adding a qeth device
+
+The `qeth` network device driver supports IBM{nbsp}Z OSA-Express features in QDIO mode, HiperSockets, z/VM guest LAN, and z/VM VSWITCH.
+
+The qeth device driver assigns the same interface name for Ethernet and Hipersockets devices: `encbus_ID`. The bus ID is composed of the channel subsystem ID, subchannel set ID, and device number, and does not contain leading zeros and dots. For example enca00 for a device with the bus ID `0.0.0a00`.
+
+//this is not specfically a concept, but rather a description of functionality.

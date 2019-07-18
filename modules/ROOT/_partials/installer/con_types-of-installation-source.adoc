@@ -1,0 +1,24 @@
+[id="types-of-installation-source_{context}"]
+= Types of installation source
+
+You can use one of the following installation sources for minimal boot images:
+
+* *DVD:* Burn the Binary DVD ISO image to a DVD. The installation program will automatically install the software packages from the DVD.
+
+* *Hard drive or USB drive:* Copy the Binary DVD ISO image to the drive and configure the installation program to install the software packages from the drive. If you use a USB drive, verify that it is connected to the system before the installation begins. The installation program cannot detect media after the installation begins.
++
+======
+ ** *Hard drive limitation*: The Binary DVD ISO image on the hard drive must be on a partition with a file system that the installation program can mount. The supported file systems are `xfs`, `ext2`, `ext3`, `ext4`, and `vfat (FAT32)`.
+
+[WARNING]
+====
+On Microsoft Windows systems, the default file system used when formatting hard drives is NTFS. The exFAT file system is also available. However, neither of these file systems can be mounted during the installation. If you are creating a hard drive or a USB drive as an installation source on Microsoft Windows, verify that you formatted the drive as FAT32. Note that the FAT32 file system cannot store files larger than 4 GiB.
+
+In {RHEL8} you can enable installation from a repository on a local hard drive. To do so, you need to copy the content of DVD ISO image to a directory on a hard drive and then specify the directory as installation source instead of the ISO image. For example:
+`inst.repo=hd:<device>:<path to the repository>`
+====
+======
+
+* *Network location:* Copy the Binary DVD ISO image or the installation tree (extracted contents of the Binary DVD ISO image) to a network location and perform the installation over the network using the following protocols:
+    ** *NFS:* The Binary DVD ISO image is in a Network File System (NFS) share.
+    ** *HTTPS, HTTP or FTP:* The installation tree is on a network location that is accessible over HTTP, HTTPS or FTP.

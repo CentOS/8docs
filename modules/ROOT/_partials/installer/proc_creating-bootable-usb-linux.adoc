@@ -1,0 +1,76 @@
+[id='create-bootable-usb-linux_{context}']
+= Creating a bootable USB device on Linux
+
+Follow this procedure to create a bootable USB device on a Linux system.
+
+[discrete]
+== Prerequisites
+
+* You have downloaded an installation ISO image as described in <<downloading-beta-installation-images_preparing-for-your-installation>>.
+* The *Binary DVD* ISO image is larger than 4.7 GB, so you must have a USB flash drive that is large enough to hold the ISO image.
+
+[discrete]
+== Procedure
+
+[NOTE]
+====
+This procedure is destructive and data on the USB flash drive is destroyed without a warning.
+====
+
+. Connect the USB flash drive to the system.
+
+. Open a terminal window and run the `dmesg` command:
++
+[subs="quotes, macros, attributes"]
+----
+$ dmesg|tail
+----
++
+The `dmesg` command returns a log that details all recent events. Messages resulting from the attached USB flash drive are displayed at the bottom of the log. Record the name of the connected device.
+
+. Switch to user root:
++
+[subs="quotes, macros, attributes"]
+----
+$ su -
+----
+
+. Enter your root password when prompted.
+
+. Find the device node assigned to the drive. In this example, the drive name is `sdd`.
++
+[subs="quotes, macros, attributes"]
+----
+# [command]#dmesg|tail#
+[288954.686557] usb 2-1.8: New USB device strings: Mfr=0, Product=1, SerialNumber=2
+[288954.686559] usb 2-1.8: Product: USB Storage
+[288954.686562] usb 2-1.8: SerialNumber: 000000009225
+[288954.712590] usb-storage 2-1.8:1.0: USB Mass Storage device detected
+[288954.712687] scsi host6: usb-storage 2-1.8:1.0
+[288954.712809] usbcore: registered new interface driver usb-storage
+[288954.716682] usbcore: registered new interface driver uas
+[288955.717140] scsi 6:0:0:0: Direct-Access     Generic  STORAGE DEVICE   9228 PQ: 0 ANSI: 0
+[288955.717745] sd 6:0:0:0: Attached scsi generic sg4 type 0
+[288961.876382] sd 6:0:0:0: *sdd* Attached SCSI removable disk
+----
+
+. Run the `dd` command to write the ISO image directly to the USB device.
++
+[subs="macros"]
+----
+# dd if=/image_directory/image.iso of=/dev/device
+----
++
+Replace _/image_directory/image.iso_ with the full path to the ISO image file that you downloaded, and replace _device_ with the device name that you retrieved with the `dmesg` command. In this example, the full path to the ISO image is `/home/testuser/Downloads/rhel-8-x86_64-boot.iso`, and the device name is `sdd`:
++
+[subs="quotes, macros, attributes"]
+----
+# [command]#dd# if=/home/testuser/Downloads/rhel-8-x86_64-boot.iso of=/dev/sdd
+----
++
+[NOTE]
+====
+Ensure that you use the correct device name, and not the name of a partition on the device. Partition names are usually device names with a numerical suffix. For example, `sdd` is a device name, and `sdd1` is the name of a partition on the device `sdd`.
+====
+
+. Wait for the `dd` command to finish writing the image to the device. The data transfer is complete when the *#* prompt appears. When the prompt is displayed, log out of the root account and unplug the USB drive. The USB drive is now ready to be used as a boot device.

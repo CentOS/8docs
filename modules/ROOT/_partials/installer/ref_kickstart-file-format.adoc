@@ -1,0 +1,39 @@
+[id="kickstart-file-format_{context}"]
+= Kickstart file format
+
+Kickstart scripts are plain text files that contain keywords recognized by the installation program, which serve as directions for the installation. Any text editor able to save files as ASCII text, such as `Gedit` or `vim` on Linux systems or `Notepad` on Windows systems, can be used to create and edit Kickstart files. The file name of your Kickstart configuration does not matter; however, it is recommended to use a simple name as you will need to specify this name later in other configuration files or dialogs.
+
+Commands::
+Commands are keywords that serve as directions for installation. Each command must be on a single line. Commands can take options. Specifying commands and options is similar to using Linux commands in shell.
+
+Sections::
+Certain special commands that begin with the percent `%` character start a section. Interpretation of commands in sections is different from commands placed outside sections. Every section must be finished with `%end` command.
+
+Section types::
+The available sections are:
++
+====
+//* **Command section**. This section uses no start and end commands itself. You must include all required commands and options.
+* **Add-on sections**. These sections use the `%addon __addon_name__` command.
+* **Package selection sections**. Starts with `%packages`. Use it to list packages for installation, including indirect means such as package groups or modules.
+* **Script sections**. These start with `%pre`, `%pre-install`, `%post`, and `%onerror`. These sections are not required.
+====
+
+Command section::
+The command section is a term used for the commands in the Kickstart file that are not part of any script section or `%packages ` section.
+
+Script section count and ordering::
+All sections except the command section are optional and can be present multiple times. When a particular type of script section is to be ecvaluated, all sections of that type present in the Kickstart are evaluated in order of appearance: two `%post` sections are evaluated one after another, in the order as they appear. However, you do not have to specify the various types of script sections in any order: it does not matter if there are `%post` sections before `%pre` sections. 
+
+// Packages section count and ordering::
+// All `%packages` sections are merged before evaluation.
+
+Comments::
+Kickstart comments are lines starting with the hash `#` character. These lines are ignored by the installation program.
+
+
+Items that are not required can be omitted. Omitting any required item results in the installation program changing to the interactive mode so that the the user can provide an answer to the related item, just as during a regular interactive installation.
+// Once the answer is given, the installation continues unattended (unless it finds another missing item). NOT TRUE it seems
+It is also possible to declare the kickstart script as non-interactive with the `cmdline` command. In non-interactive mode, any missing answer aborts the installation process.
+
+

@@ -1,0 +1,87 @@
+[id="configuring-system-purpose-using-kickstart_{context}"]
+= Configuring System Purpose in a Kickstart file
+
+Follow the steps in this procedure to use the `syspurpose` command to configure System Purpose in a Kickstart configuration file.
+
+[NOTE]
+====
+While it is strongly recommended that you configure System Purpose, it is an optional feature of the {productname} installation program.
+If you want to enable System Purpose after the installation completes, you can do so using the `syspurpose` command-line tool.
+====
+
+The following actions are available:
+
+role::
+
+Set the intended role of the system. This action uses the following format:
++
+[subs="quotes"]
+----
+syspurpose --role=
+----
++
+====
+
+The role assigned can be:
+
+* `Red Hat Enterprise Linux Server`
+* `Red Hat Enterprise Linux Workstation`
+* `Red Hat Enterprise Linux Compute Node`
+
+====
+
+sla::
+
+Set the intended sla of the system. This action uses the following format:
++
+[subs="quotes"]
+----
+syspurpose --sla=
+----
++
+====
+
+The sla assigned can be:
+
+* `Premium`
+* `Standard`
+* `Self-Support`
+
+====
+
+usage::
+
+Set the intended usage of the system. This action uses the following format:
++
+[subs="quotes"]
+----
+syspurpose --usage=
+----
++
+====
+
+The usage assigned can be:
+
+* `Production`
+* `Disaster Recovery`
+* `Development/Test`
+
+====
+
+////
+The addon functionality is not fully implemented for RHEL8.0. and the section was removed as per BZ1688019
+addon::
++
+[WARNING]
+====
+The addon functionality is not available in {productname} {productnumber}.
+====
++
+Set additional layered products or features. To add multiple items specify [command]`--addon` multiple times, once per layered product or feature:
++
+[subs="quotes"]
+----
+syspurpose --addon=
+----
++
+////

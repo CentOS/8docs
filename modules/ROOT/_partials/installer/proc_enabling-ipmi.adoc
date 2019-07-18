@@ -1,0 +1,40 @@
+[id="enabling-ipmi_{context}"]
+= Enabling IPMI
+
+. The first time that you connect to the firmware, enter the admin ID admin and password admin. After you log in, you will be forced to change the password. Be sure to record this password!
+
+. From the main menu, select System Configuration->Firmware Configuration. Verify that OPAL is selected as your Hypervisor Mode.
+
+. Follow these steps to set a password for your IPMI session:
+
+.. From the main menu, select Login Profile -> Change Passwords.
+
+.. Select IPMI from the list of user IDs.
+
+.. Enter the current password for the administrator (set in step 2) and then enter and confirm a password for IPMI.
+
+.. Click Continue.
+
+. If your Power system is not using DHCP, you need to configure Network access. From the main menu, select Network Services > Network Configuration. To configure network access, follow these steps:
+
+.. From the Network Configuration display, select IPv4 and Continue.
+
+.. Select Configure this interface?
+
+.. Verify that IPv4 is enabled.
+
+.. Select Static for the type of IP address.
+
+.. Enter a name for the host system.
+
+.. Enter an IP address for the system.
+
+.. Enter a subnet mask.
+
+.. At the bottom of the page, enter a default gateway, Domain name, and IP address for the DNS server.
+
+.. After you set the values for the Network configuration, click Continue.
+
+.. Click Save Settings.
+
+.. If you connected with a PC or notebook, you can remove the Ethernet cable from your PC or notebook and connect it to the network switch. To continue with a console connection, change the default IP address to the IP address that you assigned to the service processor.

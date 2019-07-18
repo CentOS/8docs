@@ -1,0 +1,17 @@
+//This is the beginning of what was chapter 20. There will be process files that refer to this main file to ensure correct modularization.
+[id="using-parameter-and-configuration-files-on-ibm-z_{context}"]
+= Using parameter and configuration files on IBM Z
+
+The IBM{nbsp}Z architecture can use a customized parameter file to pass boot parameters to the kernel and the installation program.
+
+You need to change the parameter file if you want to:
+
+* Install unattended with Kickstart.
+
+* Choose non-default installation settings that are not accessible through the installation program's interactive user interface, such as rescue mode.
+
+The parameter file can be used to set up networking non-interactively before the installation program ([application]*Anaconda*) starts.
+
+The kernel parameter file is limited to 895 characters plus an end-of-line character. The parameter file can be variable or fixed record format. Fixed record format increases the file size by padding each line up to the record length. Should you encounter problems with the installation program not recognizing all specified parameters in LPAR environments, you can try to put all parameters in one single line or start and end each line with a space character.
+
+The parameter file contains kernel parameters, such as `ro`, and parameters for the installation process, such as `vncpassword=test` or `vnc`.

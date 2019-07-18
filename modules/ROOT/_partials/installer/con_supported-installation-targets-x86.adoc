@@ -1,0 +1,14 @@
+[id="supported-installation-targets_{context}"]
+= Supported installation targets
+
+An installation target is a storage device that stores {productname} and boots the system.
+{productname} supports the following installation targets for AMD64, Intel 64, and 64-bit ARM systems:
+
+* Storage connected by a standard internal interface, such as SCSI, SATA, or SAS
+* BIOS/firmware RAID devices
+* NVDIMM devices in sector mode on the Intel64 and AMD64 architectures, supported by the nd_pmem driver.
+* Fibre Channel Host Bus Adapters and multipath devices. Some can require vendor-provided drivers.
+* Xen block devices on Intel processors in Xen virtual machines.
+* VirtIO block devices on Intel processors in KVM virtual machines.
+
+Red Hat does not support installation to USB drives or SD memory cards. For information about support for third-party virtualization technologies, see the link:https://hardware.redhat.com/[Red Hat Hardware Compatibility List].

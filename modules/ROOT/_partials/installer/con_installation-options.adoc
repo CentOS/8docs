@@ -1,0 +1,12 @@
+[id="installation-options_{context}"]
+= Supported architectures
+
+{productname} supports the following architectures:
+
+* AMD and Intel 64-bit architectures
+* The 64-bit ARM architecture
+* IBM Power Systems, Little Endian
+* IBM Z
+
+// as taken straight out of release notes
+

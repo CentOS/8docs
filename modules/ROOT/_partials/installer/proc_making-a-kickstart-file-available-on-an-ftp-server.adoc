@@ -1,0 +1,56 @@
+[id="making-a-kickstart-file-available-on-an-ftp-server_{context}"]
+= Making a Kickstart file available on an FTP server
+
+Place a Kickstart file on an FTP server for a network-based installation.
+
+
+.Prerequisites
+
+* You must have administrator level access to a server with {RHEL8} reachable on the local network from the system to be installed.
+ifdef::installation-advanced-title[]
+* Your server firewall must allow the system you are installing to access the server. See xref:ports-for-network-based-installation_making-kickstart-files-available-to-the-installation-program[] for more information.
+endif::[]
+ifndef::installation-advanced-title[]
+* Your server firewall must allow the system you are installing to access the server.
+endif::[]
+
+
+.Procedure
+
+. Install the [package]`vsftpd` package by running the following command as root:
++
+[subs="quotes, macros, attributes"]
+----
+# yum install vsftpd
+----
+
+. Optionally, open and edit the [filename]`/etc/vsftpd/vsftpd.conf` configuration file in a text editor. For available options, see the *vsftpd.conf(5)* man page. This procedure assumes that default options are used.
++
+[WARNING]
+====
+If you configured SSL/TLS security in your [filename]`vsftpd.conf` file, make sure to only enable the TLSv1 protocol, and disable SSLv2 and SSLv3. This is due to the POODLE SSL vulnerability (CVE-2014-3566). See https://access.redhat.com/solutions/1234773 for details.
+====
+
+. Copy the Kickstart file to the FTP server into the [filename]`/var/ftp/` directory or its subdirectory.
+
+. Start the `vsftpd` service:
++
+[subs="quotes, macros, attributes"]
+----
+# systemctl start vsftpd.service
+----
+
+. If the service was running before you changed the [filename]`/etc/vsftpd/vsftpd.conf` file, restart it to load the edited file. To restart, run the following command:
++
+[subs="quotes, macros, attributes"]
+----
+# systemctl restart vsftpd.service
+----
++
+The Kickstart file is now accessible and ready to be used for installations by systems on the same network.
++
+[NOTE]
+====
+When configuring the installation source, use `ftp://` as the protocol, the server's host name or IP address, and the path of the Kickstart file, relative to the FTP server root. For example, if the server's host name is `myserver.example.com` and you have copied the file `/var/ftp/rhel8-install/my-ks.cfg`, specify `ftp://myserver.example.com/rhel8-install/my-ks.cfg` as the installation source.
+====
+

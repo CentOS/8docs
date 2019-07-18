@@ -1,0 +1,6 @@
+[id="adding-an-lcs-device_{context}"]
+= Adding an LCS device
+
+The _LAN channel station_ (LCS) device driver supports 1000Base-T Ethernet on the OSA-Express2 and OSA-Express 3 features.
+
+The `LCS` device driver assigns the following interface name for OSA-Express Fast Ethernet and Gigabit Ethernet devices: `enca`pass:attributes[{blank}]pass:attributes[{blank}]_bus_ID_. The bus ID is composed of the channel subsystem ID, subchannel set ID, and device number, for example `enca00`.

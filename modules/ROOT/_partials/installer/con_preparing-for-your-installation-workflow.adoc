@@ -1,0 +1,22 @@
+[id="preparing-for-your-installation-workflow_{context}"]
+= Recommended steps
+
+Preparing for your installation consists of several steps.
+
+[NOTE]
+====
+* If you are new to {productname}, complete steps 1 to 5.
+* If you are familiar with {productname}, complete steps 3 to 5.
+====
+
+.Procedure
+
+. Check system requirements.
+. Choose an installation boot method.
+. Select and download the installation image.
+. Create bootable installation media.
+. Prepare the installation source*
+
+
+
+*Only required for the Boot ISO (minimal install) image.

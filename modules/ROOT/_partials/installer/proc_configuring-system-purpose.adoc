@@ -1,0 +1,28 @@
+[id="configuring-system-purpose_{context}"]
+= Configuring system purpose using the graphical user interface
+
+Follow the steps in this procedure to configure System Purpose using the graphical user interface.
+
+[NOTE]
+====
+While it is strongly recommended that you configure System Purpose, it is an optional feature of the {productname} installation program.
+If you want to enable System Purpose after the installation completes, you can do so using the `syspurpose` command-line tool.
+====
+
+.Prerequisites
+
+* The *Installation Summary* window is open.
+
+.Procedure
+
+. From the *Installation Summary* window, click *System Purpose*. The *System Purpose* window opens.
+
+. Select the system role that you require from the *Role* pane.
+
+. Select the service level agreement that you require from the *Red Hat Service Level Agreement* pane.
+
+. Select the usage type that you require from the *Usage* pane.
+
+. Click *Done* to apply the settings and return to the *Installation Summary* window.
+
+The System Purpose data is now available for Subscription Manager to auto-attach to the system.

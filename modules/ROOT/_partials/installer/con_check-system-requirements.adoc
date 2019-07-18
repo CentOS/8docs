@@ -1,0 +1,17 @@
+[id="check-system-requirements_{context}"]
+= Check system requirements
+
+ifdef::installation-title[]
+If this is a first-time installation of {productname} it is recommended that you review the guidelines provided for system, hardware, security, memory, and RAID before installing.
+See <<system-requirements-reference_installing-RHEL>> for more information.
+endif::[]
+ifndef::installation-title[]
+If this is a first-time install of {productname} it is recommended that you review the guidelines provided for system, hardware, security, memory, and RAID before installing.
+endif::[]
+
+
+
+[discrete]
+== Additional resources
+
+For more information about securing {productname}, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/security_hardening/index/[_Security hardening_] document.

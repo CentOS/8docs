@@ -1,0 +1,10 @@
+[id="making-an-installation-cd-or-dvd_{context}"]
+= Creating a bootable DVD or CD
+//TODO: This really isn't a procedure. Need to change post-beta.
+
+You can create a bootable installation DVD or CD using burning software and a CD/DVD burner. The exact steps to produce a DVD or CD from an ISO image file vary greatly, depending on the operating system and disc burning software installed. Consult your system's burning software documentation for the exact steps to burn a CD or DVD from an ISO image file.
+
+[WARNING]
+====
+You can create a bootable DVD or CD using either the Binary DVD ISO image (full install), or the Boot ISO image (minimal install). However, the Binary DVD ISO image is larger than 4.7{nbsp}GB, and as a result, it might not fit on a single-layer DVD. A dual-layer DVD or USB key is recommended when using the Binary DVD ISO image to create bootable installation media.
+====

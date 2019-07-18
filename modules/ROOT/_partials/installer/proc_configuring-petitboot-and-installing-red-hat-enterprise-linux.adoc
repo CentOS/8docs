@@ -1,0 +1,15 @@
+[id="configuring-petitboot-and-installing-red-hat-enterprise-linux_{context}"]
+= Configuring Petitboot and installing Red Hat Enterprise Linux
+
+After the system powers on, the Petitboot bootloader scans local boot devices and network interfaces to find boot options that are available to the system. If you do not have network connectivity or the installation DVD in the disk drive, there will not be any boot options listed.
+
+. On the Petitboot main screen, verify that you are booting Red Hat Enterprise Linux 8.0 from the DVD drive.
+
+. Select the Red Hat Enterprise Linux installer boot option and then press Enter.
+
+. The installation will begin.
+
+[NOTE]
+====
+If you do not interrupt the boot process by pressing any key within 10 seconds after the Petitboot main screen appears, Petitboot automatically boots the first option.
+====

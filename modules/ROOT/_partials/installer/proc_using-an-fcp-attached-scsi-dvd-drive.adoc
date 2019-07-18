@@ -1,0 +1,22 @@
+[id="using-an-fcp-attached-scsi-dvd-drive_{context}"]
+= Using an FCP-attached SCSI DVD drive
+
+This requires a SCSI DVD drive attached to an FCP-to-SCSI bridge which is in turn connected to an FCP adapter in your IBM{nbsp}z machine. The FCP adapter must be configured and available in your LPAR.
+
+. Insert your {ProductName} for IBM{nbsp}z DVD into the DVD drive.
+
+. Double-click `Load`.
+
+. In the dialog box that follows, select `SCSI` as the `Load type`.
+
+. As `Load address`, fill in the device number of the FCP channel connected with the FCP-to-SCSI bridge.
+
+. As `World wide port name`, fill in the WWPN of the FCP-to-SCSI bridge as a 16-digit hexadecimal number.
+
+. As `Logical unit number`, fill in the LUN of the DVD drive as a 16-digit hexadecimal number.
+
+. As `Boot program selector`, fill in the number `1` to select the boot entry on the {ProductName} for IBM{nbsp}z DVD.
+
+. Leave the `Boot record logical block address` as `0` and the `Operating system specific load parameters` empty.
+
+. Click the btn:[OK] button.

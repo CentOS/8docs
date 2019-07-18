@@ -1,0 +1,56 @@
+[id="making-a-kickstart-file-available-on-a-local-volume-for-automatic-loading_{context}"]
+= Making a Kickstart file available on a local volume for automatic loading
+
+A specially named Kickstart file can be present in the root of a specially named volume on the system to be installed. This lets you bypass the need for another system, and makes the installation program load the file automatically.
+
+
+.Prerequisites
+
+* You must have a drive that can be moved to the machine to be installed, such as a USB stick.
+* The drive must contain a partition that can be read by the installation program. The supported types are `ext2`, `ext3`, `ext4`, `xfs`, and `fat`.
+* The drive must be already connected to the system and its volumes mounted.
+
+
+.Procedure
+
+. List volume information and note the UUID of the volume to which you want to copy the Kickstart file.
++
+----
+# lsblk -l -p
+----
+
+. Navigate to the file system on the volume.
+
+. Copy the Kickstart file into the root of this file system.
+
+. Rename the Kickstart file to [filename]`ks.cfg`.
+
+. Rename the volume as `OEMDRV`:
++
+====
+* For `ext2`, `ext3`, and `ext4` file systems:
++
+[subs="quotes"]
+----
+# e2label _/dev/xyz_ OEMDRV
+----
+
+* For the XFS file system:
++
+[subs="quotes"]
+----
+# xfs_admin -L OEMDRV _/dev/xyz_
+----
+====
++
+Replace _/dev/xyz_ with the path to the volume's block device.
+
+. Unmount all drive volumes:
++
+[subs="quotes"]
+----
+# umount _/dev/xyz_ ...
+----
++
+Add all the volumes to the command, separated by spaces.
+

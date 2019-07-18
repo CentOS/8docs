@@ -1,0 +1,154 @@
+[id="configuring-a-tftp-server-for-uefi-based-clients_{context}"]
+= Configuring a TFTP server for UEFI-based clients
+
+This procedure describes how to configure a TFTP server and DHCP server, and start the TFTP service on the PXE server for UEFI-based AMD64, Intel 64, and 64-bit ARM systems.
+
+
+[discrete]
+== Procedure
+
+. As root, install the `tftp-server` package:
++
+[subs="macros"]
+----
+# yum install tftp-server
+----
+
+. Allow incoming connections to the `tftp service` in the firewall:
++
+[subs="macros"]
+----
+# firewall-cmd --add-service=tftp
+----
++
+[NOTE]
+====
+This command enables temporary access until the next server reboot. To enable permanent access, add the `--permanent` option to the command.
+====
+
+. Configure your DHCP server to use the boot images packaged with *shim*. A sample configuration in the `/etc/dhcp/dhcpd.conf` file might look like:
++
+[subs="quotes, macros, attributes"]
+----
+option space pxelinux;
+option pxelinux.magic code 208 = string;
+option pxelinux.configfile code 209 = text;
+option pxelinux.pathprefix code 210 = text;
+option pxelinux.reboottime code 211 = unsigned integer 32;
+option architecture-type code 93 = unsigned integer 16;
+
+subnet 10.0.0.0 netmask 255.255.255.0 {
+	option routers 10.0.0.254;
+	range 10.0.0.2 10.0.0.253;
+
+	class "pxeclients" {
+	  match if substring (option vendor-class-identifier, 0, 9) = "PXEClient";
+	  next-server 10.0.0.1;
+
+	  if option architecture-type = 00:07 {
+	    filename "shim.efi";
+	  } else {
+	    filename "pxelinux/pxelinux.0";
+		}
+  }
+}
+----
+
+. Access the `shim.efi` file from the `shim` package, and the `grubx64.efi` file from the `grub2-efi` package in the Binary DVD ISO image file:
++
+[subs="macros"]
+----
+# mount -t iso9660 /path_to_image/name_of_image.iso /mount_point -o loop,ro
+----
++
+[subs="macros"]
+----
+# cp -pr /mount_point/BaseOS/Packages/shim-version-architecture.rpm /publicly_available_directory
+----
++
+[subs="macros"]
+----
+# cp -pr /mount_point/BaseOS/Packages/grub2-efi-version-architecture.rpm /publicly_available_directory
+----
++
+[subs="macros"]
+----
+# umount /mount_point
+----
+
+. Extract the packages:
++
+[subs="macros"]
+----
+# rpm2cpio shim-version-architecture.rpm | cpio -dimv
+----
++
+[subs="macros"]
+----
+# rpm2cpio grub2-efi-version-architecture.rpm | cpio -dimv
+----
+
+. Copy the EFI boot images from your boot directory.
++
+[subs="macros"]
+----
+# cp publicly_available_directory/boot/efi/EFI/redhat/shimx64.efi /var/lib/tftpboot/uefi/
+----
++
+[subs="macros"]
+----
+# cp publicly_available_directory/boot/efi/EFI/redhat/grubx64.efi /var/lib/tftpboot/uefi
+----
++
+[IMPORTANT]
+====
+You must rename the `shimx64.efi` file to `shim.efi` *after* it is copied.
+====
+
+. Add a configuration file named `grub.cfg` to the `tftpboot/` directory. A sample configuration file at `/var/lib/tftpboot/uefi/grub.cfg` may look like:
++
+[subs="quotes, macros, attributes"]
+----
+set timeout=60
+menuentry 'RHEL 8' {
+  linuxefi images/RHEL-8.0/vmlinuz ip=dhcp inst.repo=http://10.32.5.1/mnt/archive/RHEL-8.0/Server/x86_64/os/
+  initrdefi images/RHEL-8.0/initrd.img
+}
+----
++
+[NOTE]
+====
+The `inst.repo=` option must be used to specify the installation program's image as well as the installation source. The installation program cannot boot without this option.
+====
+
+. Create a subdirectory to store the boot image files in the `/var/lib/tftpboot/` directory, and copy the boot image files to the directory. In this example, we use the directory `/var/lib/tftpboot/images/RHEL-8.0/`:
++
+[subs="macros"]
+----
+# mkdir -p /var/lib/tftpboot/images/RHEL-8.0/
+# cp /path_to_x86_64_images/pxeboot/{vmlinuz,initrd.img} /var/lib/tftpboot/images/RHEL-8.0/
+----
+
+. Start and enable the `dhcpd` service:
++
+[subs="macros"]
+----
+# systemctl start dhcpd
+# systemctl enable dhcpd
+----
+
+. Start and enable the `xinetd` service that manages the `tftp` service:
++
+[subs="macros"]
+----
+# systemctl start xinetd
+# systemctl enable xinetd
+----
++
+The PXE boot server is now ready to serve PXE clients. You can start the client (the system to which you are installing {productname}), select *PXE Boot* when prompted to specify a boot source, and start the network installation.
+
+[discrete]
+== Additional resources
+
+// To boot the client, see <XXX>
+* For more information about `shim`, see the upstream documentation: link:https://www.rodsbooks.com/efi-bootloaders/secureboot.html#shim[Using the Shim Program].

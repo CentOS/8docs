@@ -1,0 +1,18 @@
+[id='beginning-installation_{context}']
+= Beginning installation
+
+When the installation process has started, it is not possible to return to the *Installation Summary* window and change any settings. To change settings, you must wait for the installation process to finish, reboot your system, log in, and change your settings on the installed system.
+
+.Prerequisites
+* You have completed all configuration steps in <<installation-summary_graphical-installation>>.
+* The *Installation Summary* window is open.
+
+.Procedure
+. From the *Installation Summary* window, click *Begin Installation*. The *Configuration* window opens and the installation process starts.
++
+Two user setting options, *Root Password* (mandatory) and *User Creation* (optional) are available.
+
+[IMPORTANT]
+====
+Before you finish the installation and reboot, either remove the media (CD, DVD, or a USB drive) used to start the installation, or verify that your system tries to boot from the hard drive before attempting removable media. Otherwise, your system starts the installation program again, instead of the installed system.
+====

@@ -1,0 +1,17 @@
+[id="performing-a-driver-update-during-installation_{context}"]
+= Performing a driver update during installation
+
+At the very beginning of the installation process, you can perform a driver update in the following ways:
+
+* Let the installation program automatically find and offer a driver update for installation,
+
+* Let the installation program prompt you to locate a driver update,
+
+* Manually specify a path to a driver update image or an RPM package.
+
+[IMPORTANT]
+====
+
+Always make sure to put your driver update discs on a standard disk partition. Advanced storage, such as RAID or LVM volumes, might not be accessible during the early stage of the installation when you perform driver updates.
+
+====

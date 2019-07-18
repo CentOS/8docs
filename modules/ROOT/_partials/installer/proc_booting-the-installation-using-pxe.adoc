@@ -1,0 +1,51 @@
+[id="booting-the-installation-using-pxe_{context}"]
+= Booting the installation from a network using PXE
+
+Follow the steps in this procedure to boot the {productname} installation from a network using PXE.
+
+[discrete]
+== Prerequisites
+
+* You have configured a TFTP server, and there is a network interface in your system that supports PXE. See *Additional resources* for more information.
+* You have configured your system to boot from the network interface. This option is in the BIOS, and can be labeled *Network Boot* or *Boot Services*.
+* You have verified that the BIOS is configured to boot from the specified network interface. Some BIOS systems specify the network interface as a possible boot device, but do not support the PXE standard. See your hardware's documentation for more information. When you have properly enabled PXE booting, the system can boot the Red Hat Enterprise Linux installation program without any other media.
+
+[discrete]
+== Procedure
+
+[NOTE]
+====
+To boot the installation process from a network using PXE, you must use a physical network connection, for example, Ethernet. You cannot boot the installation process with a wireless connection.
+====
+
+. Verify that the network cable is attached. The link indicator light on the network socket should be lit, even if the computer is not switched on.
+
+. Switch on the system.
++
+Depending on your hardware, some network setup and diagnostic information can be displayed before your system connects to a PXE server. When connected, a menu is displayed according to the PXE server configuration.
++
+. Press the number key that corresponds to the option that you require.
++
+[NOTE]
+====
+In some instances, boot options are not displayed. If this occurs, press the *Enter* key on your keyboard or wait until the boot window opens.
+====
+The *{productname} boot* window opens and displays information about a variety of available boot options.
++
+. Use the arrow keys on your keyboard to select the boot option that you require, and press *Enter* to select the boot option.
+The *Welcome to Red Hat Enterprise Linux* window opens and you can install {productname} using the graphical user interface.
++
+[NOTE]
+====
+The installation program automatically begins if no action is performed in the boot window within 60 seconds.
+====
++
+. Optional: For UEFI-based systems, press *E* to edit the available boot options. For BIOS-based systems, press the *Tab* key on your keyboard to edit the available boot options. The boot window enters edit mode and you can change the predefined command line to add or remove boot options.
+
+.. Press *Enter* to confirm your choice.
+
+.Additional Resources
+
+* For information about installing {productname} using the Graphical User Interface, see <<graphical-installation_graphical-installation>>.
+* For information about how to prepare to install {productname} from the network using PXE, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/[_Performing an advanced RHEL installation_] document.
+* For more information about the list of available boot options you can use on the boot command line, see <<custom-boot-options_booting-the-installer>>.

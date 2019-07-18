@@ -1,0 +1,13 @@
+[id="considerations-for-hard-drive-installation-on-ibm-z_{context}"]
+= Considerations for hard drive installation on IBM Z
+
+If you want to boot the installation program from a hard drive, you can optionally install the [application]*zipl* boot loader on the same (or a different) disk. Be aware that [application]*zipl* only supports one boot record per disk. If you have multiple partitions on a disk, they all "share" the disk's single boot record.
+
+To install the [application]*zipl* boot loader on the hard drive, entering the following command:
+
+[literal,subs="+quotes,verbatim,macros"]
+....
+
+pass:quotes[`#`] zipl -V -t /mnt/ -i /mnt/images/kernel.img -r /mnt/images/initrd.img -p /mnt/images/generic.prm
+
+....

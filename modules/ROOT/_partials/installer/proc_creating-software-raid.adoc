@@ -1,0 +1,38 @@
+[id="creating-software-raid_{context}"]
+= Creating software RAID
+
+Follow the steps in this procedure to create a Redundant Arrays of Independent Disks (RAID) device. RAID devices are constructed from multiple storage devices that are arranged to provide increased performance and, in some configurations, greater fault tolerance.
+
+A RAID device is created in one step and disks are added or removed as necessary. You can configure one RAID partition for each physical disk in your system, so the number of disks available to the installation program determines the levels of RAID device available. For example, if your system has two hard drives, you cannot create a RAID10 device, as it requires 4 separate partitions.
+
+[NOTE]
+====
+On IBM Z, the storage subsystem uses RAID transparently. There is no need to configure a software RAID manually.
+====
+
+.Prerequisites
+
+* You have selected two or more disks for installation before RAID configuration options are visible. At least two disks are required to create a RAID device.
+* You have created a mount point. By configuring a mount point, you configure the RAID device.
+* You have selected the [GUI]`Custom` radio button on the [GUI]`Installation Destination` window.
+
+
+.Procedure
+
+. From the left pane of the *Manual Partitioning* window, select the required partition.
+
+. Under the *Device(s)* section, click *Modify*. The *Configure Mount Point* dialog box opens.
+
+. Select the disks that you want to include in the RAID device and click *Select*.
+
+. Click the *Device Type* drop-down menu and select *RAID*.
+
+. Click the *File System* drop-down menu and select your preferred file system type.
+
+. Click the *RAID Level* drop-down menu and select your preferred level of RAID.
+
+. Click *Update Settings* to save your changes.
+
+. Click *Done* to apply the settings and return to the *Installation Summary* window.
+
+A message is displayed at the bottom of the window if the specified RAID level requires more disks.

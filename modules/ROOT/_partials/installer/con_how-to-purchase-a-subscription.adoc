@@ -1,0 +1,8 @@
+[id="how-to-purchase-a-subscription_{context}"]
+= Check your RHEL subscription
+
+You must have at least one active {productname} subscription to download ISO image files from the Red Hat Customer Portal.
+
+* You can check the status of your {productname} subscriptions at https://access.redhat.com/management/subscriptions.
+* You can purchase {productname} subscriptions from the Red Hat Store at https://www.redhat.com/store.
+* You can evaluate {productname} in your environment using time-limited evaluation entitlements at https://www.redhat.com.

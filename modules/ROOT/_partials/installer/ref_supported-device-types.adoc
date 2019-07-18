@@ -1,0 +1,13 @@
+[id='supported-device-types_{context}']
+= Supported device types
+
+Standard partition:: A standard partition can contain a file system or swap space. Standard partitions are most commonly used for `/boot` and the `BIOS Boot` and `EFI System partitions`. LVM logical volumes are recommended for most other uses.
+
+LVM:: Choosing `LVM` (or Logical Volume Management) as the device type creates an LVM logical volume. If no LVM volume group currently exists, one is automatically created to contain the new volume; if an LVM volume group already exists, the volume is assigned. LVM can improve performance when using physical disks, and it allows for advanced setups such as using multiple physical disks for one mount point, and setting up software RAID for increased performance, reliability, or both.
+
+LVM thin provisioning:: Using thin provisioning, you can manage a storage pool of free space, known as a thin pool, which can be allocated to an arbitrary number of devices when needed by applications. You can dynamically expand the pool when needed for cost-effective allocation of storage space.
+
+[WARNING]
+====
+The installation program does not support overprovisioned LVM thin pools.
+====

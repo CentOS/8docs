@@ -1,0 +1,42 @@
+[id="configuring-an-nvdimm-device-using-anaconda_{context}"]
+= Configuring an NVDIMM device using the graphical installation mode
+
+A Non-Volatile Dual In-line Memory Module (NVDIMM) device must be properly configured for use by {ProductName} {ProductNumber} using the graphical installation.
+
+WARNING: Reconfiguration of a NVDIMM device process destroys any data stored on the device.
+
+.Prerequisites
+
+* A NVDIMM device is present on the system and satisfies all the other conditions for usage as an installation target.
+* The installation has booted and the *Installation Summary* window is open.
+
+
+.Procedure
+
+. From the *Installation Summary* window, click *Installation Destination*. The *Installation Destination* window opens, listing all available drives.
+
+. Under the *Specialized & Network Disks* section, click *Add a disk...*. The storage devices selection window opens.
+
+. Click the *NVDIMM Devices* tab.
+
+. To reconfigure a device, select it from the list.
++
+If a device is not listed, it is not in sector mode.
+
+. Click *Reconfigure NVDIMM...*. A reconfiguration dialog opens.
+
+. Enter the sector size that you require and click *Start Reconfiguration*.
++
+The supported sector sizes are 512 and 4096 bytes.
+
+. When reconfiguration completes click *OK*.
+
+. Select the device check box.
+
+. Click *Done* to return to the *Installation Destination* window.
++
+The NVDIMM device that you reconfigured is displayed in the *Specialized & Network Disks* section.
+
+. Click *Done* to return to the *Installation Summary* window.
+
+The NVDIMM device is now available for you to select as an installation target. Additionally, if the device meets the requirements for booting, you can set the device as a boot device.

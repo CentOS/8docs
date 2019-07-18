@@ -1,0 +1,15 @@
+[id="making-media_{context}"]
+= Creating installation media
+
+This section contains information about using the ISO image file that you downloaded in <<downloading-beta-installation-images_preparing-for-your-installation>>
+to create bootable physical installation media, such as a USB, DVD, or CD.
+
+//TODOFor instructions on how to set up a _Preboot Execution Environment_ (PXE) server to perform a PXE-based installation over a network, //see
+//<<chap-installation-server-setup>>.
+
+[NOTE]
+====
+By default, the [option]`inst.stage2=` boot option is used on the installation media and is set to a specific label, for example, [option]`inst.stage2=hd:LABEL=RHEL8\x86_64`. If you modify the default label of the file system containing the runtime image, or if you use a customized procedure to boot the installation system, you must verify that the label is set to the correct value.
+====
+
+//TODO:See <<list-boot-options-sources>> for details.

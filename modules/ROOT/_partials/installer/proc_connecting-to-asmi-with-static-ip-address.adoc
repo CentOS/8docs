@@ -1,0 +1,55 @@
+[id="connecting-to-asmi-with-static-ip-address_{context}"]
+= Connecting to ASMI with static IP address
+
+Use this type of connection if you are using a static IP address. This connection configures a console interface to the ASMI.
+
+. Connect an Ethernet cable from the PC or notebook to the Ethernet port labeled HMC1 on the back of the managed system.
+
+. Set your IP address on your PC or notebook to match the default values on your Power system. IP address on PC or notebook:
+
+----
+169.254.2.140 Subnet mask: 255.255.255.0
+The default IP address of HMC1: 169.254.2.147
+----
+
+[NOTE]
+====
+The default values of HMC1 are already set and you do not need to change them. If you want to verify the IP address, follow the steps in Connecting to ASMI with DHCP to find the IP addresses with the control panel.
+====
+
+If you are running Linux on your PC or notebook, set your IP address by following these steps:
+
+. Log in as root.
+
+. Start a terminal session.
+
+. Run the follow command: ifconfig -a. Record these values so that you can reset your network connection later.
+
+. Type `ifconfig _ethx_ 169.254.2.140 netmask 255.255.255.0`. Replace _ethx_ with either eth0 or eth1, depending on what your PC or notepad is using.
+
+If you are running Windows 7 on your PC or notebook, set your IP address by following these steps:
+
+. *Click* Start > Control Panel.
+
+. *Select* Network and Sharing Center.
+
+. *Click* the network that is displayed in Connections.
+
+. *Click* Properties.
+
+. If the Security dialog box is displayed, *click* Continue.
+
+. *Select* Internet Protocol Version 4.
+
+. *Click* Properties.
+
+. *Select* Use the following IP address.
+
+. *Use* `169.254.2.140` for IP address and `255.255.255.0` for Subnet mask.
+
+. *Click* OK > Close > Close
+
+[NOTE]
+====
+If HMC1 is occupied, use HMC2. Use IP address 169.254.3.140 and Subnet mask: 255.255.255.0 on your PC or notebook. The default IP address of the HMC2 is 169.254.3.147.
+====

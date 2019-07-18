@@ -1,0 +1,18 @@
+[id="pre-installation-script-section_{context}"]
+= Pre-installation script section
+
+The `%pre` scripts are run on the system immediately after the Kickstart file has been loaded, but before it is completely parsed and installation begins. Each of these sections must start with `%pre` and end with `%end`.
+
+The `%pre` script can be used for activation and configuration of networking and storage devices. It is also possible to run scripts, using interpreters available in the installation environment. Adding a `%pre` script can be useful if you have networking and storage that needs special configuration before proceeding with the installation, or have a script that, for example, sets up additional logging parameters or environment variables.
+
+Debugging problems with `%pre` scripts can be difficult, so it is recommended only to use a `%pre` script when necessary.
+
+Commands related to networking, storage, and file systems are available to use in the `%pre` script, in addition to most of the utilities in the installation environment `/sbin` and `/bin` directories.
+
+You can access the network in the `%pre` section. However, the name service has not been configured at this point, so only IP addresses work, not URLs.
+// The pre-installation script section of Kickstart cannot manage multiple install trees or source media. This information must be included for each created Kickstart file, as the pre-installation script occurs during the second stage of the installation process. // WTF is this saying?
+
+The `%pre` scripts ignore missing files for the [command]`%include` commands. This is useful for generating the included files in the `%pre` section, and having them loaded later.
+
+NOTE: Unlike the post-installation script, the pre-installation script is not run in the chroot environment.
+

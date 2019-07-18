@@ -1,0 +1,74 @@
+[id="editing-boot-options_{context}"]
+= Editing boot options
+
+// TODO convert to assembly and modules
+
+This section contains information about the different ways that you can edit boot options from the boot menu. The boot menu opens after you boot the installation media.
+
+[discrete]
+== Editing the boot: prompt in BIOS
+
+When using the `boot:` prompt, the first option must always specify the installation program image file that you want to load. In most cases, you can specify the image using the keyword. You can specify additional options according to your requirements.
+
+.Prerequisites
+
+* You have created bootable installation media (USB, CD or DVD).
+* You have booted the installation from the media, and the installation boot menu is open.
+
+.Procedure
+
+. With the boot menu open, press the *Esc* key on your keyboard.
+
+. The `boot:` prompt is now accessible.
+
+. Press the *Tab* key on your keyboard to display the help commands.
+
+. Press the *Enter* key on your keyboard to start the installation with your options. To return from the `boot:` prompt to the boot menu, restart the system and boot from the installation media again.
+
+[NOTE]
+====
+The `boot:` prompt also accepts `dracut` kernel options. A list of options is available in the `dracut.cmdline(7)` man page.
+====
+
+
+[discrete]
+== Editing the > prompt
+
+You can use the `>` prompt to edit predefined boot options. For example, select *Test this media and install Red Hat Enterprise Linux 8.0.0* from the boot menu to display a full set of options.
+
+[NOTE]
+====
+This procedure is for BIOS-based AMD64 and Intel 64 systems.
+====
+
+.Prerequisites
+
+* You have created bootable installation media (USB, CD or DVD).
+* You have booted the installation from the media, and the installation boot menu is open.
+
+.Procedure
+
+. From the boot menu, select an option and press the *Tab* key on your keyboard. The `>` prompt is accessible and displays the available options.
+
+. Append the options that you require to the `>` prompt.
+
+. Press the *Enter* key on your keyboard to start the installation.
+
+. Press the *Esc* key on your keyboard to cancel editing and return to the boot menu.
+
+
+[discrete]
+== Editing the GRUB2 menu
+
+The GRUB2 menu is available on UEFI-based AMD64, Intel 64, and 64-bit ARM systems.
+
+.Prerequisites
+
+* You have created bootable installation media (USB, CD or DVD).
+* You have booted the installation from the media, and the installation boot menu is open.
+
+.Procedure
+
+. From the boot menu window, select an option and press the *e* key on your keyboard.
+
+. When you finish editing, press *F10* or *Ctrl+X* on your keyboard to start the installation using the specified options.

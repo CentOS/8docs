@@ -1,0 +1,24 @@
+[id='software-selection_{context}']
+= Software selection
+
+The [gui]`Software Selection` screen allows you to choose a _Base Environment_ and _Add-ons_. These options control which software packages will be installed on your system during the installation process.
+
+This screen is only available if <<installation-source_{context}>> is properly configured and only after the installer has downloaded package metadata from the source.
+
+[NOTE]
+====
+It is not possible to select specific packages during a manual installation. You can only select pre-defined environments and add-ons. If you need to control exactly which packages are installed, you must use a Kickstart file and define the packages in the [command]`%packages` section. See <<kickstart-install_{context}>> for information about Kickstart installations.
+====
+
+.Software selection
+
+image::anaconda-software-spoke.png["The Software Selection screen. On the left side, one environment (Minimal Install) is selected; the right side displays several optional add-ons such as Headless Administration and Network Servers."]
+
+To configure your software selection, first choose an environment on the left side of the screen. Only one environment can be chosen, even if more are available. Then, on the right side of the screen, select one or more add-ons which you want to install by marking the check boxes next to each add-on.
+
+The list of add-ons is divided into two parts by a horizontal line. Add-ons above this line are defined as part of your chosen environment; if you select a different environment, the add-ons available here will change. The add-ons displayed below the separator are not specific to your chosen environment.
+
+Environments and add-ons are defined using a [filename]`comps.xml` file in your installation source (for example, in the [filename]`repodata/` directory on the full installation DVD). Review this file to see exactly which packages will be installed as part of a certain environment or add-on.
+//TODO: Link to somewhere with more info about comps.xml
+
+After you finish configuring your software selection, click btn:[Done] in the top left corner to return to <<installation-summary_graphical-installation>>.

@@ -1,0 +1,21 @@
+[id="required-configuration-file-parameters-on-ibm-z_{context}"]
+= Required configuration file parameters on IBM Z
+
+Several parameters are required and must be included in the parameter file. These parameters are also provided in the file `generic.prm` in directory `images/` of the installation DVD.
+
+* `ro`
++
+Mounts the root file system, which is a RAM disk, read-only.
+
+* `ramdisk_size=_size_`
++
+Modifies the memory size reserved for the RAM disk to ensure that the {ProductName} installation program fits within it. For example: `ramdisk_size=40000`.
+
+The `generic.prm` file also contains the additional parameter `cio_ignore=all,!condev`. This setting speeds up boot and device detection on systems with many devices. The installation program transparently handles the activation of ignored devices.
+
+[IMPORTANT]
+====
+
+To avoid installation problems arising from [command]`cio_ignore` support not being implemented throughout the entire stack, adapt the `cio_ignore=` parameter value to your system or remove the parameter entirely from your parameter file used for booting (IPL) the installation program.
+
+====

@@ -1,0 +1,20 @@
+[id="overview-of-the-system-z-installation-procedure_{context}"]
+= Overview of the System z installation procedure
+
+You can install {ProductName} on System{nbsp}z interactively or in unattended mode. Installation on System{nbsp}z differs from installation on other architectures in that it is typically performed over a network and not from local media. The installation consists of two phases:
+
+. *Booting the installation*
+
+* Connect with the mainframe
+* Perform an initial program load (IPL), or boot, from the medium containing the installation program.
+
+
+. *Anaconda*
+
+Use the [application]*Anaconda* installation program to:
+
+* Configure network
+* Specify language support
+* Specify nstallation source
+* Specify software packages to be installed
+* Perform the rest of the installation

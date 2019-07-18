@@ -1,0 +1,12 @@
+[id="using-a-prepared-dasd_{context}"]
+= Using a prepared DASD
+
+. Double-click `Load`.
+
+. In the dialog box that follows, select `Normal` as the `Load type`.
+
+. As `Load address`, fill in the device number of the DASD.
+
+. As `Load parameter`, fill in the number corresponding the [application]*zipl* boot menu entry that you prepared for booting the {ProductName} installation program.
+
+. Click the btn:[OK] button.

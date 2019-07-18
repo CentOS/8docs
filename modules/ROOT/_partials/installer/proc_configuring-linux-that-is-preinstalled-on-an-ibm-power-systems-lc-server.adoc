@@ -1,0 +1,138 @@
+[id="configuring-linux-that-is-preinstalled-on-an-ibm-power-systems-lc-server_{context}"]
+= Configuring Linux that is preinstalled on an IBM Power Systems LC server
+
+This guide describes a quick and easy way to configure an IBM Power Systems LC server that is preinstalled with Red Hat Enterprise Linux.
+
+== Overview
+
+Use this information to configure Red Hat Enterprise Linux on an IBM Power System LC server.
+
+=== Completing the prerequisites and booting your firmware
+Before you power on the system, ensure that you have the following items:
+
+* Ethernet cable
+
+* VGA monitor. The VGA resolution must be set to 1024x768-60Hz.
+
+* USB Keyboard
+
+* Power cords and outlet for your system.
+
+Complete these steps:
+
+* If your system belongs in a rack, install your system into that rack. For instructions, see IBM Power Systems™ information at link:https://www.ibm.com/support/knowledgecenter/[https://www.ibm.com/support/knowledgecenter/].
+
+* Connect an Ethernet cable to the embedded Ethernet port next to the serial port on the back of your system. Connect the other end to your network.
+* Connect your VGA monitor to the VGA port on back of system.
+
+* Connect your USB keyboard to an available USB port.
+
+* Connect the power cords to the system and plug them into the outlets.
+
+At this point, your firmware is booting. Wait for the green LED on the power button to start flashing, indicating that it is ready to use. If your system does not have a green LED indicator light, then wait 1 to 2 minutes.
+
+=== Configuring the IP address
+
+To set up or enable your network connection to the BMC firmware, use the Petitboot bootloader interface. Follow these steps:
+
+.. Power on your server using the power button on the front of your system. Your system will power on to the Petitboot bootloader menu. This process takes about 1 - 2 minutes to complete. Do not walk away from your system! When Petitboot loads, your monitor will become active and you will need to push any key in order to interrupt the boot process.
++
+.. At the Petitboot bootloader main menu, select Exit to Shell.
++
+.. Run `ipmitool lan print 1`. If this command returns an IP address, verify that is correct and continue. To set a static IP address, follow these steps:
++
+... Set the mode to static by running this command:
++
+`ipmitool lan set 1 ipsrc static`
++
+... Set your IP address by running this command: 
++
+`ipmitool lan set 1 ipaddr _ip_address_`
++
+Where _ip_address_ is the static IP address that you are assigning to this system.
++
+... Set your netmask by running this command:
++ 
+`ipmitool lan set 1 netmask _netmask_address_`
++
+Where _netmask_address_ is the netmask for the system.
++
+... Set your gateway server by running this command: 
++
+`1ipmitool lan set 1 defgw ipaddr _gateway_server_` 
++
+Where gateway_server is the gateway for this system.
++
+... Confirm the IP address by running the command `ipmitool lan print 1` again.
++
+[NOTE]
+====
+This network interface is not active until after you perform the following steps.
+====
++
+.. To reset your firmware, run the following command: `ipmitool mc reset cold`. This command must complete before continuing the process; however, it does not return any information. To verify that this command has completed, ping your system BMC address (the same IP address used in your IPMItool command). When the ping returns successfully, continue to the next step.
++
+[NOTE]
+====
+If your ping does not return successfully within a reasonable amount of time (2 - 3 minutes), try these additional steps:
+
+... Power your system off with this command: ipmitool power off.
+
+... Unplug the power cords from the back of the system. Wait 30 seconds and then apply power to boot BMC.
+====
+
+=== Powering on your server with IPMI
+
+Intelligent Platform Management Interface (IPMI) is the default console to use when connecting to the OPAL firmware.
+Use the default values for IPMI:
+
+* Default user: ADMIN
+
+* Default password: admin
+
+NoteAfter your system powers on, the Petitboot interface loads. If you do not interrupt the boot process by pressing any key within 10 seconds, Petitboot automatically boots the first option.
+To power on your server from a PC or notebook that is running Linux, follow these steps:
+
+.. Open a terminal program on your PC or notebook.
++
+.. To power on your server, run the following command:
++
+`ipmitool -I lanplus -H _server_ip_address_ -U ipmi_user -P ipmi_password chassis power on`
++
+Where _server_ip_ipaddress_ is the IP address of the Power system and ipmi_password is the password set up for IPMI.
++
+[NOTE]
+====
+If your system is already powered on, continue to active your IPMI console.
+====
++
+.. Activate your IPMI console by running this command:
++
+....
+ipmitool -I lanplus -H server_ip_address -U ipmi_user -P ipmi_password sol activate
+....
++
+[NOTE]
+====
+Use your keyboard up arrow to display the previous ipmitool command. You can edit previous commands to avoid typing the entire command again. If you need to power off or reboot your system, deactivate the console by running this command:
+====
++
+ipmitool -I lanplus -H server_ip_address -U user-name -P ipmi_password sol deactivate
++
+To reboot the system, run this command:
++
+....
+ipmitool -I lanplus -H server_ip_address -U user-name -P ipmi_password chassis power reset
+....
+
+=== Booting Linux
+
+To boot your Linux distribution, select it in the Petitboot bootloader menu and press Enter.
+
+Preinstalled IBM Power systems have default users and passwords set up. This information is included with your system paperwork. In general, the default user names and passwords are as follows:
++
+*On a system preinstalled with Red Hat Enterprise Linux*:
+
+* Default user: root
+
+* Default user: PASSW0RD

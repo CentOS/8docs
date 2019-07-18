@@ -1,0 +1,43 @@
+[id="system-specifications-list_{context}"]
+= System specifications list
+
+The installation program automatically detects and installs software compatible with the computer's hardware, and normally it is not necessary to supply details about your system. However, when performing certain types of installation, it is important to know specific details about your hardware. For this reason, it is recommended that you record the following system specifications for reference during the installation, depending on your installation type.
+
+* If you plan to use a customized partition layout, record:
++
+** The model numbers, sizes, types, and interfaces of the hard drives attached to the system. For example, Seagate ST3320613AS 320 GB on SATA0, Western Digital WD7500AAKS 750 GB on SATA1. This will allow you to identify specific hard drives during the partitioning process.
+
+* If you are installing {ProductName} as an additional operating system on an existing system, record:
++
+** Information about the partitions used on the system. This information can include file system types, device node names, file system labels, and sizes. This will allow you to identify specific partitions during the partitioning process. Remember that different operating systems identify partitions and drives differently, therefore even if the other operating system is a Unix operating system, the device names can be reported by {ProductName} differently. This information can usually be found by executing the equivalent of the [command]`mount` command and [command]`blkid` command and in the `/etc/fstab` file.
++
+If other operating systems are already installed, the {ProductName}{nbsp}8 installation program attempts to automatically detect and configure to boot them. You can manually configure any additional operating systems if they are not detected properly. For more information, see
+// <<sect-bootloader-ppc>>.
+
+* If you plan to install from an image on a local hard drive:
++
+** The hard drive and directory that holds the image.
+
+* If you plan to install from a network location:
++
+** The make and model numbers of the network adapters on your system. For example, Netgear GA311. This will allow you to identify adapters when manually configuring the network.
++
+** IP, DHCP, and BOOTP addresses
++
+** Netmask
++
+** Gateway IP address
++
+** One or more name server IP addresses (DNS)
++
+** The location of the installation source on an FTP server, HTTP (web) server, HTTPS (web) server, or NFS server.
++
+If any of these networking requirements or terms are unfamiliar to you, contact your network administrator for assistance.
+
+* If you plan to install on an iSCSI target:
++
+** The location of the iSCSI target. Depending on your network, you might also need a CHAP user name and password, and perhaps a reverse CHAP user name and password.
+
+* If your computer is part of a domain:
++
+** You should verify that the domain name will be supplied by the DHCP server. If not, you will need to input the domain name manually during installation.

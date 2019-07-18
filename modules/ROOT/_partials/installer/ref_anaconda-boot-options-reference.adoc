@@ -1,0 +1,4 @@
+[id='anaconda-boot-options-reference_{context}']
+= Boot options reference
+
+For a full list of boot options, see the link:https://github.com/rhinstaller/anaconda/blob/rhel-8.0/docs/boot-options.rst[upstream boot option] content.

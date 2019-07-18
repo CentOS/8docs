@@ -1,0 +1,21 @@
+[id="is-your-hardware-power-system-compatible_{context}"]
+= Is your hardware power system compatible?
+
+{ProductName}{nbsp}7 (big endian) is compatible with IBM Power{nbsp}Systems servers which use the following processor series:
+
+* POWER7
+* POWER8
+* POWER9
+
+[NOTE]
+POWER6 processors and older are no longer supported.
+
+{ProductName} also offers a little endian variant for IBM Power{nbsp}Systems. This variant is currently compatible with:
+
+* POWER8
+* POWER9
+* KVM guest on Red{nbsp}Hat Enterprise{nbsp}Virtualization for Power
+* PowerVM
+* PowerNV (bare metal)
+
+The most recent list of supported hardware can be found in the [citetitle]_Red{nbsp}Hat Hardware Compatibility List_, available online at link:++https://access.redhat.com/ecosystem/search/#/category/Server++[]. Also see link:++https://access.redhat.com/site/articles/rhel-limits++[{ProductName} technology capabilities and limits] for general information about system requirements.

@@ -1,0 +1,26 @@
+[id="configuring-dasd-storage-devices_{context}"]
+= Configuring DASD storage devices
+
+Complete the following steps to configure DASD storage devices.
+
+.Prerequisite
+The *Installation Summary* window is open.
+
+.Procedure
+
+. From the *Installation Summary* window, click *Installation Destination*. The *Installation Destination* window opens, listing all available drives.
+
+. Under the *Specialized & Network Disks* section, click *Add a disk…​*. The storage devices selection window opens.
+
+. Click *Add DASD*. The *Add DASD Storage Target* dialog box opens and prompts you to specify a device number, such as *0.0.0204*, and attach additional DASDs that were not detected when the installation started.
+
+. Type the device number of the DASD that you want to attach in the *Device number* field.
+
+. Click *Start Discovery*.
+
+[NOTE]
+====
+* If a DASD with the specified device number is found and if it is not already attached, the dialog box closes and the newly-discovered drives appear in the list of drives. You can then select the check boxes for the required devices and click *Done*. The new DASDs are available for selection (marked as `DASD device 0.0._xxxx_pass:attributes[{blank}]`) in the *Local Standard Disks* section of the *Installation Destination* window.
+
+* If you entered an invalid device number, or if the DASD with the specified device number is already attached to the system, an error message appears in the dialog box, explaining the error and prompting you to try again with a different device number.
+====

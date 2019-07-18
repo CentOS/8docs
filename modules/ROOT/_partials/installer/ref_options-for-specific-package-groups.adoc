@@ -1,0 +1,19 @@
+[id="options-for-specific-package-groups_{context}"]
+= Options for specific package groups
+
+The options in this list only apply to a single package group. Instead of using them at the `%packages` command in the Kickstart file, append them to the group name. For example:
+
+----
+%packages
+@Graphical Administration Tools --optional
+%end
+----
+
+[option]`--nodefaults`::
+Only install the group's mandatory packages, not the default selections.
+
+[option]`--optional`::
+Install packages marked as optional in the group definition in the [filename]`*-comps-__repository__.__architecture__.xml` file, in addition to installing the default selections.
++
+Note that some package groups, such as `Scientific Support`, do not have any mandatory or default packages specified - only optional packages. In this case the [option]`--optional` option must always be used, otherwise no packages from this group will be installed.
+

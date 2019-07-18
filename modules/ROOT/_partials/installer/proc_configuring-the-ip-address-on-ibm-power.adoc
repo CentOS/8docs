@@ -1,0 +1,32 @@
+[id="configuring-the-ip-address-ibm-power_{context}"]
+= Configuring the IP address IBM Power
+
+To set up or enable your network connection to the baseboard management controller (BMC) firmware, use the Petitboot bootloader interface. Follow these steps:
+
+. Power on your server using the power button on the front of your system. Your system will power on to the Petitboot bootloader menu. This process takes about 1 - 2 minutes to complete. Do not walk away from your system! When Petitboot loads, your monitor will become active and you will need to push any key in order to interrupt the boot process.
+
+. At the Petitboot bootloader main menu, select Exit to Shell.
+
+. Run `ipmitool lan print 1`. If this command returns an IP address, verify that is correct and continue. To set a static IP address, follow these steps:
+
+.. Set the mode to static by running this command: `ipmitool lan set 1 ipsrc static`
+
+.. Set your IP address by running this command: `ipmitool lan set 1 ipaddr _ip_address_` where _ip_address_ is the static IP address that you are assigning to this system.
+
+.. Set your netmask by running this command: `ipmitool lan set 1 netmask _netmask_address_` where _netmask_address_ is the netmask for the system.
+
+.. Set your gateway server by running this command: `ipmitool lan set 1 defgw ipaddr _gateway_server_` where gateway_server is the gateway for this system.
+
+.. Confirm the IP address by running the command `ipmitool lan print 1` again.
++
+This network interface is not active until after you perform the following steps:
++
+. To reset your firmware, run the following command: `ipmitool mc reset cold`.
++
+This command must complete before continuing the process; however, it does not return any information. To verify that this command has completed, ping your system BMC address (the same IP address used in your IPMItool command). When the ping returns successfully, continue to the next step.
+
+.. If your ping does not return successfully within a reasonable amount of time (2 - 3 minutes), try these additional steps:
+
+... Power your system off with this command: `ipmitool power off`.
+
+... Unplug the power cords from the back of the system. Wait 30 seconds and then apply power to boot BMC.

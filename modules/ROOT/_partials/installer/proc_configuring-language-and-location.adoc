@@ -1,0 +1,40 @@
+[id="installing-rhel-using-anaconda_{context}"]
+= Configuring language and location settings
+
+The installation program uses the language that you select during installation, and on the installed system.
+
+.Prerequisites
+ifdef::installation-title[]
+. You created installation media. See <<making-media_preparing-for-your-installation>> for more information.
+. You specified an installation source if you are using the Boot ISO image file. See <<prepare-installation-source_preparing-for-your-installation>> for more information.
+. You booted the installation. See <<booting-the-installer_installing-RHEL>> for more information.
+endif::[]
+ifndef::installation-title[]
+. You created installation media.
+. You specified an installation source if you are using the Boot ISO image file.
+. You booted the installation.
+endif::[]
+
+
+.Procedure
+
+. From the left-hand pane of the *Welcome to Red Hat Enterprise Linux* window, select a language. Alternatively, type your preferred language into the *Search* field.
++
+[NOTE]
+====
+A language is pre-selected by default. If network access is configured, that is, if you booted from a network server instead of local media, the pre-selected language is determined by the automatic location detection feature of the *GeoIP* module. If you used the [option]`inst.lang=` option on the boot command line or in your PXE server configuration, then the language that you define with the boot option is selected.
+====
+
+. From the right-hand pane of the *Welcome to Red Hat Enterprise Linux* window, select a location specific to your region.
+
+. Click btn:[Continue] to proceed to the <<installation-summary_graphical-installation>> window.
++
+[IMPORTANT]
+====
+If you are installing a pre-release version of {ProductName}, a warning message is displayed about the pre-release status of the installation media. Click *I want to proceed* to continue with the installation, or *I want to exit* to quit the installation and reboot the system.
+====
+
+
+.Additional resources
+
+For information about how to change language and location settings during the installation program, see <<configuring-localization-settings_graphical-installation>>

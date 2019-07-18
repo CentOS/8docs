@@ -1,0 +1,19 @@
+
+[id="activating-the-system_{context}"]
+= Activating the system
+
+//'Is this to activate a system profile, or partition?'
+
+Once the system is configured, it will need activation from the HMC, or will need to be powered on. Depending on the type of installation, you need to configure the SMS to correctly boot the system into the installation program.
+
+//I have an issue with this note. Where is the setenv function discussed which is used to set the real-base environment? Why is this note here?
+
+[IMPORTANT]
+====
+Ensure that the real-base boot parameter is set to `c00000`, otherwise you might see errors such as:
+
+[literal,subs="+quotes,verbatim,macros"]
+....
+`DEFAULT CATCH!, exception-handler=fff00300`
+....
+====

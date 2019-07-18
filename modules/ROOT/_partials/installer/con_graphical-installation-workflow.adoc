@@ -1,0 +1,18 @@
+[id='graphical-installation-workflow_{context}']
+= Graphical installation workflow
+
+Complete the following steps to install {productname} using the graphical user interface:
+
+.Steps
+. Configure language and location settings. See <<installing-rhel-using-anaconda_graphical-installation>> for more information.
+. Configure localization settings. See <<configuring-localization-settings_graphical-installation>> for more information.
+. Select the installation source and software packages that you require. See <<configuring-software-settings_graphical-installation>> for more information.
+. Configure installation destination, KDUMP, network, security policy, and system purpose. See <<configuring-system-settings_graphical-installation>> for more information.
+. Configure storage. See <<storage-devices_graphical-installation>> for more information.
+. Start the installation and create a user account and password. See <<final-installer-configuration_graphical-installation>> for more information.
+. Complete the graphical installation. See <<installation-complete_final-installer-configuration>> for more information.
+
+[NOTE]
+====
+When installing from a network location, you must configure the network before you can select the software packages that you want to install.
+====

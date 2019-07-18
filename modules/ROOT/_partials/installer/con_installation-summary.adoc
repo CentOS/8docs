@@ -1,0 +1,42 @@
+[id='installation-summary_{context}']
+= The Installation Summary window
+
+The *Installation Summary* window is the central location for the {ProductName} {productnumber} installation program.
+
+.Installation summary
+
+image::anaconda-summary-hub-rhel8.png["The Installation Summary window, showing most of the options configured. The Installation Destination icon has a warning sign, which means it requires  user attention before the installation can proceed."]
+
+
+The *Installation Summary* window contains three categories:
+
+* *LOCALIZATION*: You can configure Keyboard, Language Support, and Time and Date.
+
+* *SOFTWARE*: You can configure Installation Source and Software Selection.
+
+* *SYSTEM*: You can configure Installation Destination, KDUMP, Network and Host Name, Security Policy, and System Purpose.
+
+A category can have a different status depending on where it is in the installation program.
+
+.Category status
+[options="header"]
+|===
+| Category status | Status | Description
+| *Warning symbol type 1* | Yellow triangle with an exclamation mark and red text | Requires attention before installation. For example, *Installation Destination* requires attention as you must confirm the default automatic partitioning variant.
+| *Warning symbol type 2* | Grayed out and with a warning symbol (yellow triangle with an exclamation mark) | The installation program is configuring a category and you must wait for it to finish before accessing the window.
+|===
+
+[NOTE]
+====
+A warning message is displayed at the bottom of the *Installation Summary* window and the *Begin Installation* button is disabled  until you configure all of the required categories.
+====
+
+ifdef::installation-title[]
+
+.Additional resources
+
+* For information about how to configure Localization settings, see <<configuring-localization-settings_graphical-installation>>
+* For information about how to configure Software settings, see <<configuring-software-settings_graphical-installation>>
+* For information about how to configure System settings, see <<configuring-system-settings_{context}>>
+
+endif::[]

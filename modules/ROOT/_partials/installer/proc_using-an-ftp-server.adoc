@@ -1,0 +1,20 @@
+[id="using-an-ftp-server_{context}"]
+= Using an FTP server
+
+. Double-click `Load from CD-ROM, DVD, or Server`.
+
+. In the dialog box that follows, select `FTP Source`, and enter the following information:
++
+** `Host Computer` - Host name or IP address of the FTP server you want to install from, for example `ftp.redhat.com`
++
+** `User ID` - Your user name on the FTP server. Or, specify `anonymous`.
++
+** `Password` - Your password. Use your email address if you are logging in as `anonymous`.
++
+** `Account (optional)` - Leave this field empty.
++
+** `File location (optional)` - Directory on the FTP server holding the {ProductName} for IBM{nbsp}z, for example `/rhel/s390x/`.
+
+. Click `Continue`.
+
+. In the dialog that follows, keep the default selection of `generic.ins` and click `Continue`.

@@ -1,0 +1,20 @@
+[id="storage-devices-selection_{context}"]
+= Storage device selection
+
+The storage device selection window lists all storage devices that the installation program can access. Depending on your system and available hardware, some tabs might not be displayed.
+The devices are grouped under the following tabs:
+
+Multipath Devices:: Storage devices accessible through more than one path, such as through multiple SCSI controllers or Fiber Channel ports on the same system.
++
+[IMPORTANT]
+====
+The installation program only detects multipath storage devices with serial numbers that are 16 or 32 characters long.
+====
+
+Other SAN Devices::  Devices available on a Storage Area Network (SAN).
+
+Firmware RAID::  Storage devices attached to a firmware RAID controller.
+
+NVDIMM Devices:: Under specific circumstances, {productname} {productnumber} can boot and run from (NVDIMM) devices in sector mode on the Intel 64 and AMD64 architectures.
+
+System z Devices:: Storage devices, or Logical Units (LUNs), attached through the zSeries Linux FCP (Fiber Channel Protocol) driver.

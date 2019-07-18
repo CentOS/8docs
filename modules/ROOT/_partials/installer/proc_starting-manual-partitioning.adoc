@@ -1,0 +1,51 @@
+[id="starting-manual-partitioning_{context}"]
+= Starting manual partitioning
+
+.Prerequisites
+
+* The *Installation Summary* screen is currently displayed.
+* All disks are available to the installation program.
+
+.Procedure
+
+. Select disks for installation:
+
+.. Click *Installation Destination* to open the *Installation Destination* window.
+
+.. Select the disks that you require for installation by clicking the corresponding icon. A selected disk has a check-mark displayed on it.
+
+.. Under `Storage Configuration`, select the `Custom` radio-button.
+
+.. Optional: To enable storage encryption with LUKS, select the `Encrypt my data` check box.
+
+.. Click *Done*.
+
+
+. If you selected to encrypt the storage, a dialog box for entering a disk encryption passphrase opens. Type in the LUKS passphrase:
+
+.. Enter the passphrase in the two text fields. To switch keyboard layout, use the keyboard icon.
++
+WARNING: In the dialog box for entering the passphrase, you cannot change the keyboard layout. Select the English keyboard layout to enter the passphrase in the installation program.
+
+.. Click *Save Passphrase*. The *Manual Partitioning* window opens.
+
+. Deleted Mount points are listed in the left-hand pane. The mount points are organized by detected operating system installations. As a result, some file systems may be displayed multiple times if a partition is shared among several installations.
+
+.. Select the mount points in the left pane; the options that can be customized are displayed in the right pane.
++
+[NOTE]
+====
+* If your system contains existing file systems, ensure that enough space is available for the installation. To remove any partitions, select them in the list and click the *-* button.
++
+The dialog has a check box that you can use to remove all other partitions used by the system to which the deleted partition belongs.
+
+* If there are no existing partitions and you want to create the recommended set of partitions as a starting point, select your preferred partitioning scheme from the left pane (default for {productname} is LVM) and click the [GUI]`Click here to create them automatically` link.
++
+A `/boot` partition, a `/` (root) volume, and a `swap` volume proportionate to the size of the available storage are created and listed in the left pane. These are the recommended file systems for a typical installation, but you can add additional file systems and mount points.
+====
+
+.. Click *Done* to confirm any changes and return to the *Installation Summary* window.
+
+ifdef::installation-title[]
+Continue with xref:adding-a-mount-point_manual-partitioning[adding mount points], xref:configuring-a-mount-point-file-system_manual-partitioning[configuring the individual mount points], and xref:customizing-a-partition-or-volume_manual-partitioning[configuring the underlying partitions or volumes].
+endif::[]

@@ -1,0 +1,42 @@
+[id="common-package-selection-options_{context}"]
+= Common package selection options
+
+The following options are available for the `%packages` sections. To use an option, append it to the start of the package selection section. For example:
+
+----
+%packages --multilib --ignoremissing
+----
+
+[option]`--default`::
+Install the default set of packages. This corresponds to the package set which would be installed if no other selections were made in the [GUI]*Package Selection* screen during an interactive installation.
+
+[option]`--excludedocs`::
+Do not install any documentation contained within packages. In most cases, this excludes any files normally installed in the [filename]`/usr/share/doc` directory, but the specific files to be excluded depend on individual packages.
+
+[option]`--ignoremissing`::
+Ignore any packages, groups, module streams, module profiles, and environments missing in the installation source, instead of halting the installation to ask if the installation should be aborted or continued.
+
+[option]`--instLangs=`::
+Specify a list of languages to install. Note that this is different from package group level selections. This option does not describe which package groups should be installed; instead, it sets RPM macros controlling which translation files from individual packages should be installed.
+
+[option]`--multilib`::
+Configure the installed system for multilib packages (that is, to allow installing 32-bit packages on a 64-bit system) and install packages specified in this section as such.
++
+Normally, on an AMD64 and Intel 64 system, only packages for this architecture (marked as `x86_64`) and packages for all architectures (marked as `noarch`) would be installed. When you use this option, packages for 32-bit AMD and Intel systems (marked as `i686`) are automatically installed as well, if available.
++
+This only applies to packages explicitly specified in the `%packages` section. Packages which are only being installed as dependencies without being specified in the Kickstart file are only installed in architecture versions in which they are needed, even if they are available for more architectures. 
+
+[option]`--nocore`::
+Disables installation of the `@Core` package group which is otherwise always installed by default. Disabling the `@Core` package group should be only used for creating lightweight containers; installing a desktop or server system with [option]`--nocore` will result in an unusable system.
++
+NOTE: Using `-@Core` to exclude packages in the `@Core` package group does not work. The only way to exclude the `@Core` package group is with the `--nocore` option.
+
+[option]`--excludeWeakdeps`::
+Disables installation of packages from weak dependencies. These are packages linked to the selected package set by Recommends and Supplements flags. By default weak dependencies will be installed.
+
+[option]`--retries=`::
+Sets the number of times Yum will attempt to download packages (retries). The default value is 10. This option only applies during the installation, and will not affect Yum configuration on the installed system.
+
+[option]`--timeout=`::
+Sets the Yum timeout in seconds. The default value is 30. This option only applies during the installation, and will not affect Yum configuration on the installed system.
+

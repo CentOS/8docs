@@ -1,0 +1,38 @@
+[id="powering-on-your-server-with-openbmc-commands_{context}"]
+= Powering on your server with OpenBMC commands
+
+[NOTE]
+====
+After your system powers on, the Petitboot interface loads. If you do not interrupt the boot process by pressing any key within 10 seconds, Petitboot automatically boots the first option.
+====
+
+To power on your server from a PC or notebook that is running Linux, follow these steps:
+
+* Default user name: `root`
+
+* Default password: `0penBmc` (where, 0penBMC is using a zero and not a capital O)
+
+. Open a terminal program on your PC or notebook.
+
+. Log in to the BMC by running the following commands.
++
+....
+ssh root@<BMC server_ip_address>
+root@<BMC server password>
+....
++
+Where _BMC server_ip_address_ is the IP address of the BMC and _BMC server password_ is the password to authenticate.
+
+. To power on your server, run the following command:
++
+....
+$ root@witherspoon:~# obmcutil poweron
+....
+
+. Connect to OS console and use the default password `0penBmc`.
++
+....
+ssh -p 2200 root@<BMC server_ip_address> root@
+....
+
+Where _BMC server_ip_address_ is the IP address of the BMC and _BMC server password_ is the password to authenticate.

@@ -1,0 +1,10 @@
+[id="adding-fcp-attached-logical-units_{context}"]
+= Adding FCP-attached logical units
+
+If running under z/VM, make certain the FCP adapter is attached to the z/VM guest virtual machine. For multipathing in production environments there would be at least two FCP devices on two different physical adapters (CHPIDs). For example:
+
+[literal,subs="+quotes,verbatim"]
+....
+CP ATTACH FC00 TO *
+CP ATTACH FCD0 TO *
+....

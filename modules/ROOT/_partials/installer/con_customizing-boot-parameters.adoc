@@ -1,0 +1,100 @@
+[id="customizing-boot-parameters_{context}"]
+= Customizing boot parameters
+
+Before the installation can begin, you must configure some mandatory boot parameters. When installing through z/VM, these parameters must be configured before you boot into the `generic.prm` file. When installing on an LPAR, the [option]`rd.cmdline` parameter is set to `ask` by default, meaning that you will be given a prompt on which you can enter these boot parameters. In both cases, the required parameters are the same.
+
+[NOTE]
+====
+
+All network configuration must now be specified by either by using a parameter file, or at the prompt.
+
+====
+
+Installation source::
++
+An installation source must always be configured. Use the [option]`inst.repo=` option to specify the package source for the installation.
+//See <<list-boot-options-sources>> for details and syntax.
+
+Network devices::
++
+Network configuration must be provided if network access will be required during the installation. If you plan to perform an unattended (Kickstart-based) installation using only local media such as a hard drive, network configuration can be omitted.
++
+Use the [option]`ip=` option for basic network configuration, and other options listed in
+//<<list-boot-options-network>>
+as required.
++
+Also use the [option]`rd.znet=` kernel option, which takes a network protocol type, a comma delimited list of sub-channels, and, optionally, comma delimited `sysfs` parameter and value pairs. This parameter can be specified multiple times to activate multiple network devices.
++
+For example:
++
+[literal,subs="+quotes,verbatim"]
+....
+
+rd.znet=qeth,0.0.0600,0.0.0601,0.0.0602,layer2=1,portname=foo
+rd.znet=ctc,0.0.0600,0.0.0601,protocol=bar
+
+....
+
+Storage devices::
++
+At least one storage device must always be configured for text mode installations.
++
+The [option]`rd.dasd=` option takes a Direct Access Storage Device (DASD) adapter device bus identifier, and optionally, comma separated `sysfs` parameter and value pairs, then activates the device. This parameter can be specified multiple times to activate multiple DASDs. Example:
++
+[literal,subs="+quotes,verbatim"]
+....
+
+rd.dasd=0.0.0200,readonly=0
+rd.dasd=0.0.0202,readonly=0
+
+....
++
+The [option]`rd.zfcp=` option takes a SCSI over FCP (zFCP) adapter device bus identifier, a world wide port name (WWPN), and a FCP LUN, then activates the device. This parameter can be specified multiple times to activate multiple zFCP devices. Example:
++
+[literal,subs="+quotes,verbatim"]
+....
+rd.zfcp=0.0.4000,0x5005076300C213e9,0x5022000000000000
+....
+
+Kickstart options::
++
+If you are using a Kickstart file to perform an automatic installation, you must always specify the location of the Kickstart file using the [option]`inst.ks=` option. For an unattended, fully automatic Kickstart installation, the [option]`inst.cmdline` option is also useful.
+//See <<sect-parameter-configuration-files-kickstart-s390>> for additional information.
+
+An example customized `generic.prm` file containing all mandatory parameters look similar to the following example:
+
+[[exam-modified-generic-prm]]
+.Customized generic.prm file
+====
+
+[literal,subs="+quotes,verbatim"]
+....
+ro ramdisk_size=40000 cio_ignore=all,!condev
+inst.repo=http://example.com/path/to/repository
+rd.znet=qeth,0.0.0600,0.0.0601,0.0.0602,layer2=1,portno=0,portname=foo
+ip=192.168.17.115::192.168.17.254:24:foobar.systemz.example.com:enc600:none
+nameserver=192.168.17.1
+rd.dasd=0.0.0200 rd.dasd=0.0.0202
+rd.zfcp=0.0.4000,0x5005076300C213e9,0x5022000000000000
+inst.ks=http://example.com/path/to/kickstart
+....
+
+====
+
+Some installation methods also require a file with a mapping of the location of installation data in the file system of the DVD or FTP server and the memory locations where the data is to be copied. The file is typically named `generic.ins`, and contains file names for the initial RAM disk, kernel image, and parameter file (`generic.prm`) and a memory location for each file. An example `generic.ins` will look similar to the following example:
+
+[[exam-generic-ins]]
+.Sample generic.ins file
+====
+
+[literal,subs="+quotes,verbatim"]
+....
+images/kernel.img 0x00000000
+images/initrd.img 0x02000000
+images/genericdvd.prm 0x00010480
+images/initrd.addrsize 0x00010408
+....
+
+====
+
+A valid `generic.ins` file is provided by Red{nbsp}Hat along with all other files required to boot the installer. Modify this file only if you want to, for example, load a different kernel version than default.

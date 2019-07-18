@@ -1,0 +1,25 @@
+[id="verifying-a-kickstart-file_{context}"]
+= Verifying a Kickstart file
+
+Use the [command]`ksvalidator` command line utility to verify that your Kickstart file is valid. This is useful when you make extensive changes to a Kickstart file.
+
+.Procedure
+
+* Run [command]`ksvalidator` on your Kickstart file:
++
+[subs="quotes"]
+----
+$ ksvalidator __/path/to/kickstart.ks__
+----
++
+Replace __/path/to/kickstart.ks__ with the path to the Kickstart file you want to verify.
+
+[IMPORTANT]
+The validation tool cannot guarantee the installation will be successful. It ensures only that the syntax is correct and that the file does not include deprecated options. It does not attempt to validate the `%pre`, `%post` and `%packages` sections of the Kickstart file.
+
+.Additional resources
+
+* The __ksvalidator(1)__ manual page.
+
+// rhel7: 26.2.2.1. Verifying the Kickstart File
+

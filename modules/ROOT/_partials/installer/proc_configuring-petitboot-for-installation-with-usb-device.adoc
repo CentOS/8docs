@@ -1,0 +1,55 @@
+[id="configuring-petitboot-for-installation-with-usb-device_{context}"]
+= Configuring Petitboot for installation with USB device
+
+After the system powers on, the Petitboot bootloader scans local boot devices and network interfaces to find boot options that are available to the system. For information about creating a bootable USB device, see <<create-bootable-usb-linux_installing-red-hat-enterprise-linux-on-ibm-power-system-lc-servers>>.
+
+Use one of the following USB devices:
+
+* USB attached DVD player with a single USB cable to stay under 1.0 Amps
+* 8 GB 2.0 USB flash drive
+
+Follow these steps to configure Petitboot:
+
+. Insert your bootable USB device into the front USB port. Petitboot displays the following option:
++
+[literal,subs="+quotes,verbatim"]
+----
+[USB: sdb1 / 2015-10-30-11-05-03-00]
+    Rescue a Red Hat Enterprise Linux system (64-bit kernel)
+    Test this media & install Red Hat Enterprise Linux 8.0  (64-bit kernel)
+ *  Install Red Hat Enterprise Linux 8.0 (64-bit kernel)
+----
++
+[NOTE]
+====
+Select Rescan devices if the USB device does not appear. If your device is not detected, you may have to try a different type.
+====
++
+. Record the UUID of the USB device. For example, the UUID of the USB device in the above example is 2015-10-30-11-05-03-00.
+
+. Select Install Red Hat Enterprise Linux 8.0 (64-bit kernel) and press e (Edit) to open the Petitboot Option Editor window.
+
+. Move the cursor to the Boot arguments section and add the following information:
++
+[literal,subs="+quotes,verbatim"]
+----
+inst.stage2=hd:UUID=your_UUID
+where your_UUID is the UUID that you recorded.
+Petitboot Option Editor
+qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
+
+  Device:    ( ) sda2 [f8437496-78b8-4b11-9847-bb2d8b9f7cbd]
+             (*) sdb1 [2015-10-30-11-05-03-00]
+             ( ) Specify paths/URLs manually
+
+                     Kernel:         /ppc/ppc64/vmlinuz
+                     Initrd:         /ppc/ppc64/initrd.img
+                     Device tree:
+                     Boot arguments: ro inst.stage2=hd:UUID=2015-10-30-11-05-03-00
+
+                        [    OK    ]  [   Help   ]  [  Cancel  ]
+----
+
+. Select OK to save your options and return to the Main menu.
+
+. Verify that Install Red Hat Enterprise Linux 8.x (64-bit kernel) is selected and then press Enter to begin your installation.

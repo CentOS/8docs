@@ -1,0 +1,9 @@
+[id="driver-overview_{context}"]
+= Overview
+
+{productname} supports drivers for many hardware devices but some newly-released drivers may not be supported. A driver update should only be performed if an unsupported driver prevents the installation from completing. Updating drivers during installation is typically only required to support a particular configuration. For example, installing drivers for a storage adapter card that provides access to your system's storage devices.
+
+[WARNING]
+====
+Driver update disks may disable conflicting kernel drivers. In rare cases, unloading a kernel module may cause installation errors.
+====

@@ -1,0 +1,120 @@
+[id="configuring-system-purpose-using-syspurpose-command-line-tool_{context}"]
+= Configuring System Purpose using the syspurpose command-line tool
+
+// TODO turn into the right kind of module
+
+Follow the steps in this procedure to configure System Purpose after installation using the `syspurpose` command-line tool.
+
+.Prerequisites
+
+* You have installed and registered your {productname} 8 system.
+* You are logged in as a `root` user.
+
+
+.Procedure
+
+Follow the steps in this procedure to set and unset System Purpose options using the `syspurpose` command-line tool.
+
+. From a terminal window, run the following command to set the intended role of the system:
++
+[subs="quotes"]
+----
+# syspurpose set-role "VALUE"
+----
++
+Replace `VALUE` with the role that you want to assign:
++
+====
+* `Red Hat Enterprise Linux Server`
+* `Red Hat Enterprise Linux Workstation`
+* `Red Hat Enterprise Linux Compute Node`
+====
++
+For example:
++
+[subs="quotes"]
+----
+# syspurpose set-role "Red Hat Enterprise Linux Server"
+----
++
+Run the following command to unset the role:
++
+[subs="quotes"]
+----
+# syspurpose unset-role
+----
+
+. Run the following command to set the intended sla of the system:
++
+[subs="quotes"]
+----
+# syspurpose set-sla "VALUE"
+----
++
+Replace `VALUE` with the sla that you want to assign:
++
+====
+* `Premium`
+* `Standard`
+* `Self-Support`
+====
++
+For example:
++
+[subs="quotes"]
+----
+# syspurpose set-sla "Standard"
+----
++
+Run the following command to unset the sla:
++
+[subs="quotes"]
+----
+# syspurpose unset-sla
+----
+
+. Run the following command to set the intended usage of the system:
++
+[subs="quotes"]
+----
+# syspurpose set-usage "VALUE"
+----
++
+Replace `VALUE` with the usage that you want to assign:
+
+* `Production`
+* `Disaster Recovery`
+* `Development/Test`
++
+For example:
++
+[subs="quotes"]
+----
+# syspurpose set-usage "Production"
+----
++
+Run the following command to unset the usage:
++
+[subs="quotes"]
+----
+# syspurpose unset-usage
+----
+
+. Run the following command to show the current system purpose properties:
++
+[subs="quotes"]
+----
+# syspurpose show
+----
++
+Run the following command to access the `syspurpose` man page:
++
+[subs="quotes"]
+----
+# man syspurpose
+----
+
+[NOTE]
+====
+Using the `syspurpose` command-line tool to set the role, sla, and usage influences the subscriptions that are auto-attached to the system.  If your system is registered and has subscriptions that do not satisfy the required system purpose, you can run the `subscription-manager remove --all` command to remove attached subscriptions. You can then use the `syspurpose` command-line tool to set the system purpose that you require, and run `subscription-manager attach --auto` to entitle the system with the updated system purpose attributes.
+====

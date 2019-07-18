@@ -1,0 +1,46 @@
+[id="starting-a-kickstart-installation-automatically-using-pxe_{context}"]
+= Starting a Kickstart installation automatically using PXE
+
+
+AMD64, Intel 64, and 64-bit ARM systems and IBM Power Systems servers have the ability to boot using a PXE server. When you configure the PXE server, you can add the boot option into the boot loader configuration file, which in turn lets you start the installation automatically. Using this approach, it is possible to automate the installation completely, including the boot process.
+
+This procedure is intended as a general reference; detailed steps differ based on your system's architecture, and not all options are available on all architectures (for example, you cannot use PXE boot on IBM Z).
+
+
+.Prerequisites
+
+* You must have a Kickstart file ready in a location accessible from the system to be installated.
+* You must have a PXE server which can be used to boot the system and begin the installation.
+
+.Procedure
+
+. Open the boot loader configuration file on your PXE server, and add the [option]`inst.ks=` boot option to the appropriate line. The name of the file and its syntax depends on your system's architecture and hardware:
++
+====
+* On AMD64 and Intel 64 systems with BIOS, the file name can be either default or based on your system's IP address. In this case, add the [option]`inst.ks=` option to the append line in the installation entry. A sample append line in the configuration file looks similar to the following:
++
+----
+append initrd=initrd.img inst.ks=http://10.32.5.1/mnt/archive/RHEL-8/8.x/x86_64/kickstarts/ks.cfg
+----
+
+* On systems using the GRUB2 boot loader (AMD64, Intel 64, and 64-bit ARM systems with UEFI firmware and IBM Power Systems servers), the file name will be [filename]`grub.cfg`. In this file, append the [option]`inst.ks=` option to the kernel line in the installation entry. A sample kernel line in the configuration file will look similar to the following:
++
+----
+kernel vmlinuz inst.ks=http://10.32.5.1/mnt/archive/RHEL-8/8.x/x86_64/kickstarts/ks.cfg
+----
+====
+
+. Boot the installation from the network server.
++
+// For architecture-specific instructions, see: TODO XREFS !!!!
++
+The installation begins now, using the installation options specified in the Kickstart file. If the Kickstart file is valid and contains all required commands, the installation is completely automated.
+
+ifdef::installation-advanced-title[]
+
+.Additional resources
+
+* For information about setting up a PXE server, see xref:preparing-for-a-network-install_installing-rhel-as-an-experienced-user[].
+
+endif::[]
+

@@ -1,0 +1,24 @@
+[id='adding-a-mount-point_{context}']
+= Adding a mount point file system
+Complete the following steps to add multiple mount point file systems.
+
+.Prerequisites
+
+* Plan for your partitions:
+** To avoid problems with space allocation, first create small partitions with known fixed sizes, such as `/boot`, and then create the remaining partitions, letting the installation program allocate the remaining capacity to them.
+** If you want to install the system on multiple disks, or if your disks differ in size and a particular partition must be created on the first disk detected by BIOS, then create these partitions first.
+
+.Procedure
+
+. Click *+* to create a new mount point file system. The *Add a New Mount Point* dialog opens.
+
+. Select one of the preset paths from the `Mount Point` drop-down menu or type your own; for example, select `/` for the root partition or `/boot` for the boot partition.
+
+. Enter the size of the file system in to the *Desired Capacity* field; for example, `2GiB`.
++
+[WARNING]
+====
+If you do not specify a value in the Desired Capacity field, or if you specify a size bigger than available space, then all remaining free space is used.
+====
+
+. Click *Add mount point* to create the partition and return to the *Manual Partitioning* window.

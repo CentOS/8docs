@@ -1,0 +1,19 @@
+[id="example-mounting-nfs-in-a-post-install-script_{context}"]
+= Example: Mounting NFS in a post-install script
+
+This example of a `%post` section mounts an NFS share and executes a script named `runme` located at `/usr/new-machines/` on the share. Note that NFS file locking is not supported while in Kickstart mode, therefore the `-o nolock` option is required.
+
+----
+# Start of the %post section with logging into /root/ks-post.log
+%post --log=/root/ks-post.log
+
+# Mount an NFS share
+mkdir /mnt/temp
+mount -o nolock 10.10.0.2:/usr/new-machines /mnt/temp
+openvt -s -w -- /mnt/temp/runme
+umount /mnt/temp
+
+# End of the %post section
+%end
+----
+

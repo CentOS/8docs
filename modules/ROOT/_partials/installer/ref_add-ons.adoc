@@ -1,0 +1,30 @@
+// Module included in the following assemblies:
+//
+// <List assemblies here, each on a new line>
+
+// This module can be included from assemblies using the following include statement:
+// include::<path>/ref_add-ons.adoc[leveloffset=+1]
+
+// The file name and the ID are based on the module title. For example:
+// * file name: ref_my-reference-a.adoc
+// * ID: [id='ref_my-reference-a_{context}']
+// * Title: = My reference A
+//
+// The ID is used as an anchor for linking to the module. Avoid changing
+// it after the module has been published to ensure existing links are not
+// broken.
+//
+// The `context` attribute enables module reuse. Every module's ID includes
+// {context}, which ensures that the module has a unique ID even if it is
+// reused multiple times in a guide.
+//
+// In the title, include nouns that are used in the body text. This helps
+// readers and search engines find information quickly.
+[id="add-ons_{context}"]
+= Add-ons
+
+== OSCAP
+The OSCAP add-on is enabled by default in {productname} 8.
+
+== Kdump
+The Kdump add-on adds support for configuring kernel crash dumping during installation. This add-on has full support in Kickstart (using the `%addon com_redhat_kdump` command and its options), and is fully integrated as an additional window in the graphical and text-based user interfaces.

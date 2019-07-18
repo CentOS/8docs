@@ -1,0 +1,36 @@
+[id="starting-a-kickstart-installation-manually_{context}"]
+= Starting a Kickstart installation manually
+
+This section explains how to start a Kickstart installation manually, which means some user interaction is required (adding boot options at the `boot:` prompt). Use the boot option [option]`inst.ks=__location__` when booting the installation system, replacing location with the location of your Kickstart file. The exact way to specify the boot option depends on your system's architecture.
+// TODO XREF !!!!.
+
+
+.Prerequisites
+
+* You have a Kickstart file ready in a location accessible from the system to be installated
+
+
+.Procedure
+
+. Boot the system using a local media (a CD, DVD, or a USB flash drive).
++
+// For architecture-specific instructions, see TODO XREFS !!!!
+
+. At the boot prompt, specify the required boot options.
++
+====
+.. If the Kickstart file or a required repository is in a network location, you may need to configure the network using the [option]`ip=` option. The installer tries to configure all network devices using the DHCP protocol by default without this option.
+.. Add the [option]`inst.ks=` boot option and the location of the Kickstart file.
+.. In order to access a software source from which necessary packages will be installed, you may need to add the [option]`inst.repo=` option. If you do not specify this option, you must specify the installation source in the Kickstart file.
+====
+
+. Start the installation by confirming your added boot options.
++
+The installation begins now, using the options specified in the Kickstart file. If the Kickstart file is valid and contains all required commands, the installation is completely automated from this point forward.
+
+////
+.Additional resources
+
+* For details about boot options and valid syntax, see TODO XREF !!!!.
+////
+

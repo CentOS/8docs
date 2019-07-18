@@ -1,0 +1,43 @@
+[id="booting-the-installation-on-ibm-power_{context}"]
+= Booting the installation on IBM power
+
+IBM Power{nbsp}Systems servers primarily use text consoles, therefore, [application]*Anaconda* will not automatically start a graphical installation. If your system has a graphical display, the graphical installation is recommended since it offers more features and customization then text mode installation.
+
+To start a graphical installation see
+//<<list-boot-options-vnc>>
+
+
+
+[discrete]
+== Prerequisites
+
+* Ensure hardware compatibility.
+* If using a partitioned system ensure partitions have been created.
+* Ensure all RAID devices are configured.
+* Check all external drives are connected for the installation.
+* Check all memory and space requirements are all met.
+
+[discrete]
+== Procedure
+
+To boot an IBM Power{nbsp}Systems server from a DVD, the install boot device must be specified in the `System Management Services` (SMS) menu.
+
+. Press the kbd:[1] key during the boot process when you hear the chime sound. This will allow you to enter the SMS console.
+
+. Press kbd:[1] on a text console when the self test displays the banner along with the tested components.
++
+[[figure-booting-sms-console]]
+.The SMS console
+image::sms-console.png[SMS console screen]
+
+. Select the 'Select Boot Options`.
+
+. Specify `Select Install or Boot a Device`.
+
+. Select 'CD/DVD'.
+
+. Select the bus type. In most cases this will be SCSI.
+
+. Select the device containing the installation DVD. The boot menu will now load.
+
+

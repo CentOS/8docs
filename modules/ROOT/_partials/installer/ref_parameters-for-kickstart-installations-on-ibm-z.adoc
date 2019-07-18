@@ -1,0 +1,14 @@
+[id="parameters-for-kickstart-installations-on-ibm-z_{context}"]
+= Parameters for kickstart installations on IBM Z
+
+The following parameters can be defined in a parameter file but do not work in a CMS configuration file.
+
+`inst.ks=_URL_`::
++
+References a Kickstart file, which usually resides on the network for Linux installations on IBM{nbsp}Z. Replace _URL_ with the full path including the file name of the Kickstart file. This parameter activates automatic installation with Kickstart.
+
+`inst.cmdline`::
++
+When this option is specified, output on line-mode terminals (such as 3270 under z/VM or operating system messages for LPAR) becomes readable, as the installation program disables escape terminal sequences that are only applicable to UNIX-like consoles. This requires installation with a Kickstart file that answers all questions, because the installation program does not support interactive user input in cmdline mode.
+
+Ensure that your Kickstart file contains all required parameters before you use the `inst.cmdline` option. If a required command is missing, the installation will fail.

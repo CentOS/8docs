@@ -1,0 +1,34 @@
+[id="connecting-to-asmi-with-dhcp_{context}"]
+= Connecting to ASMI with DHCP
+
+To connect to the Advanced System Management Interface (ASMI) you need to set up your network connection.  You can set up DHCP or static IP.
+
+Use this type of connection if you are using DHCP. Use these steps to find the IP address of the service processor and then connect with the ASMI web interface. If you know what IP address that your server is using, complete step 1 and then skip to Step 5: Enabling
+
+. Connect an Ethernet cable to the HMC1 or HMC2 port on the back of your Power system to your DHCP network.
+
+. Access the control panel for your server.
+
+. Scroll to function 02 using Increment `(↑)` or Decrement `(↓)` buttons (up and down arrows) and then press Enter.
+
+. Move the cursor to the N by pressing Enter. The display looks like this example: `02 A N< T`
+
+. Change N to M to start manual mode using the Increment `(↑)` or Decrement `(↓)` buttons. The display looks like this example: `02 A M< T`
+
+. Press Enter two times to exit the mode menu.
+
+. Scroll to function 30 using Increment or Decrement buttons
+
+. Press Enter to enter subfunction. The display looks like this example: `30**`
+
+. Use the Increment `(↑)` or Decrement `(↓)` buttons to select a network device. 3000 displays the IP address that is assigned to ETH0 (HMC1). 3001 displays the IP address that is assigned to ETH1 (HMC2)
+
+. Press Enter to display the selected IP address. Be sure to record this IP address.
+
+. Use the Increment `(↑)` or Decrement `(↓)` buttons to select subfunction exit (30**).
+
+. Press Enter to exit subfunction mode.
+
+. Scroll to 02 using Increment `(↑)` or Decrement `(↓)` buttons and press Enter.
+
+. Change the mode to N. The display looks like this example: `02 A N< T`

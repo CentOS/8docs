@@ -1,0 +1,13 @@
+[id="installation-complete_{context}"]
+= Graphical installation complete
+
+Remove any installation media if it is not ejected automatically upon reboot.
+
+{RHEL8} starts after your system's normal power-up sequence is complete. If your system was installed on a workstation with the X Window System, applications to configure your system are launched. These applications guide you through initial configuration and you can set your system time and date, register your system with Red{nbsp}Hat, and more. If the X Window System is not installed, a `login:` prompt is displayed.
+
+ifdef::installation-title[]
+To learn how to complete initial setup, register, and secure your system, see <<post-installation-tasks_installing-RHEL>>.
+endif::[]
+ifndef::installation-title[]
+To learn how to complete initial setup, register, and secure your system, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/post-installation-tasks_installing-rhel[Completing post-installation tasks] section of the _Performing a standard RHEL installation_ document.
+endif::[]

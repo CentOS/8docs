@@ -1,0 +1,10 @@
+[id="types-of-boot-options_{context}"]
+= Types of boot options
+
+There are two types of boot options; those with an equals "=" sign, and those without an equals "=" sign. Boot options are appended to the boot command line and multiple options must be separated by a single space. Boot options that are specific to the installation program always start with `inst`.
+
+Options with an equals "=" sign::
+You must specify a value for boot options that use the `=` symbol. For example, the `inst.vncpassword=` option must contain a value, in this case, a password. The correct syntax for this example is `inst.vncpassword=password`.
+
+Options without an equals "=" sign::
+This boot option does not accept any values or parameters. For example, the `rd.live.check` option forces the installation program to verify the installation media before starting the installation. If this boot option is present, the verification is performed; if the boot option is not present, the verification is skipped.

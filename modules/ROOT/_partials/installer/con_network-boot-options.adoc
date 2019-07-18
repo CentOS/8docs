@@ -1,0 +1,128 @@
+[id="network-boot-options_{context}"]
+= Network boot options
+
+This section contains information about commonly used network boot options.
+
+[NOTE]
+====
+Initial network initialization is handled by `dracut`. For a complete list, see the `dracut.cmdline(7)` man page.
+====
+
+ip=::
+Use the `ip=` boot option to configure one or more network interfaces. To configure multiple interfaces, you can use the `ip` option multiple times, once for each interface; to do so, you must use the `rd.neednet=1` option, and you must specify a primary boot interface using the `bootdev` option. Alternatively, you can use the `ip` option once, and then use Kickstart to set up further interfaces. This option accepts several different formats. The following tables contain information about the most common options.
++
+[NOTE]
+====
+In the following tables:
+
+* The `ip` parameter specifies the client IP address. You can specify IPv6 addresses in square brackets, for example, [2001:DB8::1].
+* The `gateway` parameter is the default gateway. IPv6 addresses are also accepted.
+* The `netmask` parameter is the netmask to be used. This can be either a full netmask (for example, 255.255.255.0) or a prefix (for example, 64).
+* The `hostname` parameter is the host name of the client system. This parameter is optional.
+====
++
+.Network interface configuration boot option formats
+[options="header"]
+|===
+| Configuration method  | Boot option format
+| Automatic configuration of any interface   | `ip=method`
+| Automatic configuration of a specific interface   | `ip=interface:method`
+| Static configuration  | `ip=ip::gateway:netmask:hostname:interface:none`
+| Automatic configuration of a specific interface with an override | `ip=ip::gateway:netmask:hostname:interface:method:mtu`
+|===
++
+[NOTE]
+====
+The method `automatic configuration of a specific interface with an override` brings up the interface using the specified method of automatic configuration, such as `dhcp`, but overrides the automatically-obtained IP address, gateway, netmask, host name or other specified parameters. All parameters are optional, so specify only the parameters that you want to override.
+====
++
+The `method` parameter can be any of the following:
++
+.Automatic interface configuration methods
+[options="header"]
+|===
+| Automatic configuration method  | Value
+| DHCP    | `dhcp`
+| IPv6 DHCP    | `dhcp6`
+| IPv6 automatic configuration  | `auto6`
+| iSCSI Boot Firmware Table (iBFT)  | `ibft`
+|===
++
+[NOTE]
+====
+* If you use a boot option that requires network access, such as `inst.ks=http://host:/path`, without specifying the ip option, the installation program uses `ip=dhcp`.
+* To connect to an iSCSI target automatically, you must activate a network device for accessing the target. The recommended way to activate a network is to use the `ip=ibft` boot option.
+====
+
+nameserver=::
+The `nameserver=` option specifies the address of the name server. You can use this option multiple times.
+
+rd.neednet=::
+Typically, `ip=` options are applied only if the network is required by the installation (based on any other boot options that are used). You can use `rd.neednet=1` to explicitly force the application of `ip=` options.
+
+bootdev=::
+The `bootdev=` option specifies the boot interface. This option is mandatory if you use more than one `ip` option.
+
+ifname=::
+The `ifname=` options assigns an interface name to a network device with a given MAC address. You can use this option multiple times. The syntax is `ifname=interface:MAC`. For example:
++
+[subs="macros"]
+----
+ifname=eth0:01:23:45:67:89:ab
+----
++
+[NOTE]
+====
+The `ifname=` option is the only supported way to set custom network interface names during installation.
+====
+
+inst.dhcpclass=::
+The `inst.dhcpclass=` option specifies the DHCP vendor class identifier. The `dhcpd` service sees this value as `vendor-class-identifier`. The default value is `anaconda-$(uname -srm)`.
+
+inst.waitfornet=::
+Using the `inst.waitfornet=SECONDS` boot option causes the installation system to wait for network connectivity before installation. The value given in the `SECONDS` argument specifies the maximum amount of time to wait for network connectivity before timing out and continuing the installation process even if network connectivity is not present.
+
+vlan=::
+Use the `vlan=` option to configure a Virtual LAN (VLAN) device on a specified interface with a given name. The syntax is `vlan=name:interface`. For example:
++
+[subs="macros"]
+----
+vlan=vlan5:em1
+----
++
+This configures a VLAN device named `vlan5` on the em1 interface. The name can take the following forms:
++
+.VLAN device naming conventions
+[options="header"]
+|===
+| Naming scheme  | Example
+| VLAN_PLUS_VID     | `vlan0005`
+| VLAN_PLUS_VID_NO_PAD     | `vlan5`
+| DEV_PLUS_VID  | `em1.0005`
+| DEV_PLUS_VID_NO_PAD   | `em1.5`
+|===
+
+bond=::
+Use the `bond=` option to configure a bonding device with the following syntax: `bond=name[:slaves][:options]`. Replace _name_ with the bonding device name, _slaves_ with a comma-separated list of physical (ethernet) interfaces, and _options_ with a comma-separated list of bonding options. For example:
++
+[subs="macros"]
+----
+bond=bond0:em1,em2:mode=active-backup,tx_queues=32,downdelay=5000
+----
++
+For a list of available options, execute the `modinfo` bonding command. Using this option without any parameters assumes `bond=bond0:eth0,eth1:mode=balance-rr`.
+
+team=::
+Use the `team=` option to configure a team device with the following syntax: `team=master:slaves`. Replace _master_ with the name of the master team device and _slaves_ with a comma-separated list of physical (ethernet) devices to be used as slaves in the team device. For example:
++
+[subs="macros"]
+----
+team=team0:em1,em2
+----
+
+
+[discrete]
+== Additional resources
+
+* For a full list of boot options, see the link:https://github.com/rhinstaller/anaconda/blob/rhel-8.0/docs/boot-options.rst[upstream boot option] content.
+* For more information about networking, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/index/[_Configuring and managing networking_] document.

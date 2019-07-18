@@ -1,0 +1,22 @@
+[id='supported-file-systems_{context}']
+= Supported file systems
+
+This section describes the file systems available in {productname}.
+
+xfs:: `XFS` is a highly scalable, high-performance file system that supports file systems up to 16 exabytes (approximately 16 million terabytes), files up to 8 exabytes (approximately 8 million terabytes), and directory structures containing tens of millions of entries. `XFS` also supports metadata journaling, which facilitates quicker crash recovery. The maximum supported size of a single XFS file system is 500 TB. `XFS` is the default and recommended file system on {ProductName}.
+
+ext4:: The `ext4` file system is based on the `ext3` file system and features a number of improvements. These include support for larger file systems and larger files, faster and more efficient allocation of disk space, no limit on the number of subdirectories within a directory, faster file system checking, and more robust journaling. The maximum supported size of a single `ext4` file system is 50 TB.
+
+ext3:: The `ext3` file system is based on the `ext2` file system and has one main advantage - journaling. Using a journaling file system reduces the time spent recovering a file system after it terminates unexpectedly, as there is no need to check the file system for metadata consistency by running the fsck utility every time.
+
+ext2:: An `ext2` file system supports standard Unix file types, including regular files, directories, or symbolic links. It provides the ability to assign long file names, up to 255 characters.
+
+swap:: Swap partitions are used to support virtual memory. In other words, data is written to a swap partition when there is not enough RAM to store the data your system is processing.
+
+vfat:: The `VFAT` file system is a Linux file system that is compatible with Microsoft Windows long file names on the FAT file system.
+
+BIOS Boot:: A very small partition required for booting from a device with a GUID partition table (GPT) on BIOS systems and UEFI systems in BIOS compatibility mode.
+
+EFI System Partition:: A small partition required for booting a device with a GUID partition table (GPT) on a UEFI system.
+
+PReP:: This small boot partition is located on the first partition of the hard drive. The `PReP` boot partition contains the GRUB2 boot loader, which allows other IBM Power Systems servers to boot {productname}.

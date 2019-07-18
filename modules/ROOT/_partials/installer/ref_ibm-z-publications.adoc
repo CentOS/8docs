@@ -1,0 +1,11 @@
+[id="ibm-z-publications_{context}"]
+= IBM Z publications
+
+Current versions of the Linux on System{nbsp}z publications can be found at link:++http://www.ibm.com/developerworks/linux/linux390/documentation_red_hat.html++[]. They include:
+
+
+*  Linux on System{nbsp}z - How to use FC-attached SCSI devices with Linux on System{nbsp}z9 and zSeries, IBM, 2008, SC33-8413
+
+* Linux on System{nbsp}z - How to Improve Performance with PAV, IBM, 2008, SC33-8414
+
+* z/VM - Getting Started with Linux on System{nbsp}z, IBM, 2009, SC24-6194

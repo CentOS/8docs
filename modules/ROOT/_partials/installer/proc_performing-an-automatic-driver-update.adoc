@@ -1,0 +1,15 @@
+[id="performing-an-automatic-driver-update_{context}"]
+= Performing an automatic driver update
+
+This procedure describes how to perform an automatic driver update during installation.
+
+[discrete]
+== Prerequisites
+
+* You have placed the driver update image on a standard disk partition with an `OEMDRV` label or burnt the `OEMDRV` driver update image to a CD or DVD. Advanced storage, such as RAID or LVM volumes, may not be accessible during the driver update process.
+* You have connected a block device with an `OEMDRV` volume label to your system, or inserted the prepared CD or DVD into your system's CD/DVD drive before starting the installation process.
+
+[discrete]
+== Procedure
+
+. Once you have completed the prerequisite steps, the drivers are automatically loaded when the installation program starts, and installed on the system during the installation process.

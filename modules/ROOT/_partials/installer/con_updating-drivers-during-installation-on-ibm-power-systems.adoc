@@ -1,0 +1,32 @@
+[id="updating-drivers-during-installation-on-ibm-power-systems_{context}"]
+= Updating drivers during installation on IBM Power Systems
+
+In most cases, {ProductName} already includes drivers for the devices that make up your system. However, if your system contains hardware that has been released very recently, drivers for this hardware might not yet be included. Sometimes, a driver update that provides support for a new device might be available from Red{nbsp}Hat or your hardware vendor on a _driver disc_ that contains _RPM packages_. Typically, the driver disc is available for download as an _ISO image file_.
+
+[IMPORTANT]
+====
+
+Driver updates should only be performed if a missing driver prevents you to complete the installation successfully. The drivers included in the kernel should always be preferred over drivers provided by other means.
+
+====
+
+Often, the new hardware does not need to be present during the installation process. For example, if you use a DVD to install to a local hard drive, the installation will succeed even if drivers for your network card are not available. In such a situation, complete the installation and add support for the new hardware afterward - see link:++https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/index.html++[Red{nbsp}Hat Enterprise{nbsp}Linux{nbsp}7 System Administrator's Guide] for details of adding this support.
+
+In other situations, you might want to add drivers for a device during the installation process to support a particular configuration. For example, you might want to install drivers for a network device or a storage adapter card to give the installation program access to the storage devices that your system uses. You can use a driver disc to add this support during installation in one of two ways:
+
+. Place the ISO image file of the driver disc in a location accessible to the installation program, on a local hard drive, on a USB flash drive, or on a CD or DVD.
+
+. Create a driver disc by extracting the image file onto a CD or a DVD, or a USB flash drive. See the instructions for making installation discs in
+//<<sect-making-cd-dvd-media>>
+for more information on burning ISO image files to a CD or DVD, and
+//<<sect-making-usb-media>>
+for instructions on writing ISO images to USB drives.
+
+If Red{nbsp}Hat, your hardware vendor, or a trusted third party told you that you will require a driver update during the installation process, choose a method to supply the update from the methods described in this chapter and test it before beginning the installation. Conversely, do not perform a driver update during installation unless you are certain that your system requires it. The presence of a driver on a system for which it was not intended can complicate support.
+
+[WARNING]
+====
+
+Driver update disks sometimes disable conflicting kernel drivers, where necessary. In rare cases, unloading a kernel module in this way can cause installation errors.
+
+====

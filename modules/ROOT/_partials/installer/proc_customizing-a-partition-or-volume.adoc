@@ -1,0 +1,69 @@
+[id='customizing-a-partition-or-volume_{context}']
+= Customizing a partition or volume
+
+You can customize a partition or volume if you want to set specific settings.
+
+[IMPORTANT]
+====
+If `/usr` or `/var` is partitioned separately from the rest of the root volume, the boot process becomes much more complex as these directories contain critical components. In some situations, such as when these directories are placed on an iSCSI drive or an FCoE location, the system is unable to boot, or hangs with a *Device is busy* error when powering off or rebooting.
+
+This limitation only applies to `/usr` or `/var`, not to directories below them. For example, a separate partition for `/var/www` works successfully.
+====
+
+.Procedure
+
+. From the left pane, select the mount point.
++
+[[figu-disk-partitioning-customizing-x86]]
+.Customizing Partitions
+image::anaconda-diskpartitioning-ddmain-custom.png[Customizing partitions.]
+
+
+. From the right-hand pane, you can customize the following options:
+
+.. Enter the file system mount point into the *Mount Point* field. For example, if a file system is the root file system, enter `/`pass:attributes[{blank}]; enter `/boot` for the `/boot` file system, and so on. For a swap file system, do not set the mount point as setting the file system type to `swap` is sufficient.
+
+.. Enter the size of the file system in the *Desired Capacity* field.  You can use common size units such as KiB or GiB. The default is MiB if you do not set any other unit.
+
+.. Select the device type that you require from the drop-down *Device Type* menu: `Standard Partition`, `LVM`, or `LVM Thin Provisioning`.
++
+[WARNING]
+====
+The installation program does not support overprovisioned LVM thin pools.
+====
++
+[NOTE]
+====
+`RAID` is available only if two or more disks are selected for partitioning. If you choose `RAID`, you can also set the `RAID Level`. Similarly, if you select `LVM`, you can specify the `Volume Group`.
+====
+
+.. Select the *Encrypt* check box to encrypt the partition or volume. You must set a password later in the installation program. The *LUKS Version* drop-down menu is displayed.
+//TODO: Add link to info Mirek is working on.
+
+.. Select the LUKS version that you require from the drop-down menu.
+
+.. Select the appropriate file system type for this partition or volume from the *File system* drop-down menu.
+
+.. Select the *Reformat* check box to format an existing partition, or deselect the *Reformat* check box to retain your data. The newly-created partitions and volumes must be reformatted, and the check box cannot be deselected.
+
+.. Type a label for the partition in the *Label* field. Use labels to easily recognize and address individual partitions.
+
+.. Type a name in the *Name* field.
++
+[NOTE]
+====
+Note that standard partitions are named automatically when they are created and you cannot edit the names of standard partitions. For example, you cannot edit the `/boot` name `sda1`.
+====
+
+. Click *Update Settings* to apply your changes and if required, select another partition to customize. Changes are not applied until you click *Begin Installation* from the *Installation Summary* window.
++
+[NOTE]
+====
+Click *Reset All* to discard your partition changes.
+====
+
+. Click *Done* when you have created and customized all file systems and mount points. If you choose to encrypt a file system, you are prompted to create a passphrase.
++
+A *Summary of Changes* dialog box opens, displaying a summary of all storage actions for the installation program.
+
+. Click *Accept Changes* to apply the changes and return to the *Installation Summary* window.

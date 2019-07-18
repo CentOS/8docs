@@ -1,0 +1,47 @@
+[id="making-a-kickstart-file-available-on-an-http-or-https-server_{context}"]
+= Making a Kickstart file available on an HTTP or HTTPS server
+
+This procedure describes how to store the Kickstart script file on an HTTP or HTTPS server. This method enables you to install multiple systems from a single source without having to use physical media for the Kickstart file.
+
+
+.Prerequisites
+
+* You must have administrator level access to a server with {RHEL8} on the local network.
+* The system to be installed must be able to connect to the server.
+ifdef::installation-advanced-title[]
+* Firewall on the server must allow connections from the system you are installing to. See xref:ports-for-network-based-installation_making-kickstart-files-available-to-the-installation-program[] for more information.
+endif::[]
+ifndef::installation-advanced-title[]
+* Firewall on the server must allow connections from the system you are installing to.
+endif::[]
+
+
+.Procedure
+
+. Install the [package]`httpd` package by running the following command as root:
++
+----
+# yum install httpd
+----
++
+WARNING: If your Apache web server configuration enables SSL security, verify that you only enable the TLSv1 protocol, and disable SSLv2 and SSLv3. This is due to the POODLE SSL vulnerability (CVE-2014-3566). See https://access.redhat.com/solutions/1232413 for details.
++
+IMPORTANT: If you use an HTTPS server with a self-signed certificate, you must boot the installation program with the [option]`inst.noverifyssl` option.
+
+. Copy the Kickstart file to the HTTP(S) server into a subdirectory of the [filename]`/var/www/html/` directory.
+
+. Start the httpd service:
++
+----
+# systemctl start httpd.service
+----
++
+The Kickstart file is now accessible and ready to be used for installation.
++
+NOTE: When specifying the location of the Kickstart file, use `http://` or `https://` as the protocol, the server’s host name or IP address, and the path of the Kickstart file, relative to the HTTP server root. For example, if you are using HTTP, the server’s host name is `myserver.example.com`, and you have copied the Kickstart file as [filename]`/var/www/html/rhel8-install/my-ks.cfg`, specify `http://myserver.example.com/rhel8-install/my-ks.cfg` as the file location.
+
+
+.Additional resources
+
+* For more information about HTTP and FTP servers, see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/[Deploying different types of servers].
+

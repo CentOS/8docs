@@ -1,0 +1,162 @@
+[id="configuring-a-tftp-server-for-bios-based-clients_{context}"]
+= Configuring a TFTP server for BIOS-based clients
+
+This procedure describes how to configure a TFTP server and DHCP server, and start the TFTP service on the PXE server for BIOS-based AMD and Intel 64-bit systems.
+
+
+[discrete]
+== Procedure
+
+. As root, install the `tftp-server` package:
++
+[subs="macros"]
+----
+# yum install tftp-server
+----
+
+. Allow incoming connections to the `tftp service` in the firewall:
++
+[subs="macros"]
+----
+# firewall-cmd --add-service=tftp
+----
++
+[NOTE]
+====
+This command enables temporary access until the next server reboot. To enable permanent access, add the `--permanent` option to the command.
+====
+
+. Configure your DHCP server to use the boot images packaged with *SYSLINUX*. A sample configuration in the `/etc/dhcp/dhcpd.conf` file might look like:
++
+[subs="quotes, macros, attributes"]
+----
+option space pxelinux;
+option pxelinux.magic code 208 = string;
+option pxelinux.configfile code 209 = text;
+option pxelinux.pathprefix code 210 = text;
+option pxelinux.reboottime code 211 = unsigned integer 32;
+option architecture-type code 93 = unsigned integer 16;
+
+subnet 10.0.0.0 netmask 255.255.255.0 {
+	option routers 10.0.0.254;
+	range 10.0.0.2 10.0.0.253;
+
+	class "pxeclients" {
+	  match if substring (option vendor-class-identifier, 0, 9) = "PXEClient";
+	  next-server 10.0.0.1;
+
+	  if option architecture-type = 00:07 {
+	    filename "uefi/shim.efi";
+	    } else {
+	    filename "pxelinux/pxelinux.0";
+	  }
+	}
+}
+----
+
+. Access the `pxelinux.0` file from the `SYSLINUX` package in the Binary DVD ISO image file:
++
+[subs="macros"]
+----
+# mount -t iso9660 /path_to_image/name_of_image.iso /mount_point -o loop,ro
+----
++
+[subs="macros"]
+----
+# cp -pr /mount_point/BaseOS/Packages/syslinux-tftpboot-version-architecture.rpm /publicly_available_directory
+----
++
+[subs="macros"]
+----
+# umount /mount_point
+----
++
+. Extract the package:
++
+[subs="macros"]
+----
+# rpm2cpio syslinux-tftpboot-version-architecture.rpm | cpio -dimv
+----
+
+. Create a `pxelinux/` directory within `tftpboot/` and copy the required files, for example: `pxelinux.0` `libcom.c32`, `ldlinux.c32`, `vesamenu.c32` into it:
++
+[subs="macros"]
+----
+# mkdir /var/lib/tftpboot/pxelinux
+----
++
+[subs="macros"]
+----
+# cp publicly_available_directory/tftpboot/pxelinux.0 /var/lib/tftpboot/pxelinux
+----
+
+. Create the directory `pxelinux.cfg/` in the `pxelinux/` directory:
++
+[subs="macros"]
+----
+# mkdir /var/lib/tftpboot/pxelinux/pxelinux.cfg
+----
+
+. Add a default configuration file to the `pxelinux.cfg/` directory. A sample configuration file at `/var/lib/tftpboot/pxelinux/pxelinux.cfg/default` might look like:
++
+[subs="quotes, macros, attributes"]
+----
+default vesamenu.c32
+prompt 1
+timeout 600
+
+display boot.msg
+
+label linux
+  menu label ^Install system
+  menu default
+  kernel images/RHEL-8.0/vmlinuz
+  append initrd=images/RHEL-8.0/initrd.img ip=dhcp inst.repo=http://10.32.5.1/mnt/archive/RHEL-8/8.x/Server/x86_64/os/
+label vesa
+  menu label Install system with ^basic video driver
+  kernel images/RHEL-8.0/vmlinuz
+  append initrd=images/RHEL-8.0/initrd.img ip=dhcp inst.xdriver=vesa nomodeset inst.repo=http://10.32.5.1/mnt/archive/RHEL-8/8.x/Server/x86_64/os/
+label rescue
+  menu label ^Rescue installed system
+  kernel images/RHEL-8.0/vmlinuz
+  append initrd=images/RHEL-8.0/initrd.img rescue
+label local
+  menu label Boot from ^local drive
+  localboot 0xffff
+----
++
+[NOTE]
+====
+The `inst.repo=` option must be used to specify the installation program's image as well as the installation source. The installation program cannot boot without this option.
+====
+
+. Create a subdirectory to store the boot image files in the `/var/lib/tftpboot/` directory, and copy the boot image files to the directory. In this example, we use the directory `/var/lib/tftpboot/pxelinux/images/RHEL-8.0/`:
++
+[subs="macros"]
+----
+# mkdir -p /var/lib/tftpboot/pxelinux/images/RHEL-8.0/
+# cp /path_to_x86_64_images/pxeboot/{vmlinuz,initrd.img} /var/lib/tftpboot/pxelinux/images/RHEL-8.0/
+----
+
+. Start and enable the `dhcpd` service:
++
+[subs="macros"]
+----
+# systemctl start dhcpd
+# systemctl enable dhcpd
+----
+
+. Start and enable the `xinetd` service that manages the `tftp` service:
++
+[subs="macros"]
+----
+# systemctl start xinetd
+# systemctl enable xinetd
+----
++
+The PXE boot server is now ready to serve PXE clients. You can start the client (the system to which you are installing {productname}), select *PXE Boot* when prompted to specify a boot source, and start the network installation.
+
+
+//add in additional resources when boot client content ready and link can be added
+//For information on how to boot the client, see <XXX>
+// unavailable yet: * For information on DHCP servers, see the {productname} _Configuring and managing networks_ guide.

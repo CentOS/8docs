@@ -1,0 +1,26 @@
+[id="pre-installation-kickstart-section-options_{context}"]
+= Pre-installation Kickstart section options
+
+The following options can be used to change the behavior of pre-installation scripts. To use an option, append it to the `%pre` line at the beginning of the script. For example:
+
+----
+%pre --interpreter=/usr/libexec/platform-python
+-- Python script omitted --
+%end
+----
+
+[option]`--interpreter=`::
+Allows you to specify a different scripting language, such as Python. Any scripting language available on the system can be used; in most cases, these are `/usr/bin/sh`, `/usr/bin/bash`, and `/usr/libexec/platform-python`.
++
+Note that the `platform-python` interpreter uses Python version 3.6. You must change your Python scripts from previous RHEL versions for the new path and version. Additionally, `platform-python` is meant for system tools: Use the `python36` package outside the installation environment. For more details about Python in {RHEL8}, see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/using-python3_configuring-basic-system-settings#introduction-to-python_using-python3[Introduction to Python] in _Configuring basic system settings_.
+
+[option]`--erroronfail`::
+Display an error and halt the installation if the script fails. The error message will direct you to where the cause of the failure is logged.
+
+[option]`--log=`::
+Logs the script's output into the specified log file. For example:
++
+----
+%pre --log=/mnt/sysimage/root/ks-pre.log
+----
+

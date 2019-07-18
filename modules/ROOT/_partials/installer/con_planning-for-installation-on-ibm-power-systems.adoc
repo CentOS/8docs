@@ -1,0 +1,16 @@
+[id="preparing-for-installation-on-ibm-power-systems_{context}"]
+== Preparing for installation on IBM Power Systems
+
+Choosing either to upgrade or install will depend upon the architecture {ProductName} is to be installed on. Support for automated in-place upgrades are currently only on AMD64 and Intel{nbsp}64 systems. So all Power Systems will require a fresh installation.
+
+
+.Upgrade or Install?
+
+Since existing installations of {ProductName} on an IBM Power Systems server must have a clean install performed to upgrade to {ProductName}{nbsp}8.
+
+A clean install may be performed by:
+
+* Backing up all data from the system
+* Format disk partitions
+* Perform the installation of {ProductName} from the installation media of your choice
+* Restore any user data

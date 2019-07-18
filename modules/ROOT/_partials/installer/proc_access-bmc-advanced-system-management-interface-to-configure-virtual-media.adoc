@@ -1,0 +1,50 @@
+[id="access-bmc-advanced-system-management-interface-to-configure-virtual-media_{context}"]
+= Access BMC Advanced System Management interface to configure virtual media
+
+Baseboard Management Controller (BMC) Advanced Systems Management is a remote management controller used to access system information, status, and other process for your server. You can use the BMC Advanced Systems Management to set up your installation and provide the CD image as virtual media to the Power System. However, the actual installation requires a serial-over-LAN (SOL) connection through IPMI.
+
+To access the BMC Advanced Systems Management, open a web browser to `http://_ip_address_` where _ip_address_ is the IP address for the BMC. Log in using these default values:
+
+* Default user name: ADMIN
+* Default password: admin
+
+In order to fully use the BMC Advanced Systems Management, you need to add the IP address of the BMC firmware to the Exceptions list in the Java Control Panel of your laptop or PC. On a Windows system, this is usually located by selecting Control Panel > Control Panel for Java.
+
+On a Linux system, this is usually located by selecting the Control Center and then selecting the Java web browser plugin.
+
+After accessing the Control Panel for Java, select Security tab. Then add the IP address of the BMC firmware to the Exceptions list, by clicking Edit Site List and then clicking Add. Enter the IP address and click OK.
+
+To create a virtual CD/DVD, follow these steps:
+
+. Log into the BMC Advanced Systems Management interface from a PC or notebook using the default user name and password.
+
+. *Select* Remote Control > Console Redirection.
+
+. *Select* Java Console. As the console opens, you might need to direct your browser to open the `jviewer.jnlp` file by selecting to Open with Java Web Start and click OK. Accept the warning and click Run.
+
+. In the Console Redirection window, *select* Media > Virtual Media wizard from the menu.
+
+. In the Virtual Media wizard, *select* CD/DVD Media:1.
+
+. *Select* CD Image and the path to the Linux distribution ISO file. For example, `/tmp/RHEL-7.2-20151030.0-Server-ppc64el-dvd1.iso`. Click Connect CD/DVD. If the connection is successful, the message Device redirected in Read Only Mode is displayed.
+
+. Verify that CD/DVD is shown as an option in Petitboot as `sr0`:
++
+[literal,subs="+quotes,verbatim"]
+----
+       CD/DVD: sr0
+                       Install
+                       Repair
+----
++
+[NOTE]
+====
+Select Rescan devices if CD/DVD does not appear.
+====
+
+. *Select* Install. Ater selecting Install, your remote console may become inactive. Open or reactivate your IPMI console to complete the installation.
+
+[NOTE]
+====
+Be patient! It can sometimes take a couple minutes for the installation to begin.
+====

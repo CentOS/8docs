@@ -1,0 +1,17 @@
+[id="removed-kickstart-comands-and-options_{context}"]
+= Removed Kickstart comands and options
+
+The following Kickstart commands and options have been completely removed in {RHEL8}. Using them in Kickstart files will cause an error.
+
+* [command]`upgrade` (This command had already previously been deprecated.)
+* [command]`btrfs`
+* [command]`part/partition btrfs`
+* [command]`part --fstype btrfs` or [command]`partition --fstype btrfs`
+* [command]`logvol --fstype btrfs`
+* [command]`raid --fstype btrfs`
+* [command]`unsupported_hardware`
+
+Where only specific options and values are listed, the base command and its other options are still available and not removed.
+
+// see also https://bugzilla.redhat.com/show_bug.cgi?id=1642765
+

@@ -1,0 +1,36 @@
+//Chapter 20
+[id="sample-parameter-file-and-cms-configuration-file_{context}"]
+= Sample parameter file and CMS configuration file
+
+To change the parameter file, begin by extending the shipped `generic.prm` file.
+
+Example of `generic.prm` file:
+
+[literal,subs="+quotes,verbatim"]
+....
+ro ramdisk_size=40000 cio_ignore=all,!condev
+CMSDASD="191" CMSCONFFILE="redhat.conf"
+vnc
+inst.repo=http://example.com/path/to/repository
+....
+
+Example of `redhat.conf` file configuring a QETH network device (pointed to by `CMSCONFFILE` in `generic.prm`):
+
+[literal,subs="+quotes,verbatim"]
+....
+
+NETTYPE="qeth"
+SUBCHANNELS="0.0.0600,0.0.0601,0.0.0602"
+PORTNAME="FOOBAR"
+PORTNO="0"
+LAYER2="1"
+MACADDR="02:00:be:3a:01:f3"
+HOSTNAME="foobar.systemz.example.com"
+IPADDR="192.168.17.115"
+NETMASK="255.255.255.0"
+GATEWAY="192.168.17.254"
+DNS="192.168.17.1"
+SEARCHDNS="systemz.example.com:example.com"
+DASD="200-203"
+
+....

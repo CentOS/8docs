@@ -1,0 +1,66 @@
+[id="adding-a-custom-private-key-for-uefi-secure-boot_{context}"]
+== Adding a custom public key for UEFI Secure Boot
+
+//DO NOT DELETE THIS FILE - IT IS REQUIRED FOR BETA RELEASES OF RHEL 8. IT IS NOT REQUIRED FOR THE MAY 7 GA RELEASE BUT IT HAS BEEN THROUGH AN SME REVIEW BY JAN HLAVAC ON APRIL 26, AND CAN BE USED IN THE FIRST POST-8.0 BETA RELEASE.
+
+This procedure describes how to add a public key for UEFI Secure Boot on Beta releases of {productname} 8.
+
+.Prerequisites
+
+* Disable UEFI Secure Boot on the system.
+* Install the Beta {productname} 8 release. When the installation process is complete, the system reboots. Secure Boot should still be disabled. Reboot the system, log in, and if applicable, complete the tasks in the *Initial Setup* window.
+
+
+.Procedure
+
+. Install the `kernel-core` package if it is not already installed:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] yum install kernel-core
+....
+This package has a certificate file that contains the Red Hat CA public Beta key, located in `/usr/share/doc/kernel-keys/kernel-version/kernel-signing-ca.cer`, where _kernel-version_ is the kernel version string - for example, `4.18.0-80.el8.x86_64`.
+
+[NOTE]
+====
+* The `kernel-core` package is architecture specific, so an architecture suffix is included. For example `x86_64`.
+* In previous releases of {productname}, the certificate is in the `kernel-doc` package, which is architecture independent and has no architecture suffix.
+====
+
+. Enroll the Red Hat CA public key in the system's Machine Owner Key (MOK) list:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] kr=$(uname -r)
+pass:quotes[`#`] mokutil --import /usr/share/doc/kernel-keys/${kr%}/kernel-signing-ca.cer
+....
++
+_/${kr%}_ is replaced by the string - for example, *4.18.0-80.el8.x86_64*.
+
+. Enter a password.
+
+. Reboot the system.
+
+. During system startup, you are prompted to confirm the key request. Select `Yes` and enter the password. The system reboots and the key is imported into the system's firmware.
+
+. Enable Secure Boot on the system.
+
+[WARNING]
+====
+Remove the imported Beta public key if you install a General Availability (GA) release of {productname} 8 or if you install a different operating system.
+====
+
+////
+= Removing the Beta public key
+
+. Execute following command to reset the MOK and remove the Beta public key:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] mokutil --reset
+....
++
+. Reboot the system and enter the password used when importing the key.
++
+The key is removed from the MOK and the system reverts to its original state.
+////

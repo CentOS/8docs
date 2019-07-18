@@ -1,0 +1,80 @@
+[id="creating-an-installation-source-on-ftp_{context}"]
+= Creating an installation source using FTP
+
+Follow the steps in this procedure to create an installation source for a network-based installation using an installation tree, which is a directory containing extracted contents of the Binary DVD ISO image and a valid [filename]`.treeinfo` file. The installation source is accessed over FTP.
+
+[discrete]
+== Prerequisites
+
+* You have administor level access to a server with {RHEL8}, and this server is on the same network as the system to be installed.
+ifdef::installation-title[]
+* You have downloaded a Binary DVD ISO image. See <<downloading-beta-installation-images_preparing-for-your-installation>> for more information.
+* You have created a bootable CD, DVD, or USB device from the image file. See <<making-media_preparing-for-your-installation>> for more information.
+* You have verified that your firewall allows the system you are installing to access the remote installation source. See <<ports-for-network-based-installation_prepare-installation-source>> for more information.
+endif::[]
+ifndef::installation-title[]
+* You have downloaded a Binary DVD image. See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index#downloading-beta-installation-images_preparing-for-your-installation[Downloading the installation ISO image] from the _Performing a standard RHEL installation_ document for more information.
+* You have created a bootable CD, DVD, or USB device from the image file.  See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index#making-media_preparing-for-your-installation[Creating installation media] from the _Performing a standard RHEL installation_ document for more information.
+* You have verified that your firewall allows the system you are installing to access the remote installation source. See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index#ports-for-network-based-installation_prepare-installation-source[Ports for network-based installation] from the _Performing a standard RHEL installation_ document for more information.
+endif::[]
+
+[discrete]
+== Procedure
+
+. Install the [package]`vsftpd` package by running the following command as root:
++
+[subs="quotes, macros, attributes"]
+----
+# yum install vsftpd
+----
+
+. Optionally, open and edit the [filename]`/etc/vsftpd/vsftpd.conf` configuration file in a text editor. For available options, see the *vsftpd.conf(5)* man page. This procedure assumes that default options are used.
++
+[WARNING]
+====
+If you configured SSL/TLS security in your [filename]`vsftpd.conf` file, ensure that you enable only the TLSv1 protocol, and disable SSLv2 and SSLv3. This is due to the POODLE SSL vulnerability (CVE-2014-3566). See https://access.redhat.com/solutions/1234773 for details.
+====
+
+. Copy the Binary DVD ISO image to the FTP server.
+
+. Mount the Binary DVD ISO image, using the mount command, to a suitable directory:
++
+[subs="quotes, macros, attributes"]
+----
+# mount -o loop,ro -t iso9660 __/image_directory/image.iso /mount_point__
+----
++
+====
+* Replace _/image_directory/image.iso_ with the path to the Binary DVD ISO image
+* Replace _/mount_point_ with the path to the directory where you want to locate the contents of the ISO image.
+====
+
+. Copy the files from the mounted image to the FTP server root:
++
+[subs="quotes, macros, attributes"]
+----
+# cp -r /mnt/rhel8-install/ /var/ftp/
+----
++
+This command creates the [literal]`/var/ftp/rhel8-install/` directory with the content of the image.
+
+. Start the `vsftpd` service:
++
+[subs="quotes, macros, attributes"]
+----
+# systemctl start vsftpd.service
+----
+
+. If the service was running before you changed the [filename]`/etc/vsftpd/vsftpd.conf` file, run the following command to restart the service and load the edited file:
++
+[subs="quotes, macros, attributes"]
+----
+# systemctl restart vsftpd.service
+----
++
+The installation tree is now accessible and ready to be used as the installation source.
++
+[NOTE]
+====
+When configuring the installation source, use `ftp://` as the protocol, the server host name or IP address, and the directory in which you have stored the files from the ISO image, relative to the FTP server root. For example, if the server host name is `myserver.example.com` and you have copied the files from the image to `/var/ftp/rhel8-install/`, specify `ftp://myserver.example.com/rhel8-install/` as the installation source.
+====

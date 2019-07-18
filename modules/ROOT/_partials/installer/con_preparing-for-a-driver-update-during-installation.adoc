@@ -1,0 +1,34 @@
+[id="preparing-for-a-driver-update-during-installation_{context}"]
+= Preparing for a driver update during installation
+
+If a driver update is necessary and available for your hardware, Red{nbsp}Hat, your hardware vendor, or another trusted third party will typically provide it in the form of an image file in ISO format. Once you obtain the ISO image, you must decide on the method you want to use to perform the driver update.
+
+The available methods are:
+
+Automatic driver update::
++
+When starting the installation, the [application]*Anaconda* installation program will attempt to detect all attached storage devices. If there is a storage device labeled `OEMDRV` present when the installation begins, [application]*Anaconda* will always treat it like a driver update disc and attempt to load drivers present on it.
+
+Assisted driver update::
++
+You can specify the [option]`inst.dd` boot option when starting the installation. If you use this option without any parameters, [application]*Anaconda* will display a list of all storage devices connected to the system, and it will prompt you to select a device which contains a driver update.
+
+Manual driver update::
++
+You can specify the [option]`inst.dd=pass:attributes[{blank}]_location_pass:attributes[{blank}]` boot option when starting the installation, where _location_ is the path to a driver update disc or ISO image. When you specify this option, [application]*Anaconda* will attempt to load any driver updates it finds at the specified location. With manual driver updates, you can specify either locally available storage devices, or a network location (an `HTTP`, `HTTPS` or `FTP` server).
+
+[NOTE]
+====
+
+You can also use both [option]`inst.dd=pass:attributes[{blank}]_location_pass:attributes[{blank}]` and [option]`inst.dd` at the same time. However, what [application]*Anaconda* does in this case depends on the type of _location_ that you use. If it is a device, [application]*Anaconda* prompts you to select drivers to update from the specified device and then it offers you additional devices. If _location_ is a network location, [application]*Anaconda* first prompts you to select a device containing a driver update and then it lets you update drivers from the specified network location.
+
+====
+
+If you want to use the automatic driver update method, you must create a storage device labeled `OEMDRV`, and it must be physically connected to the installation system. To use the assisted method, you can use any local storage device any label other than `OEMDRV`. To use the manual method, you can use any local storage with a different label, or a network location accessible from the installation system.
+
+////
+[IMPORTANT]
+====
+Make sure to initialize the network using the [option]`ip=` option when loading a driver update from a network location. See <<sect-boot-options-installer>> for details.
+====
+////

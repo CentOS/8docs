@@ -1,0 +1,15 @@
+[id="installing-red-hat-enterprise-linux-on-ibm-power-system-accelerated-servers_{context}"]
+= Overview
+
+Use this information to install Red Hat Enterprise Linux on a non-virtualized, or bare metal IBM Power System accelerated server. This procedure follows these general steps:
+
+* Connect to the BMC firmware to set up network connection
+* Choose your installation method:
+** Install Red Hat Enterprise Linux from USB device
+** Install Red Hat Enterprise Linux from network
+* Install Red Hat Enterprise Linux
+
+[discrete]
+== Additional resources
+
+* For a list of supported {RHEL} versions, see link:https://www.ibm.com/support/knowledgecenter/linuxonibm/liaam/liaamdistros.htm[Supported Linux distributions for POWER8 and POWER9 Linux on Power systems].

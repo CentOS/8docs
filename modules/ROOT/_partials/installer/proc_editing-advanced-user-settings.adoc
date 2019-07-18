@@ -1,0 +1,34 @@
+[id="editing-advanced-user-settings_{context}"]
+= Editing advanced user settings
+
+Follow the steps in this procedure to edit the default settings for the user account in the *Advanced User Configuration* dialog box.
+
+.Procedure
+
+. Edit the details in the *Home directory* field, if required. The field is populated by default with [filename]`/home/pass:attributes[{blank}]_username_pass:attributes[{blank}]` .
+
+. In the *User and Groups IDs* section you can:
+
+.. Select the *Specify a user ID manually* check box and use the *+* or *-* to enter the required value.
++
+[NOTE]
+====
+The default value is 1000. User IDs (UIDs) 0-999 are reserved by the system so they cannot be assigned to a user.
+====
+
+.. Select the *Specify a group ID manually* check box and use the *+* or *-* to enter the required value.
++
+[NOTE]
+====
+The default group name is the same as the user name, and the default Group ID (GID) is 1000. GIDs 0-999 are reserved by the system so they can not be assigned to a user group.
+====
+
+. Specify additional groups as a comma-separated list in the *Group Membership* field. Groups that do not already exist are created; you can specify custom GIDs for additional groups in parentheses. If you do not specify a custom GID for a new group, the new group receives a GID automatically.
++
+[NOTE]
+====
+The user account created always has one default group membership (the user's default group with an ID set in the *Specify a group ID manually* field).
+====
+
+. Click *Save Changes* to apply the updates and return to the *Configuration* window.
+

@@ -1,0 +1,15 @@
+[id="installing-kickstart-maintenance-tools_{context}"]
+= Installing Kickstart maintenance tools
+
+To use the Kickstart maintenance tools, you must install the package that contains them.
+
+.Procedure
+
+* Install the [package]*pykickstart* package:
++
+----
+# yum install pykickstart
+----
+
+// rhel7: 26.2.2.1. Verifying the Kickstart File
+

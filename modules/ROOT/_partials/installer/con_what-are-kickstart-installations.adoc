@@ -1,0 +1,17 @@
+[id="what-are-kickstart-installations_{context}"]
+= What are Kickstart installations
+
+// originally from https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/chap-kickstart-installations and https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/installation_guide/index#sect-installation-planning-kickstart-x86
+
+Kickstart provides a way to automate the RHEL installation process, either partially or fully.
+
+Kickstart files contain some or all of the RHEL installation options. For example, the time zone, how the drives should be partitioned, or which packages should be installed. Providing a prepared Kickstart file allows an installation without the need for any user intervention. This is especially useful when deploying {RHEL} on a large number of systems at once.
+
+Kickstart files also provide more options regarding software selection. When installing {RHEL} manually using the graphical installation interface, the software selection is limited to pre-defined environments and add-ons. A Kickstart file allows you to install or remove individual packages as well.
+
+Kickstart files can be kept on a single server system and read by individual computers during the installation. This installation method supports the use of a single Kickstart file to install {RHEL} on multiple machines, making it ideal for network and system administrators.
+
+All Kickstart scripts and log files of their execution are stored in the [filename]`/tmp` directory of the newly installed system to assist with debugging installation issues.
+
+NOTE: In previous versions of {RHEL}, Kickstart could be used for upgrading systems. Starting with {RHEL7}, this functionality has been removed and system upgrades are instead handled by specialized tools. For details on upgrading to {RHEL8}, see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_to_rhel_8/index[Upgrading to RHEL 8] and link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/considerations_in_adopting_rhel_8/index[Considerations in adopting RHEL 8].
+

@@ -1,0 +1,77 @@
+[id="console-environment-and-display-boot-options_{context}"]
+= Console boot options
+
+This section contains information about configuring boot options for your console, monitor display, and keyboard.
+
+console=::
+Use the `console=` option to specify a device that you want to use as the primary console. For example, to use a console on the first serial port, use `console=ttyS0`. Use this option in conjunction with the `inst.text` option. You can use the `console=` option multiple times. If you do, the boot message is displayed on all specified consoles, but only the last one is used by the installation program. For example, if you specify `console=ttyS0 console=ttyS1`, the installation program uses `ttyS1`.
+
+noshell::
+Use the `noshell` option to disable access to the root shell during installation. This is useful with Kickstart installations.
+
+inst.lang=::
+Use the `inst.lang=` option to set the language that you want to use during the installation. `locale -a | grep _` or `localectl list-locales | grep _` returns a list of locales.
+
+inst.geoloc=::
+Use the `inst.geoloc=` option to configure geolocation usage in the installation program. Geolocation is used to preset the language and time zone, and uses the following syntax: `inst.geoloc=value`.
+The `value` can be any of the following parameters:
++
+.Values for the inst.geoloc boot option
+[options="header"]
+|===
+| Value  | Boot option format
+| Disable geolocation  | `inst.geoloc=0`
+| Use the Fedora GeoIP API  | `inst.geoloc=provider_fedora_geoip`
+| Use the Hostip.info GeoIP API  | `inst.geoloc=provider_hostip`
+|===
++
+If you do not specify the `inst.geoloc=` option, the installation program uses `provider_fedora_geoip`.
+
+inst.keymap=::
+Use the `inst.keymap=` option to specify the keyboard layout that you want to use for the installation.
+
+inst.text::
+Use the `inst.text` option to force the installation program to run in text mode instead of graphical mode.
+
+inst.cmdline::
+Use the `inst.cmdline` option to force the installation program to run in command-line mode. This mode does not allow any interaction, and you must specify all options in a Kickstart file or on the command line.
+
+inst.graphical::
+Use the `inst.graphical` option to force the installation program to run in graphical mode. This mode is the default.
+
+inst.resolution=::
+Use the `inst.resolution=` option to specify the screen resolution in graphical mode. The format is `NxM`, where _N_ is the screen width and _M_ is the screen height (in pixels). The lowest supported resolution is 1024x768.
+
+inst.xdriver=::
+Use the `inst.xdriver=` option to specify the name of the X driver that you want to use both during installation and on the installed system.
+
+inst.usefbx::
+Use the `inst.usefbx` option to prompt the installation program to use the frame buffer X driver instead of a hardware-specific driver. This option is equivalent to `inst.xdriver=fbdev`.
+
+modprobe.blacklist=::
+Use the `modprobe.blacklist=` option to blacklist or completely disable one or more drivers. Drivers (mods) that you disable using this option cannot load when the installation starts, and after the installation finishes, the installed system retains these settings. You can find a list of the blacklisted drivers in the `/etc/modprobe.d/` directory. Use a comma-separated list to disable multiple drivers. For example:
++
+[subs="macros"]
+----
+modprobe.blacklist=ahci,firewire_ohci
+----
+
+inst.sshd=0::
+By default, the `sshd` option is automatically started only on the IBM Z architecture. On other architectures, `sshd` is not started unless you use the `inst.sshd` option. Use the `inst.sshd=0` option to prevent `sshd` from starting automatically on IBM Z.
+
+inst.sshd::
+Use the `inst.sshd` option to start the `sshd` service during installation, so that you can connect to the system during the installation using SSH, and monitor the installation progress. For more information about SSH, see the `ssh(1)` man page. By default, the `sshd` option is automatically started only on the IBM Z architecture. On other architectures, `sshd` is not started unless you use the `inst.sshd` option.
++
+[NOTE]
+====
+During installation, the root account has no password by default. You can set a root password during installation with the `sshpw` Kickstart command.
+====
+
+inst.kdump_addon=::
+Use the `inst.kdump_addon=` option to enable or disable the Kdump configuration screen (add-on) in the installation program. This screen is enabled by default; use `inst.kdump_addon=off` to disable it. Disabling the add-on disables the Kdump screens in both the graphical and text-based interface as well as the `%addon com_redhat_kdump` Kickstart command.
+
+
+[discrete]
+== Additional resources
+
+* For a full list of boot options, see the link:https://github.com/rhinstaller/anaconda/blob/rhel-8.0/docs/boot-options.rst[upstream boot option] content.

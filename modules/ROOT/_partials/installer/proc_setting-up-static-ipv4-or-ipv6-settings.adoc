@@ -1,0 +1,26 @@
+[id="setting-up-static-ipv4-or-ipv6-settings_{context}"]
+= Setting up Static IPv4 or IPv6 Settings
+
+By default, both IPv4 and IPv6 are set to automatic configuration depending on current network settings. This means that addresses such as the local IP address, DNS address, and other settings will be detected automatically when the interface connects to a network. In many cases, this is sufficient, but you can also provide static configuration in the *IPv4 Settings* and *IPv6 Settings* tabs. Complete the following steps to configure IPv4 or IPv6 settings:
+
+.Procedure
+. To set static network configuration, navigate to one of the IPv Settings tabs and from the *Method* drop-down menu, select a method other than *Automatic*, for example, *Manual*.  The *Addresses* pane is enabled.
++
+[NOTE]
+====
+In the *IPv6 Settings* tab, you can also set the method to *Ignore* to disable IPv6 on this interface.
+====
+
+. Click btn:[Add] and enter your address settings.
+
+. Type the IP addresses in the *Additional DNS servers* field; it accepts one or more IP addresses of DNS servers, for example, [literal]`10.0.0.1,10.0.0.8`.
+
+. Select the *Require IPvpass:attributes[{blank}]_X_ addressing for this connection to complete* check box.
++
+[NOTE]
+====
+Select this option in the *IPv4 Settings* or *IPv6 Settings* tabs to allow this connection only if IPv4 or IPv6 was successful. If this option remains disabled for both IPv4 and IPv6, the interface is able to connect if configuration succeeds on either IP protocol.
+====
+
+. Click btn:[Save] to apply the changes and return to the *Network & Host name* window.
+

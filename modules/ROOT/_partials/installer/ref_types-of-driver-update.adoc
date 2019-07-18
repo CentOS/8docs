@@ -1,0 +1,24 @@
+[id="types-of-driver-update_{context}"]
+= Types of driver update
+
+Red Hat, your hardware vendor, or a trusted third party provides the driver update as an ISO image file. Once you receive the ISO image file, choose the type of driver update.
+
+.Types of driver update
+
+Automatic:: The recommended driver update method; a storage device (including a CD, DVD, or USB flash drive) labeled `OEMDRV` is physically connected to the system. If the `OEMDRV` storage device is present when the installation starts, it is treated as a driver update disk, and the installation program automatically loads its drivers.
+
+Assisted:: The installation program prompts you to locate a driver update. You can use any local storage device with a label other than `OEMDRV`. The `inst.dd` boot option is specified when starting the installation. If you use this option without any parameters, the installation program displays all of the storage devices connected to the system, and prompts you to select a device that contains a driver update.
+
+Manual:: Manually specify a path to a driver update image or an RPM package. You can use any local storage device with a label other than `OEMDRV`, or a network location accessible from the installation system. The `inst.dd=location` boot option is specified when starting the installation, where _location_ is the path to a driver update disk or ISO image. When you specify this option, the installation program attempts to load any driver updates found at the specified location. With manual driver updates, you can specify local storage devices, or a network location (HTTP, HTTPS or FTP server).
+
+[NOTE]
+====
+* You can use both `inst.dd=location` and `inst.dd` simultaneously, where _location_ is the path to a driver update disk or ISO image. In this scenario, the installation program attempts to load any available driver updates from the location and also prompts you to select a device that contains the driver update.
+
+* Initialize the network using the `ip= option` when loading a driver update from a network location.
+====
+
+.Limitations
+On UEFI systems with the Secure Boot technology enabled, all drivers must be signed with a valid certificate. Red Hat drivers are signed by one of Red Hat's private keys and authenticated by its corresponding public key in the kernel. If you load additional, separate drivers, verify that they are signed.
+
+//For more information about signing custom drivers, see the _Red Hat Enterprise Linux System Administrator's_ Guide.

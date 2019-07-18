@@ -1,0 +1,47 @@
+[id="powering-on-your-system-from-a-notebook-or-pc-running-windows_{context}"]
+= Powering on your system from a notebook or PC running Windows
+
+To power on your server from a notebook or PC running Windows, follow these steps:
+
+. Open a command prompt and change the directory to `C:\Program Files\sourceforge\ipmiutil`
+
+. To power on your server, run the following command
++
+----
+ipmiutil power -u -N ipaddress -P ipmi_password
+----
++
+Where _ipaddress_ is the IP address of the Power system and _ipmi_password_ is the password set up for IPMI.
+
+. Immediately activate your IPMI console by running this command:
++
+----
+ ipmiutil sol -a -r -N ipaddress -P ipmi_password
+----
+
+[TIP]
+====
+Use your keyboard up arrow to display the previous `ipmiutil` command. You can edit previous commands to avoid typing the entire command again.
+====
+
+[NOTE]
+====
+If you need to restart your system, follow these steps:
+. Deactivate the console by running this command:
+----
+ipmiutil sol -d -N ipaddress -P ipmi_password
+----
+. Power your system off with this command:
+----
+ipmiutil power -d -N ipaddress -P ipmi_password
+----
+. Power your system on with this command:
+----
+ipmiutil power -u -N ipaddress -P ipmi_password
+----
+====
+
+[NOTE]
+====
+If you have not already done so, insert your DVD into the DVD drive or confirm the installer image in your network.
+====

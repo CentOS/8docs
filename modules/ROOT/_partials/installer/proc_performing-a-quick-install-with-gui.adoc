@@ -1,0 +1,73 @@
+[id="performing-a-quick-install-with-gui_{context}"]
+= Performing a quick install on AMD64, Intel 64, and 64-bit ARM
+
+Follow this procedure to perform a quick installation on AMD64, Intel 64, and 64-bit ARM architectures using the graphical user interface.
+To complete this procedure you must be familiar with {productname} and your environment, and you must be able to accept the default settings provided by the installation program.
+
+[discrete]
+== Prerequisites
+
+ifdef::installation-title[]
+* You have downloaded the required ISO image file. See <<downloading-beta-installation-images_preparing-for-your-installation>> for more information.
+* You have created bootable installation media. See <<making-media_preparing-for-your-installation>> for more information.
+* You have booted the installation program and the boot menu is displayed. See <<booting-the-installer_installing-RHEL>> for more information.
+endif::[]
+ifndef::installation-title[]
+* You have downloaded the required ISO image file.
+* You have created bootable installation media.
+* You have booted the installation program and the boot menu is displayed.
+endif::[]
+
+
+[discrete]
+== Procedure
+
+. From the boot menu, select *Install Red Hat Enterprise Linux 8.0*.
+
+. Press the *Enter* key on your keyboard.
+
+. From the *Welcome to Red Hat Enterprise Linux 8.0* window, select your language and location.
+
+. Click *Continue* to proceed to the *Installation Summary* window.
++
+[NOTE]
+====
+The *Installation Summary* window is the central hub that you can use to configure the {productname} graphical user interface. The default settings assigned by the installation program are displayed under each category.
+====
++
+. From the *Installation Summary* window, accept the default *Localization* and *Software* options.
+. Select *System > Installation Destination*.
+.. From the *Local Standard Disks* pane, select the target disk.
+.. Click *Done* to accept the selection and the default setting of automatic partitioning, and return to the *Installation Summary* window.
+
+. Select *Network & Host Name*.
+.. Toggle the *Ethernet* switch to *ON* to enable network configuration.
+... Optional: Select a network device and click *Configure* to update the network interface configuration.
+.. Click *Done* to accept the changes and return to the *Installation Summary* window.
+
+. Optional: Select *Security Policy*.
+.. Select the profile that you require, and click *Select profile*.
+.. Click *Done* to accept the changes and return to the *Installation Summary* window.
+
+. Optional: Select *System Purpose*.
+.. Select the role, service level agreement, and usage.
+.. Click *Done* to accept the changes and return to the *Installation Summary* window.
+
+. Click *Begin Installation* to start the installation.
+
+. From the *Configuration* window, configure a root password and create a user account.
+
+. When the installation process is complete, click *Reboot* to restart the system.
+
+. From the *Initial Setup* window, accept the licensing agreement and register your system.
+
+ifdef::installation-title[]
+
+[discrete]
+== Additional resources
+
+* To learn more about how to prepare for your installation, see <<preparing-for-your-installation_installing-RHEL>>.
+* To learn more about installing {productname} using the graphical user interface, and customizing the interface settings, see <<graphical-installation-workflow_graphical-installation>>.
+* To learn more about how to register your system, see <<post-installation-tasks_installing-RHEL>>.
+
+endif::[]

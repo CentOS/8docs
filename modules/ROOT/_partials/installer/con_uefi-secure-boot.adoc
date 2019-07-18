@@ -1,0 +1,8 @@
+[id="uefi-secure-boot_{context}"]
+= UEFI Secure Boot for RHEL 8 beta releases
+
+UEFI Secure Boot requires that the operating system kernel is signed with a recognized private key. For Beta releases of {productname} {productnumber}, the kernel is signed with a Red{nbsp}Hat Beta-specific private key. UEFI Secure Boot then verifies the signature using the corresponding public key.
+
+A Beta release of {productname} {productnumber} cannot boot if the hardware does not recognize the Beta private key. To use UEFI Secure Boot with a Beta release, add the Red{nbsp}Hat Beta public key to your system using the Machine Owner Key (MOK) facility.
+
+//DO NOT DELETE THIS FILE - IT IS REQUIRED FOR BETA RELEASES OF RHEL 8. IT IS NOT REQUIRED FOR THE MAY 7 GA RELEASE BUT IT HAS BEEN THROUGH AN SME REVIEW BY JAN HLAVAC ON APRIL 26, AND CAN BE USED IN THE FIRST POST-8.0 BETA RELEASE.

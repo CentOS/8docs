@@ -1,0 +1,29 @@
+[id="configuring-fcoe-parameters_{context}"]
+= Configuring FCoE parameters
+
+Complete the following steps to configure FCoE parameters.
+
+.Prerequisite
+The *Installation Summary* window is open.
+
+.Procedure
+
+. From the *Installation Summary* window, click *Installation Destination*. The *Installation Destination* window opens, listing all available drives.
+
+. Under the *Specialized & Network Disks* section, click *Add a disk…​*. The storage devices selection window opens.
+
+. Click *dd FCoE SAN...* A dialog box opens for you to configure network interfaces for discovering FCoE storage devices.
+
+. Select a network interface that is connected to an FCoE switch in the `NIC` drop-down menu.
+
+. Click *Add FCoE disk(s)* to scan the network for SAN devices.
+
+. Select the required check boxes:
++
+* *Use DCB:*
+ _Data Center Bridging_ (DCB) is a set of enhancements to the Ethernet protocols designed to increase the efficiency of Ethernet connections in storage networks and clusters. Select the check box to enable or disable the installation program's awareness of DCB. Enable this option only for network interfaces that require a host-based DCBX client. For configurations on interfaces that use a hardware DCBX client, disable the check box.
++
+* *Use auto vlan:*
+ _Auto VLAN_ is enabled by default and indicates whether VLAN discovery should be performed. If this check box is enabled, then the FIP (FCoE Initiation Protocol) VLAN discovery protocol runs on the Ethernet interface when the link configuration has been validated. If they are not already configured, network interfaces for any discovered FCoE VLANs are automatically created and FCoE instances are created on the VLAN interfaces.
++
+. Discovered FCoE devices are displayed under the `Other SAN Devices` tab in the *Installation Destination* window.

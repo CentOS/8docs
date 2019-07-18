@@ -1,0 +1,89 @@
+[id="creating-a-bootable-usb-mac_{context}"]
+= Creating a bootable USB device on Mac OS X
+
+Follow the steps in this procedure to create a bootable USB device on a Mac OS X system.
+
+[discrete]
+== Prerequisites
+
+* You have downloaded an installation ISO image as described in <<downloading-beta-installation-images_preparing-for-your-installation>>.
+* The *Binary DVD* ISO image is larger than 4.7 GB, so you must have a USB flash drive that is large enough to hold the ISO image.
+
+
+[discrete]
+== Procedure
+
+[NOTE]
+====
+This procedure is destructive and data on the USB flash drive is destroyed without a warning.
+====
+
+. Connect the USB flash drive to the system.
+
+. Identify the device path with the [command]`diskutil list` command. The device path has the format of _/dev/disknumber_, where number is the number of the disk. The disks are numbered starting at zero (0). Typically, Disk 0 is the OS X recovery disk, and Disk 1 is the main OS X installation. In the following example, the USB device is `disk2`:
++
+[subs="quotes, macros, attributes"]
+----
+$ diskutil list
+/dev/disk0
+#:                       TYPE NAME                    SIZE       IDENTIFIER
+0:      GUID_partition_scheme                        *500.3 GB   disk0
+1:                        EFI EFI                     209.7 MB   disk0s1
+2:          Apple_CoreStorage                         400.0 GB   disk0s2
+3:                 Apple_Boot Recovery HD             650.0 MB   disk0s3
+4:          Apple_CoreStorage                         98.8 GB    disk0s4
+5:                 Apple_Boot Recovery HD             650.0 MB   disk0s5
+/dev/disk1
+#:                       TYPE NAME                    SIZE       IDENTIFIER
+0:                  Apple_HFS YosemiteHD             *399.6 GB   disk1
+Logical Volume on disk0s1
+8A142795-8036-48DF-9FC5-84506DFBB7B2
+Unlocked Encrypted
+/dev/disk2
+#:                       TYPE NAME                    SIZE       IDENTIFIER
+0:     FDisk_partition_scheme                        *8.0 GB     disk2
+1:               Windows_NTFS SanDisk USB             8.0 GB     disk2s1
+----
+
+
+. To identify your USB flash drive, compare the NAME, TYPE and SIZE columns to your flash drive. For example, the NAME should be the title of the flash drive icon in the *Finder* tool. You can also compare these values to those in the information panel of the flash drive.
+
+. Use the [command]`diskutil unmountDisk` command to unmount the flash drive's filesystem volumes:
++
+[subs="quotes, macros, attributes"]
+----
+$ diskutil unmountDisk /dev/disknumber
+					Unmount of all volumes on disknumber was successful
+----
++
+When the command completes, the icon for the flash drive disappears from your desktop. If the icon does not disappear, you may have selected the wrong disk. Attempting to unmount the system disk accidentally returns a *failed to unmount* error.
+
+. Log in as root:
++
+[subs="quotes, macros, attributes"]
+----
+$ su -
+----
+
+. Enter your root password when prompted.
+
+. Use the [command]`dd` command as a parameter of the sudo command to write the ISO image to the flash drive:
++
+[subs="quotes, macros, attributes"]
+----
+# sudo dd if=/path/to/image.iso of=/dev/rdisknumber bs=1m>
+----
++
+[NOTE]
+====
+Mac OS X provides both a block (/dev/disk*) and character device (/dev/rdisk*) file for each storage device. Writing an image to the /dev/rdisknumber character device is faster than writing to the /dev/disknumber block device.
+====
+
+. To write the _/Users/user_name/Downloads/rhel-8-x86_64-boot.iso_ file to the _/dev/rdisk2_ device, run the following command:
++
+[subs="quotes, macros, attributes"]
+----
+# sudo dd if=/Users/user_name/Downloads/rhel-8-x86_64-boot.iso of=/dev/rdisk2
+----
+
+. Wait for the [command]`dd` command to finish writing the image to the device. The data transfer is complete when the *#* prompt appears. When the prompt is displayed, log out of the root account and unplug the USB drive. The USB drive is now ready to be used as a boot device.

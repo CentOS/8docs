@@ -1,0 +1,25 @@
+[id="deprecated-kickstart-comands-and-options_{context}"]
+= Deprecated Kickstart comands and options
+
+The following Kickstart commands and options have been deprecated in {RHEL8}. Using them in Kickstart files will print a warning in the logs.
+
+* [command]`auth` or [command]`authconfig` - use [command]`authselect instead`
+* [command]`device`
+* [command]`deviceprobe`
+* [command]`dmraid`
+* [command]`install` - use the subcommands or methods directly as commands
+* [command]`lilo`
+* [command]`lilocheck`
+* [command]`mouse`
+* [command]`multipath`
+* [command]`bootloader --upgrade`
+* [command]`ignoredisk --interactive`
+* [command]`partition --active`
+* [command]`reboot --kexec`
+
+Where only specific options are listed, the base command and its other options are still available and not deprecated.
+
+Note also you can turn the deprecated command warnings into errors with the [option]`inst.ksstrict` boot option.
+
+// update also https://bugzilla.redhat.com/show_bug.cgi?id=1642765
+

@@ -1,0 +1,30 @@
+[id="creating-a-kickstart-file-with-the-kickstart-configuration-tool_{context}"]
+= Creating a Kickstart file with the Kickstart configuration tool
+
+Users with a {rh} Customer Portal account can use the Kickstart Generator tool in the Customer Portal Labs to generate Kickstart files online. This tool will walk you through the basic configuration and enables you to download the resulting Kickstart file.
+
+NOTE: The tool currently does not support any advanced partitioning.
+
+.Prerequisites
+
+* You must have a {rh} Customer Portal account.
+
+
+.Procedure
+
+. Open the Kickstart generator lab information page at https://access.redhat.com/labsinfo/kickstartconfig
++
+// . Read the current instructions.
+
+. Click the [GUI]*Go to Application* button to the left of heading and wait for the next page to load.
+
+. Select [GUI]*{RHEL8}* in the drop-down menu and wait for the page to update.
+
+. Describe the system to be installed using the fields in the form.
++
+You can use the links on the left side of the form to quickly navigate between sections of the form.
+
+. To download the generated Kickstart file, click the red [GUI]*Download* button at the top of the page.
++
+Your web browser will save the file.
+

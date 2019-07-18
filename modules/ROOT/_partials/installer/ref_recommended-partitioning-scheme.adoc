@@ -1,0 +1,80 @@
+[id='recommended-partitioning-scheme_{context}']
+= Recommended partitioning scheme
+
+Red{nbsp}Hat recommends that you create separate file systems at the following mount points:
+
+* `/boot`
+
+* `/` (root)
+
+* `/home`
+
+* `swap`
+
+* `/boot/efi`
+
+* `PReP`
+
+
+`/boot` partition - recommended size at least 1 GiB::
++
+The partition mounted on `/boot` contains the operating system kernel, which allows your system to boot {ProductName} {productnumber}, along with files used during the bootstrap process. Due to the limitations of most firmwares, creating a small partition to hold these is recommended. In most scenarios, a 1 GiB boot partition is adequate. Unlike other mount points, using an LVM volume for `/boot` is not possible - `/boot` must be located on a separate disk partition.
++
+WARNING: Normally, the `/boot` partition is created automatically by the installation program. However, if the `/` (root) partition is larger than 2{nbsp}TiB and (U)EFI is used for booting, you need to create a separate `/boot` partition that is smaller than 2{nbsp}TiB to boot the machine successfully.
++
+NOTE: If you have a RAID card, be aware that some BIOS types do not support booting from the RAID card. In such a case, the `/boot` partition must be created on a partition outside of the RAID array, such as on a separate hard drive.
+
+`root` - recommended size of 10 GiB::
++
+This is where "pass:attributes[{blank}]`/`pass:attributes[{blank}]", or the root directory, is located. The root directory is the top-level of the directory structure. By default, all files are written to this file system unless a different file system is mounted in the path being written to, for example, `/boot` or `/home`.
++
+While a 5{nbsp}GiB root file system allows you to install a minimal installation, it is recommended to allocate at least 10{nbsp}GiB so that you can install as many package groups as you want.
++
+IMPORTANT: Do not confuse the `/` directory with the `/root` directory. The `/root` directory is the home directory of the root user. The `/root` directory is sometimes referred to as _slash root_ to distinguish it from the root directory.
+
+`/home` - recommended size at least 1 GiB::
++
+To store user data separately from system data, create a dedicated file system for the `/home` directory. Base the file system size on the amount of data that is stored locally, number of users, and so on. You can upgrade or reinstall {ProductName} {productnumber} without erasing user data files. If you select automatic partitioning, it is recommended to have at least 55 GiB of disk space available for the installation, to ensure that the `/home` file system is created.
+
+`swap` partition - recommended size at least 1 GB::
++
+Swap file systems support virtual memory; data is written to a swap file system when there is not enough RAM to store the data your system is processing. Swap size is a function of system memory workload, not total system memory and therefore is not equal to the total system memory size. It is important to analyze what applications a system will be running and the load those applications will serve in order to determine the system memory workload. Application providers and developers can provide guidance.
++
+When the system runs out of swap space, the kernel terminates processes as the system RAM memory is exhausted. Configuring too much swap space results in storage devices being allocated but idle and is a poor use of resources. Too much swap space can also hide memory leaks. The maximum size for a swap partition and other additional information can be found in the `mkswap(8)` manual page.
++
+The following table provides the recommended size of a swap partition depending on the amount of RAM in your system and if you want sufficient memory for your system to hibernate. If you let the installation program partition your system automatically, the swap partition size is established using these guidelines. Automatic partitioning setup assumes hibernation is not in use. The maximum size of the swap partition is limited to 10 percent of the total size of the hard drive, and the installation program cannot create swap partitions more than 128 GB in size. To set up enough swap space to allow for hibernation, or if you want to set the swap partition size to more than 10 percent of the system's storage space, or more than 128 GB, you must edit the partitioning layout manually.
+
+`/boot/efi` partition - recommended size of 200 MiB::
+
+UEFI-based AMD64, Intel 64, and 64-bit ARM require a 200 MiB EFI system partition. The recommended minimum size is 200 MiB, the default size is 600 MiB, and the maximum size is 600 MiB.
+BIOS systems do not require an EFI system partition.
+
+.Recommended System Swap Space
+
+[options="header"]
+|===
+|Amount of RAM in the system|Recommended swap space|Recommended swap space if allowing for hibernation
+|Less than{nbsp}2 GB|2 times the amount of RAM|3 times the amount of RAM
+|2 GB - 8 GB|Equal to the amount of RAM|2 times the amount of RAM
+|8 GB - 64 GB|4 GB to 0.5 times the amount of RAM|1.5 times the amount of RAM
+|More than 64 GB|Workload dependent (at least 4GB)|Hibernation not recommended
+|===
+
+At the border between each range, for example, a system with 2{nbsp}GB, 8{nbsp}GB, or 64{nbsp}GB of system RAM, discretion can be exercised with regard to chosen swap space and hibernation support. If your system resources allow for it, increasing the swap space can lead to better performance.
+
+Distributing swap space over multiple storage devices - particularly on systems with fast drives, controllers and interfaces - also improves swap space performance.
+
+Many systems have more partitions and volumes than the minimum required. Choose partitions based on your particular system needs.
+// See <<sect-partitioning-advice>> for more information.
+
+[NOTE]
+====
+* Only assign storage capacity to those partitions you require immediately. You can allocate free space at any time, to meet needs as they occur.
+* If you are unsure about how to configure partitions, accept the automatic default partition layout provided by the installation program.
+====
+
+`PReP` boot partition - recommended size of 4 to 8 MiB::
+When installing {productname} on IBM Power System servers, the first partition of the hard drive should include a `PReP` boot partition. This contains the GRUB2 boot loader, which allows other IBM Power Systems servers to boot {productname}.
+
+// ...as described in <<installation-destination_graphical-installation>>.
+// To learn about a more flexible method for storage management, see <<appe-lvm-overview>>.

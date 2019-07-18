@@ -1,0 +1,37 @@
+[id="configuring-security-policy_{context}"]
+= Configuring a security policy
+
+Complete the following steps to configure a security policy.
+
+.Prerequisite
+
+The *Installation Summary* window is open.
+
+.Procedure
+
+. From the *Installation Summary* window, click *Security Policy*. The *Security Policy* window opens.
+
+. To enable security policies on the system, toggle the *Apply security policy* switch to *ON*.
+
+. Select one of the profiles listed in the top pane.
+
+. Click *Select profile*.
++
+Profile changes that you must apply before installation appear in the bottom pane.
++
+[NOTE]
+====
+The default profiles do not require changes before installation. However, loading a custom profile can require pre-installation tasks.
+====
+
+. Click *Change content* to use a custom profile.
+A separate window opens allowing you to enter a URL for valid security content.
+.. Click *Fetch* to retrieve the URL.
+.. Click *Use SCAP Security Guide* to return to the *Security Policy* window.
++
+[NOTE]
+====
+You can load custom profiles from an *HTTP*, *HTTPS*, or *FTP* server. Use the full address of the content including the protocol, such as *http://*. A network connection must be active before you can load a custom profile. The installation program detects the content type automatically.
+====
+
+. Click *Done* to apply the settings and return to the *Installation Summary* window.

@@ -1,0 +1,36 @@
+[id="boot-loader-installation_{context}"]
+= Configuring boot loader
+
+//TODO: This needs to be reworked to a concept and task modules
+
+{ProductName} uses GRand Unified Bootloader version 2 ([application]*GRUB2*) as the boot loader for AMD64 and Intel 64, IBM Power Systems, and ARM. For IBM{nbsp}Z, the *zipl* boot loader is used.
+
+The boot loader is the first program that runs when the system starts and is responsible for loading and transferring control to an operating system. [application]*GRUB2* can boot any compatible operating system (including Microsoft Windows) and can also use chain loading to transfer control to other boot loaders for unsupported operating systems.
+
+[WARNING]
+====
+Installing [application]*GRUB2* may overwrite your existing boot loader.
+====
+
+If an operating system is already installed, the {ProductName} installation program attempts to automatically detect and configure the boot loader to start the other operating system. If the boot loader is not detected, you can manually configure any additional operating systems after you finish the installation.
+//TODO: link to GRUB2 config docs for more details
+
+If you are installing a {RHEL} system with more than one disk, you might want to manually specify the disk where you want to install the boot loader.
+
+.Procedure
+
+. From the *Installation Destination* window, click the *Full disk summary and bootloader* link. The *Selected Disks* dialog box opens.
++
+The boot loader is installed on the device of your choice, or on a UEFI system; the *EFI system partition* is created on the target device during guided partitioning.
+
+. To change the boot device, select a device from the list and click *Set as Boot Device*. You can set only one device as the boot device.
+
+. To disable a new boot loader installation, select the device currently marked for boot and click *Do not install boot loader*. This ensures [application]*GRUB2* is not installed on any device.
+
+[WARNING]
+====
+If you choose not to install a boot loader, you cannot boot the system directly and you must use another boot method, such as a standalone commercial boot loader application. Use this option only if you have another way to boot your system.
+====
+
+The boot loader may also require a special partition to be created, depending on if your system uses BIOS or UEFI firmware, or if the boot drive has a _GUID Partition Table_ (GPT) or a *Master Boot Record* (MBR, also known as `msdos`) label. If you use automatic partitioning, the installation program creates the partition.
+//TODO: Add link to recommended partitioning scheme.

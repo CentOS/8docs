@@ -1,0 +1,81 @@
+[id="configuring-localization-settings_{context}"]
+= Configuring localization options
+
+This section contains information about configuring your keyboard, language support, and time and date settings.
+
+[IMPORTANT]
+====
+If you use a layout that cannot accept Latin characters, such as *Russian*, add the *English (United States)* layout and configure a keyboard combination to switch between the two layouts. If you select only a layout that does not have Latin characters, you might be unable to enter a valid [systemitem]`root` password and user credentials later in the installation process. This can prevent you from completing the installation.
+====
+
+== Configuring keyboard, language, and time and date settings
+
+[NOTE]
+====
+Keyboard, Language, and Time and Date Settings are configured by default as part of <<installing-rhel-using-anaconda_graphical-installation>>.
+To change any of the settings, complete the following steps, otherwise proceed to <<configuring-software-settings_graphical-installation>>.
+====
+
+.Procedure: Configuring keyboard settings
+
+. From the *Installation Summary* window, click *Keyboard*. The default layout depends on the option selected in <<installing-rhel-using-anaconda_graphical-installation>>.
+
+.. Click *+* to open the *Add a Keyboard Layout* window and change to a different layout.
+
+.. Select a layout by browsing the list or use the *Search* field.
+
+.. Select the required layout and click *Add*. The new layout appears under the default layout.
+
+.. Click *Options* to optionally configure a keyboard switch that you can use to cycle between available layouts.  The *Layout Switching Options* window opens.
+
+.. To configure key combinations for switching, select one or more key combinations and click *OK* to confirm your selection.
++
+[NOTE]
+====
+When you select a layout, click the *Keyboard* button to open a new dialog box that displays a visual representation of the selected layout.
+====
+
+.. Click *Done* to apply the settings and return to <<installation-summary_{context}>>.
+
+.Procedure: Configuring language settings
+
+. From the *Installation Summary* window, click *Language Support*. The *Language Support* window opens. The left pane lists the available language groups. If at least one language from a group is configured, a check mark is displayed and the supported language is highlighted.
+
+.. From the left pane, click a group to select additional languages, and from the right pane, select regional options. Repeat this process for languages that you require.
+
+.. Click *Done* to apply the changes and return to <<installation-summary_{context}>>.
+
+.Procedure: Configuring time and date settings
+
+. From the *Installation Summary* window, click *Time & Date*. The *Time & Date* window opens.
++
+[NOTE]
+====
+The *Time & Date* settings are configured by default based on the settings you selected in <<installing-rhel-using-anaconda_graphical-installation>>.
+
+The list of cities and regions come from the Time Zone Database ([package]`tzdata`) public domain that is maintained by the Internet Assigned Numbers Authority (IANA). {OrgName} can not add cities or regions to this database. You can find more information at the link:++http://www.iana.org/time-zones++[IANA official website].
+====
+
+.. From the *Region* drop-down menu, select a region.
++
+[NOTE]
+====
+Select *Etc* as your region to configure a time zone relative to Greenwich Mean Time (GMT) without setting your location to a specific region.
+====
+
+.. From the *City* drop-down menu, select the city, or the city closest to your location in the same time zone.
+
+.. Toggle the *Network Time* switch to enable or disable network time synchronization using the Network Time Protocol (NTP).
++
+[NOTE]
+====
+Enabling the Network Time switch keeps your system time correct as long as the system can access the internet. By default, one NTP pool is configured; you can add a new option, or disable or remove the default options by clicking the gear wheel button next to the btn:[Network Time] switch.
+====
+
+.. Click *Done* to apply the changes and return to <<installation-summary_{context}>>.
+
++
+[NOTE]
+====
+If you disable network time synchronization, the controls at the bottom of the window become active, allowing you to set the time and date manually.
+====

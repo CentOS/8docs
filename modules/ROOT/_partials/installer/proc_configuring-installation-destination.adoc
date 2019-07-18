@@ -1,0 +1,112 @@
+[id="configuring-system-settings_{context}"]
+= Configuring installation destination
+
+Use the *Installation Destination* window to configure the storage options, for example, the disks that you want to use as the installation target for your {ProductName} installation. You must select at least one disk.
+
+[WARNING]
+====
+Back up your data if you plan to use a disk that already contains data. For example, if you want to shrink an existing Microsoft Windows partition and install {ProductName} as a second system, or if you are upgrading a previous release of {ProductName}. Manipulating partitions always carries a risk. For example, if the process is interrupted or fails for any reason data on the disk can be lost.
+====
+
+[IMPORTANT]
+====
+.Special cases
+
+* Some BIOS types do not support booting from a RAID card. In these instances, the `/boot` partition must be created on a partition outside of the RAID array, such as on a separate hard drive. It is necessary to use an internal hard drive for partition creation with problematic RAID cards. A `/boot` partition is also necessary for software RAID setups.
+If you choose to partition your system automatically, you should manually edit your `/boot` partition.
+
+* To configure the {productname} boot loader to _chain load_ from a different boot loader, you must specify the boot drive manually by clicking the *Full disk summary and bootloader* link from the *Installation Destination* window.
+
+* When you install {productname} on a system with both multipath and non-multipath storage devices, the automatic partitioning layout in the installation program creates volume groups that contain a mix of multipath and non-multipath devices. This defeats the purpose of multipath storage. It is recommended that you select either multipath or non-multipath devices on the *Installation Destination* window. Alternatively, proceed to manual partitioning.
+
+====
+
+
+.Prerequisite
+
+The *Installation Summary* window is open.
+
+[discrete]
+= Procedure
+
+. From the *Installation Summary* window, click *Installation Destination*. The *Installation Destination* window opens.
+
+.. From the *Local Standard Disks* section, select the storage device that you require; a white check mark indicates your selection. Disks without a white check mark are not used during the installation process; they are ignored if you choose automatic partitioning, and they are not available in manual partitioning.
++
+[NOTE]
+====
+All locally available storage devices (SATA, IDE and SCSI hard drives, USB flash and external disks) are displayed under *Local Standard Disks*. Any storage devices connected after the installation program has started are not detected. If you use a removable drive to install {ProductName}, your system is unusable if you remove the device.
+====
+
+.. Optional: Click the *Refresh* link in the lower right-hand side of the window if you want to configure additional local storage devices to connect new hard drives. The *Rescan Disks* dialog box opens.
++
+[NOTE]
+====
+All storage changes that you make during the installation are lost when you click *Rescan Disks*.
+====
++
+... Click *Rescan Disks* and wait until the scanning process completes.
+
+... Click *OK* to return to the *Installation Destination* window. All detected disks including any new ones are displayed under the *Local Standard Disks* section.
+
+. Optional: To add a specialized storage device, click *Add a disk...*.
++
+The *Storage Device Selection* window opens and lists all storage devices that the installation program has access to. For information about how to add a specialized disk, see <<configuring-advanced-storage-options_storage-devices>>.
+
+. Optional: Under *Storage Configuration*, select the *Automatic* radio button.
++
+[IMPORTANT]
+====
+Automatic partitioning is the *recommended* method of partitioning your storage. You can also configure custom partitioning, for more details see <<manual-partitioning_graphical-installation>>
+====
+
+. Optional: To reclaim space from an existing partitioning layout, select the *I would like to make additional space available* check box. For example, if a disk you want to use already contains a different operating system and you want to make this system's partitions smaller to allow more room for {ProductName}.
+
+. Optional: Select *Encrypt my data* to encrypt all partitions except the ones needed to boot the system (such as `/boot`) using _Linux Unified Key Setup_ (LUKS). Encrypting your hard drive is recommended.
+//TODO: link to some LUKS docs when available for details
+
+.. If you selected *Encrypt my data* the *Disk Encryption Passphrase* dialog box opens.
+
+... Type your passphrase in the *Passphrase* and *Confirm* fields.
+//TODO: add a link to security doc talking about password strength and recommendations
+
+... Click *Save Passphrase* to complete disk encryption.
++
+[WARNING]
+====
+If you lose the LUKS passphrase, any encrypted partitions and their data is completely inaccessible. There is no way to recover a lost passphrase. However, if you perform a Kickstart installation, you can save encryption passphrases and create backup encryption passphrases during the installation. See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/[_Performing an advanced RHEL installation_] document for information.
+====
+
+. Optional: Click the *Full disk summary and bootloader* link in the lower left-hand side of the window to select which storage device contains the boot loader. For more information, see  <<boot-loader-installation_configuring-system-settings>>.
++
+[NOTE]
+====
+In most cases it is sufficient to leave the boot loader in the default location. Some configurations, for example, systems that require chain loading from another boot loader require the boot drive to be specified manually.
+====
+
+
+. Click *Done*.
+
+.. If you selected *automatic partitioning* and *I would like to make additional space available*, or if there is not enough free space on your selected hard drives to install {ProductName}, the *Reclaim Disk Space* dialog box opens when you click *Done*, and lists all configured disk devices and all partitions on those devices. The dialog box displays information about how much space the system needs for a minimal installation and how much space you have reclaimed.
++
+[WARNING]
+====
+If you *delete* a partition, all data on that partition is lost. If you want to preserve your data, use the *Shrink* option, not the *Delete* option.
+====
+
+.. Review the displayed list of available storage devices. The *Reclaimable Space* column shows how much space can be reclaimed from each entry.
+
+.. To reclaim space, select a disk or partition, and click either the *Delete* button to delete that partition, or all partitions on a selected disk, or click *Shrink* to use free space on a partition while preserving the existing data.
++
+[NOTE]
+====
+Alternatively, you can click *Delete all*, this deletes all existing partitions on all disks and makes this space available to {ProductName}. Existing data on all disks is lost.
+====
+
+.. Click *Reclaim space* to apply the changes and return to <<installation-summary_graphical-installation>>.
+
+
+[IMPORTANT]
+====
+No disk changes are made until you click *Begin Installation* on the *Installation Summary* window. The *Reclaim Space* dialog only marks partitions for resizing or deletion; no  action is performed.
+====

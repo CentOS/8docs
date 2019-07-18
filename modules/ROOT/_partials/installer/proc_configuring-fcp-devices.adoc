@@ -1,0 +1,38 @@
+[id="configuring-fcp-devices_{context}"]
+= Configuring FCP devices
+
+FCP devices enable IBM Z to use SCSI devices rather than, or in addition to, Direct Access Storage Device (DASD) devices. FCP devices provide a switched fabric topology that enables IBM Z systems to use SCSI LUNs as disk devices in addition to traditional DASD devices.
+
+.Prerequisites
+
+* The *Installation Summary* window is open.
+* For an FCP-only installation, remove the `DASD=` option from the CMS configuration file or the `rd.dasd=` option from the parameter file to indicate that no DASD is present.
+
+.Procedure
+
+. From the *Installation Summary* window, click *Installation Destination*. The *Installation Destination* window opens, listing all available drives.
+
+. Under the *Specialized & Network Disks* section, click *Add a disk…​*. The storage devices selection window opens.
+
+. Click *Add ZFCP LUN*. The *Add zFCP Storage Target* dialog box opens allowing you to add a FCP (Fibre Channel Protocol) storage device.
++
+IBM Z requires that you enter any FCP device manually so that the installation program can activate FCP LUNs. You can enter FCP devices either in the graphical installation, or as a unique parameter entry in the parameter or CMS configuration file. The values that you enter must be unique to each site that you configure.
+
+. Type the 4 digit hexadecimal device number in the *Device number* field.
+
+. Type the 16 digit hexadecimal World Wide Port Number (WWPN) in the *WWPN* field.
+
+. Type the 16 digit hexadecimal FCP LUN identifier in the *LUN* field.
+
+. Click *Start Discovery* to connect to the FCP device.
+
+The newly-added devices are displayed in the *System z Devices* tab of the *Installation Destination* window.
+
+[NOTE]
+====
+* Interactive creation of an FCP device is only possible in graphical mode. It is not possible to configure an FCP device interactively in text mode installation.
+
+* Use only lower-case letters in hex values. If you enter an incorrect value and click *Start Discovery*, the installation program displays a warning. You can edit the configuration information and retry the discovery attempt.
+
+* For more information about these values, consult the hardware documentation and check with your system administrator.
+====

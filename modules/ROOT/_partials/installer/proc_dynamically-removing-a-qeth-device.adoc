@@ -1,0 +1,38 @@
+[id="dynamically-removing-a-qeth-device_{context}"]
+= Dynamically removing a qeth device
+
+To remove a `qeth` device, use the [application]*znetconf* utility. For example:
+
+. Use the [application]*znetconf* utility to show you all configured network devices:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] znetconf -c
+Device IDs                 Type    Card Type      CHPID Drv. Name        	State
+--------------------------------------------------------------------------------------
+0.0.8036,0.0.8037,0.0.8038 1731/05 HiperSockets      FB qeth hsi1        	online
+0.0.f5f0,0.0.f5f1,0.0.f5f2 1731/01 OSD_1000          76 qeth enc9a0      online
+0.0.f500,0.0.f501,0.0.f502 1731/01 GuestLAN QDIO     00 qeth encf500      online
+....
+
+. Select the network device to be removed and run [command]`znetconf` to set the device offline and ungroup the `ccw`pass:attributes[{blank}]> group device.
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] znetconf -r f500
+Remove network device 0.0.f500 (0.0.f500,0.0.f501,0.0.f502)?
+Warning: this may affect network connectivity!
+Do you want to continue (y/n)?y
+Successfully removed device 0.0.f500 (encf500)
+....
+
+. Verify the success of the removal:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] znetconf -c
+Device IDs                 Type    Card Type      CHPID Drv. Name        	State
+--------------------------------------------------------------------------------------
+0.0.8036,0.0.8037,0.0.8038 1731/05 HiperSockets      FB qeth hsi1        	online
+0.0.f5f0,0.0.f5f1,0.0.f5f2 1731/01 OSD_1000          76 qeth enc9a0      online
+....

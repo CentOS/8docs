@@ -1,0 +1,13 @@
+[id="blacklisting-a-driver_{context}"]
+= Blacklisting a driver
+
+A malfunctioning driver can prevent a system from booting normally during installation. When this happens, you can disable (or blacklist) the driver by customizing the boot command line. At the boot menu, display the boot command line by pressing the kbd:[Tab] key. Then, append the [option]`modprobe.blacklist=pass:attributes[{blank}]_driver_name_pass:attributes[{blank}]` option to it. Replace _driver_name_ with names of a driver or drivers you want to disable, for example:
+
+[literal,subs="+quotes,verbatim"]
+....
+modprobe.blacklist=ahci
+....
+
+Note that the drivers blacklisted during installation using the [option]`modprobe.blacklist=` boot option will remain disabled on the installed system and appear in the `/etc/modprobe.d/anaconda-blacklist.conf` file. See
+//<<chap-anaconda-boot-options>>
+for more information about blacklisting drivers and other boot options.

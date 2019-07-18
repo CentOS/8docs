@@ -1,0 +1,16 @@
+[id="new-kickstart-comands-and-options_{context}"]
+= New Kickstart comands and options
+
+The following commands and options have been added in {RHEL8}.
+
+.RHEL 8.0
+
+* [command]`authselect`
+* [command]`module`
+
+// nvdimm is in rhel 7.6 so not listed
+
+// .RHEL 8.1 etc... ???
+
+// see also https://bugzilla.redhat.com/show_bug.cgi?id=1642765
+

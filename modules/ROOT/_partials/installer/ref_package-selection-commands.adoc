@@ -1,0 +1,104 @@
+[id="package-selection-commands_{context}"]
+= Package selection commands
+
+These commands can be used within the `%packages` section of a Kickstart file.
+
+
+Specifying an environment::
+Specify an entire environment to be installed as a line starting with the `@^` symbols:
++
+----
+%packages
+@^Infrastructure Server
+%end
+----
++
+This installs all packages which are part of the [GUI]`Infrastructure Server` environment. All available environments are described in the [filename]`__repository__/repodata/*-comps-__repository__.__architecture__.xml` file on the {RHEL8} Installation DVD.
++
+Only a single environment should be specified in the Kickstart file. If more environments are specified, only the last specified environment is used.
+
+
+Specifying groups::
+Specify groups, one entry to a line, starting with an `@` symbol, and then the full group name or group id as given in the [filename]`*-comps-__repository__.__architecture__.xml` file. For example:
++
+----
+%packages
+@X Window System
+@Desktop
+@Sound and Video
+%end
+----
++
+The [GUI]`Core` group is always selected - it is not necessary to specify it in the `%packages` section.
++
+// The [filename]`*-comps-__repository__.__architecture__.xml` file also defines groups called `Conflicts (__variant__)` for each variant of {RHEL}. This group contains all packages which are known to cause file conflicts, and is intended to be excluded.
++
+// TODO discuss the above with RTT if to be advertised, and fix names
+
+
+Specifying individual packages::
+Specify individual packages by name, one entry to a line. You can use the asterisk character (`*`) as a wildcard in package names. For example:
++
+----
+%packages
+sqlite
+curl
+aspell
+docbook*
+%end
+----
++
+The `docbook*` entry includes the packages `docbook-dtds` and `docbook-style` that match the pattern represented with the wildcard.
+
+
+Specifying profiles of module streams::
+Specify profiles for module streams, one entry to a line, using the syntax for profiles:
++
+----
+%packages
+@module:stream/profile
+%end
+----
++
+This installs all packages listed in the specified profile of the module stream.
++
+====
+* When a module has a default stream specified, you can leave it out. When the default stream is not specified, you must specify it.
+* When a module stream has a default profile specified, you can leave it out. When the default profile is not specified, you must specify it.
+* Installing a module multiple times with different streams is not possible.
+* Installing multiple profiles of the same module and stream is possible.
+====
++
+Modules and groups use the same syntax starting with the `@` symbol. When a module and a package group exist with the same name, the module takes precedence.
++
+In {RHEL8}, modules are present only in the AppStream repository. To list available modules, use the [command]`yum module list` command on an installed {RHEL8} system.
++
+It is also possible to enable module streams using the [command]`module` Kickstart command and then install packages contained in the module stream by naming them directly.
+
+
+Excluding environments, groups, or packages::
+Use a leading dash (`-`) to specify packages or groups to exclude from the installation. For example:
++
+----
+%packages
+-@Graphical Administration Tools
+-autofs
+-ipa*compat
+%end
+----
+
+
+[IMPORTANT]
+Installing all available packages using only `*` in a Kickstart file is not supported.
+
+//, even if you exclude the `@Conflicts (variant)` group.
+
+You can change the default behavior of the `%packages` section by using several options. Some options work for the entire package selection, others are used with only specific groups.
+
+
+.Additional resources
+
+* For more information about handling packages, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/installing-software-with-yum_configuring-basic-system-settings[Installing software with yum] chapter of the _Configuring basic system settings_ document.
+
+* For more information about modules and streams, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/installing_managing_and_removing_user_space_components/index[Installing, managing, and removing user space components] document.
+

@@ -1,0 +1,62 @@
+[id="starting-an-iscsi-session_{context}"]
+= Discovering and starting an iSCSI session
+
+Complete the following steps to discover and start an iSCSI session.
+
+.Prerequisites
+
+* The *Installation Summary* window is open.
+
+.Procedure
+
+. From the *Installation Summary* window, click *Installation Destination*. The *Installation Destination* window opens, listing all available drives.
+
+. Under the *Specialized & Network Disks* section, click *Add a disk...* The storage devices selection window opens.
+
+. Click *Add iSCSI target...* The *Add iSCSI Storage Target* window opens.
+
+. Enter the IP address of the iSCSI target in the *Target IP Address* field.
+
+. Type a name in the *iSCSI Initiator Name* field for the iSCSI initiator in iSCSI qualified name (IQN) format. A valid IQN entry contains the following information:
++
+** The string `iqn.` (note the period).
++
+** A date code that specifies the year and month in which your organization's Internet domain or subdomain name was registered, represented as four digits for the year, a dash, and two digits for the month, followed by a period. For example, represent September 2010 as `2010-09.`
++
+** Your organization's Internet domain or subdomain name, presented in reverse order with the top-level domain first. For example, represent the subdomain `storage.example.com` as `com.example.storage`.
++
+** A colon followed by a string that uniquely identifies this particular iSCSI initiator within your domain or subdomain. For example, `:diskarrays-sn-a8675309`.
++
+A complete IQN is as follows: `iqn.2010-09.storage.example.com:diskarrays-sn-a8675309`. The installation program prepopulates the `iSCSI Initiator Name` field with a name in this format to help you with the structure. For more information about IQNs, see [citetitle]_3.2.6. iSCSI Names_ in [citetitle]_RFC 3720 - Internet Small Computer Systems Interface (iSCSI)_ available from tools.ietf.org and [citetitle]_1. iSCSI Names and Addresses_ in [citetitle]_RFC 3721 - Internet Small Computer Systems Interface (iSCSI) Naming and Discovery_ available from tools.ietf.org.
+
+. Select the `Discovery Authentication Type` drop-down menu to specify the type of authentication to use for iSCSI discovery. The following options are available:
++
+** No credentials
++
+** CHAP pair
++
+** CHAP pair and a reverse pair
+
+. {blank}
++
+.. If you selected `CHAP pair` as the authentication type, enter the user name and password for the iSCSI target in the `CHAP Username` and `CHAP Password` fields.
++
+.. If you selected `CHAP pair and a reverse pair` as the authentication type, enter the user name and password for the iSCSI target in the `CHAP Username` and `CHAP Password` field, and the user name and password for the iSCSI initiator in the `Reverse CHAP Username` and `Reverse CHAP Password` fields.
+
+. Optionally, select the `Bind targets to network interfaces` check box.
+
+. Click *Start Discovery*.
++
+The installation program attempts to discover an iSCSI target based on the information provided.
+If discovery succeeds, the `Add iSCSI Storage Target` window displays a list of all iSCSI nodes discovered on the target.
+
+. Select the check boxes for the node that you want to use for installation.
++
+[NOTE]
+====
+The `Node login authentication type` menu contains the same options as the `Discovery Authentication Type` menu. However, if you need credentials for discovery authentication, use the same credentials to log in to a discovered node.
+====
+
+. Click the additional `Use the credentials from discovery` drop-down menu. When you provide the proper credentials, the *Log In* button becomes available.
+
+. Click *Log In* to initiate an iSCSI session.

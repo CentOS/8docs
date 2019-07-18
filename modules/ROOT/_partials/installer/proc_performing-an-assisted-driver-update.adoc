@@ -1,0 +1,38 @@
+[id="performing-an-assisted-driver-update_{context}"]
+= Performing an assisted driver update
+
+This procedure describes how to perform an assisted driver update during installation.
+
+[discrete]
+== Prerequisite
+
+You have connected a block device without an `OEMDRV` volume label to your system and copied the driver disk image to this device, or you have prepared a driver update CD or DVD and inserted it into your system's CD/DVD drive before starting the installation process.
+
+[NOTE]
+====
+If you burned an ISO image file to a CD or DVD but it does not have the `OEMDRV` volume label, you can use the `inst.dd` option with no arguments. The installation program provides an option to scan and select drivers from the CD or DVD. In this scenario, the installation program does not prompt you to select a driver update ISO image.
+Another scenario is to use the CD or DVD with the `inst.dd=location` boot option; this allows the installation program to automatically scan the CD or DVD for driver updates. For more information, see <<performing-a-manual-driver-update_updating-drivers-during-installation>>.
+====
+
+
+[discrete]
+== Procedure
+
+. From the boot menu window, press the *Tab* key on your keyboard to display the boot command line.
+
+. Append the `inst.dd` boot option to the command line and press *Enter* to execute the boot process.
+
+. From the menu, select a local disk partition or a CD or DVD device. The installation program scans for ISO files, or driver update RPM packages.
+
+. Optional: Select the driver update ISO file.
++
+[NOTE]
+====
+This step is not required if the selected device or partition contains driver update RPM packages rather than an ISO image file, for example, an optical drive containing a driver update CD or DVD.
+====
++
+. Select the required drivers.
+
+.. Use the number keys on your keyboard to toggle the driver selection.
+
+.. Press *c* to install the selected driver. The selected driver is loaded and the installation process starts.

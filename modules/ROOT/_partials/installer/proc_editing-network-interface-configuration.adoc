@@ -1,0 +1,29 @@
+[id='editing-network-interface-configuration_{context}']
+= Editing network interface configuration
+
+This section contains information about the most important settings for a typical wired connection used during installation. Configuration of other types of networks is broadly similar, although the specific configuration parameters might be different.
+
+[NOTE]
+====
+On IBM{nbsp}Z, you cannot add a new connection as the network subchannels need to be grouped and set online beforehand, and this is currently done only in the booting phase.
+====
+
+//TODO: link to networking docs for more detail about network config and booting for IBM Z for details.
+
+.Procedure
+
+. To configure a network connection manually, select the interface from the *Network and Host name* window and click btn:[Configure].
++
+An editing dialog specific to the selected interface opens.
+
+[NOTE]
+====
+The  options present depend on the connection type - the available options are slightly different depending on whether the connection type is a physical interface (wired or wireless network interface controller) or a virtual interface (Bond, Bridge, Team, or Vlan) that was previously configured in <<adding-a-virtual-network-interface_{context}>>.
+====
+
+//TODO: link to networking docs for more detail about various interfaces
+
+ifdef::installation-title[]
+The following sections contain information about the three most common and useful options in the editing dialog:
+endif::[]
+

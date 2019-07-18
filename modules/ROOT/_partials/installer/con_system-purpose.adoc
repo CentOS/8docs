@@ -1,0 +1,39 @@
+[id="system-purpose_{context}"]
+= Overview
+
+You can enter System Purpose data in the following ways:
+
+* During image creation.
+* During installation using the graphical user interface.
+* Using Kickstart automation scripts.
+* Using the `syspurpose` command-line tool.
+
+You can configure the following components:
+
+* *Role*:
+** {productname} Server
+** {productname} Workstation
+** {productname} Compute Node
+
+* *Service Level Agreement*:
+** Premium
+** Standard
+** Self-Support
+
+* *Usage*:
+** Production
+** Disaster Recovery
+** Development/Test
+
+Benefits include:
+
+* In-depth system-level information for system administrators and business operations.
+* Reduced overhead when determining why a system was procured and its intended purpose.
+* Improved customer experience of Subscription Manager auto-attach as well as automated discovery and reconciliation of system usage.
+
+[discrete]
+== Additional resources
+
+* For more information about Image Builder, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/composing_a_customized_rhel_system_image/index/[_Composing a customized RHEL system image_] document.
+* For more information about Kickstart, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/[_Performing an advanced RHEL installation_] document.
+* For more information about Subscription Manager, see the link:https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html-single/rhsm/index/[_Using and Configuring Red Hat Subscription Manager_] document.

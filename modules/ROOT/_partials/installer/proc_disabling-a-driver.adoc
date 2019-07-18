@@ -1,0 +1,28 @@
+[id="disabling-a-driver_{context}"]
+= Disabling a driver
+
+This procedure describes how to disable a malfunctioning driver.
+
+[discrete]
+== Prerequisites
+
+* You have booted the installation program boot menu.
+
+
+[discrete]
+== Procedure
+
+. From the boot menu, press the *Tab* key on your keyboard to display the boot command line.
+
+. Append the `modprobe.blacklist=driver_name` boot option to the command line.
+
+. Replace _driver_name_ with the name of the driver or drivers you want to disable, for example:
++
+[subs="quotes, macros, attributes"]
+----
+modprobe.blacklist=ahci
+----
++
+Drivers disabled using the `modprobe.blacklist=` boot option remain disabled on the installed system and appear in the `/etc/modprobe.d/anaconda-blacklist.conf` file.
+
+. Press *Enter* to execute the boot process.

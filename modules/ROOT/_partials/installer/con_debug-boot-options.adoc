@@ -1,0 +1,57 @@
+[id="debug-boot-options_{context}"]
+= Debug boot options
+
+This section contains information about the options that you can use when debugging issues.
+
+inst.rescue=::
+Use the `inst.rescue=` option to run the rescue environment. The option is useful for trying to diagnose and fix systems.
+
+inst.updates=::
+Use the `inst.updates=` option to specify the location of the `updates.img` file that you want to apply during installation. There are a number of sources for the updates.
++
+Updates from a network:::
+The easiest way to use `inst.updates=` is to specify the network location of `updates.img`. This does not require any modification to the installation tree. To use this method, edit the kernel command line to include `inst.updates`, for example:
++
+[subs="macros"]
+----
+inst.updates=http://some.website.com/path/to/updates.img
+----
++
+Updates from a disk image:::
++
+You can also save an `updates.img` on a floppy drive or a USB key. This can be done only with an `ext2` filesystem type of `updates.img`. To save the contents of the image on your floppy drive, insert the floppy disc and run the following command:
++
+[subs="macros"]
+----
+dd if=updates.img of=/dev/fd0 bs=72k count=20
+----
++
+To use a USB key or flash media, replace `/dev/fd0` with the device name of your USB key.
++
+Updates from an installation tree:::
++
+If you are using a CD, hard drive, HTTP, or FTP install, you can save the `updates.img` in the installation tree so that all installations can detect the .img. Save the file in the `images/` directory. The file name must be `updates.img`.
++
+For NFS installs, there are two options: You can either save the image in the `images/` directory, or in the `RHupdates/` directory in the installation tree.
+
+inst.loglevel=::
+Use the `inst.loglevel=` option to specify the minimum level of messages logged on a terminal. This concerns only terminal logging; log files always contain messages of all levels.
+Possible values for this option from the lowest to highest level are: `debug`, `info`, `warning`, `error` and `critical`. The default value is `info`, which means that by default, the logging terminal displays messages ranging from `info` to `critical`.
+
+inst.syslog=::
+When installation starts, the `inst.syslog=` option sends log messages to the `syslog` process on the specified host. The remote `syslog` process must be configured to accept incoming connections.
+
+inst.virtiolog=::
+Use the `inst.virtiolog=` option to specify the virtio port (a character device at `/dev/virtio-ports/name`) that you want to use for forwarding logs. The default value is `org.fedoraproject.anaconda.log.0`; if this port is present, it is used.
+////
+rd.live.ram::
+If the `rd.live.ram` option is specified, the `stage 2` image is copied into RAM. Using this option when the `stage 2` image is on an NFS server increases the minimum required memory by the size of the image by roughly 500 MiB.
+NEED Vendy Poncova to confirm when she returns from PTO
+////
+inst.nokill::
+The `inst.nokill` option is a debugging option that prevents the installation program from rebooting when a fatal error occurs, or at the end of the installation process. Use the `inst.nokill` option to capture installation logs which would be lost upon reboot.
+
+[discrete]
+== Additional resources
+
+* For a full list of boot options, see the link:https://github.com/rhinstaller/anaconda/blob/rhel-8.0/docs/boot-options.rst[upstream boot option] content.

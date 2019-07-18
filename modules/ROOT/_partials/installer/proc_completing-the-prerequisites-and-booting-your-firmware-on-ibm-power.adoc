@@ -1,0 +1,25 @@
+[id="completing-the-prerequisites-and-booting-your-firmware-on-ibm-power_{context}"]
+= Completing the prerequisites and booting your firmware
+
+Before you power on the system, ensure that you have the following items:
+
+* Ethernet cable
+* VGA monitor. The VGA resolution must be set to 1024x768-60Hz.
+* USB Keyboard
+* Power cords and outlet for your system.
+** PC or notebook that has IPMItool level 1.8.15 or greater. (Verifying this piece of info)
+** Bootable USB device
+
+*Complete these steps*:
+
+. If your system belongs in a rack, install your system into that rack. For instructions, see IBM Power Systems information at link:https://www.ibm.com/support/knowledgecenter/[https://www.ibm.com/support/knowledgecenter/].
+
+. Connect an Ethernet cable to the embedded Ethernet port next to the serial port on the back of your system. Connect the other end to your network.
+
+. Connect your VGA monitor to the VGA port on back of system.
+
+. Connect your USB keyboard to an available USB port.
+
+. Connect the power cords to the system and plug them into the outlets.
+
+At this point, your firmware is booting. Wait for the green LED on the power button to start flashing, indicating that it is ready to use. If your system does not have a green LED indicator light, then wait 1 to 2 minutes.

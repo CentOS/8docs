@@ -1,0 +1,30 @@
+[id="ibm-redbooks-publications-for-system-z_{context}"]
+= IBM Redbooks publications for System z
+
+Current versions of IBM Redbooks publications can be found at link:++http://www.redbooks.ibm.com/++[]. They include:
+
+.Introductory publications
+
+* Introduction to the New Mainframe: z/VM Basics, IBM Redbooks, 2007, SG24-7316
+
+* Practical Migration to Linux on System{nbsp}z, IBM Redbooks, 2009, SG24-7727
+
+.Performance and high availability
+
+* Linux on IBM System{nbsp}z: Performance Measurement and Tuning, IBM Redbooks, 2011, SG24-6926
+
+* Achieving High Availability on Linux for System{nbsp}z with Linux-HA Release 2, IBM Redbooks, 2009, SG24-7711
+
+.Security
+
+* Security for Linux on System{nbsp}z, IBM Redbooks, 2013, SG24-7728
+
+.Networking
+
+* IBM System{nbsp}z Connectivity Handbook, IBM Redbooks, 2013, SG24-5444
+
+* OSA Express Implementation Guide, IBM Redbooks, 2009, SG24-5948
+
+* HiperSockets Implementation Guide, IBM Redbooks, 2007, SG24-6816
+
+* Fibre Channel Protocol for Linux and z/VM on IBM System{nbsp}z, IBM Redbooks, 2007, SG24-7266

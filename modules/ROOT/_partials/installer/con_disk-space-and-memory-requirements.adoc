@@ -1,0 +1,48 @@
+[id="disk-space-and-memory-requirements_{context}"]
+= Disk space and memory requirements
+
+{ProductName} requires minimum the following amount of RAM:
+
+[options="header"]
+|===
+|Installation type|Minimum required RAM
+|Local media installation (USB, DVD)|1,280 MiB
+|NFS network installation|1,280 MiB
+|HTTP, HTTPS, or FTP network installation|1,664 MiB
+|===
+[NOTE]
+Installing {ProductName} using a Kickstart file has the same minimum RAM requirements as a manual installation. However, if you use a Kickstart file that runs commands which require additional memory or write data to the RAM disk, additional RAM might be necessary.
+
+{ProductName} requires minimum the following amount of disk space:
+
+[options="header"]
+|===
+|Amount|Requirements
+|10 GB of space in either unpartitioned disk space or in partitions which can be deleted.
+|The disk space used by {ProductName} must be separate from the disk space used by other operating systems that might be installed on your system.
+|===
+
+
+For IBM Power{nbsp}Systems servers, at least three partitions must be dedicated to {ProductName}.
+
+[options="header"]
+|===
+|Partition|Type
+|`/`|Root
+|`swap`|Swap
+|`PReP`|Boot
+|===
+
+
+
+
+[discrete]
+== Additional Resources
+
+* For more information about disk partitions, see
+// <<appe-disk-partitions-overview>>.
+
+* For more information about the minimum requirements and technology limits of Red{nbsp}Hat Enterprise{nbsp}Linux{nbsp}8, see the [citetitle]_link:++https://access.redhat.com/articles/rhel-limits++[Red{nbsp}Hat Enterprise{nbsp}Linux technology capabilities and limits]_ article on the Red{nbsp}Hat Customer Portal.
+
+* For more information on partition and disk space recommendations, see the recommended partitioning sizes discussed in
+// <<sect-recommended-partitioning-scheme-ppc>>.

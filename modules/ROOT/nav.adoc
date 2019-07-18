@@ -1,5 +1,1 @@
-* xref:architecture.adoc[Architecture]
-** xref:pizza-owen.adoc[Pizza Owen]
-** xref:pizza-dough.adoc[Pizza Dough]
-* xref:community.adoc[Community]
-* xref:faq.adoc[FAQ]
+//this needs to be empty

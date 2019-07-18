@@ -1,0 +1,30 @@
+// Module included in the following assemblies:
+//
+// <List assemblies here, each on a new line>
+
+// This module can be included from assemblies using the following include statement:
+// include::<path>/ref_system-purpose.adoc[leveloffset=+1]
+
+// The file name and the ID are based on the module title. For example:
+// * file name: ref_my-reference-a.adoc
+// * ID: [id='ref_my-reference-a_{context}']
+// * Title: = My reference A
+//
+// The ID is used as an anchor for linking to the module. Avoid changing
+// it after the module has been published to ensure existing links are not
+// broken.
+//
+// The `context` attribute enables module reuse. Every module's ID includes
+// {context}, which ensures that the module has a unique ID even if it is
+// reused multiple times in a guide.
+//
+// In the title, include nouns that are used in the body text. This helps
+// readers and search engines find information quickly.
+[id="system-purpose_{context}"]
+= System Purpose new in RHEL
+
+== System Purpose support in the graphical installation
+Previously, the {productname} installation program did not provide system purpose information to Subscription Manager. In {productname} 8, you can set the intended purpose of the system during a graphical installation by using the *System Purpose* window, or in a Kickstart configuration file by using the `syspurpose` command. When you set a system’s purpose, the entitlement server receives information that helps auto-attach a subscription that satisfies the intended use of the system.
+
+== System Purpose support in Pykickstart
+Previously, it was not possible for the `pykickstart` library to provide system purpose information to Subscription Manager. In {productname} 8, `pykickstart` parses the new `syspurpose` command and records the intended purpose of the system during automated and partially-automated installation. The information is then passed to the installation program, saved on the newly-installed system, and available for Subscription Manager when subscribing the system.

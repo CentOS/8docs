@@ -1,0 +1,106 @@
+[id="configuring-installation-source_{context}"]
+= Configuring installation source
+
+Follow the steps in this procedure to configure the Binary DVD ISO image as the installation source, which is the *recommended* method of installing {productname}.
+
+.Prerequisites
+
+ifdef::installation-title[]
+// this is for within the title
+* You have downloaded the Binary DVD ISO image as detailed in <<downloading-beta-installation-images_preparing-for-your-installation>>.
+* You have created bootable installation media as detailed in <<making-media_preparing-for-your-installation>>.
+* The *Installation Summary* window is open.
+endif::[]
+ifndef::installation-title[]
+// this is for NOT within the title
+* You have downloaded the full installation image.
+* You have created a bootable physical media.
+* The *Installation Summary* window is open.
+endif::[]
+
+
+[NOTE]
+====
+When the *Installation Summary* window first opens, the installation program attempts to configure an installation source based on the type of media that was used to boot the system. The full {ProductName} Server DVD configures the source as local media.
+====
+//TODO: based on comment from Martin in google doc review of graphical install.
+
+.Procedure
+
+. From the *Installation Summary* window, click *Installation Source*. The *Installation Source* window opens.
+
+.. Review the *Auto-detected installation* section to verify the details. This option is selected by default if you started the installation program from media containing an installation source, for example, a DVD.
+
+.. Click *Verify* to check the media integrity.
+
+.. Review the *Additional repositories* section and note that the *Appstream* checkbox is selected by default.
++
+[IMPORTANT]
+====
+* *No additional configuration is necessary as the BaseOS and Appstream repositories are installed as part of the full installation image.*
+* *Do not disable the Appstream repository check box if you want a full {RHEL8} installation.*
+====
+
+. Select the *On the network* option to download and install packages from a network location instead of local media.
++
+[NOTE]
+====
+* If you do not want to download and install additional repositories from a network location, proceed to <<configuring-software-selection_configuring-software-settings>>.
+* This option is available only when a network connection is active. See <<network-hostname_configuring-system-settings>> for information about how to configure network connections in the GUI.
+====
+
+.. Select the *On the network* drop-down menu to specify the protocol for downloading packages. This setting depends on the server that you want to use.
++
+[WARNING]
+====
+The Appstream repository check box is disabled if you select *On the network* and then decide to revert to *Auto-detected installation*. You must select the Appstream check box to enable the Appstream repository.
+====
+
+
+.. Type the server address (without the protocol) into the address field. If you choose NFS, a second input field opens where you can specify custom *NFS mount options*. This field accepts options listed in the `nfs(5)` man page.
++
+[IMPORTANT]
+====
+When selecting an NFS installation source, you must specify the address with a colon (`:`) character separating the host name from the path. For example:
+
+[subs="quotes, macros"]
+----
+`pass:attributes[{blank}]_server.example.com_:pass:attributes[{blank}]_/path/to/directory_pass:attributes[{blank}]`
+----
+====
++
+[NOTE]
+====
+The following steps are optional and are only required if you use a proxy for network access.
+====
+
+.. Click *Proxy setup...* to configure a proxy for an HTTP or HTTPS source.
+
+.. Select the *Enable HTTP proxy* check box and type the URL into the *Proxy Host* field.
+
+.. Select the *Use Authentication* check box if the proxy server requires authentication.
+
+.. Type in your user name and password.
+
+.. Click *OK* to finish the configuration and exit the *Proxy Setup...* dialog box.
++
+[NOTE]
+====
+If your HTTP or HTTPS URL refers to a repository mirror menu, select the required option from the *URL type* drop-down list. All environments and add-ons are available for selection when you finish configuring the sources.
+====
+
+
+. Click *+* to add a repository.
+
+. Click *-* to delete a repository.
+
+. Click the arrow icon to revert the current entries to the setting when you opened the *Installation Source* window.
+
+. To activate or deactivate a repository, click the check box in the *Enabled* column for each entry in the list.
++
+[NOTE]
+====
+You can name and configure your additional repository in the same way as the primary repository on the network.
+====
+
+. Click *Done* to apply the settings and return to the *Installation Summary* window.

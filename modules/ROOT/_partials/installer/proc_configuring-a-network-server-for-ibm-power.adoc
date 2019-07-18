@@ -1,0 +1,122 @@
+[id="configuring-a-network-server-for-ibm-power_{context}"]
+= Configuring a network server for IBM Power systems
+
+This procedure describes how to configure a network boot server for IBM Power systems using GRUB2.
+
+[discrete]
+== Procedure
+
+. As root, install the `tftp-server` package:
++
+[subs="macros"]
+----
+# yum install tftp-server
+----
+
+. Allow incoming connections to the `tftp service` in the firewall:
++
+[subs="macros"]
+----
+# firewall-cmd --add-service=tftp
+----
++
+[NOTE]
+====
+This command enables temporary access until the next server reboot. To enable permanent access, add the `--permanent` option to the command.
+====
+
+. Create a `GRUB2` network boot directory inside the tftp root.
++
+[subs="quotes, macros, attributes"]
+----
+# grub2-mknetdir --net-directory=/var/lib/tftpboot
+Netboot directory for powerpc-ieee1275 created. Configure your DHCP server to point to /boot/grub2/powerpc-ieee1275/core.elf
+----
++
+[NOTE]
+====
+The command's output informs you of the file name that needs to be configured in your DHCP configuration, described in this procedure.
+====
+
+.. If the PXE server runs on an x86 machine, the `grub2-ppc64-modules` must be installed before creating a `GRUB2` network boot directory inside the tftp root:
++
+[subs="quotes, macros, attributes"]
+----
+# yum install grub2-ppc64-modules
+----
+
+.  Create a `GRUB2` configuration file: `/var/lib/tftpboot/boot/grub2/grub.cfg`. Below is an example configuration file:
++
+[subs="quotes, macros, attributes"]
+----
+set default=0
+set timeout=5
+
+echo -e "\nWelcome to the Red Hat Enterprise Linux 8 installer!\n\n"
+
+menuentry 'Red Hat Enterprise Linux 8' {
+  linux grub2-ppc64/vmlinuz ro ip=dhcp inst.repo=http://10.32.5.1/mnt/archive/RHEL-8.0/Server/ppc64/os/
+  initrd grub2-ppc64/initrd.img
+}
+----
++
+[NOTE]
+====
+The `inst.repo=` option must be used to specify the installation program's image as well as the installation source. The installation program cannot boot without this option.
+====
+
+. Mount the Binary DVD ISO image using the command:
++
+[subs="quotes, macros, attributes"]
+----
+# mount -t iso9660 /path_to_image/name_of_iso/ /mount_point -o loop,ro
+----
+
+. Create a directory and copy the `initrd.img` and `vmlinuz` files from Binary DVD ISO image into it, for example:
++
+[subs="quotes, macros, attributes"]
+----
+# cp /mount_point/ppc/ppc64/{initrd.img,vmlinuz} /var/lib/tftpboot/grub2-ppc64/
+----
+
+. Configure your DHCP server to use the boot images packaged with `GRUB2`. A sample configuration in the `/etc/dhcp/dhcpd.conf` file might look like:
++
+[subs="quotes, macros, attributes"]
+----
+subnet 192.168.0.1 netmask 255.255.255.0 {
+  allow bootp;
+  option routers 192.168.0.5;
+  group { #BOOTP POWER clients
+    filename "boot/grub2/powerpc-ieee1275/core.elf";
+    host client1 {
+    hardware ethernet 01:23:45:67:89:ab;
+    fixed-address 192.168.0.112;
+    }
+  }
+}
+----
+
+. Adjust the sample parameters (`subnet`, `netmask`, `routers`, `fixed-address` and `hardware ethernet`) to fit your network configuration. Note the `file name` parameter; this is the file name that was outputted by the `grub2-mknetdir` command earlier in this procedure.
+
+. Start and enable the `dhcpd` service:
++
+[subs="macros"]
+----
+# systemctl start dhcpd
+# systemctl enable dhcpd
+----
+
+. Start and enable `xinetd` service that manages the `tftp` service:
++
+[subs="macros"]
+----
+# systemctl start xinetd
+# systemctl enable xinetd
+----
++
+The PXE boot server is now ready to serve PXE clients. You can start the client (the system to which you are installing {productname}), select *PXE Boot* when prompted to specify a boot source, and start the network installation.
+
+// add in additional resources when boot content ready so link can bee added
+// unavailable yet: * For information on the `grub.cfg` syntax, see the {productname} _Configuring and managing system administration_ guide.
+// For information on booting your Power system, see *link to be added*.
+// unavailable yet: * For information on DHCP servers, see the {productname} _Configuring and managing networks_ guide

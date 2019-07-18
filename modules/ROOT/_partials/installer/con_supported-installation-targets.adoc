@@ -1,0 +1,24 @@
+[id="supported-installation-targets_{context}"]
+= Supported installation targets
+
+An installation target is a storage device that stores {ProductName} and boots the system. {ProductName} supports the following installation targets for AMD64 and Intel{nbsp}64 systems:
+
+* Storage connected by a standard internal interface, such as SCSI, SATA, or SAS.
+
+* Fibre Channel Host Bus Adapters and multipath devices. Some of these devices may require vendor-provided drivers.
+
+* Virtualized installation on IBM Power{nbsp}Systems servers when using Virtual SCSI (vSCSI) adapters in virtual client LPARs.
+
+Red{nbsp}Hat does not support installation to USB drives or SD memory cards. For support information on third-party virtualization technologies, see the [citetitle]_Red{nbsp}Hat Hardware Compatibility List_, available online at link:++https://hardware.redhat.com++[].
+
+[IMPORTANT]
+====
+
+On IBM Power{nbsp}Systems servers, the eHEA module fails to initialize if 16GB _huge pages_ are assigned to a system or partition and the kernel command line does not contain the huge page parameters. When you perform a network installation through an IBM eHEA ethernet adapter, you cannot assign huge pages to the system or perform a partition during the installation. Use _large pages_ instead.
+
+====
+
+[discrete]
+== Additional resources
+
+* For information about the support for third-party virtualization technologies, see the [citetitle]_Red{nbsp}Hat Hardware Compatibility List_, available online at link:++https://hardware.redhat.com++[].

@@ -1,0 +1,28 @@
+[id='adding-a-virtual-network-interface_{context}']
+= Adding a virtual network interface
+Follow the steps in this procedure to add a virtual network interface.
+
+.Procedure
+
+. From the *Network & Host name* window, click the btn:[+] button to add a virtual network interface. The *Add a device* dialog opens.
+
+. Select one of the four available types of virtual interfaces:
++
+====
+* *Bond*: NIC (_Network Interface Controller_) Bonding, a method to bind multiple physical network interfaces together into a single bonded channel.
+
+* *Bridge*: Represents NIC Bridging, a method to connect multiple separate networks into one aggregate network.
+
+* *Team*: NIC Teaming, a new implementation to aggregate links, designed to provide a small kernel driver to implement the fast handling of packet flows, and various applications to do everything else in user space.
+
+* *Vlan* (_Virtual LAN_): A method to create multiple distinct broadcast domains which are mutually isolated.
+====
+
+. Select the interface type and click *Add*. An editing interface dialog box opens, allowing you to edit any available settings for your chosen interface type. For more information see <<editing-network-interface-configuration_network-hostname>>.
+
+. Click btn:[Save] to confirm the virtual interface settings and return to the *Network & Host name* window.
+
+[NOTE]
+====
+If you need to change the settings of a virtual interface, select the interface and click *Configure*.
+====

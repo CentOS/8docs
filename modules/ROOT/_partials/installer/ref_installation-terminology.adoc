@@ -1,0 +1,7 @@
+[id="installation-terminology_{context}"]
+= Installation terminology
+
+This section describes {productname} installation terminology. Different terminology can be used for the same concepts, depending on its upstream or downstream origin.
+
+*Anaconda*: The operating system installer used in Fedora, {productname}, and their derivatives. Anaconda is a set of Python modules and scripts with additional files like Gtk widgets (written in C), systemd units, and dracut libraries. Together, they form a tool that allows users to set parameters of the resulting (target) system.
+In this document, the term *installation program* refers to the installation aspect of *Anaconda*.

@@ -1,0 +1,61 @@
+[id="completing-initial-setup_{context}"]
+= Completing initial setup
+
+This section contains information about how to complete initial setup on a {productname} 8 system.
+
+[IMPORTANT]
+====
+If you selected the *Server with GUI* base environment during installation, the *Initial Setup* window opens the first time you reboot your system after the installation process is complete.
+====
+
+The information displayed in the *Initial Setup* window might vary depending on what was configured during installation. At a minimum, the *Licensing* and *Subscription Manager* options are displayed.
+
+
+[discrete]
+== Prerequisite
+
+* You have completed the graphical installation according to the recommended workflow described on <<graphical-installation-workflow_graphical-installation>>.
+* You have an active, non-evaluation {productname} subscription.
+
+[discrete]
+== Procedure
+
+. From the *Initial Setup* window, select *Licensing Information*.
++
+The *License Agreement* window opens and displays the licensing terms for Red Hat Enterprise Linux.
+
+. Review the license agreement and select the *I accept the license agreement* checkbox.
++
+[NOTE]
+====
+You must accept the license agreement. Exiting *Initial Setup* without completing this step causes a system restart. When the restart process is complete, you are prompted to accept the license agreement again.
+====
+
+. Click *Done* to apply the settings and return to the *Initial Setup* window.
++
+[NOTE]
+====
+If you did not configure network settings, you cannot register your system immediately. In this case, click *Finish Configuration*. {productname} 8 starts and you can login, activate access to the network, and register your system. See <<subscription-manager-post-install-ui_post-installation-tasks>> for more information.
+If you configured network settings, as described in <<network-hostname_configuring-system-settings>>, you can register your system immediately, as shown in the following steps:
+====
+
+. From the *Initial Setup* window, select *Subscription Manager*.
+. The *Subscription Manager* graphical interface opens and displays the option you are going to register, which is: *_subscription.rhsm.redhat.com_*.
+. Click *Next*.
+. Enter your *Login* and *Password* details and click *Register*.
+. Confirm the Subscription details and click *Attach*. You must receive the following confirmation message: *Registration with Red Hat Subscription Management is Done!*
+. Click *Done*. The *Initial Setup* window opens.
+. Click *Finish Configuration*. The login window opens.
+. Configure your system.
+See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_basic_system_settings/index/[_Configuring basic system settings_] document for more information.
+
+[discrete]
+== Additional resources
+
+There are four methods to register your system:
+
+* During installation using Initial Setup.
+* After installation using the command line. See <<subman-rhel8-setup_post-installation-tasks>> for more information.
+* After installation using the Subscription Manager user interface. See <<subscription-manager-post-install-ui_post-installation-tasks>> for more information.
+* After installation using Registration Assistant.
+Registration Assistant is designed to help you choose the most suitable registration option for your Red Hat Enterprise Linux environment. See https://access.redhat.com/labs/registrationassistant/ for more information.

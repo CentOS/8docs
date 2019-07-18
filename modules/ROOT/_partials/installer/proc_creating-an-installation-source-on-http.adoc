@@ -1,0 +1,80 @@
+[id="creating-an-installation-source-on-http_{context}"]
+= Creating an installation source using HTTP or HTTPS
+
+Follow the steps in this procedure to create an installation source for a network-based installation using an installation tree, which is a directory containing extracted contents of the Binary DVD ISO image and a valid [filename]`.treeinfo` file. The installation source is accessed over HTTP or HTTPS.
+
+[discrete]
+== Prerequisites
+
+* You have administor level access to a server with {RHEL8}, and this server is on the same network as the system to be installed.
+ifdef::installation-title[]
+* You have downloaded a Binary DVD ISO image. See <<downloading-beta-installation-images_preparing-for-your-installation>> for more information.
+* You have created a bootable CD, DVD, or USB device from the image file. See <<making-media_preparing-for-your-installation>> for more information.
+* You have verified that your firewall allows the system you are installing to access the remote installation source. See <<ports-for-network-based-installation_prepare-installation-source>> for more information.
+endif::[]
+ifndef::installation-title[]
+* You have downloaded a Binary DVD image. See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index#downloading-beta-installation-images_preparing-for-your-installation[Downloading the installation ISO image] from the _Performing a standard RHEL installation_ document for more information.
+* You have created a bootable CD, DVD, or USB device from the image file. See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index#making-media_preparing-for-your-installation[Creating installation media] from the _Performing a standard RHEL installation_ document for more information.
+* You have verified that your firewall allows the system you are installing to access the remote installation source. See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index#ports-for-network-based-installation_prepare-installation-source[Ports for network-based installation] from the _Performing a standard RHEL installation_ document for more information.
+endif::[]
+
+[discrete]
+== Procedure
+
+. Install the [package]`httpd` package:
++
+[subs="quotes, macros, attributes"]
+----
+# yum install httpd
+----
++
+[WARNING]
+====
+If your Apache web server configuration enables SSL security, verify that you enable only the TLSv1 protocol, and disable SSLv2 and SSLv3. This is due to the POODLE SSL vulnerability (CVE-2014-3566). See https://access.redhat.com/solutions/1232413 for details.
+====
++
+[IMPORTANT]
+====
+If you use an HTTPS server with a self-signed certificate, you must boot the installation program with the [option]`noverifyssl` option.
+====
+
+. Copy the Binary DVD ISO image to the HTTP(S) server.
+
+. Mount the Binary DVD ISO image, using the [command]`mount` command, to a suitable directory:
++
+[subs="quotes, macros, attributes"]
+----
+# mount -o loop,ro -t iso9660 _/image_directory/image.iso /mount_point/_
+----
++
+====
+* Replace _/image_directory/image.iso_ with the path to the Binary DVD ISO image.
+* Replace _/mount_point/_ with the path to the directory where you want to locate the contents of the ISO image.
+====
+
+. Copy the files from the mounted image to the HTTP(S) server root. This command creates the `/var/www/html/rhel8-install/` directory with the contents of the image.
++
+[subs="quotes, macros, attributes"]
+----
+# cp -r /mnt/rhel8-install/ /var/www/html/
+----
+
+. Start the `httpd` service:
++
+[subs="quotes, macros, attributes"]
+----
+# systemctl start httpd.service
+----
++
+The installation tree is now accessible and ready to be used as the installation source.
++
+[NOTE]
+====
+When configuring the installation source, use `http://` or `https://` as the protocol, the server host name or IP address, and the directory that contains the files from the ISO image, relative to the HTTP server root. For example, if you are using HTTP, the server host name is `myserver.example.com`, and you have copied the files from the image to `/var/www/html/rhel8-install/`, specify `http://myserver.example.com/rhel8-install/` as the installation source.
+====
+
+
+[discrete]
+== Additional resources
+
+* For more information about HTTP servers, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/index/[_Deploying different types of servers_] document.

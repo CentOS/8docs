@@ -1,0 +1,32 @@
+[id="starting-a-kickstart-installation-automatically-using-a-local-volume_{context}"]
+= Starting a Kickstart installation automatically using a local volume
+
+You can start a Kickstart installation by putting a Kickstart file with a specific name on a specifically labelled storage volume.
+
+
+.Prerequisites
+
+ifdef::installation-advanced-title[]
+* You must have a volume prepared with xref:making-a-kickstart-file-available-on-a-local-volume-for-automatic-loading_making-kickstart-files-available-to-the-installation-program[label `OEMDRV` and the Kickstart file present in its root as `ks.cfg`].
+endif::[]
+ifndef::installation-advanced-title[]
+* You must have a volume prepared with label `OEMDRV` and the Kickstart file present in its root as `ks.cfg`.
+endif::[]
+
+* A drive containing this volume must be available on the system as the installation program boots.
+
+
+.Procedure
+
+. Boot the system using a local media (a CD, DVD, or a USB flash drive).
+
+. At the boot prompt, specify the required boot options.
+
+..  If a required repository is in a network location, you may need to configure the network using the [option]`ip=` option. The installer tries to configure all network devices using the DHCP protocol by default without this option.
+
+..  In order to access a software source from which necessary packages will be installed, you may need to add the [option]`inst.repo=` option. If you do not specify this option, you must specify the installation source in the Kickstart file.
+
+.  Start the installation by confirming your added boot options. 
++
+The installation begins now, and the Kickstart file is automatically detected and used to start an automated Kickstart installation.
+

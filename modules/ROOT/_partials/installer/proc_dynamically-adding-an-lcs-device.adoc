@@ -1,0 +1,54 @@
+[id="dynamically-adding-an-lcs-device_{context}"]
+= Dynamically adding an LCS device
+
+. Load the device driver:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] modprobe lcs
+....
+
+. Use the [command]`cio_ignore` utility to remove the network channels from the list of ignored devices and make them visible to Linux:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] cio_ignore -r read_device_bus_id,write_device_bus_id
+....
++
+Replace _read_device_bus_id_ and _write_device_bus_id_ with the two device bus IDs representing a network device. For example:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] cio_ignore -r 0.0.09a0,0.0.09a1
+....
+
+. Create the group device:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] echo read_device_bus_id,write_device_bus_id > /sys/bus/ccwgroup/drivers/lcs/group
+....
+
+. Configure the device. OSA cards can provide up to 16 ports for a single CHPID. By default, the LCS group device uses port `0`. To use a different port, issue a command similar to the following:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] echo portno > /sys/bus/ccwgroup/drivers/lcs/device_bus_id/portno
+....
++
+Replace _portno_ with the port number you want to use.
+
+. Set the device online:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] echo 1 > /sys/bus/ccwgroup/drivers/lcs/read_device_bus_id/online
+....
+
+. To find out what network device name has been assigned, enter the command:
++
+[literal,subs="+quotes,verbatim,macros"]
+....
+pass:quotes[`#`] ls -l /sys/bus/ccwgroup/drivers/lcs/read_device_bus_ID/net/
+drwxr-xr-x 4 root root 0 2010-04-22 16:54 enc600
+....

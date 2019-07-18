@@ -1,0 +1,48 @@
+[id="downloading-an-iso-image-with-curl_{context}"]
+= Downloading an ISO image using curl
+
+Use the `curl` command to download installation images directly from a specific URL.
+
+[discrete]
+== Prerequisites
+
+* Verify the curl package is installed:
++
+====
+
+* If your distribution uses the *yum* package manager:
++
+....
+# yum install curl
+....
+
+* If your distribution uses the *dnf* package manager:
++
+....
+# dnf install curl
+....
+
+* If your distribution uses the *apt* package manager:
++
+....
+# apt update
+# apt install curl
+....
+
+* If your Linux distribution does not use yum, dnf, or apt, or if you do not use Linux, download the most appropriate software package from the https://curl.haxx.se/download.html[curl web site].
+====
+
+* You have navigated to the *Product Downloads* section of the Red Hat Customer Portal at link:https://access.redhat.com/downloads[], and selected the variant, version, and architecture that you require. You have right-clicked on the required ISO image file, and selected *Copy Link Location* to copy the URL of the ISO image file to your clipboard.
+
+[discrete]
+== Procedure
+
+.  On the command line, enter a suitable directory, and run the following command to download the file:
++
+[subs="quotes"]
+....
+$ curl --output _directory-path/filename.iso_ __'copied_link_location'__
+....
++
+Replace _directory-path_ with a path to the location where you want to save the file; replace _filename.iso_ with the ISO image name as displayed in the Customer Portal; replace _copied_link_location_ with the link that you have copied from the Customer Portal.
++

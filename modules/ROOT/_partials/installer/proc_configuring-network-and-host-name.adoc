@@ -1,0 +1,34 @@
+[id="configuring-network-and-host-name_{context}"]
+= Configuring network and host name
+
+Follow the steps in this procedure to configure your network and host name.
+
+.Procedure
+
+. From the *Installation Summary* window, click *Network and Host Name*.
+
+. From the list in the left-hand pane, select an interface. The details are displayed in the right-hand pane.
+
+. Toggle the btn:[ON/OFF] switch to enable or disable the selected interface.
++
+[NOTE]
+====
+Locally accessible interfaces are automatically detected by the installation program and cannot be manually added or deleted.
+====
+
+. Click *+* to add a virtual network interface, which can be either: Team, Bond, Bridge, or VLAN.
+
+. Click *-* to remove a virtual interface.
+
+. Click *Configure* to change settings such as IP addresses, DNS servers, or routing configuration for an existing interface (both virtual and physical).
+
+. Type a host name for your system in the *Host Name* field.
++
+[NOTE]
+====
+* There are several types of network device naming standards used to identify network devices with persistent names, for example, `em1` and `wl3sp0`. For information about these standards, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/index/[_Configuring and managing networking_] document.
+
+* The host name can be either a fully-qualified domain name (FQDN) in the format hostname.domainname, or a short host name with no domain name. Many networks have a Dynamic Host Configuration Protocol (DHCP) service that automatically supplies connected systems with a domain name. To allow the DHCP service to assign the domain name to this machine, specify only the short host name. The value `localhost.localdomain` means that no specific static host name for the target system is configured, and the actual host name of the installed system is configured during the processing of the network configuration, for example, by NetworkManager using DHCP or DNS.
+====
+
+. Click *Apply* to apply the host name to the environment.

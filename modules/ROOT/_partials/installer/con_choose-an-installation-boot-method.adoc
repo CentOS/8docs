@@ -1,0 +1,23 @@
+[id='choose-an-installation-boot-method_{context}'']
+= Choose an installation boot method
+
+There are several methods to boot the {productname} installation program. The method you choose depends on your installation media.
+
+Full installation DVD or USB flash drive::
+Create a full installation DVD or USB flash drive using the *Binary DVD ISO* image. The DVD or USB flash drive can be used as a boot device and as an installation source for installing software packages. Due to the size of the Binary DVD ISO image, a DVD or USB flash drive are the recommended media types.
+
+Minimal installation DVD, CD, or USB flash drive::
+Create a minimal installation CD, DVD, or USB flash drive using the *Boot ISO* image, which contains only the minimum files necessary to boot the system and start the installation program. The *Boot ISO* image requires an installation source that contains the required software packages.
+
+PXE Server::
+A _preboot execution environment_ (PXE) server allows the installation program to boot over the network. After a system boot, you must complete the installation from a different installation source, such as a local hard drive or a network location.
+
+
+[discrete]
+== Additional Resources
+
+ifdef::installation-title[]
+* For instructions on how to create an installation DVD or USB flash drive, see <<making-media_preparing-for-your-installation>> for more information.
+* For instructions on how to create a bootable DVD, CD, and USB flash drive, see <<prepare-installation-source_preparing-for-your-installation>> for more information.
+endif::[]
+* For more information about PXE servers, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/[_Performing an advanced RHEL installation_] document.

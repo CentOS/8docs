@@ -1,0 +1,25 @@
+[id="criteria-for-using-an-nvdimm-device-as-an-installation-target_{context}"]
+= Criteria for using an NVDIMM device as an installation target
+
+You can install {RHEL8} to Non-Volatile Dual In-line Memory Module (NVDIMM) devices in sector mode on the Intel 64 and AMD64 architectures, supported by the *nd_pmem* driver.
+
+
+.Conditions for using an NVDIMM device as storage
+
+To use an NVDIMM device as storage, the following conditions must be satisfied:
+
+* The architecture of the system is Intel 64 or AMD64.
+* The NVDIMM device is configured to sector mode. The installation program can reconfigure NVDIMM devices to this mode.
+* The NVDIMM device must be supported by the *nd_pmem* driver.
+
+
+.Conditions for booting from an NVDIMM Device
+
+Booting from an NVDIMM device is possible under the following conditions:
+
+* All conditions for using the NVDIMM device as storage are satisfied.
+* The system uses UEFI.
+* The NVDIMM device must be supported by firmware available on the system, or by an UEFI driver. The UEFI driver may be loaded from an option ROM of the device itself.
+* The NVDIMM device must be made available under a namespace.
+
+Utilize the high performance of NVDIMM devices during booting, place the [filename]`/boot` and [filename]`/boot/efi` directories on the device. The Execute-in-place (XIP) feature of NVDIMM devices is not supported during booting and the kernel is loaded into conventional memory.

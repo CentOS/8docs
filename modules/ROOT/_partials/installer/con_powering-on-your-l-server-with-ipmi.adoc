@@ -1,0 +1,17 @@
+[id="powering-on-your-l-server-with-ipmi_{context}"]
+= Powering on your L server with IPMI
+
+Intelligent Platform Management Interface (IPMI) is the default console to use when you configure your Power system. If you are using a Linux notebook or PC, use the `ipmitool` utility. If you are using a Windows notebook or PC, use the `ipmiutil` utility.
+
+As the system powers up, you might notice the following actions:
+
+* System reference codes appear on the control panel display while the system is being started.
+
+* The system cooling fans are activated after approximately 30 seconds and accelerate to operating speed.
+
+* The power LED on the control panel stops flashing and remains on, indicating that system power is on.
+
+[NOTE]
+====
+After your system powers on, the Petitboot interface loads. If you do not interrupt the boot process by pressing any key within 10 seconds, Petitboot automatically boots the first option.
+====

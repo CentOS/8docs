@@ -1,0 +1,77 @@
+[id="installation-source-boot-options_{context}"]
+= Installation source boot options
+
+This section contains information about the various installation source boot options.
+
+inst.repo=::
+
+The `inst.repo=` boot option specifies the installation source, that is, the location of images and packages. For example: `inst.repo=cdrom`.
+The target of the `inst.repo=` option must be one of the following installation media:
+
+* an installable tree, which is a directory structure containing the installation program images, packages, and repository data as well as a valid `.treeinfo` file
+* a DVD (a physical disk present in the system DVD drive)
+* an ISO image of the full Red Hat Enterprise Linux installation DVD, placed on a hard drive or a network location accessible to the system.
++
+You can use the `inst.repo=` boot option to configure different installation methods using different formats. The following table contains details of the `inst.repo=` boot option syntax:
++
+.Installation source boot options
+[options="header"]
+|===
+| Installation source  | Boot option format
+| Any CD/DVD drive  | `inst.repo=cdrom`
+| Specific CD/DVD drive   | `inst.repo=cdrom:device`
+| Hard Drive | `inst.repo=hd:device:/path`
+| HMC  | `inst.repo=hmc`
+| HTTP Server | `inst.repo=http://host/path`
+| HTTPS Server | `inst.repo=https://host/path`
+| FTP Server   | `inst.repo=ftp://username:password@host/path`
+| NFS Server  | `inst.repo=nfs:[options:]server:/path`
+|===
++
+[NOTE]
+====
+The NFS Server option uses NFS protocol version 3 by default. To use a different version, add `+nfsvers=X` to the option.
+====
++
+You can set disk device names with the following formats:
+
+* Kernel device name, for example `/dev/sda1` or `sdb2`
+* File system label, for example `LABEL=Flash` or `LABEL=RHEL8`
+* File system UUID, for example `UUID=8176c7bf-04ff-403a-a832-9557f94e61db`
++
+Non-alphanumeric characters must be represented as `\xNN`, where _NN_ is the hexadecimal representation of the character. For example, `\x20` is a white space `(" ")`.
+
+inst.stage2=::
+
+The `inst.stage2=` boot option specifies the location of the installation program runtime image. This option expects a path to a directory containing a valid `.treeinfo` file. The location of the runtime image is read from the `.treeinfo` file. If the `.treeinfo` file is not available, the installation program attempts to load the image from `LiveOS/squashfs.img`.
+
+[NOTE]
+====
+By default, the `inst.stage2=` boot option is used on the installation media and is set to a specific label, for example, `inst.stage2=hd:LABEL=RHEL-8-0-0-BaseOS-x86_64`. If you modify the default label of the file system containing the runtime image, or if you use a customized procedure to boot the installation system, you must verify that the `inst.stage2=` boot option is set to the correct value.
+====
+
+inst.stage2.all::
+
+You can use the `inst.stage2.all` boot option to specify several HTTP, HTTPS, or FTP sources by using the `inst.stage.2=` boot option multiple times. The sources are run sequentially until one succeeds.
+For example:
+
++
+[subs="macros"]
+----
+inst.stage2.all
+inst.stage2=http://hostname1/path_to_install_tree/
+inst.stage2=http://hostname2/path_to_install_tree/
+inst.stage2=http://hostname3/path_to_install_tree/
+----
++
+
+inst.dd=::
+The `inst.dd=` boot option is used to perform a driver update during the installation. See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/[_Performing an advanced RHEL installation_] document for information on how to update drivers during installation.
+
+inst.repo=hmc::
+When booting from a Binary DVD, the installation program prompts you to enter additional kernel parameters. To set the DVD as an installation source, append `inst.repo=hmc` to the kernel parameters. The installation program then enables `SE` and `HMC` file access, fetches the images for stage2 from the DVD, and provides access to the packages on the DVD for software selection. This option eliminates the requirement of an external network setup and expands the installation options.
+
+[discrete]
+== Additional resources
+
+* For a full list of boot options, see the link:https://github.com/rhinstaller/anaconda/blob/rhel-8.0/docs/boot-options.rst[upstream boot option] content.

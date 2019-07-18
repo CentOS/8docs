@@ -1,0 +1,14 @@
+[id="installation-options_{context}"]
+= Installation option
+
+The recommended installation option for experienced users is:
+
+* Option 1: Installing {productname} using KickStart
+
+
+
+
+[discrete]
+== Additional resources
+
+* If you are a new user of {productname}, see the _Installing RHEL as a new user_ guide for information.
