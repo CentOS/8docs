@@ -1,6 +1,7 @@
-name: 8-partials
-title: CentOS 8 Partials directory
+name: 8-docs
+title: CentOS 8 Documentation
 version: master
 start_page: index
 nav:
-  - modules/ROOT/nav.adoc
+  - modules/standard-install/nav.adoc
+  - modules/advanced-install/nav.adoc

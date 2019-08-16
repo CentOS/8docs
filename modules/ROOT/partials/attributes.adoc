@@ -1,0 +1,31 @@
+:Year: 2019
+
+// Red Hat and divisions
+:RH: CentOS
+:OrgName: {RH}
+
+// The product (RHEL)
+:ProductName: {RH}
+:RHEL: {RH}
+:ProductShortName: {RH}
+// This is the version displayed under "Red Hat Enterprise Linux"
+:ProductNumber: 8
+:RHEL8: {RHEL}{nbsp}8
+:RHEL7: {RHEL}{nbsp}7
+//:ProductRelease: Beta
+
+:experimental:
+
+// Identity Management attributes
+
+:IPA: Identity{nbsp}Management
+:aIPA: an Identity{nbsp}Management
+:AD: Active{nbsp}Directory
+:RH: Red{nbsp}Hat
+:DS: Directory{nbsp}Server
+:CS: Certificate{nbsp}System
+:SSSD: System Security Services Daemon
+:AD: Active{nbsp}Directory
+
+// ++ for using in things like g++ that are NOT capitalized C++ = {cpp}
+:plus2: &#x002b;&#x002b;

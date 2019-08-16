@@ -1,0 +1,8 @@
+:ProjectName: Performing a standard RHEL installation
+// The subtitle of the title
+:Subtitle: Installing {productname} 8 using the graphical user interface
+// The abstract of the title
+:Abstract: This document is for users who want to perform a standard {productname} 8 installation using the graphical user interface.
+
+// The name of the title for the purposes of {context}
+:ProjectNameID: installing-{ProductShortName}

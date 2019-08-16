@@ -1,13 +1,13 @@
 site:
   title: CentOS Documentation
-  start_page: 8-partials::index
+  start_page: 8-docs::index
 content:
   sources:
    - url: .
      branches: HEAD
 ui:
   bundle:
-    url: https://docs.centos.org/_bundle/ui-bundle.zip
+    url: http://file.brq.redhat.com/~pbokoc/ui-bundle.zip
     snapshot: true
   default_layout: default
 output:
