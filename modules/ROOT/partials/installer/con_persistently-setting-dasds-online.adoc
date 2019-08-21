@@ -1,6 +1,0 @@
-[id="persistently-setting-dasds-online_{context}"]
-= Persistently setting DASDs online
-//These comments in this module refer to content in "Preparing a New DASD with Low-level Formatting" module.
-The above instructions described how to activate DASDs dynamically in a running system. However, such changes are not persistent and do not survive a reboot. Making changes to the DASD configuration persistent in your Linux system depends on whether the DASDs belong to the root file system. Those DASDs required for the root file system need to be activated very early during the boot process by the `initramfs` to be able to mount the root file system.
-
-The [command]`cio_ignore` commands are handled transparently for persistent device configurations and you do not need to free devices from the ignore list manually.
