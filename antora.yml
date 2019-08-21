@@ -5,3 +5,4 @@ start_page: index
 nav:
   - modules/standard-install/nav.adoc
   - modules/advanced-install/nav.adoc
+  - modules/managing-userspace-components/nav.adoc

@@ -1,0 +1,49 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context: {context}
+:context: installing-rhel-8-content
+[id='{context}_{parent-context}']
+= Installing {ProductShortName} {ProductNumber} content
+
+// User Story: As a sysadmin, I need to know how to find and install RPMs, SCLs, and modules using AppStream so I can ensure that I have the modules I need.
+
+The following sections describe how to install content in {RHEL8}.
+
+* xref:installing-a-package_{context}[] includes steps for installing a package.
+* xref:selecting-a-stream-before-installation-of-packages_{context}[] describes how to select a stream for package installation.
+* xref:installing-a-module-stream_{context}[] describes steps to install sets of packages provided by modules.
+* xref:example-installing-a-non-default-stream-of-an-application_{context}[] shows an example of steps needed to install a set of packages in a non-default version.
+* xref:running-installed-content_{context}[] provides details for running {ProductShortName} {ProductNumber} installed content.
+* xref:commands-for-installing-rhel-8-content_{context}[] provides a reference of commands useful for installing {ProductShortName} {ProductNumber} content.
+
+
+include::ROOT:partial$appstream/proc_installing-a-package.adoc[leveloffset=+1]
+
+include::ROOT:partial$appstream/proc_selecting-a-stream-before-installation-of-packages.adoc[leveloffset=+1]
+
+include::ROOT:partial$appstream/proc_installing-a-module-stream.adoc[leveloffset=+1]
+
+include::ROOT:partial$appstream/proc_example-installing-a-non-default-stream-of-an-application.adoc[leveloffset=+1]
+
+include::ROOT:partial$appstream/proc_running-installed-content.adoc[leveloffset=+1]
+
+include::ROOT:partial$appstream/ref_commands-for-installing-rhel-8-content.adoc[leveloffset=+1]
+
+
+[id="additional-resources_{context}"]
+== Additional resources
+
+.Online resources
+
+* For more information about the traditional software installation methods, see the chapter link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/installing-software-with-yum_configuring-basic-system-settings[Installing software with yum] in the _Configuring basic system settings_ document.
+
+.Installed resources
+
+* For details of various [command]`yum` tool commands, see the `yum(8)` manual page:
++
+----
+$ man yum
+----
+
+
+:context: {parent-context}

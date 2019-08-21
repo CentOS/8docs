@@ -1,0 +1,41 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-managing-versions-of-appstream-content: {context}
+
+[id='managing-versions-of-appstream-content_{context}']
+= Managing versions of Application Stream content
+
+:context: managing-versions-of-appstream-content
+
+// ustory: As an user, I want to get a different version of my module than I already installed.
+
+Content in the AppStream repository can be available in multiple versions, corresponding to module streams. This chapter describes the operations you need to perform when changing the enabled module streams in other ways than only enabling new module streams.
+
+// IMPORTANT: {rh} designs versions and dependencies of packages, modules and streams in AppStream such that the complexity described below is minimized.
+
+* xref:modular-dependencies-and-stream-changes_{context}[] describes modular dependency rules.
+* xref:interaction-of-modular-and-non-modular-dependencies_{context}[] provides details for how the dependencies of module streams affect handling of package dependencies.
+* xref:resetting-module-streams_{context}[] provides steps for resetting modules to their initial state.
+* xref:disabling-all-streams-of-a-module_{context}[] provides steps for disabling completely a module and all its streams.
++
+// not possible right now: * xref:switching-module-streams-temporarily-to-examine-packages_{context}[] describes how to switch active streams for a module when the intention is to only examine packages available in the other stream.
+* xref:switching-module-streams-to-install-a-different-version-of-content_{context}[] describes how to install a different version of content by switching active streams for a module when some content is already installed.
+// * xref:example-switching-streams_{context}[] shows an example of steps needed to switch streams.
+
+
+include::ROOT:partial$appstream/con_modular-dependencies-and-stream-changes.adoc[leveloffset=+1]
+
+include::ROOT:partial$appstream/con_interaction-of-modular-and-non-modular-dependencies.adoc[leveloffset=+1]
+
+include::ROOT:partial$appstream/proc_resetting-module-streams.adoc[leveloffset=+1]
+
+include::ROOT:partial$appstream/proc_disabling-all-streams-of-a-module.adoc[leveloffset=+1]
+
+// include::ROOT:partial$appstream/proc_switching-module-streams-temporarily-to-examine-packages.adoc[leveloffset=+1]
+
+include::ROOT:partial$appstream/proc_switching-module-streams-to-install-a-different-version-of-content.adoc[leveloffset=+1]
+
+// include::ROOT:partial$appstream/proc_example-switching-streams.adoc[leveloffset=+1]
+
+
+:context: {parent-context-of-managing-versions-of-appstream-content}

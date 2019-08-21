@@ -1,0 +1,23 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-introduction-to-modules: {context}
+
+[id='introduction-to-modules_{context}']
+= Introduction to modules
+
+:context: introduction-to-modules
+
+Besides individual RPM packages, the AppStream repository contains modules. A module is a set of RPM packages that represent a component and are usually installed together. A typical module contains packages with an application, packages with the application-specific dependency libraries, packages with documentation for the application, and packages with helper utilities.
+
+The subsequent sections describe further features for organization and handling of content within modules:
+
+* Streams - organization of content by version. For more details see xref:module-streams_{context}[].
+* Profiles - organization of content by purpose. For more details see xref:module-profiles_{context}[].
+
+
+include::ROOT:partial$appstream/con_module-streams.adoc[leveloffset=+1]
+
+include::ROOT:partial$appstream/con_module-profiles.adoc[leveloffset=+1]
+
+
+:context: {parent-context-of-introduction-to-modules}

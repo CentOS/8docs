@@ -1,0 +1,29 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-removing-rhel-8-content: {context}
+
+[id='removing-rhel-8-content_{context}']
+= Removing RHEL 8 content
+
+:context: removing-rhel-8-content
+
+// ustory: As a system administrator, I want to remove content I have installed on my RHEL 8 system so that it is no longer present.
+
+The following sections describe how to remove content in {RHEL8}:
+
+* xref:removing-installed-packages_{context}[] describes removing a package.
+* xref:removing-installed-modules_{context}[] describes removing content installed from a module stream.
+* xref:resetting-module-streams_{context}[] describes resetting module streams to initial state.
+* xref:commands-for-removing-content_{context}[] summarizes the commands for removing content.
+
+
+include::ROOT:partial$appstream/proc_removing-installed-packages.adoc[leveloffset=+1]
+
+include::ROOT:partial$appstream/proc_removing-installed-modules.adoc[leveloffset=+1]
+
+include::ROOT:partial$appstream/proc_resetting-module-streams.adoc[leveloffset=+1]
+
+include::ROOT:partial$appstream/ref_commands-for-removing-content.adoc[leveloffset=+1]
+
+
+:context: {parent-context-of-removing-rhel-8-content}
