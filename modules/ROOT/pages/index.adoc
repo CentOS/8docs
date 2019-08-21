@@ -1,3 +1,15 @@
 include::ROOT:partial$attributes.adoc[]
-include::partial$local-attributes.adoc[]
-= CentOS {PRODVER} documentation
+
+= {ProductName} {ProductNumber} documentation
+
+* xref:standard-install:index.adoc[Performing a standard {ProductName} installation]
++
+Installing {ProductName} {ProductNumber} using the graphical user interface
+
+* xref:advanced-install:index.adoc[Performing an advanced {ProductName} installation]
++
+Installing {ProductName} {ProductNumber} using Kickstart
+
+* xref:managing-userspace-components:index.adoc[Installing, managing, and removing user space components]
++
+Introduction to AppStream and BaseOS in {ProductName} {ProductNumber}

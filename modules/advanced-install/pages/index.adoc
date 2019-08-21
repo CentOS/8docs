@@ -1,3 +1,7 @@
 include::ROOT:partial$attributes.adoc[]
 include::partial$local-attributes.adoc[]
-= Performing an advanced CentOS {PRODVER} installation
+= {ProjectName}
+
+_{Subtitle}_
+
+{Abstract}
