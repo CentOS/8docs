@@ -1,0 +1,40 @@
+[id='enabling-module_{context}']
+= Enabling a module
+
+// User Story: As a sysadmin, I need to know how to find and install RPMs, SCLs, and modules using AppStream so I can ensure that I have the modules I need.
+
+This section describes how to give your system access to packages in a module by enabling that module. Additionally, different versions of content are accessible by choosing different streams.
+
+.Prerequisites
+
+* Application Stream must be enabled on the system
+* Name of the desired package or module must be already known
+
+.Procedure
+
+. If you are starting with a known package to be installed, list modules that provide the package:
++
+[subs="quotes"]
+----
+$ yum module provides __package__
+----
++
+If you already know what the required module is, skip this step.
+
+. List available streams for the module:
++
+[subs="quotes"]
+----
+$ yum module list __module-name__
+----
+
+. Enable the module with a selected stream:
++
+[subs="quotes"]
+----
+# yum module enable __module-name__:__stream__
+----
++
+Omit :__stream__ to enable the module using the default stream. Usually, a stream containing the latest version is the default one.
+
+NOTE: A simplified approach is also possible: Installing any package supplied by a module will implicitly enable this module in the default stream.

@@ -1,0 +1,29 @@
+[id='searching-for-package_{context}']
+= Searching for a package
+
+// User Story: As a sysadmin, I need to know what is available through the AppStream so I can determine what RPMs, SCLs, and modules to download and install.
+
+
+This section describes steps needed for finding a package providing a particular application or other content.
+
+.Prerequisites
+
+* Name of the desired application or content must be known
+
+.Procedure
+
+. Search for a package with a text string, such as application name:
++
+[subs="quotes"]
+----
+$ yum search _"text string"_
+----
+
+. View details about a package:
++
+[subs="quotes"]
+----
+$ yum info __package__
+----
+
+// NOTE: Software Collections are technically packages and are listed and displayed as such.

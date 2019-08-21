@@ -1,0 +1,34 @@
+[id='commands-for-removing-content_{context}']
+= Commands for removing content
+
+This section lists commonly used commands for removing content.
+
+.Command list
+
+Remove a package::
++
+[subs="quotes"]
+----
+# yum remove __package__
+----
+
+Remove installed module stream profiles::
++
+[subs="quotes"]
+----
+# yum module remove __module-name__
+----
+
+Reset all streams of a module to initial state::
++
+[subs="quotes"]
+----
+# yum module reset __module-name__
+----
+
+Disable a module and all its streams::
++
+[subs="quotes"]
+----
+# yum module disable __module-name__
+----

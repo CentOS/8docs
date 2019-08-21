@@ -1,0 +1,27 @@
+[id="disabling-all-streams-of-a-module_{context}"]
+= Disabling all streams of a module
+
+Modules which have a default stream will always have one stream active. In situations where the content from all the module streams should not be accessible, it is possible to disable the whole module.
+
+
+.Prerequisites
+
+ifdef::appstream-book[]
+* You must understand the xref:module-streams_introduction-to-modules[concept of an _active module stream_].
+endif::[]
+ifndef::appstream-book[]
+* You must understand the concept of an _active module stream_.
+endif::[]
+
+
+.Procedure
+
+* Disable the module:
++
+[subs="quotes"]
+----
+# yum module disable _module-name_
+----
++
+[command]`yum` asks for confirmation and then disables the module with all its streams. All of the module streams become inactive. No installed content is removed.
+

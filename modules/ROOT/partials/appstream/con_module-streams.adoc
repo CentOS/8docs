@@ -1,0 +1,29 @@
+[id="module-streams_{context}"]
+= Module streams
+
+Module streams are filters that can be imagined as virtual repositories in the AppStream physical repository. Module streams represent versions of the AppStream components. Each of the streams receives updates independently.
+
+Module streams can be active or inactive. Active streams give the system access to the RPM packages within the particular module stream, allowing installation of the respective component version. Streams are active either if marked as default or if they are explicitly enabled by a user action.
+
+Only one stream of a particular module can be active at a given point in time. Thus only one version of a component can be installed on a system. Different versions can be used in separate containers.
+
+Each module may have a default stream which usually provides the latest or recommended version of the component. Default streams make it easy to consume RHEL packages the usual way without the need to learn about modules. The default stream is active, unless the whole module has been disabled or another stream of that module enabled.
+
+Certain module streams depend on other module streams. For example, the *perl-App-cpanminus*, *perl-DBD-MySQL*, *perl-DBD-Pg*, *perl-DBD-SQLite*, *perl-DBI*, *perl-YAML*, and *freeradius* module streams depend on certain *perl* module streams.
+
+
+.*postgresql* module streams
+====
+The *postgresql* module provides the [application]*PostgreSQL* database versions 9.6 and 10 in the respective streams *9.6* and *10*. Stream *10* is currently the default one. This means that the system will attempt to install the [package]*postgresql-10.6* package if asked for [package]*postgresql*.
+
+// If the stream *postgresql:9.6* is enabled, it becomes the active one, and the package it will install would be [package]*postgresql-9.6.10*.
+====
+
+
+ifdef::appstream-book[]
+
+.Additional resources
+
+* For more information about modular dependencies, see xref:modular-dependencies-and-stream-changes_managing-versions-of-appstream-content[].
+
+endif::[]

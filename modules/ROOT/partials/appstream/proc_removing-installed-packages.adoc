@@ -1,0 +1,18 @@
+[id="removing-installed-packages_{context}"]
+= Removing installed packages
+
+This section describes how to remove packages.
+
+
+.Procedure
+
+* Remove the package:
++
+[subs="quotes"]
+----
+# yum remove _package_
+----
++
+The package is removed together with any other dependent packages.
+
+

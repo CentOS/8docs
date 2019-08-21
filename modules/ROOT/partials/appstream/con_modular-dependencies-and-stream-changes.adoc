@@ -1,0 +1,21 @@
+[id='modular-dependencies-and-stream-changes_{context}']
+= Modular dependencies and stream changes
+
+Traditionally, packages providing content depend on further packages, and usually specify the desired dependency versions. For packages contained in modules, this mechanism applies as well, but the grouping of packages and their particular versions into modules and streams provides further constraints. Additionally, module streams can declare dependencies on streams of other modules, independent of the packages contained and provided by them.
+
+After any operations with packages or modules, the whole dependency tree of all underlying installed packages must satisfy all the conditions the packages declare. Additionally, all module stream dependencies must be satisfied.
+
+As a result:
+
+* Enabling a module stream can require enabling streams of further modules.
+
+* Installing a module stream profile or installing packages from a stream can require enabling streams of further modules and installing further packages.
+
+* Disabling a stream of a module can require disabling other module streams. No packages will be removed automatically.
+
+* Removing a package can require removing further packages. If these packages were provided by modules, the module streams remain enabled in preparation for further installation, even if no packages from these streams are installed any more. This mirrors the behavior of an unused yum repository.
+
+It is not possible to enable a stream of a module when another stream of the same module is already enabled. To switch streams, you must first reset the module, and then enable the new stream. Removing all packages installed from a stream before switching to a different stream is highly recommended, because it prevents the system from reaching states where packages could be installed with no repository or stream providing them.
+
+Technically, resetting module does not automatically change any installed packages. Removing the packages provided by the previous stream and any packages that depend on them is an explicit manual operation.
+

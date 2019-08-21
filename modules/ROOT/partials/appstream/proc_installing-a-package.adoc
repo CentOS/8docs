@@ -1,0 +1,37 @@
+[id='installing-a-package_{context}']
+= Installing a package
+
+// User Story: As a sysadmin, I need to know how to find and install RPMs, SCLs, and modules using AppStream so I can ensure that I have the modules I need.
+
+This section describes how to install packages.
+
+
+.Procedure
+
+* Install the package:
++
+[subs="quotes"]
+----
+# yum install __package__
+----
++
+====
+
+* If the package is not provided by any module stream, this procedure is identical to the procedure used on previous versions of {RHEL}.
+
+* If the package is provided by an module stream that is enabled, the package is installed without any further manipulation.
+
+* If the package is provided by a module stream marked as default, the [command]`yum` tool automatically transparently enables that module stream before installing this package.
+
+* If the package is provided by a module stream that is not active (neither of the above cases), it is not recognized until you manually enable the respective module stream.
+
+====
+
+ifdef::appstream-book[]
+
+.Additional resources
+
+* xref:installing-a-module-stream_{context}[]
+* xref:package-management-using-yum-in-rhel-8_using-appstream[]
+
+endif::[]

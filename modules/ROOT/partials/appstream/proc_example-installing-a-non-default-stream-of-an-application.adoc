@@ -1,0 +1,63 @@
+[id='example-installing-a-non-default-stream-of-an-application_{context}']
+= Example: Installing a non-default stream of an application
+
+// User Story: As a sysadmin, I need to know what is available through the AppStream so I can determine what RPMs, SCLs, and modules to download and install.
+
+This example shows how to install an application from a non-default stream (version).
+ 
+More specifically, this example shows how to install the [application]*PostgreSQL* server (package [package]*postgresql-server*) in version *9.6*, while the default stream provides version *10*.
+
+.Procedure
+
+. List modules that provide the [package]*postgresql-server* package to see what streams are available:
++
+[subs="quotes",options="nowrap"]
+----
+$ [command]`yum module list postgresql`
+Name        Stream  Profiles             Summary
+postgresql  10 [d]  client, default [d]  PostgreSQL server and client module
+postgresql  9.6     client, default [d]  PostgreSQL server and client module
+
+Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
+----
++
+The output shows that the *postgresql* module is available with streams *10* and *9.6*. The default stream is *10*.
+
+. Install the packages provided by the *postgresql* module in stream *9.6*:
++
+[subs="quotes"]
+----
+# [command]`yum install @postgresql:9.6`
+Dependencies resolved.
+=====================================================================
+ Package           Version                           Repository Size
+=====================================================================
+Installing group/module packages:
+ postgresql-server 9.6.10-1.module+el8+2470+d1bafa0e appstream  5.0 M
+Installing dependencies:
+ libpq             10.5-1.el8                        appstream  188 k
+ postgresql        9.6.10-1.module+el8+2470+d1bafa0e appstream  1.4 M
+Installing module profiles:
+ postgresql/server                                                                              
+Enabling module streams:
+ postgresql                 9.6                                                                 
+
+Transaction Summary
+=====================================================================
+Install  3 Packages
+
+Total download size: 6.6 M
+Installed size: 27 M
+Is this ok [y/N]: **y**
+(...)
+Complete!
+----
++
+Because the installation profile was not specified, the default profile *server* was used.
+
+. Verify the installed version of [application]*PostgreSQL*:
++
+----
+$ postgres --version
+postgres (PostgreSQL) 9.6.10
+----

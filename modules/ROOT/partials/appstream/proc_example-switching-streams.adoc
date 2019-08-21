@@ -1,0 +1,187 @@
+[id="example-switching-streams_{context}"]
+= Example: Switching streams
+
+// do not use - this is a bad example due to the content used, the procedure itself is ok
+
+This example shows how to switch the stream for a module, where some other stream has been already installed.
+
+More specifically, this example shows how to install the *PostgreSQL* server version *9.6* when version *10* is already installed. Cleaning up packages outside the module profiles is covered too.
+
+NOTE: The outputs in this example have been edited for brevity. Actual outputs may contain more information than presented here. 
+
+
+.Prerequisites
+
+* The system must have none of the *PostgreSQL* packages or modules installed.
+
+
+.Steps
+
+. Prepare the system for the model situation. Install the *postgresql* module in stream *10*, and also the *postgresql-test* package:
++
+[subs="quotes"]
+----
+# [command]`yum install @postgresql:10 postgresql-test`
+(...)
+----
++
+There is now various content installed from the *10* stream.
+
+. List the packages installed from the module:
++
+[subs="quotes"]
+----
+# [command]`yum module info postgresql | grep module+el8 | sed 's/.*: //g;s/\n/ /g' | xargs yum list installed`
+Installed Packages
+postgresql.x86_64                10.6-1.module+el8+2469+5ecd5aae  appstream
+postgresql-server.x86_64         10.6-1.module+el8+2469+5ecd5aae  appstream
+postgresql-server-devel.x86_64   10.6-1.module+el8+2469+5ecd5aae  appstream
+postgresql-test.x86_64           10.6-1.module+el8+2469+5ecd5aae  appstream
+----
+
+. Remove the listed packages:
++
+[subs="quotes"]
+----
+# [subs="quotes"]
+yum remove postgresql.x86_64 postgresql-server.x86_64 postgresql-server-devel.x86_64 postgresql-test.x86_64`
+============================================================================
+ Package                  Version                          Repository  Size
+============================================================================
+Removing:
+ postgresql               10.6-1.module+el8+2469+5ecd5aae  appstream   5.6 M
+ postgresql-server        10.6-1.module+el8+2469+5ecd5aae  appstream    20 M
+ postgresql-server-devel  10.6-1.module+el8+2469+5ecd5aae  appstream   4.5 M
+ postgresql-test          10.6-1.module+el8+2469+5ecd5aae  appstream   9.3 M
+
+Transaction Summary
+============================================================================
+Remove  4 Packages
+
+Freed space: 40 M
+Is this ok [y/N]: y
+
+(...)
+
+Removed:
+  postgresql-10.6-1.module+el8+2469+5ecd5aae.x86_64                                                       
+  postgresql-server-10.6-1.module+el8+2469+5ecd5aae.x86_64                                                
+  postgresql-server-devel-10.6-1.module+el8+2469+5ecd5aae.x86_64                                          
+  postgresql-test-10.6-1.module+el8+2469+5ecd5aae.x86_64                                                  
+
+Complete!
+----
+
+. Remove the module profiles:
++
+[subs="quotes"]
+----
+# [command]`yum module remove postgresql`
+============================
+ Package                  
+============================
+Removing module profiles:
+ postgresql/server                                                                                       
+
+Transaction Summary
+============================
+
+Is this ok [y/N]: y
+Complete!
+----
+
+. Reset the module:
++
+[subs="quotes"]
+----
+# [command]`yum module reset postgresql`
+Updating Subscription Management repositories.
+Unable to read consumer identity
+This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.
+Last metadata expiration check: 1:17:22 ago on Tue 16 Apr 2019 08:55:19 PM CEST.
+Dependencies resolved.
+==================================
+ Package                  Version
+==================================
+Resetting module streams:
+ postgresql               10                                                     
+
+Transaction Summary
+==================================
+
+Is this ok [y/N]: y
+Complete!
+----
+
+. Install the same module from the *9.6* stream:
++
+[subs="quotes"]
+----
+# yum module install postgresql:9.6
+=========================================================================
+ Package             Version                            Repository Size
+=========================================================================
+Installing group/module packages:
+ postgresql-server   9.6.10-1.module+el8+2470+d1bafa0e  appstream  5.0 M
+Installing dependencies:
+ postgresql          9.6.10-1.module+el8+2470+d1bafa0e  appstream  1.4 M
+Installing module profiles:
+ postgresql/server                                                                                       
+Enabling module streams:
+ postgresql          9.6                                                                      
+
+Transaction Summary
+=========================================================================
+Install  2 Packages
+
+Total download size: 6.4 M
+Installed size: 26 M
+Is this ok [y/N]: y
+
+(...)
+
+Installed:
+  postgresql-server-9.6.10-1.module+el8+2470+d1bafa0e.x86_64                                              
+  postgresql-9.6.10-1.module+el8+2470+d1bafa0e.x86_64                                                     
+
+Complete!
+----
++
+Note the stream *9.6* is enabled as part of the installation.
+
+. Install the additional packages outside module profiles - in this case the *postgresql-test* package:
++
+----
+# yum install postgresql-test
+===========================================================================
+ Package                 Version                           Repository Size
+===========================================================================
+Installing:
+ postgresql-test         9.6.10-1.module+el8+2470+d1bafa0e appstream  1.5 M
+Installing dependencies:
+ postgresql-server-devel 9.6.10-1.module+el8+2470+d1bafa0e appstream  1.0 M
+
+Transaction Summary
+===========================================================================
+Install  2 Packages
+
+Total download size: 2.5 M
+Installed size: 13 M
+Is this ok [y/N]: y
+
+(...)
+
+Installed:
+  postgresql-test-9.6.10-1.module+el8+2470+d1bafa0e.x86_64                                                
+  postgresql-server-devel-9.6.10-1.module+el8+2470+d1bafa0e.x86_64                                        
+
+Complete!
+----
+
+.Results
+
+As you can see from the output:
+
+* The old version of PostegreSQL has been removed
+* The new version is now installed
+

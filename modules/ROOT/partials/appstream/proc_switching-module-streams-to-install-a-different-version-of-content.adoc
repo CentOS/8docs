@@ -1,0 +1,118 @@
+[id="switching-module-streams-to-install-a-different-version-of-content_{context}"]
+= Switching module streams to install a different version of content
+
+// ustory: as a sysadmin I need a different version of something installed on this machine and it's in these "modules"
+
+// This is the most hard-to-comprehend, delicate, advanced, failure-prone, and user-rage-inducing action mentioned in the whole book. It also deceives by sounding rather simple (see ustory definition). It deserves rightfully the position at the end of any assembly or guide, like a final boss to defeat: The similarity to a poorly designed game where earlier choice prevents winning at all is certainly not random. Whoever successfully switches a stream has de facto graduated RHEL 8.0 package management.
+
+Switching to a different module stream usually means upgrading or downgrading the packages to a different version than the current version installed on your system.
+
+The general intent of this procedure is to:
+
+* first remove the already installed content,
+* then change the enabled streams,
+* and finally install the new content.
+
+This sequence reduces the amount of actions where dependencies could prevent you from continuing and instead concentrates them into a few steps.
+
+// internal note:  This is because if you first remove packages you reduce the task to one layer of dependencies only, with packages you're stuck evaluating manually step-by-step what should be an atomic operation that takes into account both package and modular dependencies - and that's usually too much to hold in one brain.
+
+// WARNING: Reconsider and don't even start this procedure. Customer satisfaction guaranteed!
+
+
+.Prerequisites
+
+* A module stream must be active, and another stream of the module must exist.
+
+ifdef::appstream-book[]
+* You must understand xref:modular-dependencies-and-stream-changes_{context}[modular dependency resolution].
+endif::[]
+ifndef::appstream-book[]
+* You must understand modular dependency resolution.
+endif::[]
+
+* Keep notes of the changes you are making so that you can undo them.
+
+* Remember that package and modular dependencies might prevent you from completing this procedure, just as package dependencies could do in previous versions of {RHEL}.
+
+
+.Procedure
+
+
+. Remove the content installed from the currently active module stream and its dependencies:
+
+.. List the packages installed from the module:
++
+[subs="quotes"]
+----
+$ yum module info __module-name__ | grep module+el8 | sed 's/.*: //g;s/\n/ /g' | xargs yum list installed
+----
++
+This will list all packages installed from this module.
+
+.. Remove the packages listed in the previous step:
++
+[subs="quotes"]
+----
+# yum remove __package__
+----
++
+Replace __package__ with the packages listed in previous step. You can supply multiple package names separated by spaces.
++
+Package dependencies may force you to remove the dependent packages, too. Make sure to note these packages, find which modules provided them using the [command]`yum module provides` command, and keep the list for later steps.
+
+.. Mark the module profiles as uninstalled:
++
+[subs="quotes"]
+----
+# yum module remove __module-name__
+----
+
+
+. Reset the module and its streams:
++
+[subs="quotes"]
+----
+# yum module reset __module-name__
+----
+
+
+. Enable the new stream and resolve modular dependencies:
++
+[subs="quotes"]
+----
+# yum module enable __module-name__:__new-stream__
+----
++
+The [command]`yum` tool will present a summary of the changes required by package and modular dependencies and ask for confirmation. It is possible that modular dependencies can prevent you from taking this action immediately. In that case, apply this procedure recursively to further module streams, or reset them. To find these streams, refer to the output of the command for this step, and to the list you made in step 1.
++
+To continue in this procedure, you must succeed in enabling the new stream. If the combined dependencies prevent you from doing so, revert your changes: Enable the original streams and install back the packages.
+
+
+. Install content from the new stream of the module.
+
+.. Install profiles from the new stream:
++
+[subs="quotes"]
+----
+# yum module install __module-name__:__new-stream__/__profile__
+----
+
+.. Install individual packages provided by the new stream:
++
+[subs="quotes"]
+----
+# yum module install __package__
+----
+
+////
+. Update or downgrade any packages installed from the previously enabled module streams and not affected by the previous steps:
++
+----
+# yum distro-sync
+----
++
+The [command]`yum` tool will present a summary of the changes and ask for confirmation.
++
+// This step has a high chance of being a no-op as there should be nothing left untouched by now.
+////

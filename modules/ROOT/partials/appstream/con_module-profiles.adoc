@@ -1,0 +1,20 @@
+[id="module-profiles_{context}"]
+= Module profiles
+
+A _profile_ is a list of recommended packages to be installed together for a particular use case such as for a server, client, development, minimal install, or other. These package lists can contain packages outside the module stream, usually from the BaseOS repository or the dependencies of the stream.
+
+// At the same time, profiles represent also a recommendation made by the application packagers and experts. <- Originally asked for by salmy the RHEL PM
+
+Installing packages by using a profile is a one-time action provided for the user’s convenience. It does not prevent installing or uninstalling any of the packages provided by the module. It is also possible to install packages by using multiple profiles of the same module stream without any further preparatory steps.
+
+Each module stream can have any number of profiles, including none. For any given module stream, one of its profiles can be marked as _default_ and is then used for profile installation actions when no other profile is explicitly specified. However, existence of a default profile for a module stream is not required.
+            
+.*httpd* module profiles
+====
+The *httpd* module, which provides the [application]*Apache* web server, offers the following profiles for installation:
+
+* `common` - a hardened production-ready deployment, the default profile
+* `devel` - the packages necessary for making modifications to `httpd`
+* `minimal` - the smallest set of packages that will provide a running webserver
+====
+

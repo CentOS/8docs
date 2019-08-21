@@ -1,0 +1,45 @@
+[id='listing-available-modules_{context}']
+= Listing available modules
+
+// User Story: As a sysadmin, I need to know what is available through the AppStream so I can determine what RPMs, SCLs, and modules to download and install.
+
+This section describes steps needed for finding what modules are available and what their details are.
+
+.Procedure
+
+. List module streams available to your system:
++
+----
+$ yum module list
+----
++
+The output of this command lists module streams with name, stream, profiles, and summary on a separate line.
+
+. Display details about a module, including a description, a list of all profiles, and a list of all provided packages:
++
+[subs="quotes"]
+----
+$ yum module info __module-name__
+----
+
+. Optional: You can also list which of these packages are installed by each of module profiles:
++
+[subs="quotes"]
+----
+$ yum module info --profile __module-name__
+----
+
+. Display the current status of a module, including enabled streams and installed profiles:
++
+[subs="quotes"]
+----
+$ yum module list __module-name__
+----
+
+ifdef::appstream-book[]
+
+.Additional resources
+
+* xref:introduction-to-modules_using-appstream[]
+
+endif::[]

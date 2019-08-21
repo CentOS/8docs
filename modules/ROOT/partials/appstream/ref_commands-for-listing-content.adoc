@@ -1,0 +1,72 @@
+[id='commands-for-listing-content_{context}']
+= Commands for listing content
+
+This section lists commonly used commands for finding content and its details.
+
+.Command list
+
+List available packages::
++
+----
+$ yum list available
+----
+
+Search for a package using arbitrary text string::
++
+[subs="quotes"]
+----
+$ yum search __"text string"__
+----
+
+
+Display details for a package::
++
+[subs="quotes"]
+----
+$ yum info __package__
+----
+
+Find out which modules provide a package::
++
+[subs="quotes"]
+----
+$ yum module provides __package__
+----
++
+If the package is available outside any modules, the output of this command is empty.
++
+//This command resolves only package names, and does not understand further package details such as version, distribution, and architecture.
+
+List available modules::
++
+----
+$ yum module list
+----
+
+Display details of a module::
++
+[subs="quotes"]
+----
+$ yum module info __module-name__
+----
+
+List packages installed by profiles of a module using the default stream::
++
+[subs="quotes"]
+----
+$ yum module info --profile __module-name__
+----
+
+Display packages installed by profiles of a module using a specified stream::
++
+[subs="quotes"]
+----
+$ yum module info --profile __module-name__:__stream__
+----
+
+Display the current status of a module::
++
+[subs="quotes"]
+----
+$ yum module list __module-name__
+----

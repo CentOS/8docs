@@ -1,0 +1,25 @@
+[id='running-installed-content_{context}']
+= Running installed content
+
+// User Story: As a sysadmin, I need to know how to run the RPMs, SCLs, and modules I've pulled from the AppStream.
+
+Usually, after you install content from RHEL 8 repositories, new commands will be enabled. If the commands originated from a RPM package or RPM packages enabled by a module the experience of using the command should be no different. To run the new commands use them directly:
+
+[subs="quotes"]
+----
+$ _command_
+----
+
+////
+.Software Collections
+To run installed content packaged as a Software Collection, use the [command]`scl enable` command from the [package]*scl-utils* package:
++
+[subs="quotes"]
+----
+$ scl enable __collection__ '__command__'
+----
++
+Replace _collection_ with the name of the Software Collection. Refer to documentation for the particular Software Collection to find this value.
++
+NOTE: A Software Collection's name is usually identical to name of its package.
+////

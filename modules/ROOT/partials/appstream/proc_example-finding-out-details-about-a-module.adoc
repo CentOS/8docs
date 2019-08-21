@@ -1,0 +1,119 @@
+[id='example-finding-out-details-about-a-module_{context}']
+= Example: Finding out details about a module
+
+// User Story: As a sysadmin, I need to know what is available through the AppStream so I can determine what RPMs, SCLs, and modules to download and install.
+
+This example shows how to locate a module in the AppStream repository and how to find out more about its contents.
+
+NOTE: The outputs in this example have been edited for brevity. Actual outputs may contain more information than shown here.
+
+
+.Procedure
+
+. List available modules:
++
+[subs="quotes",options="nowrap"]
+----
+$ [command]`yum module list`
+Name        Stream  Profiles    Summary
+(...)
+postgresql  10 [d]  client,     PostgreSQL server and client module
+                    server [d]
+postgresql  9.6     client,     PostgreSQL server and client module
+                    server [d]
+(...)
+
+Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
+----
+
+. Examine details of the *postgresql* module:
++
+[subs="quotes",options="nowrap"]
+----
+$ [command]`yum module info postgresql`
+
+Name             : postgresql
+Stream           : **10** [d][a]
+Version          : 820190104140132
+Context          : 9edba152
+Profiles         : client, server [d]
+Default profiles : server
+Repo             : appstream-internal-nightly
+Summary          : PostgreSQL server and client module
+Description      : (...)
+(...)
+
+Name             : postgresql
+Stream           : **9.6**
+Version          : 820190104140337
+Context          : 9edba152
+Profiles         : client, server [d]
+Default profiles : server
+Repo             : appstream-internal-nightly
+Summary          : PostgreSQL server and client module
+Description      : (...)
+(...)
+
+Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled, [a]ctive]
+----
++
+Because no stream is specified, all streams are used for the listing.
+
+
+. Examine profiles available in stream *10* of the *postgresql* module:
++
+[subs="quotes"]
+----
+$ [command]`yum module info --profile postgresql:10`
+(...)
+Name   : postgresql:10:820190104140132:9edba152:x86_64
+client : postgresql
+server : postgresql-server
+----
++
+Each of the profiles installs a different set of packages, including their dependencies.
+
+. Install the *postgresql* module using the default stream *10* and profile *server*:
++
+[subs="quotes", options="nowrap"]
+----
+# [command]`yum install @postgresql`
+Dependencies resolved.
+====================================================================
+ Package           Version                         Repository Size
+====================================================================
+Installing group/module packages:
+ postgresql-server 10.6-1.module+el8+2469+5ecd5aae appstream  5.1 M
+Installing dependencies:
+ libpq             10.5-1.el8                      appstream  188 k
+ postgresql        10.6-1.module+el8+2469+5ecd5aae appstream  1.5 M
+Installing module profiles:
+ postgresql/server                                                                          
+Enabling module streams:
+ postgresql               10                                                                
+
+Transaction Summary
+====================================================================
+Install  3 Packages
+
+Total download size: 6.7 M
+Installed size: 27 M
+Is this ok [y/N]: **y**
+(...)
+----
++
+The stream *10* is enabled and packages in its profile *server* installed.
+
+. Inspect the current status of the *postgresql* module:
++
+[subs="quotes"]
+----
+$ [command]`yum module list postgresql`
+Name       Stream    Profiles                Summary
+postgresql 10 [d][e] client, server [d] [i]  (...)
+postgresql 9.6       client, server [d]      (...)
+ 
+Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
+----
++
+The output shows that the default stream *10* is enabled and its profile *server* is installed.

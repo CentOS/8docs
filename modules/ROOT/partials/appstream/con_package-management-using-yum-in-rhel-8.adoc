@@ -1,0 +1,18 @@
+[id='package-management-using-yum-in-rhel-8_{context}']
+= Package management using YUM in {ProductShortName} {ProductNumber}
+
+// User Story: As a sysadmin, I need to know what is available through the AppStream so I can determine what RPMs, SCLs, and modules to download and install.
+
+The [application]*YUM* package management tool is now based on the DNF technology and it adds support for the new modular features.
+
+Usage of [application]*YUM* has not been changed when handling individual RPM packages. For handling the modular content, the [command]`yum module` command has been added. 
+ifdef::appstream-book[]
+See xref:installing-rhel-8-content_using-appstream[] for additional details.
+endif::[]
+
+Where required, the modular functionality automatically selects the appropriate combination of modules and streams to enable installation of logical sets of packages for convenient usage.
+
+// docs note - we are forbidden from mentioning "yum v4" in any forms, use "yum based on dnf tech in rhel8" vs. "yum v3 from rhel7"
+// also prefer YUM uppercase when referring to name, not tool
+// resource http://dnf.readthedocs.io/en/latest/cli_vs_yum.html
+

@@ -1,0 +1,7 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+= {ProjectName}
+
+_{Subtitle}_
+
+{Abstract}

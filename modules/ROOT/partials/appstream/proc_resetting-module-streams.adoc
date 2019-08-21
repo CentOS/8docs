@@ -1,0 +1,17 @@
+[id="resetting-module-streams_{context}"]
+= Resetting module streams
+
+Resetting a module is an action that returns all of its streams to their initial state - neither enabled nor disabled. If the module has a default stream, that stream becomes active as a result of resetting the module.
+
+
+.Procedure
+
+* Reset the module state:
++
+[subs="quotes"]
+----
+# yum module reset __module-name__
+----
++
+All streams of the module are returned to the initial state. No installed content is removed.
+

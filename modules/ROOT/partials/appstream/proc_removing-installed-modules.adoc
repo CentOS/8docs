@@ -1,0 +1,51 @@
+[id="removing-installed-modules_{context}"]
+= Removing installed modules
+
+Removing a module removes all of the packages installed by profiles of the currently enabled module stream, and any further packages and modules that depend on these.
+
+Packages installed from this module stream not listed in any of its profiles remain installed on the system and can be removed manually.
+
+
+.Prerequisites
+
+* A module which you want removed must have already installed some profiles.
+
+ifdef::appstream-book[]
+* You must understand xref:modular-dependencies-and-stream-changes_managing-versions-of-appstream-content[modular dependency resolution].
+endif::[]
+ifndef::appstream-book[]
+* You must understand modular dependency resolution.
+endif::[]
+
+
+.Procedure
+
+. List packages installed from the module:
++
+[subs="quotes"]
+----
+$ yum module info __module-name__ | grep module+el8 | sed 's/.*: //g;s/\n/ /g' | xargs yum list installed
+----
++
+Replace __module-name__ with the name of the module. This will list all packages installed from this module.
+
+. Remove the packages listed in the previous step:
++
+[subs="quotes"]
+----
+# yum remove __package__
+----
++
+Replace __package__ with the packages listed in previous step. You can supply multiple package names separated by spaces. The [command]`yum` tool will present a summary of the changes and ask for confirmation.
+
+. Mark the module profiles as uninstalled:
++
+[subs="quotes"]
+----
+# yum module remove __module-name__
+----
++
+The currently enabled module stream remains enabled.
+
+. Optionally, reset or disable the stream.
+

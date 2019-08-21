@@ -1,0 +1,28 @@
+[id="selecting-a-stream-before-installation-of-packages_{context}"]
+= Selecting a stream before installation of packages
+
+Default module streams ensure that users can install packages without caring about the modular features. When the user wants packages with version from a non-default stream, that stream must be enabled before packages provided by it can be installed.
+
+
+.Prerequisites
+
+ifdef::appstream-book[]
+* You must understand the xref:module-streams_introduction-to-modules[concept of an _active module stream_].
+endif::[]
+ifndef::appstream-book[]
+* You must understand the concept of an _active module stream_.
+endif::[]
+
+.Procedure
+
+* Enable the module stream:
++
+[subs="quotes"]
+----
+# yum module enable __module-name__:__stream__
+----
++
+Replace _module-name_ and _stream_ with names of the module and stream.
++
+[command]`yum` asks for confirmation and the stream is enabled and active. If another stream of the module was previously active (default or enabled), it is no longer active.
+

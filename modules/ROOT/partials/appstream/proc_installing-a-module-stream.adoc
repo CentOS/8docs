@@ -1,0 +1,45 @@
+[id='installing-a-module-stream_{context}']
+= Installing a module stream
+
+// User Story: As a sysadmin, I need to know how to find and install RPMs, SCLs, and modules using AppStream so I can ensure that I have the modules I need.
+
+This section describes using a module stream to install the recommended set of packages from that module.
+
+
+.Prerequisites
+
+ifdef::appstream-book[]
+* You must understand the xref:module-streams_introduction-to-modules[concept of an _active module stream_].
+endif::[]
+ifndef::appstream-book[]
+* You must understand the concept of an _active module stream_.
+endif::[]
+* You do not have any packages installed from another stream of the same module.
+
+
+.Procedure
+
+
+* Install a profile of the module stream:
++
+[subs="quotes"]
+----
+# yum install @__module-name__:__stream__/__profile__
+----
++
+This enables the stream and installs the recommended set of packages for a given stream (version) and profile (purpose) of the module.
++
+Omit /__profile__ to use the default profile. If no profile is set as default, this step fails without a specified profile and you must specify it.
++
+Additionally, omit :__stream__ to use the active stream. If there is no active stream for the module, you must specify a stream.
+
+
+
+ifdef::appstream-book[]
+
+.Additional resources
+
+* xref:introduction-to-modules_using-appstream[]
+* xref:commands-for-installing-rhel-8-content_{context}[]
+
+endif::[]

@@ -1,0 +1,13 @@
+[id="interaction-of-modular-and-non-modular-dependencies_{context}"]
+= Interaction of modular and non-modular dependencies
+
+ifdef::appstream-book[]
+xref:modular-dependencies-and-stream-changes_{context}[Modular dependencies]
+endif::[]
+ifndef::appstream-book[]
+Modular dependencies
+endif::[]
+are an additional layer on top of regular RPM dependencies. Modular dependencies behave similarly to hypothetical dependencies between repositories. This means that installing different packages requires not only resolution of the RPM dependencies, but also the modular dependencies must be resolved beforehand.
+
+The system will always retain the module and stream choices, unless explicitly instructed to change them. A modular package will receive updates contained in the currently enabled stream of the module that provides this package, but will not upgrade to a version contained in a different stream.
+

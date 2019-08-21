@@ -1,0 +1,20 @@
+[id="packaging-methods-in-rhel-8_{context}"]
+= Packaging methods in {ProductShortName} {ProductNumber}
+
+// User Story: As a sysadmin, I need to know what is available through the AppStream so I can determine what RPMs, SCLs, and modules to download and install.
+
+The AppStream repository contains content packaged in two ways:
+
+Individual RPM packages::
+Traditional RPM packages available for immediate installation.
+
+
+Modules::
+Modules are collections of packages representing a logical unit: an application, a language stack, a database, or a set of tools. These packages are built, tested, and released together.
+
+
+// Software Collections::
+// RPM packages in the traditional form, containing a specially prepared application that can be installed in multiple versions together.
+
+
+// The traditional methods of package management and installation are transparently supported for all content. The appropriate combination of modules and streams is automatically used to enable installation of packages that depend on modular features.
