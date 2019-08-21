@@ -1,7 +1,13 @@
 include::ROOT:partial$attributes.adoc[]
 include::partial$local-attributes.adoc[]
+
 = {ProjectName}
+{OrgName}
+
+image:title_logo.svg[CentOS Documentation Project]
 
 _{Subtitle}_
 
 {Abstract}
+
+include::ROOT:partial$legal-notice.adoc[]

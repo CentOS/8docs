@@ -1,13 +1,13 @@
 :Year: 2019
 
 // Red Hat and divisions
-:RH: CentOS
+:RH: CentOS Project
 :OrgName: {RH}
 
 // The product (RHEL)
-:ProductName: {RH}
-:RHEL: {RH}
-:ProductShortName: {RH}
+:ProductName: CentOS
+:RHEL: {ProductName}
+:ProductShortName: {ProductName}
 // This is the version displayed under "Red Hat Enterprise Linux"
 :ProductNumber: 8
 :RHEL8: {RHEL}{nbsp}8
@@ -15,7 +15,6 @@
 //:ProductRelease: Beta
 
 :experimental:
-
 // Identity Management attributes
 
 :IPA: Identity{nbsp}Management

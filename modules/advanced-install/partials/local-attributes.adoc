@@ -1,8 +1,8 @@
 // The name of the title
-:ProjectName: Performing an advanced RHEL installation
+:ProjectName: Performing an advanced {ProductName}{nbsp}{ProductNumber} installation
 // The subtitle of the title
-:Subtitle: Installing {productname} 8 using Kickstart
+:Subtitle: Installing {ProductName}{nbsp}{ProductNumber} using Kickstart
 // The abstract of the title
-:Abstract: This document is aimed at users who want to perform an advanced {productname} installation using Kickstart and configure advanced installation options.
+:Abstract: This document is aimed at users who want to perform an advanced {ProductName}{nbsp}{ProductNumber} installation using Kickstart and configure advanced installation options.
 // The name of the title for the purposes of {context}
 :ProjectNameID: installing-rhel-as-an-experienced-user
