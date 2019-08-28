@@ -1,0 +1,74 @@
+// Module included in the following assemblies:
+//
+// <List assemblies here, each on a new line>
+
+// This module can be included from assemblies using the following include statement:
+// include::<path>/ref_removed-boot-options.adoc[leveloffset=+1]
+
+// The file name and the ID are based on the module title. For example:
+// * file name: ref_my-reference-a.adoc
+// * ID: [id='ref_my-reference-a_{context}']
+// * Title: = My reference A
+//
+// The ID is used as an anchor for linking to the module. Avoid changing
+// it after the module has been published to ensure existing links are not
+// broken.
+//
+// The `context` attribute enables module reuse. Every module's ID includes
+// {context}, which ensures that the module has a unique ID even if it is
+// reused multiple times in a guide.
+//
+// In the title, include nouns that are used in the body text. This helps
+// readers and search engines find information quickly.
+[id="removed-boot-options_{context}"]
+= Removed boot options
+
+This section contains the boot options that have been removed from {productname}.
+
+askmethod, asknetwork::
+`initramfs` is completely non-interactive, so the `askmethod` and `asknetwork` options have been removed.
+Instead, use `inst.repo` or specify the appropriate network options.
+
+blacklist, nofirewire::
+The `modprobe` option handles blacklisting kernel modules; use `modprobe.blacklist=<mod1>,<mod2>`.
+You can blacklist the firewire module by using `modprobe.blacklist=firewire_ohci`.
+
+inst.headless=::
+The `headless=` option specified that the system that is being installed to does not have any display hardware, and that the installation program is not required to look for any display hardware.
+
+inst.decorated::
+The `inst.decorated` option was used to specify the graphical installation in a decorated window. By default, the window is not decorated, so it doesn't have a title bar, resize controls, and so on. This option was no longer required.
+
+serial::
+Use the `console=ttyS0` option.
+
+updates::
+Use the `inst.updates` option.
+
+essid, wepkey, wpakey::
+Dracut does not support wireless networking.
+
+ethtool::
+This option was no longer required.
+
+gdb::
+This option was removed as there are many options available for debugging dracut-based `initramfs`.
+
+inst.mediacheck::
+Use the `dracut option rd.live.check` option.
+
+ks=floppy::
+Use the `inst.ks=hd:<device>` option.
+
+display::
+For a remote display of the UI, use the `inst.vnc` option.
+
+utf8::
+This option was no longer required as the default TERM setting behaves as expected.
+
+noipv6::
+ipv6 is built into the kernel and cannot be removed by the installation program.
+You can disable ipv6 using `ipv6.disable=1`. This setting is used by the installed system.
+
+upgradeany::
+This option was no longer required as the installation program no longer handles upgrades.

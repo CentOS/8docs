@@ -4,8 +4,7 @@
 This section contains information about the various installation source boot options.
 
 inst.repo=::
-
-The `inst.repo=` boot option specifies the installation source, that is, the location of images and packages. For example: `inst.repo=cdrom`.
+The `inst.repo=` boot option specifies the installation source, that is, the location providing the package repositories and a valid `.treeinfo` file that describes them. For example: `inst.repo=cdrom`.
 The target of the `inst.repo=` option must be one of the following installation media:
 
 * an installable tree, which is a directory structure containing the installation program images, packages, and repository data as well as a valid `.treeinfo` file
@@ -14,18 +13,17 @@ The target of the `inst.repo=` option must be one of the following installation 
 +
 You can use the `inst.repo=` boot option to configure different installation methods using different formats. The following table contains details of the `inst.repo=` boot option syntax:
 +
-.Installation source boot options
-[options="header"]
+.inst.repo= installation source boot options
+[options="header",cols="1,3,2"]
 |===
-| Installation source  | Boot option format
-| Any CD/DVD drive  | `inst.repo=cdrom`
-| Specific CD/DVD drive   | `inst.repo=cdrom:device`
-| Hard Drive | `inst.repo=hd:device:/path`
-| HMC  | `inst.repo=hmc`
-| HTTP Server | `inst.repo=http://host/path`
-| HTTPS Server | `inst.repo=https://host/path`
-| FTP Server   | `inst.repo=ftp://username:password@host/path`
-| NFS Server  | `inst.repo=nfs:[options:]server:/path`
+| Source type  | Boot option format | Source format
+| CD/DVD drive  | `inst.repo=cdrom&#91;:__device__&#93;` | Installation DVD as a physical disk. footnote:[If __device__ is left out, installation program automatically searches for a drive containing the installation DVD.]
+| Installable tree | `inst.repo=hd:__device__:__/path__` | Image file of the installation DVD, or an installation tree, which is a complete copy of the directories and files on the installation DVD.
+| NFS Server  | `inst.repo=nfs:&#91;__options__:&#93;__server__:__/path__` | Image file of the installation DVD. footnote:[The NFS Server option uses NFS protocol version 3 by default. To use a different version _X_, add `+nfsvers=__X__` to __options__.]
+| HTTP Server | `inst.repo=http://__host/path__` .3+| Installation tree, which is a complete copy of the directories and files on the installation DVD.
+| HTTPS Server | `inst.repo=https://__host/path__`
+| FTP Server | `inst.repo=ftp://__username__:__password__@__host__/__path__`
+| HMC  | `inst.repo=hmc` | 
 |===
 +
 [NOTE]
@@ -41,20 +39,52 @@ You can set disk device names with the following formats:
 +
 Non-alphanumeric characters must be represented as `\xNN`, where _NN_ is the hexadecimal representation of the character. For example, `\x20` is a white space `(" ")`.
 
+inst.addrepo=::
+Use the `inst.addrepo=` boot option to add an additional repository that can be used as another installation source along with the main repository (`inst.repo=`). You can use the `inst.addrepo=` boot option multip
+le times during one boot. The following table contains details of the `inst.addrepo=` boot option syntax.
++
+[NOTE]
+====
+The `REPO_NAME` is the name of the repository and is required in the installation process. These repositories are only used during the installation process; they are not installed on the installed system.
+====
++
+.inst.addrepo installation source boot options
+[options="header"]
+|===
+| Installation source  | Boot option format | Additional information
+| Installable tree at a URL  | `inst.addrepo=REPO_NAME,[http,https,ftp]://<host>/<path>` | Looks for the installable tree at a given URL.
+| Installable tree at an NFS path   | `inst.addrepo=REPO_NAME,nfs://<server>:/<path>` | Looks for the installable tree at a given NFS path. A colon is required after the host. The installation program passes every
+thing after `nfs://` directly to the mount command instead of parsing URLs according to RFC 2224.
+| Installable tree in the installation environment | `inst.addrepo=REPO_NAME,file://<path>` | Looks for the installable tree at the given location in the installation environment. To use this option, the repositor
+y must be mounted before the installation program attempts to load the available software groups. The benefit of this option is that you can have multiple repositories on one bootable ISO, and you can install both
+ the main repository and additional repositories from the ISO. The path to the additional repositories is `/run/install/source/REPO_ISO_PATH`. Additional, you can mount the repository directory in the `%pre` secti
+on in the Kickstart file. The path must be absolute and start with `/`, for example `inst.addrepo=REPO_NAME,file:///<path>`
+| Hard Drive  | `inst.addrepo=REPO_NAME,hd:<device>:<path>` | Mounts the given _<device>_ partition and installs from the ISO that is specified by the _<path>_. If the _<path>_ is not specified, the installation p
+rogram looks for a valid installation ISO on the _<device>_. This installation method requires an ISO with a valid installable tree.
+|===
++
+
+inst.noverifyssl=::
+The `noverifyssl=` boot option prevents the installation program from verifying the SSL certificate for all HTTPS connections with the exception of the additional Kickstart repositories, where `--noverifyssl` can 
+be set per repository.
+
+
 inst.stage2=::
 
-The `inst.stage2=` boot option specifies the location of the installation program runtime image. This option expects a path to a directory containing a valid `.treeinfo` file. The location of the runtime image is read from the `.treeinfo` file. If the `.treeinfo` file is not available, the installation program attempts to load the image from `LiveOS/squashfs.img`.
-
+Use the `inst.stage2=` boot option to specify the location of the installation program runtime image. This option expects a path to a directory containing a valid `.treeinfo` file. The location of the runtime image is read from the `.treeinfo` file. If the `.treeinfo` file is not available, the installation program attempts to load the image from `LiveOS/squashfs.img`.
++
+When the `inst.stage2` option is not specified, the installation program attempts to use the location specified with `inst.repo` option.
++
+You should specify this option only for PXE boot. The installation DVD and Boot ISO already contain a correct `inst.stage2` option to boot the installation program from themselves.
++
 [NOTE]
 ====
 By default, the `inst.stage2=` boot option is used on the installation media and is set to a specific label, for example, `inst.stage2=hd:LABEL=RHEL-8-0-0-BaseOS-x86_64`. If you modify the default label of the file system containing the runtime image, or if you use a customized procedure to boot the installation system, you must verify that the `inst.stage2=` boot option is set to the correct value.
 ====
 
 inst.stage2.all::
-
-You can use the `inst.stage2.all` boot option to specify several HTTP, HTTPS, or FTP sources by using the `inst.stage.2=` boot option multiple times. The sources are run sequentially until one succeeds.
+The `inst.stage2.all` boot option is used to specify several HTTP, HTTPS, or FTP sources. You can use the `inst.stage2=` boot option multiple times with the `inst.stage2.all` option to fetch the image from the sources sequentially until one succeeds.
 For example:
-
 +
 [subs="macros"]
 ----
@@ -63,7 +93,7 @@ inst.stage2=http://hostname1/path_to_install_tree/
 inst.stage2=http://hostname2/path_to_install_tree/
 inst.stage2=http://hostname3/path_to_install_tree/
 ----
-+
+
 
 inst.dd=::
 The `inst.dd=` boot option is used to perform a driver update during the installation. See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/[_Performing an advanced RHEL installation_] document for information on how to update drivers during installation.
@@ -71,7 +101,40 @@ The `inst.dd=` boot option is used to perform a driver update during the install
 inst.repo=hmc::
 When booting from a Binary DVD, the installation program prompts you to enter additional kernel parameters. To set the DVD as an installation source, append `inst.repo=hmc` to the kernel parameters. The installation program then enables `SE` and `HMC` file access, fetches the images for stage2 from the DVD, and provides access to the packages on the DVD for software selection. This option eliminates the requirement of an external network setup and expands the installation options.
 
-[discrete]
-== Additional resources
+inst.proxy::
+The `inst.proxy` boot option is used when performing an installation from a HTTP, HTTPS, FTP source. For example:
++
+[subs="macros"]
+----
+[PROTOCOL://][USERNAME[:PASSWORD]@]HOST[:PORT]
+----
 
-* For a full list of boot options, see the link:https://github.com/rhinstaller/anaconda/blob/rhel-8.0/docs/boot-options.rst[upstream boot option] content.
+inst.nosave::
+Use the `inst.nosave` boot option to control which installation logs and related files are not saved to the installed system, for example `input_ks`, `output_ks`, `all_ks`, `logs` and `all`.
+Multiple values can be combined as a comma-separated list, for example: `input_ks,logs`.
++
+[NOTE]
+====
+The `inst.nosave` boot option is used for excluding files from the installed system that can't be removed by a Kickstart %post script, such as logs and input/output Kickstart results.
+====
++
+.inst.nosave boot options
+[options="header"]
+|===
+| Option  | Description
+| input_ks  | Disables the ability to save the input Kickstart results.
+| output_ks | Disables the ability to save the output Kickstart results generated by the installation program.
+| all_ks | Disables the ability to save the input and output Kickstart results.
+| logs  | Disables the ability to save all installation logs.
+| all | Disables the ability to save all Kickstart results, and all logs.
+|===
+
+inst.multilib::
+Use the `inst.multilib` boot option to set DNF's `multilib_policy` to *all*, instead of *best*.
+
+memcheck::
+The `memcheck` boot option performs a check to verify that the system has enough RAM to complete the installation. If there isn't enough RAM, the installation process is stopped. The system check is approximate and memory usage during installation depends on the package selection, user interface, for example graphical or text, and other parameters.
+
+nomemcheck::
+The `nomemcheck` boot option does not perform a check to verify if the system has enough RAM to complete the installation. Any attempt to perform the installation with less than the recommended minimum amount of memory is unsupported, and might result in the installation process failing.
+

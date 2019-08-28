@@ -9,30 +9,14 @@ Use the `inst.rescue=` option to run the rescue environment. The option is usefu
 inst.updates=::
 Use the `inst.updates=` option to specify the location of the `updates.img` file that you want to apply during installation. There are a number of sources for the updates.
 +
-Updates from a network:::
-The easiest way to use `inst.updates=` is to specify the network location of `updates.img`. This does not require any modification to the installation tree. To use this method, edit the kernel command line to include `inst.updates`, for example:
-+
-[subs="macros"]
-----
-inst.updates=http://some.website.com/path/to/updates.img
-----
-+
-Updates from a disk image:::
-+
-You can also save an `updates.img` on a floppy drive or a USB key. This can be done only with an `ext2` filesystem type of `updates.img`. To save the contents of the image on your floppy drive, insert the floppy disc and run the following command:
-+
-[subs="macros"]
-----
-dd if=updates.img of=/dev/fd0 bs=72k count=20
-----
-+
-To use a USB key or flash media, replace `/dev/fd0` with the device name of your USB key.
-+
-Updates from an installation tree:::
-+
-If you are using a CD, hard drive, HTTP, or FTP install, you can save the `updates.img` in the installation tree so that all installations can detect the .img. Save the file in the `images/` directory. The file name must be `updates.img`.
-+
-For NFS installs, there are two options: You can either save the image in the `images/` directory, or in the `RHupdates/` directory in the installation tree.
+.inst.updates= source updates
+[options="header"]
+|===
+| Source  | Description | Example
+| Updates from a network | The easiest way to use `inst.updates=` is to specify the network location of `updates.img`. This does not require any modification to the installation tree. To use this method, edit the kernel command line to include `inst.updates`. | `inst.updates=http://some.website.com/path/to/updates.img`.
+| Updates from a disk image | You can save an `updates.img` on a floppy drive or a USB key. This can be done only with an `ext2` filesystem type of `updates.img`. To save the contents of the image on your floppy drive, insert the floppy disc and run the command. | `dd if=updates.img of=/dev/fd0 bs=72k count=20`. To use a USB key or flash media, replace `/dev/fd0` with the device name of your USB key.
+| Updates from an installation tree | If you are using a CD, hard drive, HTTP, or FTP install, you can save the `updates.img` in the installation tree so that all installations can detect the .img file. Save the file in the `images/` directory. The file name must be `updates.img`. | For NFS installs, there are two options: You can either save the image in the `images/` directory, or in the `RHupdates/` directory in the installation tree.
+|===
 
 inst.loglevel=::
 Use the `inst.loglevel=` option to specify the minimum level of messages logged on a terminal. This concerns only terminal logging; log files always contain messages of all levels.
@@ -43,15 +27,22 @@ When installation starts, the `inst.syslog=` option sends log messages to the `s
 
 inst.virtiolog=::
 Use the `inst.virtiolog=` option to specify the virtio port (a character device at `/dev/virtio-ports/name`) that you want to use for forwarding logs. The default value is `org.fedoraproject.anaconda.log.0`; if this port is present, it is used.
-////
+
+inst.zram::
+The `inst.zram` option controls the usage of zRAM swap during installation. The option creates a compressed block device inside the system RAM and uses it for swap space instead of the hard drive. This allows the installation program to run with less available memory than is possible without compression, and it might also make the installation faster.
+By default, swap on zRAM is enabled on systems with 2 GiB or less RAM, and disabled on systems with more than 2 GiB of memory. You can use this option to change this behavior; on a system with more than 2 GiB RAM, use `inst.zram=1` to enable the feature, and on systems with 2 GiB or less memory, use `inst.zram=0` to disable the feature.
+
 rd.live.ram::
 If the `rd.live.ram` option is specified, the `stage 2` image is copied into RAM. Using this option when the `stage 2` image is on an NFS server increases the minimum required memory by the size of the image by roughly 500 MiB.
-NEED Vendy Poncova to confirm when she returns from PTO
-////
+
 inst.nokill::
 The `inst.nokill` option is a debugging option that prevents the installation program from rebooting when a fatal error occurs, or at the end of the installation process. Use the `inst.nokill` option to capture installation logs which would be lost upon reboot.
 
-[discrete]
-== Additional resources
+inst.noshell::
+Use `inst.noshell` option if you do not want a shell on terminal session 2 (tty2) during installation.
 
-* For a full list of boot options, see the link:https://github.com/rhinstaller/anaconda/blob/rhel-8.0/docs/boot-options.rst[upstream boot option] content.
+inst.notmux::
+Use `inst.notmux` option if you do not want to use tmux during installation. The output is generated without terminal control characters and is meant for non-interactive uses.
+
+remotelog::
+You can use the `remotelog` option to send all of the logs to a remote `host:port` using a TCP connection. The connection is retired if there is no listener and the installation proceeds as normal.

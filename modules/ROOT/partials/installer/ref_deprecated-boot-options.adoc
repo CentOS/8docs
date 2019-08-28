@@ -1,0 +1,57 @@
+// Module included in the following assemblies:
+//
+// <List assemblies here, each on a new line>
+
+// This module can be included from assemblies using the following include statement:
+// include::<path>/ref_deprecated-boot-options.adoc[leveloffset=+1]
+
+// The file name and the ID are based on the module title. For example:
+// * file name: ref_my-reference-a.adoc
+// * ID: [id='ref_my-reference-a_{context}']
+// * Title: = My reference A
+//
+// The ID is used as an anchor for linking to the module. Avoid changing
+// it after the module has been published to ensure existing links are not
+// broken.
+//
+// The `context` attribute enables module reuse. Every module's ID includes
+// {context}, which ensures that the module has a unique ID even if it is
+// reused multiple times in a guide.
+//
+// In the title, include nouns that are used in the body text. This helps
+// readers and search engines find information quickly.
+[id="deprecated-boot-options_{context}"]
+= Deprecated boot options
+
+This section contains information about deprecated boot options. These options are still accepted by the installation program but they are deprecated and are scheduled to be removed in a future release of {productname}.
+
+method::
+The `method` option is an alias for `inst.repo`.
+
+repo=nfsiso::
+The `repo=nfsiso:` option is the same as `inst.repo=nfs:`.
+
+dns::
+Use `nameserver` instead of `dns`. Note that nameserver does not accept comma-separated lists; use multiple nameserver options instead.
+
+netmask, gateway, hostname::
+
+The `netmask`, `gateway`, and `hostname` options are provided as part of the `ip` option.
+
+ip=bootif::
+A PXE-supplied `BOOTIF` option is used automatically, so there is no requirement to use `ip=bootif`.
+
+ksdevice::
++
+.Values for the ksdevice boot option
+[options="header"]
+|===
+| Value  | Information
+| Not present  | N/A
+| `ksdevice=link` | Ignored as this option is the same as the default behavior
+| `ksdevice=bootif` | Ignored as this option is the default if `BOOTIF=` is present
+| `ksdevice=ibft` | Replaced with `ip=ibft`. See `ip` for details
+| `ksdevice=<MAC>` | Replaced with `BOOTIF=${MAC/:/-}`
+| `ksdevice=<DEV>` | Replaced with `bootdev`
+|===
++

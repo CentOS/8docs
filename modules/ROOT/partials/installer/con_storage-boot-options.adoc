@@ -1,0 +1,45 @@
+// Module included in the following assemblies:
+//
+// <List assemblies here, each on a new line>
+
+// This module can be included from assemblies using the following include statement:
+// include::<path>/con_storage-boot-options.adoc[leveloffset=+1]
+
+// The file name and the ID are based on the module title. For example:
+// * file name: con_my-concept-module-a.adoc
+// * ID: [id='con_my-concept-module-a_{context}']
+// * Title: = My concept module A
+//
+// The ID is used as an anchor for linking to the module. Avoid changing
+// it after the module has been published to ensure existing links are not
+// broken.
+//
+// The `context` attribute enables module reuse. Every module's ID includes
+// {context}, which ensures that the module has a unique ID even if it is
+// reused multiple times in a guide.
+//
+// In the title, include nouns that are used in the body text. This helps
+// readers and search engines find information quickly.
+// Do not start the title with a verb. See also _Wording of headings_
+// in _The IBM Style Guide_.
+[id="storage-boot-options_{context}"]
+= Storage boot options
+
+inst.nodmraid=::
+Use the `inst.nodmraid=` option to disable `dmraid` support.
+
+[WARNING]
+====
+Use this option with caution. If you have a disk that is incorrectly identified as part of a firmware RAID array, it might have some stale RAID metadata on it that must be removed using the appropriate tool, for example, `dmraid` or `wipefs`.
+====
+
+inst.nompath=::
+Use the `inst.nompath=` option to disable support for multipath devices. This option can be used for systems on which a false-positive is encountered which incorrectly identifies a normal block device as a multipath device. There is no other reason to use this option.
+
+[WARNING]
+====
+Use this option with caution. You should not use this option with multipath hardware. Using this option to attempt to install to a single path of a multipath is not supported.
+====
+
+inst.gpt::
+The `inst.gpt` boot option forces the installation program to install partition information to a GUID Partition Table (GPT) instead of a Master Boot Record (MBR). This option is not valid on UEFI-based systems, unless they are in BIOS compatibility mode. Normally, BIOS-based systems and UEFI-based systems in BIOS compatibility mode attempt to use the MBR schema for storing partitioning information, unless the disk is 232 sectors in size or larger. Disk sectors are typically 512 bytes in size, meaning that this is usually equivalent to 2 TiB. Using the `inst.gpt` boot option changes this behavior, allowing a GPT to be written to smaller disks.

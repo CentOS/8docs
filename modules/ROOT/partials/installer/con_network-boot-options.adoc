@@ -57,9 +57,6 @@ The `method` parameter can be any of the following:
 nameserver=::
 The `nameserver=` option specifies the address of the name server. You can use this option multiple times.
 
-rd.neednet=::
-Typically, `ip=` options are applied only if the network is required by the installation (based on any other boot options that are used). You can use `rd.neednet=1` to explicitly force the application of `ip=` options.
-
 bootdev=::
 The `bootdev=` option specifies the boot interface. This option is mandatory if you use more than one `ip` option.
 
@@ -82,47 +79,8 @@ The `inst.dhcpclass=` option specifies the DHCP vendor class identifier. The `dh
 inst.waitfornet=::
 Using the `inst.waitfornet=SECONDS` boot option causes the installation system to wait for network connectivity before installation. The value given in the `SECONDS` argument specifies the maximum amount of time to wait for network connectivity before timing out and continuing the installation process even if network connectivity is not present.
 
-vlan=::
-Use the `vlan=` option to configure a Virtual LAN (VLAN) device on a specified interface with a given name. The syntax is `vlan=name:interface`. For example:
-+
-[subs="macros"]
-----
-vlan=vlan5:em1
-----
-+
-This configures a VLAN device named `vlan5` on the em1 interface. The name can take the following forms:
-+
-.VLAN device naming conventions
-[options="header"]
-|===
-| Naming scheme  | Example
-| VLAN_PLUS_VID     | `vlan0005`
-| VLAN_PLUS_VID_NO_PAD     | `vlan5`
-| DEV_PLUS_VID  | `em1.0005`
-| DEV_PLUS_VID_NO_PAD   | `em1.5`
-|===
-
-bond=::
-Use the `bond=` option to configure a bonding device with the following syntax: `bond=name[:slaves][:options]`. Replace _name_ with the bonding device name, _slaves_ with a comma-separated list of physical (ethernet) interfaces, and _options_ with a comma-separated list of bonding options. For example:
-+
-[subs="macros"]
-----
-bond=bond0:em1,em2:mode=active-backup,tx_queues=32,downdelay=5000
-----
-+
-For a list of available options, execute the `modinfo` bonding command. Using this option without any parameters assumes `bond=bond0:eth0,eth1:mode=balance-rr`.
-
-team=::
-Use the `team=` option to configure a team device with the following syntax: `team=master:slaves`. Replace _master_ with the name of the master team device and _slaves_ with a comma-separated list of physical (ethernet) devices to be used as slaves in the team device. For example:
-+
-[subs="macros"]
-----
-team=team0:em1,em2
-----
-
 
 [discrete]
 == Additional resources
 
-* For a full list of boot options, see the link:https://github.com/rhinstaller/anaconda/blob/rhel-8.0/docs/boot-options.rst[upstream boot option] content.
 * For more information about networking, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/index/[_Configuring and managing networking_] document.

@@ -10,9 +10,11 @@ Installing {productname} from the Binary DVD ISO is the easiest and the recommen
 
 After you have created a bootable USB, DVD, or CD you are ready to boot the {productname} installation.
 
+include::ROOT:partial$installer/con_types-of-boot-options.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_editing-boot-options.adoc[leveloffset=+1]
 include::ROOT:partial$installer/proc_booting-the-installer-from-local-media.adoc[leveloffset=+1]
 include::ROOT:partial$installer/proc_booting-the-installation-using-pxe.adoc[leveloffset=+1]
-include::assembly_custom-boot-options.adoc[leveloffset=+1]
+
 
 
 
