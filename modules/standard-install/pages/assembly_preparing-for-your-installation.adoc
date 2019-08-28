@@ -1,0 +1,71 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+// This assembly is included in the following assemblies:
+//
+// <List assemblies here, each on a new line>
+:parent-context-of-preparing-for-your-installation: {context}
+[id='preparing-for-your-installation_{context}']
+= Preparing for your installation
+:context: preparing-for-your-installation
+
+ifdef::internal[]
+[cols="1,4"]
+|===
+| Included in |
+LIST OF ASSEMBLIES
+| User story |
+USER STORY
+| Jira |
+JIRA LINK
+| BZ |
+BUGZILLA LINK
+| SMEs |
+SME NAMES
+| SME Ack |
+YES/NO
+| Peer Ack |
+YES/NO
+|===
+endif::internal[]
+
+
+If you are new to {productname}, it is important to prepare for your installation by reviewing system requirements, downloading the required installation image, and creating installation media.
+
+
+
+//TODO: Commenting this out as the planning may move to GA
+//[id='prerequisites-{context}']
+//== Prerequisites
+
+//* You have xref:planning-your-installation_installing-RHEL[planned your installation].
+
+//:leveloffset: +1
+
+include::ROOT:partial$installer/con_preparing-for-your-installation-workflow.adoc[leveloffset=+1]
+include::ROOT:partial$installer/con_check-system-requirements.adoc[leveloffset=+1]
+include::ROOT:partial$installer/con_choose-an-installation-boot-method.adoc[leveloffset=+1]
+include::ROOT:partial$installer/ref_types-of-installation-media.adoc[leveloffset=+1]
+include::ROOT:partial$installer/assembly_downloading-beta-installation-images.adoc[leveloffset=+1]
+include::ROOT:partial$installer/con_making-media.adoc[leveloffset=+1]
+include::ROOT:partial$installer/con_making-an-installation-cd-or-dvd.adoc[leveloffset=+2]
+include::ROOT:partial$installer/proc_creating-bootable-usb-linux.adoc[leveloffset=+2]
+include::ROOT:partial$installer/proc_creating-a-bootable-usb-windows.adoc[leveloffset=+2]
+include::ROOT:partial$installer/proc_creating-a-bootable-usb-mac.adoc[leveloffset=+2]
+include::ROOT:partial$installer/assembly_prepare-installation-source.adoc[leveloffset=+1]
+
+
+
+
+
+
+
+
+//:leveloffset: -1
+
+//[id='related-information-{context}']
+//== Related information
+
+//* ???
+//TODO: Uncomment when this section is complete as nothing listed at the moment.
+
+:context: {parent-context-of-preparing-for-your-installation}

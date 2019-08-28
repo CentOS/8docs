@@ -1,0 +1,34 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-manual-partitioning: {context}
+
+[id='manual-partitioning_{context}']
+= Configuring manual partitioning
+
+:context: manual-partitioning
+
+You can use manual partitioning to configure your disk partitions and mount points and define the file system that {ProductName} is installed on.
+
+[NOTE]
+====
+Before installation, you should consider whether you want to use partitioned or unpartitioned disk devices. For more information, see the Knowledgebase article at https://access.redhat.com/solutions/163853.
+====
+
+An installation of {ProductName} requires a minimum of one partition but Red{nbsp}Hat recommends using at least the following partitions or volumes: `PReP`, `/`, `/home`, `/boot`, and `swap`. You can also create additional partitions and volumes as you require.
+
+[NOTE]
+====
+An installation of {productname} on IBM Power Systems servers requires a `PReP` boot partition.
+====
+
+WARNING: To prevent data loss it is recommended that you back up your data before proceeding. If you are upgrading or creating a dual-boot system, you should back up any data you want to keep on your storage devices.
+
+include::ROOT:partial$installer/proc_starting-manual-partitioning.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_adding-a-mount-point.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_configuring-a-mount-point-file-system.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_customizing-a-partition-or-volume.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_creating-software-raid.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_creating-lvm-logical-volume.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_configuring-lvm-logical-volume.adoc[leveloffset=+1]
+
+:context: {parent-context-of-manual-partitioning}

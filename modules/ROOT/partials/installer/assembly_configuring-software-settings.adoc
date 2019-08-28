@@ -1,0 +1,36 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-configuring-software-settings: {context}
+
+[id='configuring-software-settings_{context}']
+= Configuring software options
+
+:context: configuring-software-settings
+
+ifdef::internal[]
+[cols="1,4"]
+|===
+| Included in |
+LIST OF ASSEMBLIES
+| User story |
+USER STORY
+| Jira |
+JIRA LINK
+| BZ |
+BUGZILLA LINK
+| SMEs |
+SME NAMES
+| SME Ack |
+YES/NO
+| Peer Ack |
+YES/NO
+|===
+endif::[]
+
+This section contains information about configuring your installation source and software selection settings, and activating a repository.
+
+include::ROOT:partial$installer/proc_configuring-installation-source.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/proc_configuring-software-selection.adoc[leveloffset=+1]
+
+:context: {parent-context-of-configuring-software-settings}

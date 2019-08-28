@@ -11,7 +11,6 @@ A full installation program that contains the BaseOS and AppStream repositories 
 [IMPORTANT]
 ====
 * It is *recommended* that you use the Binary DVD ISO image file to install {productname} {productnumber}.
-* You can use a Binary DVD for IBM Z to boot the installation program using a SCSI DVD drive, or as an installation source.
 ====
 
 Boot ISO image file::
@@ -27,14 +26,9 @@ The following table contains information about the images that are available for
 | AMD64 and Intel 64 | x86_64 Binary DVD ISO image file | x86_64 Boot ISO image file
 | ARM 64  | AArch64 Binary DVD ISO image file | AArch64 Boot ISO image file
 | IBM POWER | ppc64le Binary DVD ISO image file  | ppc64le Boot ISO image file
-| IBM Z  | s390x Binary DVD ISO image file  | s390x Boot ISO image file
 |===
-
-ifdef::installation-title[]
 
 [discrete]
 === Additional Resources
 
 * For instructions on how to access the Binary DVD ISO image repositories, see <<prepare-installation-source_preparing-for-your-installation>> for more information.
-
-endif::[]

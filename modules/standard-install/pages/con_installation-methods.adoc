@@ -1,0 +1,24 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+[id="installation-methods_{context}"]
+= Installation methods
+
+You can install {productname} using one of the following methods:
+
+Quick install::
+Install {productname} on AMD64, Intel 64, and 64-bit ARM architectures using the graphical user interface. The quick installation assumes that you are familiar with {productname} and your environment, and that you can accept the default settings provided by the installation program.
+
+Graphical install::
+Install {productname} using the graphical user interface and customize the graphical settings for your specific requirements.
+
+Automated install::
+Install {productname} using Kickstart. The automated installation allows you to perform unattended operating system installation tasks.
+
+[discrete]
+== Additional resources
+
+* To perform a graphical installation on AMD64, Intel 64, and 64-bit ARM architectures using the graphical user interface, see xref:con_installation-workflow.adoc[Installing on AMD64, Intel 64, and 64-bit ARM].
+* To perform an installation on IBM Power System LC servers, see xref:assembly_installing-red-hat-enterprise-linux-on-ibm-power-system-lc-servers.adoc[Installing on IBM Power System LC servers].
+* To perform an installation on IBM Power System AC servers, see xref:assembly_installing-on-ibm-power-system-accelerated-servers.adoc[Installing on IBM Power System accelerated servers].
+* To perform an installation on IBM Power System L servers, see xref:assembly_installing-red-hat-enterprise-linux-on-ibm-power-system-l-server.adoc[Installing on IBM Power System L server].
+* To perform an automated install using Kickstart, see the xref:advanced-install:index.adoc[Performing an advanced installation] document.

@@ -1,0 +1,34 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-graphical-installation: {context}
+:context: graphical-installation
+[id='graphical-installation_{context}']
+= Installing RHEL using the Graphical User Interface
+
+This section contains information about installing {ProductName} using the Graphical User Interface (GUI). The GUI is the preferred method of installing {ProductName} when you boot the system from a CD, DVD, or USB flash drive, or from a network using PXE.
+
+[NOTE]
+====
+There may be some variance between the online help and the content that is published on the Customer Portal. For the latest updates, see the installation content on the Customer Portal.
+====
+
+
+//If your system does not have the ability to use the graphical mode, you can:
+//
+//. Use Kickstart to automate the installation as described in <<kickstart-install>>
+//. Perform the graphical installation remotely by connecting to the installation system from another computer with a graphical display using the _VNC_ (Virtual Network Computing) protocol as described in <<put-id-here>>
+//TODO: uncomment and finish links when available
+
+include::ROOT:partial$installer/con_graphical-installation-workflow.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_configuring-language-and-location.adoc[leveloffset=+1]
+include::ROOT:partial$installer/con_installation-summary.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_configuring-localization-settings.adoc[leveloffset=+1]
+include::ROOT:partial$installer/assembly_configuring-software-settings.adoc[leveloffset=+1]
+include::ROOT:partial$installer/assembly_configuring-system-settings.adoc[leveloffset=+1]
+include::ROOT:partial$installer/assembly_storage-devices.adoc[leveloffset=+1]
+include::ROOT:partial$installer/assembly_manual-partitioning.adoc[leveloffset=+1]
+include::ROOT:partial$installer/assembly_final-installer-configuration.adoc[leveloffset=+1]
+
+//TODO: cover this later include::assembly_blivet-gui-partitioning.adoc[leveloffset=+1]
+
+:context: {parent-context-graphical-installation}

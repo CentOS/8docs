@@ -1,3 +1,4 @@
+
 [id="downloading-a-specific-beta-iso-image_{context}"]
 = Downloading an ISO image from the Customer Portal
 
@@ -9,9 +10,9 @@ Follow this procedure to download a {productname} {productnumber} ISO image from
 ====
 * Red Hat recommends using the Binary DVD ISO image to install {ProductName} {productnumber} as it contains all repositories and software packages, and does not require any additional configuration.
 * If you download the Boot ISO image file, you must configure an installation source to obtain the repositories and software packages.
-ifdef::installation-title[]
-See  <<prepare-installation-source_preparing-for-your-installation>> for more information.
-endif::[]
+
+See for more information.
+
 ====
 
 .Prerequisites

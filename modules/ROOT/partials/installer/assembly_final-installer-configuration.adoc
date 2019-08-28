@@ -1,0 +1,17 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-final-installer-configuration: {context}
+
+[id='final-installer-configuration_{context}']
+= Starting the installation program
+:context: final-installer-configuration
+
+Before you start the installation program, you must configure your root password and user settings.
+
+include::ROOT:partial$installer/proc_beginning-installation.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_configuring-a-root-password.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_creating-a-user-account.adoc[leveloffset=+1]
+include::ROOT:partial$installer/con_installation-complete.adoc[leveloffset=+1]
+
+
+:context: {parent-context-of-final-installer-configuration}

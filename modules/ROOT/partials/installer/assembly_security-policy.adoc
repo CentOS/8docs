@@ -1,0 +1,47 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-security-policy: {context}
+
+[id='security-policy_{context}']
+= Configuring security policy
+
+:context: security-policy
+
+// The following block is rendered only if the `internal` variable is set.
+// The table shows various metadata useful when editing this file.
+ifdef::internal[]
+[cols="1,4"]
+|===
+| Included in |
+LIST OF ASSEMBLIES
+| User story |
+USER STORY
+| Jira |
+JIRA LINK
+| BZ |
+BUGZILLA LINK
+| SMEs |
+SME NAMES
+| SME Ack |
+YES/NO
+| Peer Ack |
+YES/NO
+|===
+endif::[]
+
+This section contains information about the {productname} {productnumber} security policy add-on and how to configure it for use on your system.
+
+include::ROOT:partial$installer/con_about-security-policy.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_configuring-security-policy.adoc[leveloffset=+1]
+
+
+
+[id='related-information-{context}']
+== Related information
+* [literal]`scap-security-guide(8)` - The manual page for the [literal]`scap-security-guide` project contains information about SCAP security profiles, including examples on how to utilize the provided benchmarks using the OpenSCAP utility.
+* {productname} security compliance information is available in the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/security_hardening/index/[_Security hardening_] document.
+
+//TODO: Add the Linux 8 doc link* The link:++https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/chap-Compliance_and_Vulnerability_Scanning.html++[Red{nbsp}Hat Enterprise{nbsp}Linux{nbsp}7 Security Guide] provides detailed information about security compliance including background information, practical examples, and additional resources.
+
+
+:context: {parent-context-of-security-policy}

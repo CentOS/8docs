@@ -1,0 +1,47 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-installing-to-a-nvdimm-device: {context}
+
+[id='installing-to-a-nvdimm-device_{context}']
+= Installing to an NVDIMM device
+
+:context: installing-to-a-nvdimm-device
+
+ifdef::internal[]
+[cols="1,4"]
+|===
+| Included in |
+LIST OF ASSEMBLIES
+| User story |
+As an administrator, I want to utilize my NVDIMM device as a disk to install RHEL onto, so that my RHEL installation is more performant.
+| Jira |
+https://projects.engineering.redhat.com/browse/RHELPLAN-6688
+| BZ |
+https://bugzilla.redhat.com/show_bug.cgi?id=1631746
+| SMEs |
+sbueno, jvymazal, pjones
+| SME Ack |
+YES implied as rehash of rhel 7 content
+| Peer Ack |
+NO
+|===
+endif::[]
+
+Non-Volatile Dual In-line Memory Module (NVDIMM) devices combine the performance of RAM with disk-like data persistence when no power is supplied. Under specific circumstances, {ProductName} {ProductNumber} can boot and run from NVDIMM devices.
+
+////
+[id='prerequisites-{context}']
+== Prerequisites
+
+// not sure if such an assembly has any real prereqs
+
+* The system for installation has a working NVDIMM device present.
+* The system can boot the Anaconda installer.
+////
+
+
+include::ROOT:partial$installer/con_criteria-for-using-an-nvdimm-device-as-an-installation-target.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/proc_configuring-an-nvdimm-device-using-anaconda.adoc[leveloffset=+1]
+
+:context: {parent-context-of-installing-to-a-nvdimm-device}

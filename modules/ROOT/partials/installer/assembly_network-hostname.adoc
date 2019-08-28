@@ -1,0 +1,23 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+
+:parent-context-network-hostname: {context}
+
+[id='network-hostname_{context}']
+= Configuring network and host name options
+:context: network-hostname
+Use the `Network and Host name` window to configure network interfaces. Options that you select here are available both during the installation for tasks such as downloading packages from a remote location, and on the installed system.
+
+include::ROOT:partial$installer/proc_configuring-network-and-host-name.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_adding-a-virtual-network-interface.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_editing-network-interface-configuration.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_enabling-or-disabling-the-interface-connection.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_setting-up-static-ipv4-or-ipv6-settings.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_configuring-routes.adoc[leveloffset=+1]
+
+[id="additional-resources_{context}"]
+== Additional resources
+
+* To learn more about network configuration after installation, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/index/[_Configuring and managing networking_] document.
+
+:context: {parent-context-network-hostname}

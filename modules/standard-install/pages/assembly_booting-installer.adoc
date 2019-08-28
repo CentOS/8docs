@@ -1,0 +1,20 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-booting-the-installer: {context}
+
+[id='booting-the-installer_{context}']
+= Booting the installation
+:context: booting-the-installer
+
+Installing {productname} from the Binary DVD ISO is the easiest and the recommended method of performing a standard RHEL installation. Other installation methods require additional setup and configuration. For example, when installing {productname} on a large number of systems simultaneously, the best approach is to boot from a PXE server and install from a source in a shared network location.
+
+After you have created a bootable USB, DVD, or CD you are ready to boot the {productname} installation.
+
+include::ROOT:partial$installer/proc_booting-the-installer-from-local-media.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_booting-the-installation-using-pxe.adoc[leveloffset=+1]
+include::assembly_custom-boot-options.adoc[leveloffset=+1]
+
+
+
+
+:context: {parent-context-of-booting-the-installer}

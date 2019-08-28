@@ -1,0 +1,23 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+
+// This assembly is included in the following assemblies:
+//
+// <List assemblies here, each on a new line>
+
+:parent-context-of-configuring-system-settings: {context}
+
+[id='configuring-system-settings_{context}']
+= Configuring system options
+This section contains information about configuring Installation Destination, KDUMP, Network and Host Name, Security Policy, and System Purpose.
+
+:context: configuring-system-settings
+
+include::ROOT:partial$installer/proc_configuring-installation-destination.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_boot-loader-installation.adoc[leveloffset=+2]
+include::ROOT:partial$installer/proc_configuring-kdump.adoc[leveloffset=+1]
+include::ROOT:partial$installer/assembly_network-hostname.adoc[leveloffset=+1]
+include::ROOT:partial$installer/assembly_security-policy.adoc[leveloffset=+1]
+include::ROOT:partial$installer/assembly_configuring-system-purpose-standard.adoc[leveloffset=+1]
+
+:context: {parent-context-of-configuring-system-settings}

@@ -8,6 +8,6 @@ image:title_logo.svg[CentOS Documentation Project]
 
 _{Subtitle}_
 
-{Abstract}
+**{Abstract}**
 
 include::ROOT:partial$legal-notice.adoc[]
