@@ -1,0 +1,35 @@
+:parent-context-of-kickstart-changes: {context}
+
+[id='kickstart-changes_{context}']
+= Kickstart changes
+
+:context: kickstart-changes
+
+The folowing sections describe the changes in Kickstart commands and options in {RHEL8}.
+
+== auth or authconfig is deprecated in RHEL 8
+The `auth` or `authconfig` Kickstart command is deprecated in {productname} 8 because the `authconfig` tool and package have been removed.
+
+Similarly to `authconfig` commands issued on command line, `authconfig` commands in Kickstart scripts now use the `authselect-compat` tool to run the new `authselect` tool. For a description of this compatibility layer and its known issues, see the manual page `authselect-migration(7)`. The installation program will automatically detect use of the deprecated commands and install on the system the `authselect-compat` package to provide the compatibility layer.
+
+// The `auth` or `authconfig` Kickstart command sets up the authentication options for the system using the `authconfig` command, which can also be run on the command line after the installation finishes.
+
+
+== Kickstart no longer supports Btrfs
+The Btrfs file system is not supported in {productname} 8. As a result, the Graphical User Interface (GUI) and the Kickstart commands no longer support Btrfs.
+
+ifndef::advanced-installation-title[]
+== Using Kickstart files from previous RHEL releases
+If you are using Kickstart files from previous RHEL releases, see the _Repositories_ section of this document for more information about the {productname} 8 BaseOS and AppStream repositories.
+endif::[]
+
+
+include::ROOT:partial$installer/ref_deprecated-kickstart-comands-and-options.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/ref_removed-kickstart-comands-and-options.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/ref_new-kickstart-comands-and-options.adoc[leveloffset=+1]
+
+// see also https://bugzilla.redhat.com/show_bug.cgi?id=1642765
+
+:context: {parent-context-of-kickstart-changes}

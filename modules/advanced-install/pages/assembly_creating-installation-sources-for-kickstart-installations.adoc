@@ -1,0 +1,25 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-creating-installation-sources-for-kickstart-installations: {context}
+
+[id='creating-installation-sources-for-kickstart-installations_{context}']
+= Creating installation sources for Kickstart installations
+
+:context: creating-installation-sources-for-kickstart-installations
+
+This section describes how to create an installation source for the Boot ISO image using the Binary DVD ISO image that contains the required repositories and software packages.
+
+include::ROOT:partial$installer/con_types-of-installation-source.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/ref_ports-for-network-based-installation.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/proc_creating-an-installation-source-on-nfs.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/proc_creating-an-installation-source-on-http.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/proc_creating-an-installation-source-on-ftp.adoc[leveloffset=+1]
+
+// what about a local source ???
+
+
+:context: {parent-context-of-creating-installation-sources-for-kickstart-installations}

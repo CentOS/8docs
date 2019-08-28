@@ -1,0 +1,27 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-starting-kickstart-installations: {context}
+
+[id='starting-kickstart-installations_{context}']
+= Starting Kickstart installations
+
+:context: starting-kickstart-installations
+
+
+You can start Kickstart installations in multiple ways:
+
+* Manually by entering the installation program boot menu and specifying the options including Kickstart file there.
+* Automatically by editing the boot options in PXE boot.
+* Automatically by providing the file on a volume with specific name.
+
+Learn how to perform each of these methods in the following sections.
+
+
+include::ROOT:partial$installer/proc_starting-a-kickstart-installation-manually.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/proc_starting-a-kickstart-installation-automatically-using-pxe.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/proc_starting-a-kickstart-installation-automatically-using-a-local-volume.adoc[leveloffset=+1]
+
+
+:context: {parent-context-of-starting-kickstart-installations}

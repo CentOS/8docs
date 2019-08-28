@@ -1,0 +1,20 @@
+:parent-context-of-post-installation-scripts-in-kickstart: {context}
+
+[id='post-installation-scripts-in-kickstart_{context}']
+= Post-installation scripts in Kickstart
+
+:context: post-installation-scripts-in-kickstart
+
+Post-installation scripts are run after the installation is complete, but before the system is rebooted for the first time. You can use this section to run tasks such as system subscription.
+
+
+include::ROOT:partial$installer/con_post-installation-script-section.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/ref_post-installation-kickstart-section-options.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/con_example-mounting-nfs-in-a-post-install-script.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/con_example-running-subscription-manager-as-a-post-install-script.adoc[leveloffset=+1]
+
+
+:context: {parent-context-of-post-installation-scripts-in-kickstart}

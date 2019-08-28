@@ -1,0 +1,37 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+[id='consoles-logging-during-install_{context}']
+= Consoles and logging during installation
+
+The {ProductName} installer uses the [application]*tmux* terminal multiplexer to display and control several windows you can use in addition to the main interface. Each of these windows serves a different purpose - they display several different logs, which can be used to troubleshoot any issues during the installation, and one of the windows provides an interactive shell prompt with [systemitem]`root` privileges, unless this prompt was specifically disabled using a boot option or a Kickstart command.
+
+[NOTE]
+====
+In general, there is no reason to leave the default graphical installation environment unless you need to diagnose an installation problem.
+====
+
+The terminal multiplexer is running in virtual console 1. To switch from the actual installation environment to [application]*tmux*, press kbd:[Ctrl + Alt + F1]. To go back to the main installation interface which runs in virtual console 6, press kbd:[Ctrl + Alt + F6].
+
+[NOTE]
+====
+If you choose text mode installation, you will start in virtual console 1 ([application]*tmux*), and switching to console 6 will open a shell prompt instead of a graphical interface.
+====
+
+The console running [application]*tmux* has 5 available windows; their contents are described in the table below, along with keyboard shortcuts used to access them. Note that the keyboard shortcuts are two-part: first press kbd:[Ctrl + b], then release both keys, and press the number key for the window you want to use.
+
+You can also use kbd:[Ctrl + b] kbd:[n] and kbd:[Ctrl + b] kbd:[p] to switch to the next or previous [application]*tmux* window, respectively.
+
+.Available tmux windows
+
+[options="header"]
+|===
+|Shortcut|Contents
+|kbd:[Ctrl + b] kbd:[1]|Main installation program window. Contains text-based prompts (during text mode installation or if you use VNC direct mode), and also some debugging information.
+|kbd:[Ctrl + b] kbd:[2]|Interactive shell prompt with [systemitem]`root` privileges.
+|kbd:[Ctrl + b] kbd:[3]|Installation log; displays messages stored in [filename]`/tmp/anaconda.log`.
+|kbd:[Ctrl + b] kbd:[4]|Storage log; displays messages related to storage devices from kernel and system services, stored in [filename]`/tmp/storage.log`.
+|kbd:[Ctrl + b] kbd:[5]|Program log; displays messages from other system utilities, stored in [filename]`/tmp/program.log`.
+|===
+
+//TODO: uncomment when available
+//In addition to displaying diagnostic information in [application]*tmux* windows, [application]*Anaconda* also generates several log files, which can be transferred from the installation system. These log files are described in xref:Troubleshooting.adoc#sect-troubleshooting-log-files[Log Files Generated During the Installation], and directions for transferring them from the installation system are available in xref:Troubleshooting.adoc#sect-troubleshooting-transferring-logs[Transferring Log Files from the Installation System].

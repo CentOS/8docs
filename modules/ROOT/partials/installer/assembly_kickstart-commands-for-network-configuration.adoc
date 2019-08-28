@@ -1,0 +1,14 @@
+:parent-context-of-kickstart-commands-for-network-configuration: {context}
+
+[id='kickstart-commands-for-network-configuration_{context}']
+= Kickstart commands for network configuration
+
+:context: kickstart-commands-for-network-configuration
+
+The Kickstart commands in this list let you configure networking on the system.
+
+include::ROOT:partial$installer/kickstart/ref_network.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_realm.adoc[leveloffset=+1]
+
+
+:context: {parent-context-of-kickstart-commands-for-network-configuration}

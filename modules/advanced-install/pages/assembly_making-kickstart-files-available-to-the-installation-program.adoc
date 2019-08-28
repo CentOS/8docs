@@ -1,0 +1,28 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-making-kickstart-files-available-to-the-installation-program: {context}
+
+[id='making-kickstart-files-available-to-the-installation-program_{context}']
+= Making Kickstart files available to the installation program
+
+:context: making-kickstart-files-available-to-the-installation-program
+
+The following provides information about making the Kickstart file available to the installation program on the target system.
+
+// TODO: should also mention that on s390x you do this in generic.prm IIRC
+
+
+include::ROOT:partial$installer/ref_ports-for-network-based-installation.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/proc_making-a-kickstart-file-available-on-an-nfs-server.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/proc_making-a-kickstart-file-available-on-an-http-or-https-server.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/proc_making-a-kickstart-file-available-on-an-ftp-server.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/proc_making-a-kickstart-file-available-on-a-local-volume.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/proc_making-a-kickstart-file-available-on-a-local-volume-for-automatic-loading.adoc[leveloffset=+1]
+
+
+:context: {parent-context-of-making-kickstart-files-available-to-the-installation-program}

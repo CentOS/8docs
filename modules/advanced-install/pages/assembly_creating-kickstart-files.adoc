@@ -1,0 +1,28 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-creating-kickstart-files: {context}
+
+[id='creating-kickstart-files_{context}']
+= Creating Kickstart files
+
+:context: creating-kickstart-files
+
+You can create a Kickstart file using the following methods:
+
+* Use the online Kickstart configuration tool.
+
+* Copy the Kickstart file created as a result of a manual installation.
+
+* Write the entire Kickstart file manually. Note that editing an already existing file from the other methods is faster, so this method is not recommended.
+
+// If needed, you can manually edit the Kickstart file and change the installation options.
+
+Note that some highly specific installation options can be configured only by manual editing of the Kickstart file.
+
+
+include::ROOT:partial$installer/proc_creating-a-kickstart-file-by-performing-a-manual-installation.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/proc_creating-a-kickstart-file-with-the-kickstart-configuration-tool.adoc[leveloffset=+1]
+
+
+:context: {parent-context-of-creating-kickstart-files}

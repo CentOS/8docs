@@ -1,0 +1,26 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-kickstart-commands-and-options-reference: {context}
+
+[appendix,id="kickstart-commands-and-options-reference_{context}"]
+= Kickstart commands and options reference
+
+:context: kickstart-commands-and-options-reference
+
+
+This reference is a complete list of all Kickstart commands supported by the {RHEL} installation program program. The commands are sorted alphabetically in a few broad categories. If a command can fall under multiple categories, it is listed in all of them.
+
+
+include::assembly_kickstart-changes.adoc[leveloffset=+1]
+
+include::assembly_kickstart-commands-for-installation-program-configuration-and-flow-control.adoc[leveloffset=+1]
+
+include::assembly_kickstart-commands-for-system-configuration.adoc[leveloffset=+1]
+
+include::assembly_kickstart-commands-for-network-configuration.adoc[leveloffset=+1]
+
+include::assembly_kickstart-commands-for-handling-storage.adoc[leveloffset=+1]
+
+include::assembly_kickstart-commands-for-addons-supplied-with-the-rhel-installation-program.adoc[leveloffset=+1]
+
+:context: {parent-context-of-kickstart-commands-and-options-reference}

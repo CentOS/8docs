@@ -1,0 +1,21 @@
+:parent-context-of-package-selection-in-kickstart: {context}
+
+[id='package-selection-in-kickstart_{context}']
+= Package selection in Kickstart
+
+:context: package-selection-in-kickstart
+
+
+Kickstart uses sections started by the `%packages` command for selecting packages to install. You can install packages, groups, environments, module streams, and module profiles this way.
+
+
+include::ROOT:partial$installer/con_package-selection-section.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/ref_package-selection-commands.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/ref_common-package-selection-options.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/ref_options-for-specific-package-groups.adoc[leveloffset=+1]
+
+
+:context: {parent-context-of-package-selection-in-kickstart}

@@ -1,0 +1,32 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-kickstart-script-file-format-reference: {context}
+
+[appendix,id="kickstart-script-file-format-reference_{context}"]
+= Kickstart script file format reference
+
+:context: kickstart-script-file-format-reference
+
+// most REFs
+
+This reference describes in detail the kickstart file format.
+
+// https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/sect-kickstart-syntax
+
+include::ROOT:partial$installer/ref_kickstart-file-format.adoc[leveloffset=+1]
+
+include::assembly_package-selection-in-kickstart.adoc[leveloffset=+1]
+
+include::assembly_pre-installation-scripts-in-kickstart.adoc[leveloffset=+1]
+
+include::assembly_post-installation-scripts-in-kickstart.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/ref_anaconda-configuration-section.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/ref_kickstart-error-handling-section.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/ref_kickstart-add-on-sections.adoc[leveloffset=+1]
+
+
+
+:context: {parent-context-of-kickstart-script-file-format-reference}

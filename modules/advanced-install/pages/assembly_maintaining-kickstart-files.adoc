@@ -1,0 +1,29 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-maintaining-kickstart-files: {context}
+
+[id='maintaining-kickstart-files_{context}']
+= Maintaining Kickstart files
+
+:context: maintaining-kickstart-files
+
+
+You can run automated checks on Kickstart files. Typically, you will want to verify that a new or problematic Kickstart file is valid.
+
+////
+You can run automated checks on Kickstart files. Typically, you will want to:
+
+* Verify that a new or problematic Kickstart file is valid.
+* Generate a report of changes needed to adapt a Kickstart file you used to install a previous version of RHEL.
+////
+// rhel7: 26.2.2. Maintaining the Kickstart File
+
+
+include::ROOT:partial$installer/proc_installing-kickstart-maintenance-tools.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/proc_verifying-a-kickstart-file.adoc[leveloffset=+1]
+
+// include::ROOT:partial$installer/proc_listing-kickstart-file-syntax-changes-between-rhel-versions.adoc[leveloffset=+1]
+// broken in 8.0
+
+:context: {parent-context-of-maintaining-kickstart-files}

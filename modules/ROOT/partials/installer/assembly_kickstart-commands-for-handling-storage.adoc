@@ -1,0 +1,32 @@
+:parent-context-of-kickstart-commands-for-handling-storage: {context}
+
+[id='kickstart-commands-for-handling-storage_{context}']
+= Kickstart commands for handling storage
+
+:context: kickstart-commands-for-handling-storage
+
+
+The Kickstart commands in this section configure aspects of storage such as devices, disks, partitions, LVM, and filesystems.
+
+
+include::ROOT:partial$installer/kickstart/ref_device.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_autopart.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_bootloader-required.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_clearpart.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_fcoe.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_ignoredisk.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_iscsi.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_iscsiname.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_logvol.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_mount.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_nvdimm.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_part-or-partition.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_raid.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_reqpart.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_snapshot.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_volgroup.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_zerombr.adoc[leveloffset=+1]
+include::ROOT:partial$installer/kickstart/ref_zfcp.adoc[leveloffset=+1]
+
+
+:context: {parent-context-of-kickstart-commands-for-handling-storage}

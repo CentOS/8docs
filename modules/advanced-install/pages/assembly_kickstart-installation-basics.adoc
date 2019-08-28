@@ -1,0 +1,18 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+:parent-context-of-kickstart-installation-basics: {context}
+
+[id='kickstart-installation-basics_{context}']
+= Kickstart installation basics
+
+:context: kickstart-installation-basics
+
+The following provides basic information about Kickstart and how to use it to automate installing {RHEL}.
+
+
+include::ROOT:partial$installer/con_what-are-kickstart-installations.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/con_automated-installation-workflow.adoc[leveloffset=+1]
+
+
+:context: {parent-context-of-kickstart-installation-basics}

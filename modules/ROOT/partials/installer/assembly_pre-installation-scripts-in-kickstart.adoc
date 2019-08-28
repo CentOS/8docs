@@ -1,0 +1,68 @@
+:parent-context-of-pre-installation-scripts-in-kickstart: {context}
+
+[id='pre-installation-scripts-in-kickstart_{context}']
+= Pre-installation scripts in Kickstart
+
+:context: pre-installation-scripts-in-kickstart
+
+Pre-installation scripts are run immediately before installation begins.
+
+
+include::ROOT:partial$installer/con_pre-installation-script-section.adoc[leveloffset=+1]
+
+include::ROOT:partial$installer/ref_pre-installation-kickstart-section-options.adoc[leveloffset=+1]
+
+
+////
+== Example: Writing a partitioning scheme dynamically in pre-install script
+// CON
+
+This pre-install script determines the number of hard drives in the system and writes a text file with a different partitioning scheme depending on whether it has one or two drives.
+
+----
+%pre
+#!/bin/sh
+hds=""
+mymedia=""
+for file in /proc/ide/h* do
+mymedia=`cat $file/media`
+if [ $mymedia == "disk" ] ; then
+hds="$hds `basename $file`"
+fi
+done
+set $hds
+numhd=`echo $#`
+drive1=`echo $hds | cut -d' ' -f1`
+drive2=`echo $hds | cut -d' ' -f2`
+
+#Write out partition scheme based on whether there are 1 or 2 hard drives
+if [ $numhd == "2" ] ; then
+#2 drives
+echo "#partitioning scheme generated in %pre for 2 drives" > /tmp/part-include
+echo "clearpart --all" >> /tmp/part-include
+echo "part /boot --fstype xfs --size 75 --ondisk hda" >> /tmp/part-include
+echo "part / --fstype xfs --size 1 --grow --ondisk hda" >> /tmp/part-include
+echo "part swap --recommended --ondisk $drive1" >> /tmp/part-include
+echo "part /home --fstype xfs --size 1 --grow --ondisk hdb" >> /tmp/part-include
+else
+#1 drive
+echo "#partitioning scheme generated in %pre for 1 drive" > /tmp/part-include
+echo "clearpart --all" >> /tmp/part-include
+echo "part /boot --fstype xfs --size 75" >> /tmp/part-include
+echo "part swap --recommended" >> /tmp/part-include
+echo "part / --fstype xfs --size 2048" >> /tmp/part-include
+echo "part /home --fstype xfs --size 2048 --grow" >> /tmp/part-include
+fi
+%end
+----
+
+Instead of having a set of partitioning commands in the Kickstart file, include the following line:
+
+----
+%include /tmp/part-include
+----
+
+The partitioning commands selected in the script will be used.
+////
+
+:context: {parent-context-of-pre-installation-scripts-in-kickstart}

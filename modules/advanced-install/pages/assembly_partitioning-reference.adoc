@@ -1,0 +1,19 @@
+include::ROOT:partial$attributes.adoc[]
+include::partial$local-attributes.adoc[]
+// This assembly is included in the following assemblies:
+//
+// <List assemblies here, each on a new line>
+
+:parent-context-of-partitioning-reference: {context}
+[id='partitioning-reference_{context}']
+[appendix]
+= Partitioning reference
+:context: partitioning-reference
+
+include::ROOT:partial$installer/ref_supported-device-types.adoc[leveloffset=+1]
+include::ROOT:partial$installer/ref_supported-file-systems.adoc[leveloffset=+1]
+include::ROOT:partial$installer/ref_supported-raid-types.adoc[leveloffset=+1]
+include::ROOT:partial$installer/ref_recommended-partitioning-scheme.adoc[leveloffset=+1]
+include::ROOT:partial$installer/ref_advice-on-partitions.adoc[leveloffset=+1]
+
+:context: {parent-context-of-partitioning-reference}
