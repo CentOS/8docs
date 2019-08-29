@@ -1,0 +1,203 @@
+[id="network_{context}"]
+= network
+
+The [command]`network` Kickstart command is optional. It configures network information for the target system and activates network devices in the installation environment.
+
+The device specified in the first [command]`network` command is activated automatically. Activation of the device can be also explicitly required by the [option]`--activate` option.
+
+
+.Options
+
+* [option]`--activate` - activate this device in the installation environment.
++
+If you use the [option]`--activate` option on a device that has already been activated (for example, an interface you configured with boot options so that the system could retrieve the Kickstart file) the device is reactivated to use the details specified in the Kickstart file.
++
+Use the [option]`--nodefroute` option to prevent the device from using the default route.
+
+* [option]`--no-activate` - do not activate this device in the installation environment.
++
+By default, Anaconda activates the first network device in the Kickstart file regardless of the [option]`--activate` option. You can disable the default setting by using the [option]`--no-activate` option.
+
+* [option]`--bootproto=` - One of `dhcp`, `bootp`, `ibft`, or `static`. The default option is `dhcp`; the `dhcp` and `bootp` options are treated the same. To disable `ipv4` configuration of the device, use [option]`--noipv4` option.
++
+[NOTE]
+========
+This option configures ipv4 configuration of the device. For ipv6 configuration use [option]`--ipv6` and [option]`--ipv6gateway` options.
+========
++
+The DHCP method uses a DHCP server system to obtain its networking configuration. The BOOTP method is similar, requiring a BOOTP server to supply the networking configuration. To direct a system to use DHCP:
++
+[subs="quotes,macros"]
+----
+[command]`network --bootproto=dhcp`
+----
++
+To direct a machine to use BOOTP to obtain its networking configuration, use the following line in the Kickstart file:
++
+[subs="quotes,macros"]
+----
+[command]`network --bootproto=bootp`
+----
++
+To direct a machine to use the configuration specified in iBFT, use:
++
+[subs="quotes,macros"]
+----
+[command]`network --bootproto=ibft`
+----
++
+The `static` method requires that you specify at least the IP address and netmask in the Kickstart file. This information is static and is used during and after the installation.
++
+All static networking configuration information must be specified on __one__ line; you cannot wrap lines using a backslash (`\`) as you can on a command line.
++
+[subs="quotes,macros"]
+----
+[command]`network --bootproto=static --ip=10.0.2.15 --netmask=255.255.255.0 --gateway=10.0.2.254 --nameserver=10.0.2.1`
+----
++
+You can also configure multiple nameservers at the same time. To do so, use the [option]`--nameserver=` option once, and specify each of their IP addresses, separated by commas:
++
+[subs="quotes,macros"]
+----
+[command]`network --bootproto=static --ip=10.0.2.15 --netmask=255.255.255.0 --gateway=10.0.2.254 --nameserver=192.168.2.1,192.168.3.1`
+----
+
+* [option]`--device=` - specifies the device to be configured (and eventually activated in Anaconda) with the [command]`network` command.
++
+If the [option]`--device=` option is missing on the __first__ use of the [command]`network` command, the value of the [option]`ksdevice=` Anaconda boot option is used, if available. Note that this is considered deprecated behavior; in most cases, you should always specify a [option]`--device=` for every [command]`network` command.
++
+The behavior of any subsequent [command]`network` command in the same Kickstart file is unspecified if its [option]`--device=` option is missing. Make sure you specify this option for any [command]`network` command beyond the first.
++
+You can specify a device to be activated in any of the following ways:
++
+======
+* the device name of the interface, for example, `em1`
+
+* the MAC address of the interface, for example, `01:23:45:67:89:ab`
+
+* the keyword `link`, which specifies the first interface with its link in the `up` state
+
+* the keyword `bootif`, which uses the MAC address that pxelinux set in the `BOOTIF` variable. Set `IPAPPEND 2` in your [filename]`pxelinux.cfg` file to have pxelinux set the `BOOTIF` variable.
+======
++
+For example:
++
+[subs="quotes,macros"]
+----
+[command]`network --bootproto=dhcp --device=em1`
+----
+
+* [option]`--ip=` - IP address of the device.
+
+* [option]`--ipv6=` - IPv6 address of the device, in the form of __address__[/__prefix__ __length__] - for example, `3ffe:ffff:0:1::1/128 `. If __prefix__ is omitted, `64` is used. You can also use `auto` for automatic configuration, or `dhcp` for DHCPv6-only configuration (no router advertisements).
+
+* [option]`--gateway=` - Default gateway as a single IPv4 address.
+
+* [option]`--ipv6gateway=` - Default gateway as a single IPv6 address.
+
+* [option]`--nodefroute` - Prevents the interface being set as the default route. Use this option when you activate additional devices with the [option]`--activate=` option, for example, a NIC on a separate subnet for an iSCSI target.
+
+* [option]`--nameserver=` - DNS name server, as an IP address. To specify more than one name server, use this option once, and separate each IP address with a comma.
+
+* [option]`--netmask=` - Network mask for the installed system.
+
+* [option]`--hostname=` - The host name for the installed system. The host name can either be a fully-qualified domain name (FQDN) in the format ``__host_name__.__domainname__``, or a short host name with no domain. Many networks have a Dynamic Host Configuration Protocol (DHCP) service which automatically supplies connected systems with a domain name; to allow DHCP to assign the domain name, only specify a short host name.
++
+[IMPORTANT]
+========
+If your network does __not__ provide a DHCP service, always use the FQDN as the system's host name.
+========
+
+* [option]`--ethtool=` - Specifies additional low-level settings for the network device which will be passed to the ethtool program.
+
+* [option]`--onboot=` - Whether or not to enable the device at boot time.
+
+* [option]`--dhcpclass=` - The DHCP class.
+
+* [option]`--mtu=` - The MTU of the device.
+
+* [option]`--noipv4` - Disable IPv4 on this device.
+
+* [option]`--noipv6` - Disable IPv6 on this device.
+
+* [option]`--bondslaves=` - When this option is used, the bond device specified by the [option]`--device=` option is created using slaves defined in the [option]`--bondslaves=` option. For example:
++
+[subs="quotes,macros"]
+----
+[command]`network --device=bond0 --bondslaves=em1,em2`
+----
++
+The above command creates a bond device named `bond0` using the `em1` and `em2` interfaces as its slaves.
+
+* [command]`--bondopts=` - a list of optional parameters for a bonded interface, which is specified using the [command]`--bondslaves=` and [command]`--device=` options. Options in this list must be separated by commas ("`,`") or semicolons ("`;`"). If an option itself contains a comma, use a semicolon to separate the options. For example:
++
+[subs="quotes,macros"]
+----
+[command]`network --bondopts=mode=active-backup,balance-rr;primary=eth1`
+----
++
+// TODO wait for this to be in rhel8 docs again: Available optional parameters are listed in the [citetitle]__Working with Kernel Modules__ chapter of the link:https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/index.html[{RHEL}{nbsp}7 System Administrator's Guide].
++
+[IMPORTANT]
+========
+The [option]`--bondopts=mode=` parameter only supports full mode names such as `balance-rr` or `broadcast`, not their numerical representations such as `0` or `3`.
+========
+
+* [option]`--vlanid=` - Specifies virtual LAN (VLAN) ID number (802.1q tag) for the device created using the device specified in [option]`--device=` as a parent. For example, [command]`network --device=em1 --vlanid=171` creates a virtual LAN device `em1.171`.
+
+* [option]`--interfacename=` - Specify a custom interface name for a virtual LAN device. This option should be used when the default name generated by the [option]`--vlanid=` option is not desirable. This option must be used along with [option]`--vlanid=`. For example:
++
+[subs="quotes,macros"]
+----
+[command]`network --device=em1 --vlanid=171 --interfacename=vlan171`
+----
++
+The above command creates a virtual LAN interface named `vlan171` on the `em1` device with an ID of `171`.
++
+The interface name can be arbitrary (for example, `my-vlan`), but in specific cases, the following conventions must be followed:
++
+========
+* If the name contains a dot (`.`), it must take the form of ``__NAME__.__ID__``. The __NAME__ is arbitrary, but the __ID__ must be the VLAN ID. For example: `em1.171` or `my-vlan.171`.
+
+* Names starting with `vlan` must take the form of ``vlan__ID__`` - for example, `vlan171`.
+========
+
+* [option]`--teamslaves=` - Team device specified by the [option]`--device=` option will be created using slaves specified in this option. Slaves are separated by commas. A slave can be followed by its configuration, which is a single-quoted JSON string with double quotes escaped by the `\` character. For example:
++
+[subs="quotes,macros"]
+----
+[command]`network --teamslaves="p3p1'{\"prio\": -10, \"sticky\": true}',p3p2'{\"prio\": 100}'"`
+----
++
+See also the [option]`--teamconfig=` option.
+
+* [option]`--teamconfig=` - Double-quoted team device configuration which is a JSON string with double quotes escaped by the `\` character. The device name is specified by [option]`--device=` option and its slaves and their configuration by [option]`--teamslaves=` option. For example:
++
+[subs="quotes,macros"]
+----
+[command]`network --device team0 --activate --bootproto static --ip=10.34.102.222 --netmask=255.255.255.0 --gateway=10.34.102.254 --nameserver=10.34.39.2 --teamslaves="p3p1'{\"prio\": -10, \"sticky\": true}',p3p2'{\"prio\": 100}'" --teamconfig="{\"runner\": {\"name\": \"activebackup\"}}"`
+----
+
+* [option]`--bridgeslaves=` - When this option is used, the network bridge with device name specified using the [option]`--device=` option will be created and devices defined in the [option]`--bridgeslaves=` option will be added to the bridge. For example:
++
+[subs="quotes,macros"]
+----
+[command]`network --device=bridge0 --bridgeslaves=em1`
+----
+
+* [option]`--bridgeopts=` - An optional comma-separated list of parameters for the bridged interface. Available values are `stp`, `priority`, `forward-delay`, `hello-time`, `max-age`, and `ageing-time`. For information about these parameters, see the [citetitle]__bridge setting__ table in the `nm-settings(5)` man page or at link:https://developer.gnome.org/NetworkManager/0.9/ref-settings.html[].
++
+Also see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/[Configuring and managing networking] document for general information about network bridging.
+
+* [option]`--bindto=mac` - Bind the device configuration ([filename]`ifcfg`) file on the installed system to the device MAC address (`HWADDR`) instead of the default binding to the interface name (`DEVICE`). Note that this option is independent of the [option]`--device=` option - [option]`--bindto=mac` will be applied even if the same [command]`network` command also specifies a device name, `link`, or `bootif`.
+
+
+
+.Notes
+
+// * There are several types of network device naming standards used to identify network devices with persistent names such as `ens3` or `wl3sp0`. For information about these standards, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/[Configuring and managing networking] document.
+
+* The `ethN` device names such as `eth0` are no longer available in {RHEL8} due to changes in the naming scheme. For more information about the device naming scheme, see the upstream document link:https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/[Predictable Network Interface Names].
+
+* If you used a Kickstart option or a boot option to specify an installation repository on a network, but no network is available at the start of the installation, the installation program displays the [GUI]*Network Configuration* window to set up a network connection prior to displaying the [GUI]*Installation Summary* window. For more details, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/graphical-installation_graphical-installation#network-hostname_configuring-system-settings[Configuring network and host name options] section of the _Performing a standard RHEL installation_ document.
+

@@ -1,0 +1,33 @@
+[id="harddrive_{context}"]
+= harddrive
+
+The [command]`harddrive` Kickstart command is optional. It performs the installation from a {RH} installation tree or full installation ISO image on a local drive. The drive must contain a file system the installation program can mount: `ext2`, `ext3`, `ext4`, `vfat`, or `xfs`.
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]`harddrive`
+----
+
+.Options
+
+* [option]`--biospart=` - BIOS partition to install from (such as [filename]`82`).
+
+* [option]`--partition=` - Partition to install from (such as [filename]`sdb2`).
+
+* [option]`--dir=` - Directory containing the [filename]`__variant__` directory of the installation tree, or the ISO image of the full installation DVD.
+
+.Example
+
+[subs="quotes,macros"]
+----
+[command]`harddrive --partition=hdb2 --dir=/tmp/install-tree`
+----
+
+.Notes
+
+* Previously, the [command]`harddrive` command had to be used together with the [command]`install` command. The [command]`install` command has been deprecated and [command]`harddrive` can be used on its own, because it implies [command]`install`.
+
+* To actually run the installation, one of `cdrom`, `harddrive`, `hmc`, `nfs`, `liveimg`, or `url` must be specified.
+

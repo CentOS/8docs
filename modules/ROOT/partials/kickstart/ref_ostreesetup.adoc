@@ -1,0 +1,34 @@
+[id="ostreesetup_{context}"]
+= ostreesetup
+
+The [command]`ostreesetup` Kickstart command is optional. It is used to set up OStree-based installations.
+
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+ostreesetup --osname __OSNAME__ [--remote __REMOTE__] --url __URL__ --ref __REF__ [--nogpg]
+----
+
+
+.Mandatory options:
+
+* [option]`--osname __OSNAME__` - Management root for OS installation.
+
+* [option]`--url __URL__` - URL of the repository to install from.
+
+* [option]`--ref __REF__` - Name of the branch from the repository to be used for installation.
+
+
+.Optional options:
+
+* [option]`--remote __REMOTE__` - Management root for OS installation.
+
+* [option]`--nogpg` - Disable GPG key verification.
+ 
+
+.Notes
+
+* For more information about the OStree tools, see the upstream documentation: https://ostree.readthedocs.io/en/latest/
+

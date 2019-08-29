@@ -5,13 +5,6 @@ This section contains information about the Kickstart boot options.
 
 inst.ks=::
 Use the `inst.ks=` boot option to define the location of a Kickstart file that you want to use to automate the installation. You can then specify locations using any of the `inst.repo` formats.
-You can use the option multiple times to specify multiple HTTP, HTTPS and FTP sources. If you specify multiple HTTP, HTTPS and FTP locations, the locations are run sequentially until one succeeds, for example:
-+
-[subs="macros"]
-----
-inst.ks=host1/directory/ks.cfg inst.ks=host2/directory/ks.cfg inst.ks=host3/directory/ks.cfg
-----
-+
 If you specify a device and not a path, the installation program looks for the Kickstart file in `/ks.cfg` on the device that you specify. If you use this option without specifying a device, the installation program uses the following option:
 +
 [subs="macros"]
@@ -31,8 +24,7 @@ In the previous example, _next-server_ is the DHCP next-server option or the IP 
 If a volume with a label of `OEMDRV` is present, the installation program attempts to load a Kickstart file named `ks.cfg`. If your Kickstart file is in this location, you do not need to use the `inst.ks=` boot option.
 
 inst.ks.all::
-
-All locations of type `http`, `https` or `ftp` that you specify with `inst.ks` are used sequentially until the Kickstart file is fetched. Other locations are ignored.
+Specify this option to sequentially try multiple Kickstart file locations provided by multiple `inst.ks` options. The first successful location is used. This applies only to locations of type `http`, `https` or `ftp`, other locations are ignored.
 
 inst.ks.sendmac::
 Use the `inst.ks.sendmac` option to add headers to outgoing HTTP requests that contain the MAC addresses of all network interfaces. For example:

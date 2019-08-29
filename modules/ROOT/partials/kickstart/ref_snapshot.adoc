@@ -1,0 +1,22 @@
+[id="snapshot_{context}"]
+= snapshot
+
+The [command]`snapshot` Kickstart command is optional. Use it to create LVM thin volume snapshots during the installation process. This enables you to back up a logical volume before or after the installation.
+
+To create multiple snapshots, add the [command]`snaphost` Kickstart command multiple times.
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+snapshots __vg_name/lv_name__ --name=__snapshot_name__ --when=__pre-install|post-install__
+----
+
+.Options
+
+* [option]`__vg_name__/__lv_name__` - Sets the name of the volume group and logical volume to create the snapshot from.
+
+* [option]`--name=__snapshot_name__` - Sets the name of the snapshot. This name must be unique within the volume group.
+
+* [option]`--when=__pre-install|post-install__` - Sets if the snapshot is created before the installation begins or after the installation is completed.
+

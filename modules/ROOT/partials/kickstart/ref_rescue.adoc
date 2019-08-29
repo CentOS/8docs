@@ -1,0 +1,16 @@
+[id="rescue_{context}"]
+= rescue
+
+The [command]`rescue` Kickstart command is optional. It automatically enters the installation program's rescue mode. This gives you a chance to repair the system in case of any problems.
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]`rescue [--nomount|--romount]`
+----
+
+.Options
+
+* [option]`--nomount` or [option]`--romount` - Controls how the installed system is mounted in the rescue environment. By default, the installation program finds your system and mount it in read-write mode, telling you where it has performed this mount. You can optionally select to not mount anything (the [option]`--nomount` option) or mount in read-only mode (the [option]`--romount` option). Only one of these two options can be used.
+

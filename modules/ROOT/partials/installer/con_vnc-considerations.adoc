@@ -1,0 +1,53 @@
+// Module included in the following assemblies:
+//
+// <List assemblies here, each on a new line>
+
+// This module can be included from assemblies using the following include statement:
+// include::<path>/con_vnc-considerations.adoc[leveloffset=+1]
+
+// The file name and the ID are based on the module title. For example:
+// * file name: con_my-concept-module-a.adoc
+// * ID: [id='con_my-concept-module-a_{context}']
+// * Title: = My concept module A
+//
+// The ID is used as an anchor for linking to the module. Avoid changing
+// it after the module has been published to ensure existing links are not
+// broken.
+//
+// The `context` attribute enables module reuse. Every module's ID includes
+// {context}, which ensures that the module has a unique ID even if it is
+// reused multiple times in a guide.
+//
+// In the title, include nouns that are used in the body text. This helps
+// readers and search engines find information quickly.
+// Do not start the title with a verb. See also _Wording of headings_
+// in _The IBM Style Guide_.
+[id="vnc-considerations_{context}"]
+= Considerations
+
+Consider the following items when performing a remote RHEL installation using VNC:
+
+* *VNC client application:* A VNC client application is required to perform both a VNC Direct and Connect installation. VNC client applications are available in the repositories of most Linux distributions, and free VNC client applications are also available for other operating systems such as Windows. The following VNC client applications are available in RHEL:
+
+** `tigervnc` is independent of your desktop environment and is installed as part of the `tigervnc` package.
+** `vinagre` is part of the GNOME desktop environment and is installed as part of the `vinagre` package.
+
+[NOTE]
+====
+A VNC server is included in the installation program and doesn't need to be installed.
+====
+
+* *Network and firewall:*
+** If the target system is not allowed inbound connections by a firewall, then you must use Connect mode or disable the firewall. Disabling a firewall can have security implications.
+** If the system that is running the VNC viewer is not allowed incoming connections by a firewall, then you must use Direct mode, or disable the firewall. Disabling a firewall can have security implications. See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/security_hardening/index/[Security hardening] document for more information on configuring the firewall.
+
+* *Custom Boot Options:* You must specify custom boot options to start a VNC installation and the installation instructions might differ depending on your system architecture.
+////
+See *<add link to updated boot options when it is ready>*
+////
+
+* *VNC in Kickstart installations:* You can use VNC-specific commands in Kickstart installations. Using only the `vnc` command runs a RHEL installation in Direct mode. Additional options are available to set up an installation using Connect mode. For more information about Kickstart installations, see <<what-are-kickstart-installations_kickstart-installation-basics>>.
+
+////
+For more information about the vnc command and options used in Kickstart files, see *<add link to Kickstart boot options>*
+////

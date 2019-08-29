@@ -1,0 +1,9 @@
+[id="ksappend_{context}"]
+= %ksappend
+
+The [command]`%ksappend` Kickstart command is optional.
+
+Use the [command]``%ksappend __/path/to/file__`` command to include the contents of another file in the Kickstart file as though the contents were at the location of the [command]`%ksappend` command in the Kickstart file.
+
+This inclusion is evaluated before the `%pre` script sections, unlike inclusion with the [command]`%include` command.
+

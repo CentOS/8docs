@@ -27,8 +27,9 @@ include::partial$local-attributes.adoc[]
 //
 // If the assembly covers a task, start the title with a verb in the gerund
 // form, such as Creating or Configuring.
-[id='custom-boot-options_{context}']
-= Boot options
+[id="custom-boot-options_{context}"]
+[appendix]
+= Boot options reference
 
 // The `context` attribute enables module reuse. Every module's ID
 // includes {context}, which ensures that the module has a unique ID even if
@@ -57,8 +58,10 @@ YES/NO
 |===
 endif::[]
 
-This section contains information about some of the boot options that you can use to modify the default behavior of the installation program. For a full list of boot options, see the link:https://github.com/rhinstaller/anaconda/blob/rhel-8.0/docs/boot-options.rst[upstream boot option] content. For Kickstart and advanced boot options, see the https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/[_Performing an advanced RHEL installation_] document.
+This section contains information about some of the boot options that you can use to modify the default behavior of the installation program. For Kickstart and advanced boot options, see the https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/[_Performing an advanced RHEL installation_] document.
 
+//include::ROOT:partial$installer/con_types-of-boot-options.adoc[leveloffset=+1]
+//include::ROOT:partial$installer/proc_editing-boot-options.adoc[leveloffset=+1]
 include::ROOT:partial$installer/con_installation-source-boot-options.adoc[leveloffset=+1]
 include::ROOT:partial$installer/con_network-boot-options.adoc[leveloffset=+1]
 include::ROOT:partial$installer/con_console-environment-and-display-boot-options.adoc[leveloffset=+1]
@@ -67,16 +70,13 @@ include::ROOT:partial$installer/con_storage-boot-options.adoc[leveloffset=+1]
 include::ROOT:partial$installer/ref_deprecated-boot-options.adoc[leveloffset=+1]
 include::ROOT:partial$installer/ref_removed-boot-options.adoc[leveloffset=+1]
 
-// include::modules/subsystem/proc_doing_one_procedure.adoc[leveloffset=+1]
+
+
+// include::ROOT:partial$subsystem/proc_doing_one_procedure.adoc[leveloffset=+1]
 
 // [leveloffset=+1] ensures that when a module starts with a level-1 heading
 // (= Heading), the heading will be interpreted as a level-2 heading
 // (== Heading) in the assembly.
-
-[id='related-information-{context}']
-== Related information
-
-* `dracut` provides advanced boot options. For more information about `dracut`, see the `dracut.cmdline(7)` man page.
 
 
 // The following line is necessary to allow assemblies be included in other

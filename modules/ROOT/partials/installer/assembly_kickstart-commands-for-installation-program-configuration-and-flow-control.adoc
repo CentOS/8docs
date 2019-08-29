@@ -1,6 +1,6 @@
 :parent-context-of-kickstart-commands-for-installation-program-configuration-and-flow-control: {context}
 
-[id='kickstart-commands-for-installation-program-configuration-and-flow-control_{context}']
+[id="kickstart-commands-for-installation-program-configuration-and-flow-control_{context}"]
 = Kickstart commands for installation program configuration and flow control
 
 :context: kickstart-commands-for-installation-program-configuration-and-flow-control
@@ -9,31 +9,31 @@
 The Kickstart commands in this list control the mode and course of installation, and what happens at its end.
 
 
-include::ROOT:partial$installer/kickstart/ref_autostep.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_cdrom.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_cmdline.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_driverdisk.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_eula.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_firstboot.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_graphical.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_halt.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_harddrive.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_install.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_liveimg.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_logging.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_mediacheck.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_nfs.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_ostreesetup.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_poweroff.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_reboot.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_rescue.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_shutdown.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_sshpw.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_text.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_url.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_vnc.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_include.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_ksappend.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_autostep.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_cdrom.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_cmdline.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_driverdisk.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_eula.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_firstboot.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_graphical.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_halt.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_harddrive.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_install.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_liveimg.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_logging.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_mediacheck.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_nfs.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_ostreesetup.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_poweroff.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_reboot.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_rescue.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_shutdown.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_sshpw.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_text.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_url.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_vnc.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_include.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_ksappend.adoc[leveloffset=+1]
 
 
 :context: {parent-context-of-kickstart-commands-for-installation-program-configuration-and-flow-control}

@@ -22,17 +22,18 @@ syspurpose --role=
 +
 ====
 
-The role assigned can be:
+The assigned role can be:
 
 * `Red Hat Enterprise Linux Server`
 * `Red Hat Enterprise Linux Workstation`
+* `Red Hat Enterprise Linux Client/Desktop`
 * `Red Hat Enterprise Linux Compute Node`
 
 ====
 
-sla::
+SLA::
 
-Set the intended sla of the system. This action uses the following format:
+Set the intended SLA of the system. This action uses the following format:
 +
 [subs="quotes"]
 ----
@@ -41,7 +42,7 @@ syspurpose --sla=
 +
 ====
 
-The sla assigned can be:
+The assigned sla can be:
 
 * `Premium`
 * `Standard`
@@ -60,23 +61,17 @@ syspurpose --usage=
 +
 ====
 
-The usage assigned can be:
+The  assigned usage can be:
 
 * `Production`
 * `Disaster Recovery`
 * `Development/Test`
 
 ====
-
 ////
-The addon functionality is not fully implemented for RHEL8.0. and the section was removed as per BZ1688019
 addon::
 +
-[WARNING]
-====
-The addon functionality is not available in {productname} {productnumber}.
-====
-+
+
 Set additional layered products or features. To add multiple items specify [command]`--addon` multiple times, once per layered product or feature:
 +
 [subs="quotes"]
@@ -84,4 +79,13 @@ Set additional layered products or features. To add multiple items specify [comm
 syspurpose --addon=
 ----
 +
+====
+
+The assigned usage can be:
+
+* `Smart Management`
+* `Resilient Storage`
+* `High Availability`
+
+====
 ////

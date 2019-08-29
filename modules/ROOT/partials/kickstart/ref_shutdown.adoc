@@ -1,0 +1,12 @@
+[id="shutdown_{context}"]
+= shutdown
+
+The [command]`shutdown` Kickstart command is optional. It shuts down the system after the installation has successfully completed.
+
+
+.Notes
+
+* The [command]`shutdown` Kickstart option is equivalent to the [command]`shutdown` command. For more details, see the _shutdown(8)_ man page.
+
+* For other completion methods, see the [command]`halt`, [command]`poweroff`, and [command]`reboot` Kickstart options.  The [command]`halt` option is the default completion method if no other methods are explicitly specified in the Kickstart file.
+

@@ -27,7 +27,7 @@ include::partial$local-attributes.adoc[]
 //
 // If the assembly covers a task, start the title with a verb in the gerund
 // form, such as Creating or Configuring.
-[id='kickstart-and-advanced-boot-options_{context}']
+[id="kickstart-and-advanced-boot-options_{context}"]
 = Boot options
 
 // The `context` attribute enables module reuse. Every module's ID

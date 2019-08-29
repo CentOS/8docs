@@ -27,7 +27,7 @@ include::partial$local-attributes.adoc[]
 //
 // If the assembly covers a task, start the title with a verb in the gerund
 // form, such as Creating or Configuring.
-[id='system-requirements-reference_{context}']
+[id="system-requirements-reference_{context}"]
 [appendix]
 = System requirements reference
 
@@ -71,7 +71,7 @@ include::ROOT:partial$installer/con_record-system-specifications.adoc[leveloffse
 include::ROOT:partial$installer/con_check-disk-and-memory-requirements.adoc[leveloffset=+1]
 include::ROOT:partial$installer/con_raid-and-other-disk-devices-x86.adoc[leveloffset=+1]
 
-// include::modules/subsystem/proc_doing_one_procedure.adoc[leveloffset=+1]
+// include::ROOT:partial$subsystem/proc_doing_one_procedure.adoc[leveloffset=+1]
 
 // [leveloffset=+1] ensures that when a module starts with a level-1 heading
 // (= Heading), the heading will be interpreted as a level-2 heading

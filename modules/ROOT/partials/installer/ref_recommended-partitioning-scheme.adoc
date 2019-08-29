@@ -1,4 +1,4 @@
-[id='recommended-partitioning-scheme_{context}']
+[id="recommended-partitioning-scheme_{context}"]
 = Recommended partitioning scheme
 
 Red{nbsp}Hat recommends that you create separate file systems at the following mount points:

@@ -1,0 +1,49 @@
+[id="driverdisk_{context}"]
+= driverdisk
+
+The [command]`driverdisk` Kickstart command is optional. Use it to provide additional drivers to the installation program.
+
+Driver disks can be used during Kickstart installations to provide additional drivers not included by default. You must copy the driver disks's contents to the root directory of a partition on the system's hard drive. Then, you must use the [command]`driverdisk` command to specify that the installation program should look for a driver disk and its location.
+
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``driverdisk [__partition__|--source=__url__|--biospart=__biospart__]``
+----
+
+
+.Options
+
+You must specify the location of driver disk in one way out of these:
+
+* __partition__ - Partition containing the driver disk. Note that the partition must be specified as a full path (for example, `/dev/sdb1`), __not__ just the partition name (for example, `sdb1`).
+
+* [option]`--source=` - URL for the driver disk. Examples include:
++
+[subs="quotes,macros"]
+----
+[command]`driverdisk --source=ftp://path/to/dd.img`
+[command]`driverdisk --source=http://path/to/dd.img`
+[command]`driverdisk --source=nfs:host:/path/to/dd.img`
+----
+
+* [option]`--biospart=` - BIOS partition containing the driver disk (for example, `82p2`).
+
+
+.Notes
+
+Driver disks can also be loaded from a hard disk drive or a similar device instead of being loaded over the network or from `initrd`. Follow this procedure:
+
+. Load the driver disk on a hard disk drive, a USB or any similar device.
+. Set the label, for example, __DD__, to this device.
+. Add the following line to your Kickstart file:
++
+[subs="quotes"]
+----
+driverdisk __LABEL__=__DD__:/e1000.rpm
+----
+
+Replace __DD__ with a specific label and replace __dd.rpm__ with a specific name. Use anything supported by the [command]`inst.repo` command instead of __LABEL__ to specify your hard disk drive.
+

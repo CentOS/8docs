@@ -2,17 +2,15 @@ include::ROOT:partial$attributes.adoc[]
 include::partial$local-attributes.adoc[]
 :parent-context-of-installer-troubleshooting: {context}
 
-[id='installer-troubleshooting_{context}']
+[id="installer-troubleshooting_{context}"]
 [appendix]
 = Troubleshooting
 :context: installer-troubleshooting
 
 The following sections cover various troubleshooting information which may be helpful when diagnosing installation issues.
 
-include::ROOT:partial$installer/con_consoles-logging-during-installation.adoc[leveloffset=+1]
-
+include::advanced-install:page$con_consoles-logging-during-installation.adoc[leveloffset=+1]
 include::ROOT:partial$installer/con_saving-screenshots.adoc[leveloffset=+1]
-
 include::ROOT:partial$installer/proc_resuming-an-interrupted-download-attempt.adoc[leveloffset=+1]
 
 :context: {parent-context-of-installer-troubleshooting}

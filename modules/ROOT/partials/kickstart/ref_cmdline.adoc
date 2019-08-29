@@ -1,0 +1,15 @@
+[id="cmdline_{context}"]
+= cmdline
+
+The [command]`cmdline` Kickstart command is optional. It performs the installation in a completely non-interactive command line mode. Any prompt for interaction halts the installation.
+
+// See xnotref:sect-parameter-configuration-files-kickstart-s390[].
+
+.Notes
+
+* For a fully automatic installation, you must either specify one of the available modes ([command]`graphical`, [command]`text`, or [command]`cmdline`) in the Kickstart file, or you must use the [option]`console=` boot option. If no mode is specified, the system will use graphical mode if possible, or prompt you to choose from VNC and text mode.
+
+* This mode is useful on IBM{nbsp}Z systems with the x3270 terminal.
+
+// ^ TODO WHY?
+

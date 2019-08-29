@@ -1,6 +1,6 @@
 :parent-context-of-kickstart-commands-for-system-configuration: {context}
 
-[id='kickstart-commands-for-system-configuration_{context}']
+[id="kickstart-commands-for-system-configuration_{context}"]
 = Kickstart commands for system configuration
 
 :context: kickstart-commands-for-system-configuration
@@ -9,24 +9,24 @@
 The Kickstart commands in this list configure further details on the resulting system such as users, repositories, or services.
 
 
-include::ROOT:partial$installer/kickstart/ref_auth-or-authconfig.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_authselect.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_firewall.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_group.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_keyboard-required.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_lang-required.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_module.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_pwpolicy.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_repo.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_rootpw-required.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_selinux.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_services.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_skipx.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_sshkey.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_syspurpose.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_timezone-required.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_user.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_xconfig.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_auth-or-authconfig.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_authselect.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_firewall.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_group.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_keyboard-required.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_lang-required.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_module.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_pwpolicy.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_repo.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_rootpw-required.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_selinux.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_services.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_skipx.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_sshkey.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_syspurpose.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_timezone-required.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_user.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_xconfig.adoc[leveloffset=+1]
 
 
 :context: {parent-context-of-kickstart-commands-for-system-configuration}

@@ -1,0 +1,76 @@
+[id="addon-org_fedora_oscap_{context}"]
+= %addon org_fedora_oscap
+
+The [command]`%addon org_fedora_oscap` Kickstart command is optional.
+
+The OpenSCAP installation program add-on is used to apply SCAP (Security Content Automation Protocol) content - security policies - on the installed system. This add-on has been enabled by default since {RHEL}{nbsp}7.2. When enabled, the packages necessary to provide this functionality will automatically be installed. However, by default, no policies are enforced, meaning that no checks are performed during or after installation unless specifically configured.
+
+[IMPORTANT]
+======
+Applying a security policy is not necessary on all systems. This screen should only be used when a specific policy is mandated by your organization rules or government regulations.
+======
+
+Unlike most other commands, this add-on does not accept regular options, but uses key-value pairs in the body of the [command]`%addon` definition instead. These pairs are whitespace-agnostic. Values can be optionally enclosed in single quotes (`'`) or double quotes (`"`).
+
+.Keys
+
+The following keys are recognized by the add-on:
+
+* `content-type` - Type of the security content. Possible values are `datastream`, `archive`, `rpm`, and `scap-security-guide`.
++
+If the `content-type` is `scap-security-guide`, the add-on will use content provided by the [package]*scap-security-guide* package, which is present on the boot media. This means that all other keys except `profile` will have no effect.
+
+* `content-url` - Location of the security content. The content must be accessible using HTTP, HTTPS, or FTP; local storage is currently not supported. A network connection must be available to reach content definitions in a remote location.
+
+* `datastream-id` - ID of the data stream referenced in the `content-url` value. Used only if `content-type` is `datastream`.
+
+* `xccdf-id` - ID of the benchmark you want to use.
+
+* `xccdf-path` - Path to the XCCDF file which should be used; given as a relative path in the archive.
+
+* `profile` - ID of the profile to be applied. Use `default` to apply the default profile.
+
+* `fingerprint` - A MD5, SHA1 or SHA2 checksum of the content referenced by `content-url`.
+
+* `tailoring-path` - Path to a tailoring file which should be used, given as a relative path in the archive.
+
+.Examples
+
+* The following is an example [command]`%addon org_fedora_oscap` section which uses content from the [package]*scap-security-guide* on the installation media:
++
+[[exam-org-fedora-oscap-ssg]]
+.Sample OpenSCAP Add-on Definition Using SCAP Security Guide
+========
+[subs="quotes,macros"]
+----
+[command]`%addon org_fedora_oscap`
+content-type = scap-security-guide
+profile = pci-dss
+[command]`%end`
+----
+========
+
+* The following is a more complex example which loads a custom profile from a web server:
++
+[[exam-org-fedora-oscap-datastream]]
+.Sample OpenSCAP Add-on Definition Using a Datastream
+========
+[subs="quotes,macros"]
+----
+[command]`%addon org_fedora_oscap`
+content-type = datastream
+content-url = http://www.example.com/scap/testing_ds.xml
+datastream-id = scap_example.com_datastream_testing
+xccdf-id = scap_example.com_cref_xccdf.xml
+profile =  xccdf_example.com_profile_my_profile
+fingerprint = 240f2f18222faa98856c3b4fc50c4195
+[command]`%end`
+----
+========
+
+.Additional resources
+
+* Additional information about the OpenSCAP installation program add-on is available at link:https://www.open-scap.org/tools/oscap-anaconda-addon/[].
+
+* For more information about the profiles available in the SCAP Security Guide and what they do, see the link:http://www.open-scap.org/security-policies/choosing-policy/[OpenSCAP Portal].
+

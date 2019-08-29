@@ -1,0 +1,34 @@
+[id="module_{context}"]
+= module
+
+The [command]`module` Kickstart command is optional. Use this command to enable a package module stream within kickstart script.
+
+.Syntax
+
+[subs="quotes"]
+----
+module --name=__NAME__ [--stream=__STREAM__]
+----
+
+.Mandatory options
+
+* [option]`--name=` - Specifies the name of the module to enable. Replace _NAME_ with the actual name.
+
+.Optional options
+
+* [option]`--stream=` - Specifies the name of the module stream to enable. Replace _STREAM_ with the actual name.
++
+You do not need to specify this option for modules with a default stream defined. For modules without a default stream, this option is mandatory and leaving it out results in an error. Enabling a module multiple times with different streams is not possible.
+
+.Notes
+
+* Using a combination of this command and the `%packages` section allows you to install packages provided by the enabled module and stream combination, without specifying the module and stream explicitly. Modules must be enabled before package installation. After enabling a module with the [command]`module` command, you can install the packages enabled by this module by listing them in the `%packages` section.
+
+* A single [command]`module` command can enable only a single module and stream combination. To enable multiple modules, use multiple [command]`module` commands. Enabling a module multiple times with different streams is not possible.
+
+* In {RHEL8}, modules are present only in the AppStream repository. To list available modules, use the [command]`yum module list` command on an installed {RHEL8} system with a valid subscription.
+
+.Additional resources
+
+* For more information about modules and streams, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/installing_managing_and_removing_user_space_components/index[Installing, managing, and removing user space components] document.
+

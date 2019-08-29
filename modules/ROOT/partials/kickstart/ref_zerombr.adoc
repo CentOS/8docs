@@ -1,0 +1,22 @@
+[id="zerombr_{context}"]
+= zerombr
+
+The [command]`zerombr` Kickstart command is optional. If [command]`zerombr` is specified, any invalid partition tables found on disks are initialized. This destroys all of the contents of disks with invalid partition tables.
+
+// This command is required when performing an unattended installation on a system with previously initialized disks.
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]`zerombr`
+----
+
+.Notes
+
+* On IBM{nbsp}Z, if [command]`zerombr` is specified, any Direct Access Storage Device (DASD) visible to the installation program which is not already low-level formatted is automatically low-level formatted with dasdfmt. The command also prevents user choice during interactive installations.
+
+* If [command]`zerombr` is not specified and there is at least one unformatted DASD visible to the installation program, a non-interactive Kickstart installation exits unsuccessfully.
+
+* If [command]`zerombr` is not specified and there is at least one unformatted DASD visible to the installation program, an interactive installation exits if the user does not agree to format all visible and unformatted DASDs. To circumvent this, only activate those DASDs that you will use during installation. You can always add more DASDs after installation is complete.
+

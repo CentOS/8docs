@@ -1,0 +1,18 @@
+[id="example-running-subscription-manager-as-a-post-install-script_{context}"]
+= Example: Running subscription-manager as a post-install script
+
+One of the most common uses of post-installation scripts in Kickstart installations is automatic registration of the installed system using Red Hat Subscription Manager. The following is an example of automatic subscription in a `%post` script:
+
+----
+%post --log=/root/ks-post.log
+subscription-manager register --username=admin@example.com --password=secret --auto-attach
+%end
+----
+
+The subscription-manager command-line script registers a system to a Red Hat Subscription Management server (Customer Portal Subscription Management, Satellite 6, or CloudForms System Engine). This script can also be used to assign or attach subscriptions automatically to the system that best-match that system.
+When registering to the Customer Portal, use the Red Hat Network login credentials. When registering to Satellite 6 or CloudForms System Engine, you may also need to specify more subscription-manager options like [option]`--serverurl`, [option]`--org`, [option]`--environment` as well as credentials provided by your local administrator. Note that credentials in the form of an [option]`--org --activationkey` combination is a good way to avoid exposing [option]`--username --password` values in shared kickstart files.
+
+Additional options can be used with the registration command to set a preferred service level for the system and to restrict updates and errata to a specific minor release version of RHEL for customers with Extended Update Support subscriptions that need to stay fixed on an older stream.
+
+See also the link:https://access.redhat.com/solutions/748313[How do I use subscription-manager in a kickstart file?] article on the Red Hat Customer Portal for additional information about using `subscription-manager` in a Kickstart `%post` section.
+

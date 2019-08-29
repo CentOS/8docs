@@ -1,17 +1,18 @@
 [id="making-a-kickstart-file-available-on-an-ftp-server_{context}"]
 = Making a Kickstart file available on an FTP server
 
-Place a Kickstart file on an FTP server for a network-based installation.
+This procedure describes how to store the Kickstart script file on an FTP server. This method enables you to install multiple systems from a single source without having to use physical media for the Kickstart file.
 
 
 .Prerequisites
 
-* You must have administrator level access to a server with {RHEL8} reachable on the local network from the system to be installed.
+* You must have administrator level access to a server with {RHEL8} on the local network.
+* The system to be installed must be able to connect to the server.
 ifdef::installation-advanced-title[]
-* Your server firewall must allow the system you are installing to access the server. See xref:ports-for-network-based-installation_making-kickstart-files-available-to-the-installation-program[] for more information.
+* Firewall on the server must allow connections from the system you are installing to. See xref:ports-for-network-based-installation_making-kickstart-files-available-to-the-installation-program[] for more information.
 endif::[]
 ifndef::installation-advanced-title[]
-* Your server firewall must allow the system you are installing to access the server.
+* Firewall on the server must allow connections from the system you are installing to.
 endif::[]
 
 
@@ -19,30 +20,65 @@ endif::[]
 
 . Install the [package]`vsftpd` package by running the following command as root:
 +
-[subs="quotes, macros, attributes"]
 ----
 # yum install vsftpd
 ----
 
-. Optionally, open and edit the [filename]`/etc/vsftpd/vsftpd.conf` configuration file in a text editor. For available options, see the *vsftpd.conf(5)* man page. This procedure assumes that default options are used.
+. Open and edit the [filename]`/etc/vsftpd/vsftpd.conf` configuration file in a text editor.
+
+.. Change the line `anonymous_enable=NO` to `anonymous_enable=YES`
+
+.. Change the line `write_enable=YES` to `write_enable=NO`.
+
+.. Add lines `pasv_min_port=__min_port__` and `pasv_max_port=__max_port__`. Replace __min_port__ and __max_port__ with the port number range used by FTP server in passive mode, e. g. `10021` and `10031`.
++
+This step can be necessary in network environments featuring various firewall/NAT setups.
+
+.. Optionally, add custom changes to your configuration. For available options, see the *vsftpd.conf(5)* man page. This procedure assumes that default options are used.
 +
 [WARNING]
 ====
-If you configured SSL/TLS security in your [filename]`vsftpd.conf` file, make sure to only enable the TLSv1 protocol, and disable SSLv2 and SSLv3. This is due to the POODLE SSL vulnerability (CVE-2014-3566). See https://access.redhat.com/solutions/1234773 for details.
+If you configured SSL/TLS security in your [filename]`vsftpd.conf` file, ensure that you enable only the TLSv1 protocol, and disable SSLv2 and SSLv3. This is due to the POODLE SSL vulnerability (CVE-2014-3566). See https://access.redhat.com/solutions/1234773 for details.
 ====
+
+. Configure the server firewall.
+
+.. Enable the firewall:
++
+----
+# systemctl enable firewalld
+# systemctl start firewalld
+----
+
+.. Enable in your firewall the FTP port and port range from previous step:
++
+[subs="quotes"]
+----
+# firewall-cmd --add-port __min_port__-__max_port__/tcp --permanent
+# firewall-cmd --add-service ftp --permanent
+# firewall-cmd --reload
+----
++
+Replace __min_port__-__max_port__ with the port numbers you entered into the [filename]`/etc/vsftpd/vsftpd.conf` configuration file.
 
 . Copy the Kickstart file to the FTP server into the [filename]`/var/ftp/` directory or its subdirectory.
 
+. Make sure that the correct SELinux context and access mode is set on the file:
++
+[subs="quotes"]
+----
+# restorecon -r /var/ftp/__your-kickstart-file.ks__
+# chmod 444 /var/ftp/__your-kickstart-file.ks__
+----
+
 . Start the `vsftpd` service:
 +
-[subs="quotes, macros, attributes"]
 ----
 # systemctl start vsftpd.service
 ----
-
-. If the service was running before you changed the [filename]`/etc/vsftpd/vsftpd.conf` file, restart it to load the edited file. To restart, run the following command:
 +
-[subs="quotes, macros, attributes"]
+If the service was running before you changed the [filename]`/etc/vsftpd/vsftpd.conf` file, restart the service to load the edited file:
++
 ----
 # systemctl restart vsftpd.service
 ----
@@ -51,6 +87,6 @@ The Kickstart file is now accessible and ready to be used for installations by s
 +
 [NOTE]
 ====
-When configuring the installation source, use `ftp://` as the protocol, the server's host name or IP address, and the path of the Kickstart file, relative to the FTP server root. For example, if the server's host name is `myserver.example.com` and you have copied the file `/var/ftp/rhel8-install/my-ks.cfg`, specify `ftp://myserver.example.com/rhel8-install/my-ks.cfg` as the installation source.
+When configuring the installation source, use `ftp://` as the protocol, the server's host name or IP address, and the path of the Kickstart file, relative to the FTP server root. For example, if the server's host name is `myserver.example.com` and you have copied the file to `/var/ftp/my-ks.cfg`, specify `ftp://myserver.example.com/my-ks.cfg` as the installation source.
 ====
 

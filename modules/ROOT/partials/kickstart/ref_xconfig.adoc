@@ -1,0 +1,13 @@
+[id="xconfig_{context}"]
+= xconfig
+
+The [command]`xconfig` Kickstart command is optional. It configures the X Window System.
+
+.Options
+
+* [option]`--startxonboot` - Use a graphical login on the installed system.
+
+.Notes
+
+* Because {RHEL8} does not include the KDE Desktop Environment, do not use the [option]`--defaultdesktop=` documented in upstream.
+

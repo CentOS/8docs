@@ -1,4 +1,4 @@
-[id='supported-device-types_{context}']
+[id="supported-device-types_{context}"]
 = Supported device types
 
 Standard partition:: A standard partition can contain a file system or swap space. Standard partitions are most commonly used for `/boot` and the `BIOS Boot` and `EFI System partitions`. LVM logical volumes are recommended for most other uses.

@@ -1,0 +1,75 @@
+[id="autopart_{context}"]
+= autopart
+
+The [command]`autopart` Kickstart command is optional. It automatically creates partitions.
+
+The automatically created partitions are: a root ([filename]`/`) partition (1 GB or larger), a [filename]`swap` partition, and an appropriate [filename]`/boot` partition for the architecture. On large enough drives (50{nbsp}GB and larger), this also creates a [filename]`/home` partition.
+
+
+.Options
+
+* [option]`--type=` - Selects one of the predefined automatic partitioning schemes you want to use. Accepts the following values:
++
+====
+* `lvm`: The LVM partitioning scheme.
+* `plain`: Regular partitions with no LVM.
+* `thinp`: The LVM Thin Provisioning partitioning scheme.
+====
+ifdef::installation-advanced-title[]
++
+For a description of the available partition schemes, see xref:supported-device-types_partitioning-reference[].
+endif::[]
+
+* [option]`--fstype=` - Selects one of the available file system types. The available values are `ext2`, `ext3`, `ext4`, `xfs`, and `vfat`. The default file system is `xfs`.
+ifdef::installation-advanced-title[]
+For information about these file systems, see xref:supported-file-systems_partitioning-reference[].
+endif::[]
+
+* [option]`--nohome` - Disables automatic creation of the `/home` partition.
+
+* [option]`--nolvm` - Do not use LVM for automatic partitioning. This option is equal to [option]`--type=plain`.
+
+* [option]`--noboot` - Do not create a `/boot` partition.
+
+* [option]`--noswap` - Do not create a swap partition.
+
+* [option]`--encrypted` - Encrypts all partitions with Linux Unified Key Setup (LUKS). This is equivalent to checking the [GUI]*Encrypt partitions* check box on the initial partitioning screen during a manual graphical installation.
++
+[NOTE]
+====
+When encrypting one or more partitions, Anaconda attempts to gather 256 bits of entropy to ensure the partitions are encrypted securely. Gathering entropy can take some time - the process will stop after a maximum of 10 minutes, regardless of whether sufficient entropy has been gathered.
+
+The process can be sped up by interacting with the installation system (typing on the keyboard or moving the mouse). If you are installing in a virtual machine, you can also attach a `virtio-rng` device (a virtual random number generator) to the guest.
+
+// as described in the link:https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Deployment_and_Administration_Guide/sect-Guest_virtual_machine_device_configuration-Random_number_generator_device.html[{RHEL}{nbsp}7 Virtualization Deployment and Administration Guide].
+====
+
+* [option]`--luks-version=_LUKS_VERSION_` - Specifies which version of LUKS format should be used to encrypt the filesystem. This option is only meaningful if [option]`--encrypted` is specified.
+
+* [option]`--passphrase=` - Provides a default system-wide passphrase for all encrypted devices.
+
+* [option]`--escrowcert=__URL_of_X.509_certificate__` - Stores data encryption keys of all encrypted volumes as files in [filename]`/root`, encrypted using the X.509 certificate from the URL specified with __URL_of_X.509_certificate__. The keys are stored as a separate file for each encrypted volume. This option is only meaningful if [option]`--encrypted` is specified.
+
+* [option]`--backuppassphrase` - Adds a randomly-generated passphrase to each encrypted volume. Store these passphrases in separate files in [filename]`/root`, encrypted using the X.509 certificate specified with [option]`--escrowcert`. This option is only meaningful if [option]`--escrowcert` is specified.
+
+* [option]`--cipher=` - Specifies the type of encryption to use if the Anaconda default `aes-xts-plain64` is not satisfactory. You must use this option together with the [option]`--encrypted` option; by itself it has no effect. Available types of encryption are listed in the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/security_hardening/[Security hardening] document, but {RH} strongly recommends using either `aes-xts-plain64` or `aes-cbc-essiv:sha256`.
+
+* [option]`--pbkdf=_PBKDF_` - Sets Password-Based Key Derivation Function (PBKDF) algorithm for LUKS keyslot. See also the man page _cryptsetup(8)_. This option is only meaningful if [option]`--encrypted` is specified.
+
+* [option]`--pbkdf-memory=__PBKDF_MEMORY__` - Sets the memory cost for PBKDF.  See also the man page _cryptsetup(8)_. This option is only meaningful if [option]`--encrypted` is specified.
+
+* [option]`--pbkdf-time=__PBKDF_TIME__` - Sets the number of milliseconds to spend with PBKDF passphrase processing. See also [option]`--iter-time` in the man page _cryptsetup(8)_. This option is only meaningful if [option]`--encrypted` is specified, and is mutually exclusive with [option]`--pbkdf-iterations`.
+
+* [option]`--pbkdf-iterations=__PBKDF_ITERATIONS__` - Sets the number of iterations directly and avoids PBKDF benchmark. See also [option]`--pbkdf-force-iterations` in the man page _cryptsetup(8)_. This option is only meaningful if [option]`--encrypted` is specified, and is mutually exclusive with [option]`--pbkdf-time`.
+
+
+.Notes
+
+* The [command]`autopart` option cannot be used together with the [command]`part/partition`, [command]`raid`, [command]`logvol`, or [command]`volgroup` options in the same Kickstart file.
+
+* The [command]`autopart` command is not mandatory, but you must include it if there are no [command]`part` of [command]`mount` commands in your Kickstart script.
+
+* It is recommended to use the [option]`autopart --nohome` Kickstart option when installing on a single FBA DASD of the CMS type. This ensures that the installation program does not create a separate [filename]`/home` partition. The installation then proceeds successfully.
+
+* If you lose the LUKS passphrase, any encrypted partitions and their data is completely inaccessible. There is no way to recover a lost passphrase. However, you can save encryption passphrases with the [option]`--escrowcert` and create backup encryption passphrases with the [option]`--backuppassphrase` options.
+

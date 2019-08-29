@@ -1,0 +1,7 @@
+[id="skipx_{context}"]
+= skipx
+
+The [command]`skipx` Kickstart command is optional. If present, X is not configured on the installed system.
+
+If you install a display manager among your package selection options, this package creates an X configuration, and the installed system defaults to `graphical.target`. That overrides the effect of the [command]`skipx` option.
+

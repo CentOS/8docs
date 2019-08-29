@@ -1,0 +1,110 @@
+[id="raid_{context}"]
+= raid
+
+The [command]`raid` Kickstart command is optional. It assembles a software RAID device.
+
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``raid __mntpoint__ --level=__level__ --device=__device-name__ __partitions*__``
+----
+
+
+.Options
+
+* __mntpoint__ - Location where the RAID file system is mounted. If it is [filename]`/`, the RAID level must be 1 unless a boot partition ([filename]`/boot`) is present. If a boot partition is present, the [filename]`/boot` partition must be level 1 and the root ([filename]`/`) partition can be any of the available types. The __partitions*__ (which denotes that multiple partitions can be listed) lists the RAID identifiers to add to the RAID array.
++
+[IMPORTANT]
+====
+On IBM Power{nbsp}Systems, if a RAID device has been prepared and has not been reformatted during the installation, ensure that the RAID metadata version is `0.90` if you intend to put the [filename]`/boot` and [filename]`PReP` partitions on the RAID device.
+
+The default {RHEL}{nbsp}7 `mdadm` metadata version is not supported for the boot device.
+====
++
+// For a detailed example of [command]`raid` in action, see xnotref:sect-kickstart-partitioning-example[].
+
+* [option]`--level=` - RAID level to use (0, 1, 4, 5, 6, or 10). See xref:supported-raid-types_partitioning-reference[] for information about various available RAID levels.
+
+* [option]`--device=` - Name of the RAID device to use - for example, [option]`--device=root`.
++
+[IMPORTANT]
+====
+Do not use `mdraid` names in the form of `md0` - these names are not guaranteed to be persistent. Instead, use meaningful names such as `root` or `swap`. Using meaningful names creates a symbolic link from [filename]`/dev/md/__name__` to whichever [filename]`/dev/md__X__` node is assigned to the array.
+
+If you have an old (v0.90 metadata) array that you cannot assign a name to, you can specify the array by a filesystem label or UUID (for example, [option]`--device=rhel7-root --label=rhel7-root`).
+====
+
+* [option]`--chunksize=` - Sets the chunk size of a RAID storage in KiB. In certain situations, using a different chunk size than the default ([option]`512 Kib`) can improve the performance of the RAID.
+
+* [option]`--spares=` - Specifies the number of spare drives allocated for the RAID array. Spare drives are used to rebuild the array in case of drive failure.
+
+* [option]`--fsprofile=` - Specifies a usage type to be passed to the program that makes a filesystem on this partition. A usage type defines a variety of tuning parameters to be used when making a filesystem. For this option to work, the filesystem must support the concept of usage types and there must be a configuration file that lists valid types. For ext2, ext3, and ext4, this configuration file is [filename]`/etc/mke2fs.conf`.
+
+* [option]`--fstype=` - Sets the file system type for the RAID array. Valid values are `xfs`, `ext2`, `ext3`, `ext4`, `swap`, and `vfat`.
+
+* [option]`--fsoptions=` - Specifies a free form string of options to be used when mounting the filesystem. This string will be copied into the [filename]`/etc/fstab` file of the installed system and should be enclosed in quotes.
+
+* [option]`--mkfsoptions=` - Specifies additional parameters to be passed to the program that makes a filesystem on this partition. No processing is done on the list of arguments, so they must be supplied in a format that can be passed directly to the mkfs program. This means multiple options should be comma-separated or surrounded by double quotes, depending on the filesystem.
+
+* [option]`--label=` - Specify the label to give to the filesystem to be made. If the given label is already in use by another filesystem, a new label will be created.
+
+* [option]`--noformat` - Use an existing RAID device and do not format the RAID array.
+
+* [option]`--useexisting` - Use an existing RAID device and reformat it.
+
+* [option]`--encrypted` - Specifies that this RAID device should be encrypted with Linux Unified Key Setup (LUKS), using the passphrase provided in the [option]`--passphrase` option. If you do not specify a passphrase, Anaconda uses the default, system-wide passphrase set with the [command]`autopart --passphrase` command, or stops the installation and prompts you to provide a passphrase if no default is set.
++
+[NOTE]
+====
+When encrypting one or more partitions, Anaconda attempts to gather 256 bits of entropy to ensure the partitions are encrypted securely. Gathering entropy can take some time - the process will stop after a maximum of 10 minutes, regardless of whether sufficient entropy has been gathered.
+
+The process can be sped up by interacting with the installation system (typing on the keyboard or moving the mouse). If you are installing in a virtual machine, you can also attach a `virtio-rng` device (a virtual random number generator) to the guest.
+
+// as described in the link:https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Deployment_and_Administration_Guide/sect-Guest_virtual_machine_device_configuration-Random_number_generator_device.html[{RHEL}{nbsp}7 Virtualization Deployment and Administration Guide].
+====
+
+* [option]`--luks-version=_LUKS_VERSION_` - Specifies which version of LUKS format should be used to encrypt the filesystem. This option is only meaningful if [option]`--encrypted` is specified.
+
+* [option]`--cipher=` - Specifies the type of encryption to use if the Anaconda default `aes-xts-plain64` is not satisfactory. You must use this option together with the [option]`--encrypted` option; by itself it has no effect. Available types of encryption are listed in the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/security_hardening/[Security hardening] document, but {RH} strongly recommends using either `aes-xts-plain64` or `aes-cbc-essiv:sha256`.
+
+* [option]`--passphrase=` - Specifies the passphrase to use when encrypting this RAID device. You must use this option together with the [option]`--encrypted` option; by itself it has no effect.
+
+* [option]`--escrowcert=__URL_of_X.509_certificate__` - Store the data encryption key for this device in a file in [filename]`/root`, encrypted using the X.509 certificate from the URL specified with __URL_of_X.509_certificate__. This option is only meaningful if [option]`--encrypted` is specified.
+
+* [option]`--backuppassphrase` - Add a randomly-generated passphrase to this device. Store the passphrase in a file in [filename]`/root`, encrypted using the X.509 certificate specified with [option]`--escrowcert`. This option is only meaningful if [option]`--escrowcert` is specified.
+
+* [option]`--pbkdf=_PBKDF_` - Sets Password-Based Key Derivation Function (PBKDF) algorithm for LUKS keyslot. See also the man page _cryptsetup(8)_. This option is only meaningful if [option]`--encrypted` is specified.
+
+* [option]`--pbkdf-memory=__PBKDF_MEMORY__` - Sets the memory cost for PBKDF.  See also the man page _cryptsetup(8)_. This option is only meaningful if [option]`--encrypted` is specified.
+
+* [option]`--pbkdf-time=__PBKDF_TIME__` - Sets the number of milliseconds to spend with PBKDF passphrase processing. See also [option]`--iter-time` in the man page _cryptsetup(8)_. This option is only meaningful if [option]`--encrypted` is specified, and is mutually exclusive with [option]`--pbkdf-iterations`.
+
+* [option]`--pbkdf-iterations=__PBKDF_ITERATIONS__` - Sets the number of iterations directly and avoids PBKDF benchmark. See also [option]`--pbkdf-force-iterations` in the man page _cryptsetup(8)_. This option is only meaningful if [option]`--encrypted` is specified, and is mutually exclusive with [option]`--pbkdf-time`.
+
+
+.Example
+
+The following example shows how to create a RAID level 1 partition for [filename]`/`, and a RAID level 5 for [filename]`/home`, assuming there are three SCSI disks on the system. It also creates three swap partitions, one on each drive.
+
+[subs="quotes,macros"]
+----
+[command]`part raid.01 --size=6000 --ondisk=sda`
+[command]`part raid.02 --size=6000 --ondisk=sdb`
+[command]`part raid.03 --size=6000 --ondisk=sdc`
+[command]`part swap --size=512 --ondisk=sda`
+[command]`part swap --size=512 --ondisk=sdb`
+[command]`part swap --size=512 --ondisk=sdc`
+[command]`part raid.11 --size=1 --grow --ondisk=sda`
+[command]`part raid.12 --size=1 --grow --ondisk=sdb`
+[command]`part raid.13 --size=1 --grow --ondisk=sdc`
+[command]`raid / --level=1 --device=rhel7-root --label=rhel7-root raid.01 raid.02 raid.03`
+[command]`raid /home --level=5 --device=rhel7-home --label=rhel7-home raid.11 raid.12 raid.13`
+----
+
+
+.Notes
+
+* If you lose the LUKS passphrase, any encrypted partitions and their data is completely inaccessible. There is no way to recover a lost passphrase. However, you can save encryption passphrases with the [option]`--escrowcert` and create backup encryption passphrases with the [option]`--backuppassphrase` options.
+

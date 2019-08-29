@@ -1,0 +1,37 @@
+[id="nfs_{context}"]
+= nfs
+
+The [command]`nfs` Kickstart command is optional. It performs the installation from a specified NFS server.
+
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]`nfs`
+----
+
+
+.Options
+
+* [option]`--server=` - Server from which to install (host name or IP).
+
+* [option]`--dir=` - Directory containing the [filename]`__variant__` directory of the installation tree.
+
+* [option]`--opts=` - Mount options to use for mounting the NFS export. (optional)
+
+
+.Example
+
+[subs="quotes,macros"]
+----
+[command]`nfs --server=nfsserver.example.com --dir=/tmp/install-tree`
+----
+
+
+.Notes
+
+* Previously, the [command]`nfs` command had to be used together with the [command]`install` command. The [command]`install` command has been deprecated and [command]`nfs` can be used on its own, because it implies [command]`install`.
+
+* To actually run the installation, one of `cdrom`, `harddrive`, `hmc`, `nfs`, `liveimg`, or `url` must be specified.
+

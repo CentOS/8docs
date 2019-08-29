@@ -13,13 +13,6 @@ This option is deprecated and available as a Technology Preview only. For inform
 When `kexec` is used, device registers which would normally be cleared during a full system reboot, might stay filled with data, which could potentially create issues for some device drivers.
 ======
 
-////
-inst.gpt::
-The `inst.gpt` boot option forces the installation program to install partition information to a GUID Partition Table (GPT) instead of a Master Boot Record (MBR). This option is not valid on UEFI-based systems, unless they are in BIOS compatibility mode.
-
-Normally, BIOS-based systems and UEFI-based systems in BIOS compatibility mode attempt to use the MBR schema for storing partitioning information, unless the disk is 232 sectors in size or larger. Disk sectors are typically 512 bytes in size, meaning that this is usually equivalent to 2 TiB. Using the `inst.gpt` boot option changes this behavior, allowing a GPT to be written to smaller disks.
-NEED TO CHECK THIS WITH VENDY P. ON HER RETURN FROM PTO
-////
 inst.multilib::
 Use the `inst.multilib` boot option to configure the system for multilib packages, that is, to allow installing 32-bit packages on a 64-bit AMD64 or Intel 64 system. Normally, on an AMD64 or Intel 64 system, only packages for this architecture (marked as x86_64) and packages for all architectures (marked as noarch) are installed. When you use the `inst.multilib` boot option, packages for 32-bit AMD or Intel systems (marked as i686) are automatically installed.
 +
@@ -33,11 +26,6 @@ By default, the `selinux=0` boot option operates in permissive mode in the insta
 The `selinux=0` and `inst.selinux=0` options are not the same. The `selinux=0` option disables the use of SELinux in the installation program and the installed system. The `inst.selinux=0` option disables SELinux only in the installation program. By default, SELinux operates in permissive mode in the installation program, so disabling SELinux has little effect.
 ====
 
-inst.zram::
-The `inst.zram` option controls the usage of zRAM swap during installation. The option creates a compressed block device inside the system RAM and uses it for swap space instead of the hard drive. This allows the installation program to run with less available memory than is possible without compression, and it might also make the installation faster.
-By default, swap on zRAM is enabled on systems with 2 GiB or less RAM, and disabled on systems with more than 2 GiB of memory. You can use this option to change this behavior; on a system with more than 2 GiB RAM, use `inst.zram=1` to enable the feature, and on systems with 2 GiB or less memory, use `inst.zram=0` to disable the feature.
+inst.nonibftiscsiboot=::
 
-[discrete]
-== Additional resources
-
-* For a full list of boot options, see the link:https://github.com/rhinstaller/anaconda/blob/rhel-8.0/docs/boot-options.rst[upstream boot option] content.
+Use the `inst.nonibftiscsiboot=` boot option to place the boot loader on iSCSI devices that were not configured in the iSCSI Boot Firmware Table (iBFT).

@@ -1,0 +1,9 @@
+[id="eula_{context}"]
+= eula
+
+The [command]`eula` Kickstart command is optional. Use this option to accept the End User License Agreement (EULA) without user interaction. Specifying this option prevents Initial Setup from prompting you to accept the license agreement after you finish the installation and reboot the system for the first time. See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index#completing-initial-setup_post-installation-tasks[Completing initial setup] section of the __Performing a standard RHEL installation__ document for more information.
+
+.Options
+
+* [option]`--agreed` (required) - Accept the EULA. This option must always be used, otherwise the [command]`eula` command is meaningless.
+

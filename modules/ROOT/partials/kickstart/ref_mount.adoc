@@ -1,0 +1,32 @@
+[id="mount_{context}"]
+= mount
+
+The [command]`mount` Kickstart command is optional. It assigns a mount point to an existing block device, and optionally reformats it to a given format.
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+mount [--reformat [REFORMAT]] [--mkfsoptions MKFS_OPTS] [--mountoptions MOUNT_OPTS] __device__ __mntpoint__
+----
+
+.Mandatory options:
+
+* [option]`__device__` - The block device to mount.
+
+* [option]`__mntpoint__` - Where to mount the [option]`__device__`. It must be a valid mount point, such as [filename]`/` or [filename]`/usr`, or `none` if the device is unmountable (for example [filename]`swap`).
+
+.Optional options:
+
+* [option]`--reformat=` - Specifies a new format (such as `ext4`) to which the device should be reformatted.
+
+* [option]`--mkfsoptions=` - Specifies additional options to be passed to the command which creates the new file system specified in [option]`--reformat=`. The list of options provided here is not processed, so they must be specified in a format that can be passed directly to the [command]`mkfs` program. The list of options should be either comma-separated or surrounded by double quotes, depending on the file system. See the `mkfs` man page for the file system you want to create (for example `mkfs.ext4(8)` or `mkfs.xfs(8)`) for specific details.
+
+* [option]`--mountoptions=` - Specifies a free form string that contains options to be used when mounting the file system. The string will be copied to the [filename]`/etc/fstab` file on the installed system and should be enclosed in double quotes. See the `mount(8)` man page for a full list of mount options, and `fstab(5)` for basics.
+
+.Notes
+
+* Unlike most other storage configuration commands in Kickstart, [command]`mount` does not require you to describe the entire storage configuration in the Kickstart file. You only need to ensure that the described block device exists on the system. However, if you want to __create__ the storage stack with all the devices mounted, you must use other commands such as [command]`part` to do so.
+
+* You can not use [command]`mount` together with other storage-related commands such as [command]`part`, [command]`logvol`, or [command]`autopart` in the same Kickstart file.
+

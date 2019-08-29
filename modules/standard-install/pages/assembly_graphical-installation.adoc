@@ -2,7 +2,7 @@ include::ROOT:partial$attributes.adoc[]
 include::partial$local-attributes.adoc[]
 :parent-context-graphical-installation: {context}
 :context: graphical-installation
-[id='graphical-installation_{context}']
+[id="graphical-installation_{context}"]
 = Installing RHEL using the Graphical User Interface
 
 This section contains information about installing {ProductName} using the Graphical User Interface (GUI). The GUI is the preferred method of installing {ProductName} when you boot the system from a CD, DVD, or USB flash drive, or from a network using PXE.
@@ -29,6 +29,6 @@ include::ROOT:partial$installer/assembly_storage-devices.adoc[leveloffset=+1]
 include::ROOT:partial$installer/assembly_manual-partitioning.adoc[leveloffset=+1]
 include::ROOT:partial$installer/assembly_final-installer-configuration.adoc[leveloffset=+1]
 
-//TODO: cover this later include::assembly_blivet-gui-partitioning.adoc[leveloffset=+1]
+//TODO: cover this later include::ROOT:partial$installer/assembly_blivet-gui-partitioning.adoc[leveloffset=+1]
 
 :context: {parent-context-graphical-installation}

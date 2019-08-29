@@ -65,7 +65,7 @@ include::ROOT:partial$installer/proc_downloading-a-specific-beta-iso-image.adoc[
 include::ROOT:partial$installer/proc_downloading-an-iso-image-with-curl.adoc[leveloffset=+1]
 //include::ROOT:partial$installer/proc_resuming-an-interrupted-download-attempt.adoc[leveloffset=+1]
 
-// include::modules/subsystem/proc_doing_one_procedure.adoc[leveloffset=+1]
+// include::ROOT:partial$installer/subsystem/proc_doing_one_procedure.adoc[leveloffset=+1]
 
 // [leveloffset=+1] ensures that when a module starts with a level-1 heading
 // (= Heading), the heading will be interpreted as a level-2 heading

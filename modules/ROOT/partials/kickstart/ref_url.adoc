@@ -1,0 +1,62 @@
+[id="url_{context}"]
+= url
+
+The [command]`url` Kickstart command is optional. It performs the installation from an installation tree image on a remote server using FTP, HTTP, or HTTPS.
+
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]`url` [option]`--url=__FROM__` __[OPTIONS]__
+----
+
+
+.Mandatory options
+
+* [option]`--url=` - The location to install from. Supported protocols are `HTTP`, `HTTPS`, `FTP`, and `file`.
+
+
+.Optional options
+
+* [option]`--mirrorlist=` - The mirror URL to install from.
+
+* [option]`--proxy=` - Specify an `HTTP`, `HTTPS` or `FTP` proxy to use while performing the installation.
+
+* [option]`--noverifyssl` - Disable SSL verification when connecting to an `HTTPS` server.
+
+* [option]`--metalink=_URL_` - Specify the metalink URL to install from. Variable substitution is done for `$releasever` and `$basearch` in the _URL_.
+
+// --ssl* options removed from docs due to internal-only usage and intent to nmot advertise their existence
+
+
+.Examples
+
+* To install from a HTTP server:
++
+[subs="quotes,macros"]
+----
+[command]``url --url http://__server__/__path__``
+----
+
+* To install from a FTP server:
++
+[subs="quotes,macros"]
+----
+[command]``url --url ftp://__username__:__password__@__server__/__path__``
+----
+
+* To install from a local file:
++
+[subs="quotes,macros"]
+----
+[command]`liveimg --url=file:///images/install/squashfs.img --noverifyssl`
+----
+
+
+.Notes
+
+* Previously, the [command]`url` command had to be used together with the [command]`install` command. The [command]`install` command has been deprecated and [command]`url` can be used on its own, because it implies [command]`install`.
+
+* To actually run the installation, one of `cdrom`, `harddrive`, `hmc`, `nfs`, `liveimg`, or `url` must be specified.
+

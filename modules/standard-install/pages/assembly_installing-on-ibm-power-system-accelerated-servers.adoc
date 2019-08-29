@@ -27,7 +27,7 @@ include::partial$local-attributes.adoc[]
 //
 // If the assembly covers a task, start the title with a verb in the gerund
 // form, such as Creating or Configuring.
-[id='installing-on-ibm-power-system-accelerated-servers_{context}']
+[id="installing-on-ibm-power-system-accelerated-servers_{context}"]
 = Installing {RHEL} on IBM Power System accelerated servers
 
 This guide helps you install Red Hat Enterprise Linux on an IBM Power Systems accelerated server (AC).  Use these instructions for the following IBM Power System servers:
@@ -75,9 +75,9 @@ include::ROOT:partial$installer/proc_powering-on-your-server-with-openbmc-comman
 
 include::ROOT:partial$installer/con_choose-your-installation-method-on-ibm-accelerated-servers.adoc[leveloffset=+1]
 
-include::ROOT:partial$installer/proc_configuring-petitboot-for-network-installation.adoc[leveloffset=+2]
+include::ROOT:partial$installer/proc_configuring-petitboot-for-network-installation.adoc[leveloffset=+1]
 
-include::ROOT:partial$installer/proc_configuring-petitboot-for-installation-with-usb-device-on-accelerated-servers.adoc[leveloffset=+2]
+include::ROOT:partial$installer/proc_configuring-petitboot-for-installation-with-usb-device-on-accelerated-servers.adoc[leveloffset=+1]
 
 include::ROOT:partial$installer/proc_completing-your-accelerated-server-installation.adoc[leveloffset=+1]
 

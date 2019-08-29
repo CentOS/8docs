@@ -1,0 +1,70 @@
+[id="nvdimm_{context}"]
+= nvdimm
+
+The [command]`nvdimm` Kickstart command is optional. It performs an action on Non-Volatile Dual In-line Memory Module (NVDIMM) devices.
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``nvdimm __action__ __[options]__``
+----
+
+.Actions
+
+* `reconfigure` - Reconfigure a specific NVDIMM device into a given mode. Additionally, the specified device is implicitly marked as to be used, so a subsequent [command]`nvdimm use` command for the same device is redundant. This action uses the following format:
++
+[subs="quotes,macros"]
+----
+[command]``nvdimm reconfigure [--namespace=__NAMESPACE__] [--mode=__MODE__] [--sectorsize=__SECTORSIZE__]``
+----
++
+======
+* [option]`--namespace=` - The device specification by namespace. For example:
++
+[subs="quotes,macros"]
+----
+[command]`nvdimm reconfigure --namespace=namespace0.0 --mode=sector --sectorsize=512`
+----
+
+* [option]`--mode=` - The mode specification. Currently, only the value `sector` is available.
+
+* [option]`--sectorsize=` - Size of a sector for sector mode. For example:
++
+[subs="quotes,macros"]
+----
+[command]`nvdimm reconfigure --namespace=namespace0.0 --mode=sector --sectorsize=512`
+----
++
+The supported sector sizes are 512 and 4096 bytes.
+======
+
+* `use` - Specify a NVDIMM device as a target for installation. The device must be already configured to the sector mode by the [command]`nvdimm reconfigure` command. This action uses the following format:
++
+[subs="quotes,macros"]
+----
+[command]``nvdimm use [--namespace=__NAMESPACE__|--blockdevs=__DEVICES__]``
+----
++
+======
+* [option]`--namespace=` - Specifies the device by namespace. For example:
++
+[subs="quotes,macros"]
+----
+nvdimm use --namespace=namespace0.0
+----
+
+* [option]`--blockdevs=` - Specifies a comma-separated list of block devices corresponding to the NVDIMM devices to  be used. The asterisk `*` wildcard is supported. For example:
++
+[subs="quotes,macros"]
+----
+[command]`nvdimm use --blockdevs=pmem0s,pmem1s`
+[command]`nvdimm use --blockdevs=pmem*`
+----
+======
+
+
+.Notes
+
+* By default, all NVDIMM devices are ignored by the installation program. You must use the [command]`nvdimm` command to enable installation on these devices.
+

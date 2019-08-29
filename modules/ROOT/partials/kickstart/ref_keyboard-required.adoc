@@ -1,0 +1,33 @@
+[id="keyboard-required_{context}"]
+= keyboard (required)
+
+The [command]`keyboard` Kickstart command is required. It sets one or more available keyboard layouts for the system.
+
+
+.Options
+
+* [option]`--vckeymap=` - Specify a `VConsole` keymap which should be used. Valid names correspond to the list of files in the [filename]`/usr/lib/kbd/keymaps/xkb/` directory, without the `.map.gz` extension.
+
+* [option]`--xlayouts=` - Specify a list of X layouts that should be used as a comma-separated list without spaces. Accepts values in the same format as `setxkbmap(1)`, either in the ``__layout__`` format (such as `cz`), or in the ``__layout__ (__variant__)`` format (such as `cz (qwerty)`).
++
+All available layouts can be viewed on the `xkeyboard-config(7)` man page under `Layouts`.
+
+* [option]`--switch=` - Specify a list of layout-switching options (shortcuts for switching between multiple keyboard layouts). Multiple options must be separated by commas without spaces. Accepts values in the same format as `setxkbmap(1)`.
++
+Available switching options can be viewed on the `xkeyboard-config(7)` man page under `Options`.
+
+
+.Notes
+
+* Either the [option]`--vckeymap=` or the [option]`--xlayouts=` option must be used.
+
+
+.Example
+
+The following example sets up two keyboard layouts (`English (US)` and `Czech (qwerty)`) using the [option]`--xlayouts=` option, and allows to switch between them using kbd:[Alt+Shift]:
+
+[subs="quotes,macros"]
+----
+[command]`keyboard --xlayouts=us,'cz (qwerty)' --switch=grp:alt_shift_toggle`
+----
+

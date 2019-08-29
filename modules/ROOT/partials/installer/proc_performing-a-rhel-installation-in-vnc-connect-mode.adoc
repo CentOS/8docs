@@ -1,0 +1,90 @@
+// Module included in the following assemblies:
+//
+// <List assemblies here, each on a new line>
+
+// This module can be included from assemblies using the following include statement:
+// include::<path>/proc_performing-a-rhel-installation-in-vnc-connect-mode.adoc[leveloffset=+1]
+
+// The file name and the ID are based on the module title. For example:
+// * file name: proc_doing-procedure-a.adoc
+// * ID: [id='proc_doing-procedure-a_{context}']
+// * Title: = Doing procedure A
+//
+// The ID is used as an anchor for linking to the module. Avoid changing
+// it after the module has been published to ensure existing links are not
+// broken.
+//
+// The `context` attribute enables module reuse. Every module's ID includes
+// {context}, which ensures that the module has a unique ID even if it is
+// reused multiple times in a guide.
+//
+// Start the title with a verb, such as Creating or Create. See also
+// _Wording of headings_ in _The IBM Style Guide_.
+[id="performing-a-rhel-installation-in-vnc-connect-mode_{context}"]
+= Performing a remote RHEL installation in VNC Connect mode
+
+Use this procedure to perform a remote RHEL installation in VNC Connect mode. In Connect mode, the target system that is being installed with RHEL initiates a connect to the VNC viewer that is installed on another system. In this procedure, the system with the VNC viewer is called the *remote* system.
+
+[NOTE]
+====
+This procedure uses *TigerVNC* as the VNC viewer. Specific instructions for other viewers might differ, but the general principles apply.
+====
+
+[discrete]
+== Prerequisites
+
+* As root, you have installed a VNC viewer on a remote system, for example:
++
+----
+# yum install tigervnc
+----
++
+* You have set up a network boot server to start the installation on the target system. For more information, see <<network-install-overview_preparing-for-a-network-install>>.
+
+* You have configured the target system to use the boot options for a VNC Connect installation. For more information, see *add link to updated boot options when they are ready*.
+
+* You have verified that the remote system with the VNC viewer is configured to accept an incoming connection on the required port. Verification is dependent on your network and system configuration. For more information, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/security_hardening/index/[Security hardening] and https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/securing_networks/index/[Securing networks] documents.
+
+
+[discrete]
+== Procedure
+
+. Start the VNC viewer on the remote system in _listening mode_ by running the following command:
++
+----
+$ vncviewer -listen PORT
+----
++
+. Replace PORT with the port number used for the connection.
+
+. The terminal displays a message indicating that it is waiting for an incoming connection from the target system.
+
++
+----
+TigerVNC Viewer 64-bit v1.8.0
+Built on: 2017-10-12 09:20
+Copyright (C) 1999-2017 TigerVNC Team and many others (see README.txt)
+See http://www.tigervnc.org for information on TigerVNC.
+
+Thu Jun 27 11:30:57 2019
+ main:        Listening on port 5500
+----
++
+
+. Boot the target system from the network.
+
+. From the RHEL boot menu on the target system, press the `Tab` key on your keyboard to edit the boot options.
+
+. Append the `inst.vnc inst.vncconnect=HOST:PORT` option to the end of the command line.
+
+. Replace _HOST_ with the IP address of the remote system that is running the listening VNC viewer, and _PORT_ with the port number that the VNC viewer is listening on.
+
+. Press *Enter* to start the installation. The system initializes the installation program and starts the necessary services. When the initialization process is finished, the installation program attempts to connect to the IP address and port provided.
+
+. When the connection is successful, a new window opens with the VNC connection established, displaying the RHEL installation menu. From this window, you can install RHEL on the target system using the graphical user interface.
+
+
+[discrete]
+== Additional resources
+
+* For more information on how to perform a RHEL installation using the graphical user interface, see the _Installing RHEL using the Graphical User Interface_ section in the  link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index/[_Performing a standard RHEL installation_] document.

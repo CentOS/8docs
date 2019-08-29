@@ -1,0 +1,25 @@
+[id="text_{context}"]
+= text
+
+The [command]`text` Kickstart command is optional. It performs the Kickstart installation in text mode. Kickstart installations are performed in graphical mode by default.
+
+
+.Syntax
+
+[subs="quotes"]
+----
+text __options__
+----
+
+
+.Options
+
+* [option]`--non-interactive` - Performs the installation in a completely non-interactive mode. This mode will terminate the installation when user interaction is required.
+
+
+.Notes
+
+* Note that for a fully automatic installation, you must either specify one of the available modes ([command]`graphical`, [command]`text`, or [command]`cmdline`) in the Kickstart file, or you must use the [option]`console=` boot option. If no mode is specified, the system will use graphical mode if possible, or prompt you to choose from VNC and text mode.
+
+// you must use the [option]`console=` boot option as described in xnotref:list-boot-options-display[].
+

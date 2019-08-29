@@ -1,0 +1,48 @@
+[id="liveimg_{context}"]
+= liveimg
+
+The [command]`liveimg` Kickstart command is optional. It performs the installation from a disk image instead of packages.
+
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]`liveimg` [option]`--url=__SOURCE__` __[OPTIONS]__
+----
+
+
+.Mandatory options
+
+* [option]`--url=` - The location to install from. Supported protocols are `HTTP`, `HTTPS`, `FTP`, and `file`.
+
+
+.Optional options
+
+* [option]`--url=` - The location to install from. Supported protocols are `HTTP`, `HTTPS`, `FTP`, and `file`.
+
+* [option]`--proxy=` - Specify an `HTTP`, `HTTPS` or `FTP` proxy to use while performing the installation.
+
+* [option]`--checksum=` - An optional argument with the `SHA256` checksum of the image file, used for verification.
+
+* [option]`--noverifyssl` - Disable SSL verification when connecting to an `HTTPS` server.
+
+
+.Example
+
+[subs="quotes,macros"]
+----
+[command]`liveimg --url=file:///images/install/squashfs.img --checksum=03825f567f17705100de3308a20354b4d81ac9d8bed4bb4692b2381045e56197 --noverifyssl`
+----
+
+
+.Notes
+
+* The image can be the [filename]`squashfs.img` file from a live ISO image, a compressed tar file (`.tar`, `.tbz`, `.tgz`, `.txz`, `.tar.bz2`, `.tar.gz`, or `.tar.xz`.), or any file system that the installation media can mount. Supported file systems are `ext2`, `ext3`, `ext4`, `vfat`, and `xfs`.
+
+* When using the `liveimg` installation mode with a driver disk, drivers on the disk will not automatically be included in the installed system. If necessary, these drivers should be installed manually, or in the `%post` section of a kickstart script.
+
+* Previously, the [command]`liveimg` command had to be used together with the [command]`install` command. The [command]`install` command has been deprecated and [command]`liveimg` can be used on its own, because it implies [command]`install`.
+
+* To actually run the installation, one of `cdrom`, `harddrive`, `hmc`, `nfs`, `liveimg`, or `url` must be specified.
+

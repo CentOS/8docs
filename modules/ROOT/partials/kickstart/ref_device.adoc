@@ -1,0 +1,26 @@
+[id="device_{context}"]
+= device (deprecated)
+
+The [command]`device` Kickstart command is optional. Use it to load additional kernel modules.
+
+On most PCI systems, the installation program automatically detects Ethernet and SCSI cards. However, on older systems and some PCI systems, Kickstart requires a hint to find the proper devices. The [command]`device` command, which tells the installation program to install extra modules, uses the following format:
+
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``device __moduleName__ --opts=__options__``
+----
+
+.Options
+
+* __moduleName__ - Replace with the name of the kernel module which should be installed.
+
+* [option]`--opts=` - Options to pass to the kernel module. For example:
++
+[subs="quotes,macros"]
+----
+[command]`device --opts="aic152x=0x340 io=11"`
+----
+

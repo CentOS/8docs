@@ -1,6 +1,6 @@
 :parent-context-of-kickstart-changes: {context}
 
-[id='kickstart-changes_{context}']
+[id="kickstart-changes_{context}"]
 = Kickstart changes
 
 :context: kickstart-changes

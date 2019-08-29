@@ -1,0 +1,123 @@
+[id="bootloader-required_{context}"]
+= bootloader (required)
+
+The [command]`bootloader` Kickstart command is required. It specifies how the boot loader should be installed.
+
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+bootloader __[OPTIONS]__
+----
+
+
+.Options
+
+* [option]`--append=` - Specifies additional kernel parameters. To specify multiple parameters, separate them with spaces. For example:
++
+[subs="quotes,macros"]
+----
+[command]`bootloader --location=mbr --append="hdd=ide-scsi ide=nodma"`
+----
++
+The [option]`rhgb` and [option]`quiet` parameters are automatically added when the `plymouth` package is installed, even if you do not specify them here or do not use the [option]`--append=` command at all. To disable this behavior, explicitly disallow installation of `plymouth`:
++
+----
+%packages
+-plymouth
+%end
+----
++
+This option is useful for disabling mechanisms which were implemented to mitigate the Meltdown and Spectre speculative execution vulnerabilities found in most modern processors (CVE-2017-5754, CVE-2017-5753, and CVE-2017-5715). In some cases, these mechanisms may be unnecessary, and keeping them enabled causes decreased performance with no improvement in security. To disable these mechanisms, add the options to do so into your Kickstart file - for example, [command]`bootloader --append="nopti noibrs noibpb"` on AMD64/Intel 64 systems.
++
+[WARNING]
+====
+Ensure your system is not at risk of attack before disabling any of the vulnerability mitigation mechanisms. See the link:https://access.redhat.com/security/vulnerabilities/speculativeexecution[Red Hat vulnerability response article] for information about the Meltdown and Spectre vulnerabilities.
+====
+
+* [option]`--boot-drive=` - Specifies which drive the boot loader should be written to, and therefore which drive the computer will boot from. If you use a multipath device as the boot drive, specify only one member of the device.
++
+[IMPORTANT]
+====
+The [option]`--boot-drive=` option is currently being ignored in {RHEL} installations on IBM{nbsp}Z systems using the `zipl` boot loader. When `zipl` is installed, it determines the boot drive on its own.
+====
+
+* [option]`--leavebootorder` - The installation program will add {RHEL8} to the top of the list of installed systems in the boot loader, and preserve all existing entries as well as their order.
+
+* [option]`--driveorder=` - Specifies which drive is first in the BIOS boot order. For example:
++
+[subs="quotes,macros"]
+----
+[command]`bootloader --driveorder=sda,hda`
+----
+
+* [option]`--location=` - Specifies where the boot record is written. Valid values are the following:
++
+====
+* `mbr` - The default option. Depends on whether the drive uses the Master Boot Record (MBR) or GUID Partition Table (GPT) scheme:
++
+On a GPT-formatted disk, this option installs stage 1.5 of the boot loader into the BIOS boot partition.
++
+On an MBR-formatted disk, stage 1.5 is installed into the empty space between the MBR and the first partition.
+
+* `partition` - Install the boot loader on the first sector of the partition containing the kernel.
+
+* `none` - Do not install the boot loader.
+====
++
+In most cases, this option does not need to be specified.
+
+* [option]`--nombr` - Do not install the boot loader to the MBR.
+
+* [option]`--password=` - If using GRUB2, sets the boot loader password to the one specified with this option. This should be used to restrict access to the GRUB2 shell, where arbitrary kernel options can be passed.
++
+If a password is specified, GRUB2 also asks for a user name. The user name is always `root`.
+
+* [option]`--iscrypted` - Normally, when you specify a boot loader password using the [option]`--password=` option, it is stored in the Kickstart file in plain text. If you want to encrypt the password, use this option and an encrypted password.
++
+To generate an encrypted password, use the [command]`grub2-mkpasswd-pbkdf2` command, enter the password you want to use, and copy the command's output (the hash starting with `grub.pbkdf2`) into the Kickstart file. An example [command]`bootloader` Kickstart entry with an encrypted password looks similar to the following:
++
+[subs="quotes,macros"]
+----
+[command]`bootloader --iscrypted --password=grub.pbkdf2.sha512.10000.5520C6C9832F3AC3D149AC0B24BE69E2D4FB0DBEEDBD29CA1D30A044DE2645C4C7A291E585D4DC43F8A4D82479F8B95CA4BA4381F8550510B75E8E0BB2938990.C688B6F0EF935701FF9BD1A8EC7FE5BD2333799C98F28420C5CC8F1A2A233DE22C83705BB614EA17F3FDFDF4AC2161CEA3384E56EB38A2E39102F5334C47405E`
+----
+
+* [option]`--timeout=` - Specifies the amount of time the boot loader waits before booting the default option (in seconds).
+
+* [option]`--default=` - Sets the default boot image in the boot loader configuration.
+
+* [option]`--extlinux` - Use the extlinux boot loader instead of GRUB2. This option only works on systems supported by extlinux.
+
+* [option]`--disabled` -- This option is a stronger version of [option]`--location=none`. While [option]`--location=none` simply disables boot loader installation, [option]`--disabled` disables boot loader installation and also disables installation of the package containing the boot loader, thus saving space.
+
+
+.Notes
+
+* {RH} recommends setting up a boot loader password on every system. An unprotected boot loader can allow a potential attacker to modify the system's boot options and gain unauthorized access to the system.
+
+* In some cases, a special partition is required to install the boot loader on AMD64, Intel 64, and 64-bit ARM systems. The type and size of this partition depends on whether the disk you are installing the boot loader to uses the Master Boot Record (MBR) or a GUID Partition Table (GPT) schema. For more information, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index#boot-loader-installation_configuring-system-settings[Configuring boot loader] section of the __Performing a standard RHEL installation__ document.
+
+* Device names in the ``sd__X__`` (or ``/dev/sd__X__``) format are not guaranteed to be consistent across reboots, which can complicate usage of some Kickstart commands. When a command calls for a device node name, you can instead use any item from [filename]`/dev/disk`. For example, instead of:
++
+[subs="quotes,macros"]
+----
+[command]`part / --fstype=xfs --onpart=sda1`
+----
++
+You can use an entry similar to one of the following:
++
+[subs="quotes,macros"]
+----
+[command]`part / --fstype=xfs --onpart=/dev/disk/by-path/pci-0000:00:05.0-scsi-0:0:0:0-part1`
+----
++
+[subs="quotes,macros"]
+----
+[command]`part / --fstype=xfs --onpart=/dev/disk/by-id/ata-ST3160815AS_6RA0C882-part1`
+----
++
+This way the command will always target the same storage device. This is especially useful in large storage environments. See the chapter link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_storage_devices/index#assembly_overview-of-persistent-naming-attributes_managing-storage-devices[Overview of persistent naming attributes] in the __Managing storage devices__ document for more in-depth information about different ways to consistently refer to storage devices.
+
+* The [option]`--upgrade` option is deprecated in {RHEL8}.
+

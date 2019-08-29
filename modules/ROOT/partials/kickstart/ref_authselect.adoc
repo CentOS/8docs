@@ -1,0 +1,24 @@
+[id="authselect_{context}"]
+= authselect
+
+The [command]`authselect` Kickstart command is optional. It sets up the authentication options for the system using the [command]`authselect` command, which can also be run on the command line after the installation finishes.
+
+
+.Syntax
+
+[subs="quotes"]
+----
+authselect [__options__]
+----
+
+
+.Notes
+
+* This command passes all options to the [command]`authselect` command. Refer to the __authselect(8)__ manual page and the [command]`authselect --help` command for more details.
+
+* This command replaces the deprecated [command]`auth` or [command]`authconfig` commands deprecated in {RHEL8} together with the [command]`authconfig` tool.
+
+* Passwords are shadowed by default.
+
+* When using OpenLDAP with the `SSL` protocol for security, make sure that the `SSLv2` and `SSLv3` protocols are disabled in the server configuration. This is due to the POODLE SSL vulnerability (CVE-2014-3566). See link:https://access.redhat.com/solutions/1234843[] for details.
+

@@ -1,6 +1,6 @@
 :parent-context-of-pre-installation-scripts-in-kickstart: {context}
 
-[id='pre-installation-scripts-in-kickstart_{context}']
+[id="pre-installation-scripts-in-kickstart_{context}"]
 = Pre-installation scripts in Kickstart
 
 :context: pre-installation-scripts-in-kickstart

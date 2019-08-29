@@ -4,7 +4,7 @@ include::partial$local-attributes.adoc[]
 //
 // <List assemblies here, each on a new line>
 :parent-context-of-preparing-for-your-installation: {context}
-[id='preparing-for-your-installation_{context}']
+[id="preparing-for-your-installation_{context}"]
 = Preparing for your installation
 :context: preparing-for-your-installation
 

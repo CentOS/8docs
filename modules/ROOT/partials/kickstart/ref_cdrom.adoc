@@ -1,0 +1,22 @@
+[id="cdrom_{context}"]
+= cdrom
+
+The [command]`cdrom` Kickstart command is optional. It performs the installation from the first optical drive on the system.
+
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]`cdrom`
+----
+
+
+.Notes
+
+* Previously, the [command]`cdrom` command had to be used together with the [command]`install` command. The [command]`install` command has been deprecated and [command]`cdrom` can be used on its own, because it implies [command]`install`.
+
+* This command has no options.
+
+* To actually run the installation, one of `cdrom`, `harddrive`, `hmc`, `nfs`, `liveimg`, or `url` must be specified.
+

@@ -1,0 +1,94 @@
+[id="clearpart_{context}"]
+= clearpart
+
+The [command]`clearpart` Kickstart command is optional. It removes partitions from the system, prior to creation of new partitions. By default, no partitions are removed.
+
+// For a detailed example of partitioning including the [command]`clearpart` command, see xnotref:sect-kickstart-partitioning-example[].
+
+.Options
+
+* [option]`--all` - Erases all partitions from the system.
++
+This option will erase all disks which can be reached by the installation program, including any attached network storage. Use this option with caution.
++
+You can prevent [command]`clearpart` from wiping storage you want to preserve by using the [option]`--drives=` option and specifying only the drives you want to clear, by attaching network storage later (for example, in the [command]`%post` section of the Kickstart file), or by blacklisting the kernel modules used to access network storage.
+
+* [option]`--drives=` - Specifies which drives to clear partitions from. For example, the following clears all the partitions on the first two drives on the primary IDE controller:
++
+[subs="quotes,macros"]
+----
+[command]`clearpart --drives=hda,hdb --all`
+----
++
+To clear a multipath device, use the format ``disk/by-id/scsi-__WWID__``, where __WWID__ is the world-wide identifier for the device. For example, to clear a disk with WWID `58095BEC5510947BE8C0360F604351918`, use:
++
+[subs="quotes,macros"]
+----
+[command]`clearpart --drives=disk/by-id/scsi-58095BEC5510947BE8C0360F604351918`
+----
++
+This format is preferable for all multipath devices, but if errors arise, multipath devices that do not use logical volume management (LVM) can also be cleared using the format ``disk/by-id/dm-uuid-mpath-__WWID__``, where __WWID__ is the world-wide identifier for the device. For example, to clear a disk with WWID `2416CD96995134CA5D787F00A5AA11017`, use:
++
+[subs="quotes,macros"]
+----
+[command]`clearpart --drives=disk/by-id/dm-uuid-mpath-2416CD96995134CA5D787F00A5AA11017`
+----
++
+Never specify multipath devices by device names like `mpatha`. Device names such as this are not specific to a particular disk. The disk named [filename]`/dev/mpatha` during installation might not be the one that you expect it to be. Therefore, the [command]`clearpart` command could target the wrong disk.
+
+* [option]`--initlabel` - Initializes a disk (or disks) by creating a default disk label for all disks in their respective architecture that have been designated for formatting (for example, msdos for x86). Because [option]`--initlabel` can see all disks, it is important to ensure only those drives that are to be formatted are connected.
++
+[subs="quotes,macros"]
+----
+[command]`clearpart --initlabel --drives=names_of_disks`
+----
++
+For example:
++
+[subs="quotes,macros"]
+----
+[command]`clearpart --initlabel --drives=dasda,dasdb,dasdc`
+----
+
+* [option]`--list=` - Specifies which partitions to clear. This option overrides the [option]`--all` and [option]`--linux` options if used. Can be used across different drives. For example:
++
+[subs="quotes,macros"]
+----
+[command]`clearpart --list=sda2,sda3,sdb1`
+----
+
+* [option]`--disklabel=_LABEL_` - Set the default disklabel to use. Only disklabels supported for the platform will be accepted. For example, on the 64-bit Intel and AMD architectures, the `msdos` and `gpt` disklabels are accepted, but `dasd` is not accepted.
+
+* [option]`--linux` - Erases all Linux partitions.
+
+* [option]`--none` (default) - Do not remove any partitions.
+
+* [option]`--cdl` - Reformat any LDL DASDs to CDL format.
+
+.Notes
+
+// * Using the [command]`clearpart --all` command in a Kickstart file to remove all existing partitions during the installation can cause Anaconda to pause and prompt you for a confirmation in certain cases. If you need to perform the installation automatically with no interaction, add the [command]`zerombr` command to your Kickstart file.
+
+* Device names in the ``sd__X__`` (or ``/dev/sd__X__``) format are not guaranteed to be consistent across reboots, which can complicate usage of some Kickstart commands. When a command calls for a device node name, you can instead use any item from [filename]`/dev/disk`. For example, instead of:
++
+[subs="quotes,macros"]
+----
+[command]`part / --fstype=xfs --onpart=sda1`
+----
++
+You could use an entry similar to one of the following:
++
+[subs="quotes,macros"]
+----
+[command]`part / --fstype=xfs --onpart=/dev/disk/by-path/pci-0000:00:05.0-scsi-0:0:0:0-part1`
+----
++
+[subs="quotes,macros"]
+----
+[command]`part / --fstype=xfs --onpart=/dev/disk/by-id/ata-ST3160815AS_6RA0C882-part1`
+----
++
+This way the command will always target the same storage device. This is especially useful in large storage environments. See the chapter link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_storage_devices/index#assembly_overview-of-persistent-naming-attributes_managing-storage-devices[Overview of persistent naming attributes] in the __Managing storage devices__ document for more in-depth information about different ways to consistently refer to storage devices.
+
+* If the [command]`clearpart` command is used, then the [command]`part --onpart` command cannot be used on a logical partition.
+

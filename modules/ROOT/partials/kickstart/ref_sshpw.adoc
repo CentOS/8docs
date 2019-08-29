@@ -1,0 +1,59 @@
+[id="sshpw_{context}"]
+= sshpw
+
+The [command]`sshpw` Kickstart command is optional.
+
+During the installation, you can interact with the installation program and monitor its progress over an `SSH` connection. Use the [command]`sshpw` command to create temporary accounts through which to log on. Each instance of the command creates a separate account that exists only in the installation environment. These accounts are not transferred to the installed system.
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``sshpw --username=__name__ __[options]__ __password__``
+----
+
+.Mandatory options
+
+* [option]`--username` - Provides the name of the user. This option is required.
+
+* __password__ - The password to use for the user.  This option is required.
+
+.Optional options
+
+* [option]`--iscrypted` - If this option is present, the password argument is assumed to already be encrypted. This option is mutually exclusive with [option]`--plaintext`. To create an encrypted password, you can use Python:
++
+[subs="quotes,macros"]
+----
+$ [command]`python3 -c 'import crypt,getpass;pw=getpass.getpass();print(crypt.crypt(pw) if (pw==getpass.getpass("Confirm: ")) else exit())'`
+----
++
+This generates a sha512 crypt-compatible hash of your password using a random salt.
+
+* [option]`--plaintext` - If this option is present, the password argument is assumed to be in plain text. This option is mutually exclusive with [option]`--iscrypted`
+
+* [option]`--lock` - If this option is present, this account is locked by default. This means that the user will not be able to log in from the console.
+
+* [option]`--sshkey` - If this is option is present, then the __<password>__ string is interpreted as an ssh key value.
+
+.Notes
+
+* By default, the `ssh` server is not started during the installation. To make `ssh` available during the installation, boot the system with the kernel boot option [option]`inst.sshd`.
++
+// See xnotref:list-boot-options-display[] for details.
+
+
+* If you want to disable root `ssh` access, while allowing another user `ssh` access, use the following:
++
+[subs="quotes,macros"]
+----
+[command]``sshpw --username=__example_username__ __example_password__ --plaintext``
+[command]``sshpw --username=root __example_password__ --lock``
+----
+
+* To simply disable root `ssh` access, use the following:
++
+[subs="quotes,macros"]
+----
+[command]`sshpw --username=root --lock`
+----
+

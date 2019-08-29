@@ -1,4 +1,4 @@
-[id='advice-on-partitions_{context}']
+[id="advice-on-partitions_{context}"]
 = Advice on partitions
 
 There is no best way to partition every system; the optimal setup depends on how you plan to use the system being installed. However, the following tips may help you find the optimal layout for your needs:
@@ -13,7 +13,19 @@ There is no best way to partition every system; the optimal setup depends on how
 
 * If you are new to Linux, consider reviewing the [citetitle]_Linux Filesystem Hierarchy Standard_ at link:++http://refspecs.linuxfoundation.org/FHS_2.3/fhs-2.3.html++[] for information about various system directories and their contents.
 
-* Each kernel installed on your system requires approximately 20 MB on the [filename]`/boot` partition. The default partition size of 1 GB for [filename]`/boot` should suffice for most common uses; increase the size of this partition if you plan to keep many kernels installed at the same time.
+* Each kernel installed on your system requires approximately 56 MB on the [filename]`/boot` partition:
++
+** 32 MB initramfs
+** 14 MB kdump initramfs
+** 3.5 MB system map
+** 6.6 MB vmlinuz
++
+[NOTE]
+====
+For rescue mode, `initramfs` and `vmlinuz` require 80 MB.
+====
++
+The default partition size of 1 GB for [filename]`/boot` should suffice for most common use cases. However, it is recommended that you increase the size of this partition if you are planning on retaining multiple kernel releases or errata kernels.
 
 * The [filename]`/var` directory holds content for a number of applications, including the [application]*Apache* web server, and is used by the [application]*DNF* package manager to temporarily store downloaded package updates. Make sure that the partition or volume containing [filename]`/var` has at least 3 GB.
 

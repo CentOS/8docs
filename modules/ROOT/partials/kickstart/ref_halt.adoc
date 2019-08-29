@@ -1,0 +1,14 @@
+[id="halt_{context}"]
+= halt
+
+The [command]`halt` Kickstart command is optional.
+
+Halt the system after the installation has successfully completed. This is similar to a manual installation, where Anaconda displays a message and waits for the user to press a key before rebooting. During a Kickstart installation, if no completion method is specified, this option is used as the default.
+
+
+.Notes
+
+* The [command]`halt` command is equivalent to the [command]`shutdown -H` command. For more details, see the _shutdown(8)_ man page.
+
+* For other completion methods, see the [command]`poweroff`, [command]`reboot`, and [command]`shutdown` commands.
+

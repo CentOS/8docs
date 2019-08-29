@@ -1,0 +1,29 @@
+[id="zfcp_{context}"]
+= zfcp
+
+The [command]`zfcp` Kickstart command is optional. It defines a Fibre channel device.
+
+This option only applies on IBM{nbsp}Z. All of the options described below must be specified.
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``zfcp --devnum=__devnum__ --wwpn=__wwpn__ --fcplun=__lun__``
+----
+
+.Options
+
+* [option]`--devnum` - The device number (zFCP adapter device bus ID).
+
+* [option]`--wwpn` - The device's World Wide Port Name (WWPN). Takes the form of a 16-digit number, preceded by `0x`.
+
+* [option]`--fcplun` - The device's Logical Unit Number (LUN). Takes the form of a 16-digit number, preceded by `0x`.
+
+.Example
+
+[subs="quotes,macros"]
+----
+[command]`zfcp --devnum=0.0.4000 --wwpn=0x5005076300C213e9 --fcplun=0x5022000000000000`
+----
+

@@ -1,8 +1,12 @@
 include::ROOT:partial$attributes.adoc[]
 include::partial$local-attributes.adoc[]
+// This assembly is included in the following assemblies:
+//
+// <List assemblies here, each on a new line>
+
 :parent-context-of-booting-the-installer: {context}
 
-[id='booting-the-installer_{context}']
+[id="booting-the-installer_{context}"]
 = Booting the installation
 :context: booting-the-installer
 

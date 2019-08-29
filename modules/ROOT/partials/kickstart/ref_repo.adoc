@@ -1,0 +1,50 @@
+[id="repo_{context}"]
+= repo
+
+The [command]`repo` Kickstart command is optional. It configures additional yum repositories that can be used as sources for package installation. You can add multiple [command]`repo` lines.
+
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``repo --name=__repoid__ [--baseurl=__url__|--mirrorlist=__url__|--metalink=__url__] [__options__]``
+----
+
+
+.Mandatory options
+
+* [option]`--name=` - The repository id. This option is required. If a repository has a name which conflicts with another previously added repository, it is ignored. Because the installation program uses a list of preset repositories, this means that you cannot add repositories with the same names as the preset ones.
+
+
+.URL options
+
+These options are mutually exclusive and optional. The variables that can be used in yum repository configuration files are not supported here. You can use the strings `$releasever` and `$basearch` which are replaced by the respective values in the URL.
+
+* [option]`--baseurl=` - The URL to the repository.
+
+* [option]`--mirrorlist=` - The URL pointing at a list of mirrors for the repository.
+
+* [option]`--metalink=` - The URL with metalink for the repository.
+
+
+.Optional options
+
+* [option]`--install` - Save the provided repository configuration on the installed system in the [filename]`/etc/yum.repos.d/` directory. Without using this option, a repository configured in a Kickstart file will only be available during the installation process, not on the installed system.
+
+* [option]`--cost=` - An integer value to assign a cost to this repository. If multiple repositories provide the same packages, this number is used to prioritize which repository will be used before another. Repositories with a lower cost take priority over repositories with higher cost.
+
+* [option]`--excludepkgs=` - A comma-separated list of package names that must __not__ be pulled from this repository. This is useful if multiple repositories provide the same package and you want to make sure it comes from a particular repository. Both full package names (such as `publican`) and globs (such as `gnome-*`) are accepted.
+
+* [option]`--includepkgs=` - A comma-separated list of package names and globs that are allowed to be pulled from this repository. Any other packages provided by the repository will be ignored. This is useful if you want to install just a single package or set of packages from a repository while excluding all other packages the repository provides.
+
+* [option]`--proxy=[__protocol__://][__username__[:__password__]@]__host__[:__port__]` - Specify an HTTP/HTTPS/FTP proxy to use just for this repository. This setting does not affect any other repositories, nor how the [filename]`install.img` is fetched on HTTP installations.
+
+* [option]`--noverifyssl` - Disable SSL verification when connecting to an `HTTPS` server.
+
+// --ssl* options removed from docs due to internal-only usage and intent to nmot advertise their existence
+
+
+.Notes
+
+* Repositories used for installation must be stable. The installation can fail if a repository is modified before the installation concludes.

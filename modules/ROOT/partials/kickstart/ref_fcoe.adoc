@@ -1,0 +1,21 @@
+[id="fcoe_{context}"]
+= fcoe
+
+The [command]`fcoe` Kickstart command is optional. It specifies which FCoE devices should be activated automatically in addition to those discovered by Enhanced Disk Drive Services (EDD).
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``fcoe --nic=__name__ [__options__]``
+----
+
+.Options
+
+* [option]`--nic=` (required) - The name of the device to be activated.
+
+* [option]`--dcb=` - Establish Data Center Bridging (DCB) settings.
+
+* [option]`--autovlan` - Discover VLANs automatically. This option is enabled by default.
+
+

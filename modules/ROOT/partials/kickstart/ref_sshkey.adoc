@@ -1,0 +1,20 @@
+[id="sshkey_{context}"]
+= sshkey
+
+The [command]`sshkey` Kickstart command is optional. It adds a SSH key to the `authorized_keys` file of the specified user on the installed system.
+
+
+.Syntax
+
+[subs="quotes"]
+----
+sshkey --username=__user__ __KEY__
+----
+
+
+.Mandatory options
+
+* [option]`--username=` - The user for which the key will be installed.
+
+* __KEY__ - The SSH key.
+

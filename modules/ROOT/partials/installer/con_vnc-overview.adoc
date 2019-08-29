@@ -1,0 +1,34 @@
+// Module included in the following assemblies:
+//
+// <List assemblies here, each on a new line>
+
+// This module can be included from assemblies using the following include statement:
+// include::<path>/con_vnc-overview.adoc[leveloffset=+1]
+
+// The file name and the ID are based on the module title. For example:
+// * file name: con_my-concept-module-a.adoc
+// * ID: [id='con_my-concept-module-a_{context}']
+// * Title: = My concept module A
+//
+// The ID is used as an anchor for linking to the module. Avoid changing
+// it after the module has been published to ensure existing links are not
+// broken.
+//
+// The `context` attribute enables module reuse. Every module's ID includes
+// {context}, which ensures that the module has a unique ID even if it is
+// reused multiple times in a guide.
+//
+// In the title, include nouns that are used in the body text. This helps
+// readers and search engines find information quickly.
+// Do not start the title with a verb. See also _Wording of headings_
+// in _The IBM Style Guide_.
+[id="vnc-overview_{context}"]
+= Overview
+
+The graphical user interface is the recommended method of installing RHEL when you boot the system from a CD, DVD, or USB flash drive, or from a network using PXE. However, many enterprise systems, for example, IBM Power Systems and IBM Z, are located in remote data center environments that are run autonomously and are not connected to a display, keyboard, and mouse. These systems are often referred to as _headless systems_ and they are typically controlled over a network connection. The RHEL installation program includes a Virtual Network Computing (VNC) installation that runs the graphical installation on the target machine, but control of the graphical installation is handled by another system on the network. The RHEL installation program offers two VNC installation modes: *Direct* and *Connect*. Once a connection is established, the two modes do not differ. The mode you select depends on your environment.
+
+Direct mode:::
+In Direct mode, the RHEL installation program is configured to start on the target system and wait for a VNC viewer that is installed on another system before proceeding. As part of the Direct mode installation, the IP address and port are displayed on the target system. You can use the VNC viewer to connect to the target system remotely using the IP address and port, and complete the graphical installation. 
+
+Connect mode:::
+In Connect mode, the VNC viewer is started on a remote system in _listening_ mode. The VNC viewer waits for an incoming connection from the target system on a specified port. When the RHEL installation program starts on the target system, the system host name and port number are provided by using a boot option or a Kickstart command. The installation program then establishes a connection with the listening VNC viewer using the specified system host name and port number. To use Connect mode, the system with the listening VNC viewer must be able to accept incoming network connections.

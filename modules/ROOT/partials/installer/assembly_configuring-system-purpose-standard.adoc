@@ -64,7 +64,7 @@ include::ROOT:partial$installer/con_system-purpose.adoc[leveloffset=+1]
 include::ROOT:partial$installer/proc_configuring-system-purpose.adoc[leveloffset=+1]
 include::ROOT:partial$installer/proc_configuring-system-purpose-using-syspurpose-command-line-tool.adoc[leveloffset=+1]
 
-// include::modules/subsystem/proc_doing_one_procedure.adoc[leveloffset=+1]
+// include::ROOT:partial$installer/subsystem/proc_doing_one_procedure.adoc[leveloffset=+1]
 
 // [leveloffset=+1] ensures that when a module starts with a level-1 heading
 // (= Heading), the heading will be interpreted as a level-2 heading

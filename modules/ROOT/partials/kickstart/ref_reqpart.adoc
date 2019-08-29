@@ -1,0 +1,20 @@
+[id="reqpart_{context}"]
+= reqpart
+
+The [command]`reqpart` Kickstart command is optional. It automatically creates partitions required by your hardware platform.  These include a [filename]`/boot/efi` partition for systems with UEFI firmware, a [filename]`biosboot` partition for systems with BIOS firmware and GPT, and a [filename]`PRePBoot` partition for IBM Power Systems.
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]`reqpart [--add-boot]`
+----
+
+.Options
+
+* [option]`--add-boot` - Creates a separate [filename]`/boot` partition in addition to the platform-specific partition created by the base command.
+
+.Notes
+
+* This command cannot be used toegether with [command]`autopart`, because [command]`autopart` does everything the  [command]`reqpart` command does and, in addition, creates other partitions or logical volumes such as [filename]`/` and [filename]`swap`.  In contrast with [command]`autopart`, this command only creates platform-specific partitions and leaves the rest of the drive empty, allowing you to create a custom layout.
+

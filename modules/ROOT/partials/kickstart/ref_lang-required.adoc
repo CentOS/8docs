@@ -1,0 +1,34 @@
+[id="lang-required_{context}"]
+= lang (required)
+
+The [command]`lang` Kickstart command is required. It sets the language to use during installation and the default language to use on the installed system.
+
+
+.Options
+
+* [option]`--addsupport=` - Add support for additional languages. Takes the form of comma-separated list without spaces. For example:
++
+[subs="quotes,macros"]
+----
+[command]`lang en_US --addsupport=cs_CZ,de_DE,en_UK`
+----
+
+
+.Notes
+
+// * The file [filename]`/usr/share/system-config-language/locale-list` provides a list of the valid language codes in the first column of each line and is part of the [package]*system-config-language* package.
++
+// TODO this is in Fedora 29, but not RHEL 8, what now? locale -a? langpacks?
+
+* Certain languages (for example, Chinese, Japanese, Korean, and Indic languages) are not supported during text-mode installation. If you specify one of these languages with the [command]`lang` command, the installation process continues in English, but the installed system uses your selection as its default language.
+
+
+.Example
+
+To set the language to English, the Kickstart file should contain the following line:
+
+[subs="quotes,macros"]
+----
+[command]`lang en_US`
+----
+

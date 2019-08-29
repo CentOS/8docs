@@ -27,7 +27,7 @@ include::partial$local-attributes.adoc[]
 //
 // If the assembly covers a task, start the title with a verb in the gerund
 // form, such as Creating or Configuring.
-[id='post-installation-tasks_{context}']
+[id="post-installation-tasks_{context}"]
 = Completing post-installation tasks
 
 // The `context` attribute enables module reuse. Every module's ID

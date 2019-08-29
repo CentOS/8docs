@@ -44,13 +44,11 @@ If you use an HTTPS server with a self-signed certificate, you must boot the ins
 +
 [subs="quotes, macros, attributes"]
 ----
-# mount -o loop,ro -t iso9660 _/image_directory/image.iso /mount_point/_
+# mkdir /mnt/rhel8-install/
+# mount -o loop,ro -t iso9660 _/image_directory/image.iso_ /mnt/rhel8-install/
 ----
 +
-====
-* Replace _/image_directory/image.iso_ with the path to the Binary DVD ISO image.
-* Replace _/mount_point/_ with the path to the directory where you want to locate the contents of the ISO image.
-====
+Replace _/image_directory/image.iso_ with the path to the Binary DVD ISO image.
 
 . Copy the files from the mounted image to the HTTP(S) server root. This command creates the `/var/www/html/rhel8-install/` directory with the contents of the image.
 +
@@ -58,6 +56,8 @@ If you use an HTTPS server with a self-signed certificate, you must boot the ins
 ----
 # cp -r /mnt/rhel8-install/ /var/www/html/
 ----
++
+This command creates the [literal]`/var/www/html/rhel8-install/` directory with the content of the image. Note that some copying methods can skip the `.treeinfo` file which is required for a valid installation source. Running the `cp` command for whole directories as shown in this procedure will copy `.treeinfo` correctly.
 
 . Start the `httpd` service:
 +

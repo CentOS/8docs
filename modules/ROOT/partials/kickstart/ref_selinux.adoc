@@ -1,0 +1,24 @@
+[id="selinux_{context}"]
+= selinux
+
+The [command]`selinux` Kickstart command is optional. It sets the state of SELinux on the installed system. The default SELinux policy is `enforcing`.
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]`selinux [--disabled|--enforcing|--permissive]`
+----
+
+.Options
+
+* [option]`--enforcing` - Enables SELinux with the default targeted policy being `enforcing`.
+
+* [option]`--permissive` - Outputs warnings based on the SELinux policy, but does not actually enforce the policy.
+
+* [option]`--disabled` - Disables SELinux completely on the system.
+
+.Additional resources
+
+For more information regarding SELinux, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/using_selinux/[Using SElinux] document.
+

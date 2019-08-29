@@ -1,0 +1,15 @@
+[id="iscsiname_{context}"]
+= iscsiname
+
+The [command]`iscsiname` Kickstart command is optional. It assigns a name to an iSCSI node specified by the iscsi parameter.
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]`iscsiname` __iqn__
+----
+
+.Notes
+
+* If you use the `iscsi` parameter in your Kickstart file, you must specify [command]`iscsiname` __earlier__ in the Kickstart file.
+

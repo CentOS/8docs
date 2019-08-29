@@ -27,7 +27,7 @@ include::partial$local-attributes.adoc[]
 //
 // If the assembly covers a task, start the title with a verb in the gerund
 // form, such as Creating or Configuring.
-[id='preparing-for-a-network-install_{context}']
+[id="preparing-for-a-network-install_{context}"]
 = Preparing to install from the network using PXE
 
 // The `context` attribute enables module reuse. Every module's ID

@@ -1,0 +1,13 @@
+[id="firstboot_{context}"]
+= firstboot
+
+The [command]`firstboot` Kickstart command is optional. It determines whether the [GUI]`Initial Setup` application starts the first time the system is booted. If enabled, the [package]*initial-setup* package must be installed. If not specified, this option is disabled by default.
+
+.Options
+
+* [option]`--enable` or [option]`--enabled` - Initial Setup is started the first time the system boots.
+
+* [option]`--disable` or [option]`--disabled` - Initial Setup is not started the first time the system boots.
+
+* [option]`--reconfig` - Enable the Initial Setup to start at boot time in reconfiguration mode. This mode enables the language, mouse, keyboard, root password, security level, time zone and networking configuration options in addition to the default ones.
+

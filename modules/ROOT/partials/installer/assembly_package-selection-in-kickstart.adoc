@@ -1,6 +1,6 @@
 :parent-context-of-package-selection-in-kickstart: {context}
 
-[id='package-selection-in-kickstart_{context}']
+[id="package-selection-in-kickstart_{context}"]
 = Package selection in Kickstart
 
 :context: package-selection-in-kickstart

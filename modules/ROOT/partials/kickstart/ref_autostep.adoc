@@ -1,0 +1,15 @@
+[id="autostep_{context}"]
+= autostep
+
+The [command]`autostep` Kickstart command is optional. This option makes the installation program step through every screen, displaying each briefly. Normally, Kickstart installations skip unnecessary screens.
+
+.Options
+
+* [option]`--autoscreenshot` - Take a screenshot at every step during installation. These screenshots are stored in [filename]`/tmp/anaconda-screenshots/` during the installation, and after the installation finishes you can find them in [filename]`/root/anaconda-screenshots`.
++
+Each screen is only captured right before the installation program switches to the next one. This is important, because if you do not use all required Kickstart options and the installation therefore does not begin automatically, you can go to the screens which were not automatically configured, perform any configuration you want. Then, when you click [GUI]*Done* to continue, the screen is captured including the configuration you just provided.
+
+.Notes
+
+* This option should not be used when deploying a system because it can disrupt package installation.
+

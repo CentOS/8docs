@@ -1,4 +1,4 @@
-[id='supported-file-systems_{context}']
+[id="supported-file-systems_{context}"]
 = Supported file systems
 
 This section describes the file systems available in {productname}.

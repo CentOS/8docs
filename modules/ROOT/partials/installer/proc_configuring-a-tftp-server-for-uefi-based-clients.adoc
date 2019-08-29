@@ -111,14 +111,16 @@ You must rename the `shimx64.efi` file to `shim.efi` *after* it is copied.
 ----
 set timeout=60
 menuentry 'RHEL 8' {
-  linuxefi images/RHEL-8.0/vmlinuz ip=dhcp inst.repo=http://10.32.5.1/mnt/archive/RHEL-8.0/Server/x86_64/os/
+  linuxefi images/RHEL-8.0/vmlinuz ip=dhcp inst.repo=http://10.32.5.1/RHEL-8.0/x86_64/iso-contents-root/
   initrdefi images/RHEL-8.0/initrd.img
 }
 ----
 +
 [NOTE]
 ====
-The `inst.repo=` option must be used to specify the installation program's image as well as the installation source. The installation program cannot boot without this option.
+ * The installation program cannot boot without its runtime image. Use the `inst.stage2` boot option to specify location of the image. Alternatively, you can use the `inst.repo=` option to specify the image as well as the installation source.
+ * The installation source location used with `inst.repo` must contain a valid `.treeinfo` file.
+ * When you select the RHEL8 installation DVD as the installation source,  the `.treeinfo` file points to the BaseOS and the AppStream repositories. You can use a single `inst.repo` option to load both repositories.
 ====
 
 . Create a subdirectory to store the boot image files in the `/var/lib/tftpboot/` directory, and copy the boot image files to the directory. In this example, we use the directory `/var/lib/tftpboot/images/RHEL-8.0/`:

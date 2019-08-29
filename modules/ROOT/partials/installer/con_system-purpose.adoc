@@ -13,6 +13,7 @@ You can configure the following components:
 * *Role*:
 ** {productname} Server
 ** {productname} Workstation
+** {productname} Client/Desktop
 ** {productname} Compute Node
 
 * *Service Level Agreement*:
@@ -25,11 +26,11 @@ You can configure the following components:
 ** Disaster Recovery
 ** Development/Test
 
-Benefits include:
+//Benefits include:
 
-* In-depth system-level information for system administrators and business operations.
-* Reduced overhead when determining why a system was procured and its intended purpose.
-* Improved customer experience of Subscription Manager auto-attach as well as automated discovery and reconciliation of system usage.
+//* In-depth system-level information for system administrators and business operations.
+//* Reduced overhead when determining why a system was procured and its intended purpose.
+//* Improved customer experience of Subscription Manager auto-attach as well as automated discovery and reconciliation of system usage.
 
 [discrete]
 == Additional resources

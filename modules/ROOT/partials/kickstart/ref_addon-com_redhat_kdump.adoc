@@ -1,0 +1,49 @@
+[id="addon-com_redhat_kdump_{context}"]
+= %addon com_redhat_kdump
+
+The [command]`%addon com_redhat_kdump` Kickstart command is optional. This command configures the kdump kernel crash dumping mechanism.
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]`%addon com_redhat_kdump [__OPTIONS__]`
+[command]`%end`
+----
+
+[NOTE]
+======
+The syntax for this command is unusual because it is an add-on rather than a built-in Kickstart command.
+======
+
+.Notes
+
+Kdump is a kernel crash dumping mechanism that allows you to save the contents of the system's memory for later analysis. It relies on `kexec`, which can be used to boot a Linux kernel from the context of another kernel without rebooting the system, and preserve the contents of the first kernel's memory that would otherwise be lost.
+
+In case of a system crash, `kexec` boots into a second kernel (a capture kernel). This capture kernel resides in a reserved part of the system memory. Kdump then captures the contents of the crashed kernel's memory (a crash dump) and saves it to a specified location. The location cannot be configured using this Kickstart command; it must be configured after the installation by editing the [filename]`/etc/kdump.conf` configuration file.
+
+For more information about Kdump, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/managing_monitoring_and_updating_the_kernel/#installing-and-configuring-kdump_managing-monitoring-and-updating-the-kernel[Installing and configuring kdump] chapter of the __Managing, monitoring and updating the kernel__ document.
+
+.Options
+
+* [option]`--enable` - Enable kdump on the installed system.
+
+* [option]`--disable` - Disable kdump on the installed system.
+
+* [option]`--reserve-mb=` - The amount of memory you want to reserve for kdump, in MiB. For example:
++
+[subs="quotes,macros"]
+----
+[command]`%addon com_redhat_kdump --enable --reserve-mb=128`
+[command]`%end`
+----
++
+You can also specify `auto` instead of a numeric value. In that case, the installation program will determine the amount of memory automatically based on the criteria described in the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/managing_monitoring_and_updating_the_kernel/#memory-requirements-for-kdump_supported-kdump-configurations-and-targets[Memory requirements for kdump] section of the __Managing, monitoring and updating the kernel__ document.
++
+If you enable kdump and do not specify a [option]`--reserve-mb=` option, the value `auto` will be used.
+
+* [option]`--enablefadump` - Enable firmware-assisted dumping on systems which allow it (notably, IBM Power{nbsp}Systems servers).
+
+
+
+

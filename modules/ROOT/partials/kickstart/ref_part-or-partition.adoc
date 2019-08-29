@@ -1,0 +1,216 @@
+[id="part-or-partition_{context}"]
+= part or partition
+
+The [command]`part` or [command]`partition` Kickstart command is required. It creates a partition on the system.
+
+// For a detailed example of [command]`part` in action, see xnotref:sect-kickstart-partitioning-example[].
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``part|partition __mntpoint__ --name=__name__ --device=__device__ --rule=__rule__ [__options__]``
+----
+
+
+.Options
+
+* __mntpoint__ - Where the partition is mounted. The value must be of one of the following forms:
++
+========
+* [filename]`/__path__`
++
+For example, `/`, `/usr`, `/home`
+
+* `swap`
++
+The partition is used as swap space.
++
+To determine the size of the swap partition automatically, use the [option]`--recommended` option:
++
+[subs="quotes,macros"]
+----
+`swap --recommended`
+----
++
+The size assigned will be effective but not precisely calibrated for your system.
++
+To determine the size of the swap partition automatically but also allow extra space for your system to hibernate, use the [option]`--hibernation` option:
++
+[subs="quotes,macros"]
+----
+`swap --hibernation`
+----
++
+The size assigned will be equivalent to the swap space assigned by [option]`--recommended` plus the amount of RAM on your system.
++
+For the swap sizes assigned by these commands, see xref:recommended-partitioning-scheme_partitioning-reference[] for AMD64, Intel 64, and 64-bit ARM systems.
++
+//, xnotref:sect-recommended-partitioning-scheme-ppc[] for IBM Power{nbsp}Systems servers, and xnotref:sect-recommended-partitioning-scheme-s390[] for IBM{nbsp}Z.
+
+* ``raid.__id__``
++
+The partition is used for software RAID (see [command]`raid`).
+
+* ``pv.__id__``
++
+The partition is used for LVM (see [command]`logvol`).
+
+* `biosboot`
++
+The partition will be used for a BIOS Boot partition. A 1 MiB BIOS boot partition is necessary on BIOS-based AMD64 and Intel{nbsp}64 systems using a GUID Partition Table (GPT); the boot loader will be installed into it. It is not necessary on UEFI systems. See also the [command]`bootloader` command.
+
+* `/boot/efi`
++
+An EFI System Partition. A 50 MiB EFI partition is necessary on UEFI-based AMD64, Intel 64, and 64-bit ARM; the recommended size is 200 MiB. It is not necessary on BIOS systems. See also the [command]`bootloader` command.
+========
+
+* [option]`--size=` - The minimum partition size in MiB. Specify an integer value here such as `500` (do not include the unit).
++
+[IMPORTANT]
+========
+If the [option]`--size` value is too small, the installation fails. Set the [option]`--size` value as the minimum amount of space you require. For size recommendations, see xref:recommended-partitioning-scheme_partitioning-reference[].
+========
+
+* [option]`--grow` - Tells the logical volume to grow to fill available space (if any), or up to the maximum size setting, if one is specified.
++
+[NOTE]
+========
+If you use [option]`--grow=` without setting [option]`--maxsize=` on a swap partition, Anaconda limits the maximum size of the swap partition. For systems that have less than 2{nbsp}GB of physical memory, the imposed limit is twice the amount of physical memory.  For systems with more than 2{nbsp}GB, the imposed limit is the size of physical memory plus 2GB.
+========
+
+* [option]`--maxsize=` - The maximum partition size in MiB when the partition is set to grow. Specify an integer value here such as `500` (do not include the unit).
+
+* [option]`--noformat` - Specifies that the partition should not be formatted, for use with the [option]`--onpart` command.
+
+* [option]`--onpart=` or [option]`--usepart=` - Specifies the device on which to place the partition. For example:
++
+[subs="quotes,macros"]
+----
+[command]`partition /home --onpart=hda1`
+----
++
+puts [filename]`/home` on [filename]`/dev/hda1`.
++
+These options can also add a partition to a logical volume. For example:
++
+[subs="quotes,macros"]
+----
+[command]`partition pv.1 --onpart=hda2`
+----
++
+The device must already exist on the system; the [option]`--onpart` option will not create it.
++
+It is also possible to specify an entire drive, rather than a partition, in which case Anaconda will format and use the drive without creating a partition table. Note, however, that installation of GRUB2 is not supported on a device formatted in this way, and must be placed on a drive with a partition table.
+
+* [option]`--ondisk=` or [option]`--ondrive=` - Forces the partition to be created on a particular disk. For example, [option]`--ondisk=sdb` puts the partition on the second SCSI disk on the system.
++
+To specify a multipath device that does not use logical volume management (LVM), use the format ``disk/by-id/dm-uuid-mpath-__WWID__``, where __WWID__ is the world-wide identifier for the device. For example, to specify a disk with WWID `2416CD96995134CA5D787F00A5AA11017`, use:
++
+[subs="quotes,macros"]
+----
+[command]`part / --fstype=xfs --grow --asprimary --size=8192 --ondisk=disk/by-id/dm-uuid-mpath-2416CD96995134CA5D787F00A5AA11017`
+----
++
+Multipath devices that use LVM are not assembled until after Anaconda has parsed the Kickstart file. Therefore, you cannot specify these devices in the format `dm-uuid-mpath`. Instead, to specify a multipath device that uses LVM, use the format ``disk/by-id/scsi-__WWID__``, where __WWID__ is the world-wide identifier for the device. For example, to specify a disk with WWID `58095BEC5510947BE8C0360F604351918`, use:
++
+[subs="quotes,macros"]
+----
+[command]`part / --fstype=xfs --grow --asprimary --size=8192 --ondisk=disk/by-id/scsi-58095BEC5510947BE8C0360F604351918`
+----
++
+[WARNING]
+====
+Never specify multipath devices by device names like `mpatha`. Device names such as this are not specific to a particular disk. The disk named [filename]`/dev/mpatha` during installation might not be the one that you expect it to be. Therefore, the [command]`clearpart` command could target the wrong disk.
+====
+
+* [option]`--asprimary` - Forces the partition to be allocated as a __primary__ partition. If the partition cannot be allocated as primary (usually due to too many primary partitions being already allocated), the partitioning process fails. This option only makes sense when the disk uses a Master Boot Record (MBR); for GUID Partition Table (GPT)-labeled disks this option has no meaning.
++
+// For information about primary (and extended) partitions, see xnotref:sect-disk-partitions-basics[].
+
+* [option]`--fsprofile=` - Specifies a usage type to be passed to the program that makes a filesystem on this partition. A usage type defines a variety of tuning parameters to be used when making a filesystem. For this option to work, the filesystem must support the concept of usage types and there must be a configuration file that lists valid types. For `ext2`, `ext3`, `ext4`, this configuration file is [filename]`/etc/mke2fs.conf`.
+
+* [option]`--mkfsoptions=` - Specifies additional parameters to be passed to the program that makes a filesystem on this partition. This is similar to [option]`--fsprofile` but works for all filesystems, not just the ones that support the profile concept. No processing is done on the list of arguments, so they must be supplied in a format that can be passed directly to the mkfs program. This means multiple options should be comma-separated or surrounded by double quotes, depending on the filesystem.
+
+* [option]`--fstype=` - Sets the file system type for the partition. Valid values are `xfs`, `ext2`, `ext3`, `ext4`, `swap`, `vfat`, `efi` and `biosboot`.
+
+* [option]`--fsoptions` -  Specifies a free form string of options to be used when mounting the filesystem. This string will be copied into the [filename]`/etc/fstab` file of the installed system and should be enclosed in quotes.
+
+* [option]`--label=` - assign a label to an individual partition.
+
+* [option]`--recommended` - Determine the size of the partition automatically. For details about the recommended scheme, see xref:recommended-partitioning-scheme_partitioning-reference[] for AMD64, Intel 64, and 64-bit ARM.
++
+//, xnotref:sect-recommended-partitioning-scheme-ppc[] for IBM Power{nbsp}Systems, and xnotref:sect-recommended-partitioning-scheme-s390[] for IBM{nbsp}Z.
++
+[IMPORTANT]
+====
+This option can only be used for partitions which result in a file system such as the [filename]`/boot` partition and `swap` space. It cannot be used to create LVM physical volumes or RAID members.
+====
+
+* [option]`--onbiosdisk` - Forces the partition to be created on a particular disk as discovered by the BIOS.
+
+* [option]`--encrypted` - Specifies that this partition should be encrypted with Linux Unified Key Setup (LUKS), using the passphrase provided in the [option]`--passphrase` option. If you do not specify a passphrase, Anaconda uses the default, system-wide passphrase set with the [command]`autopart --passphrase` command, or stops the installation and prompts you to provide a passphrase if no default is set.
++
+[NOTE]
+====
+When encrypting one or more partitions, Anaconda attempts to gather 256 bits of entropy to ensure the partitions are encrypted securely. Gathering entropy can take some time - the process will stop after a maximum of 10 minutes, regardless of whether sufficient entropy has been gathered.
+
+The process can be sped up by interacting with the installation system (typing on the keyboard or moving the mouse). If you are installing in a virtual machine, you can also attach a `virtio-rng` device (a virtual random number generator) to the guest.
+
+// as described in the link:https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Deployment_and_Administration_Guide/sect-Guest_virtual_machine_device_configuration-Random_number_generator_device.html[{RHEL}{nbsp}7 Virtualization Deployment and Administration Guide].
+====
+
+* [option]`--luks-version=_LUKS_VERSION_` - Specifies which version of LUKS format should be used to encrypt the filesystem. This option is only meaningful if [option]`--encrypted` is specified.
+
+* [option]`--passphrase=` - Specifies the passphrase to use when encrypting this partition. You must use this option together with the [option]`--encrypted` option; by itself it has no effect.
+
+* [option]`--cipher=` - Specifies the type of encryption to use if the Anaconda default `aes-xts-plain64` is not satisfactory. You must use this option together with the [option]`--encrypted` option; by itself it has no effect. Available types of encryption are listed in the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/security_hardening/[Security hardening] document, but {RH} strongly recommends using either `aes-xts-plain64` or `aes-cbc-essiv:sha256`.
+
+* [option]`--escrowcert=__URL_of_X.509_certificate__` - Store data encryption keys of all encrypted partitions as files in [filename]`/root`, encrypted using the X.509 certificate from the URL specified with __URL_of_X.509_certificate__. The keys are stored as a separate file for each encrypted partition. This option is only meaningful if [option]`--encrypted` is specified.
+
+* [option]`--backuppassphrase` - Add a randomly-generated passphrase to each encrypted partition. Store these passphrases in separate files in [filename]`/root`, encrypted using the X.509 certificate specified with [option]`--escrowcert`. This option is only meaningful if [option]`--escrowcert` is specified.
+
+* [option]`--pbkdf=_PBKDF_` - Sets Password-Based Key Derivation Function (PBKDF) algorithm for LUKS keyslot. See also the man page _cryptsetup(8)_. This option is only meaningful if [option]`--encrypted` is specified.
+
+* [option]`--pbkdf-memory=__PBKDF_MEMORY__` - Sets the memory cost for PBKDF.  See also the man page _cryptsetup(8)_. This option is only meaningful if [option]`--encrypted` is specified.
+
+* [option]`--pbkdf-time=__PBKDF_TIME__` - Sets the number of milliseconds to spend with PBKDF passphrase processing. See also [option]`--iter-time` in the man page _cryptsetup(8)_. This option is only meaningful if [option]`--encrypted` is specified, and is mutually exclusive with [option]`--pbkdf-iterations`.
+
+* [option]`--pbkdf-iterations=__PBKDF_ITERATIONS__` - Sets the number of iterations directly and avoids PBKDF benchmark. See also [option]`--pbkdf-force-iterations` in the man page _cryptsetup(8)_. This option is only meaningful if [option]`--encrypted` is specified, and is mutually exclusive with [option]`--pbkdf-time`.
+
+* [option]`--resize=` - Resize an existing partition. When using this option, specify the target size (in MiB) using the [option]`--size=` option and the target partition using the [option]`--onpart=` option.
+
+
+.Notes
+
+* The [command]`part` command is not mandatory, but you must include either [command]`part`, [command]`autopart` or [command]`mount` in your Kickstart script.
+
+* The [option]`--active` option is deprecated in {RHEL8}.
+
+* If partitioning fails for any reason, diagnostic messages appear on virtual console 3.
+
+* All partitions created are formatted as part of the installation process unless [option]`--noformat` and [option]`--onpart` are used.
+
+* Device names in the ``sd__X__`` (or ``/dev/sd__X__``) format are not guaranteed to be consistent across reboots, which can complicate usage of some Kickstart commands. When a command calls for a device node name, you can instead use any item from [filename]`/dev/disk`. For example, instead of:
++
+[subs="quotes,macros"]
+----
+[command]`part / --fstype=xfs --onpart=sda1`
+----
++
+You could use an entry similar to one of the following:
++
+[subs="quotes,macros"]
+----
+[command]`part / --fstype=xfs --onpart=/dev/disk/by-path/pci-0000:00:05.0-scsi-0:0:0:0-part1`
+----
++
+[subs="quotes,macros"]
+----
+[command]`part / --fstype=xfs --onpart=/dev/disk/by-id/ata-ST3160815AS_6RA0C882-part1`
+----
++
+This way the command will always target the same storage device. This is especially useful in large storage environments. See the chapter link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_storage_devices/index#assembly_overview-of-persistent-naming-attributes_managing-storage-devices[Overview of persistent naming attributes] in the __Managing storage devices__ document for more in-depth information about different ways to consistently refer to storage devices.
+
+* If you lose the LUKS passphrase, any encrypted partitions and their data is completely inaccessible. There is no way to recover a lost passphrase. However, you can save encryption passphrases with the [option]`--escrowcert` and create backup encryption passphrases with the [option]`--backuppassphrase` options.
+

@@ -1,4 +1,4 @@
-[id='supported-raid-types_{context}']
+[id="supported-raid-types_{context}"]
 = Supported RAID types
 
 RAID stands for Redundant Array of Independent Disks, a technology which allows you to combine multiple physical disks into logical units. Some setups are designed to enhance performance at the cost of reliability, while others will improve reliability at the cost of requiring more disks for the same amount of available space.

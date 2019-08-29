@@ -5,7 +5,7 @@ include::partial$local-attributes.adoc[]
 // <List assemblies here, each on a new line>
 
 :parent-context-of-partitioning-reference: {context}
-[id='partitioning-reference_{context}']
+[id="partitioning-reference_{context}"]
 [appendix]
 = Partitioning reference
 :context: partitioning-reference

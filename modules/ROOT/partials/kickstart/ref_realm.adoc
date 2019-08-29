@@ -1,0 +1,26 @@
+[id="realm_{context}"]
+= realm
+
+The [command]`realm` Kickstart command is optional. Use it to join an Active Directory or IPA domain. For more information about this command, see the `join` section of the `realm(8)` man page.
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``realm join [__options__] __domain__``
+----
+
+.Options
+
+* [option]`--computer-ou=OU=` - Provide the distinguished name of an organizational unit in order to create the computer account. The exact format of the distinguished name depends on the client software and membership software. The root DSE portion of the distinguished name can usually be left out.
+
+* [option]`--no-password` - Join automatically without a password.
+
+* [option]`--one-time-password=` - Join using a one-time password. This is not possible with all types of realm.
+
+* [option]`--client-software=` - Only join realms which can run this client software. Valid values include `sssd` and `winbind`. Not all realms support all values. By default, the client software is chosen automatically.
+
+* [option]`--server-software=` - Only join realms which can run this server software. Possible values include `active-directory` or `freeipa`.
+
+* [option]`--membership-software=` - Use this software when joining the realm. Valid values include `samba` and `adcli`. Not all realms support all values. By default, the membership software is chosen automatically.
+

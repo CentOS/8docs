@@ -27,7 +27,7 @@ include::partial$local-attributes.adoc[]
 //
 // If the assembly covers a task, start the title with a verb in the gerund
 // form, such as Creating or Configuring.
-[id='installing-red-hat-enterprise-linux-on-ibm-power-system-l-server_{context}']
+[id="installing-red-hat-enterprise-linux-on-ibm-power-system-l-server_{context}"]
 = Installing {RHEL} on IBM Power System L server
 
 This guide helps you install Red Hat Enterprise Linux on an IBM Power System L server.  Use these instructions for the following IBM Power System servers:
@@ -85,7 +85,7 @@ include::ROOT:partial$installer/proc_powering-on-your-system-from-a-notebook-or-
 
 include::ROOT:partial$installer/proc_configuring-petitboot-and-installing-red-hat-enterprise-linux.adoc[leveloffset=+1]
 
-// include::modules/subsystem/proc_doing_one_procedure.adoc[leveloffset=+1]
+// include::ROOT:partial$subsystem/proc_doing_one_procedure.adoc[leveloffset=+1]
 
 // [leveloffset=+1] ensures that when a module starts with a level-1 heading
 // (= Heading), the heading will be interpreted as a level-2 heading

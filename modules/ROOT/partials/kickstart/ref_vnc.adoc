@@ -1,0 +1,28 @@
+[id="vnc_{context}"]
+= vnc
+
+The [command]`vnc` Kickstart command is optional. It allows the graphical installation to be viewed remotely through VNC.
+
+This method is usually preferred over text mode, as there are some size and language limitations in text installations. With no additional options, this command starts a VNC server on the installation system with no password and displays the details required to connect to it.
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``vnc [--host=__host_name__] [--port=__port__] [--password=__password__]``
+----
+
+.Options
+
+* [option]`--host=` - Connect to the VNC viewer process listening on the given host name.
+
+* [option]`--port=` - Provide a port that the remote VNC viewer process is listening on. If not provided, Anaconda uses the VNC default port of 5900.
+
+* [option]`--password=` - Set a password which must be provided to connect to the VNC session. This is optional, but recommended.
+
+////
+.Additional resources
+
+* For more information about VNC installations, including instructions on how to connect to the installation system, see xnotref:chap-vnc-installations[].
+////
+

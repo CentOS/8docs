@@ -1,0 +1,20 @@
+[id="logging_{context}"]
+= logging
+
+The [command]`logging` Kickstart command is optional. It controls the error logging of Anaconda during installation. It has no effect on the installed system.
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``logging [--host=__host__] [--port=__port__] [--level=debug|info|error|critical]``
+----
+
+.Optional options
+
+* [option]`--host=` - Send logging information to the given remote host, which must be running a syslogd process configured to accept remote logging.
+
+* [option]`--port=` - If the remote syslogd process uses a port other than the default, set it using this option.
+
+* [option]`--level=` - Specify the minimum level of messages that appear on tty3. All messages are still sent to the log file regardless of this level, however. Possible values are `debug`, `info`, `warning`, `error`, or `critical`.
+

@@ -25,6 +25,11 @@
 
 This section contains the boot options that have been removed from {productname}.
 
+[NOTE]
+====
+`dracut` provides advanced boot options. For more information about `dracut`, see the `dracut.cmdline(7)` man page. 
+====
+
 askmethod, asknetwork::
 `initramfs` is completely non-interactive, so the `askmethod` and `asknetwork` options have been removed.
 Instead, use `inst.repo` or specify the appropriate network options.

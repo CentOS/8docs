@@ -1,0 +1,27 @@
+[id="rootpw-required_{context}"]
+= rootpw (required)
+
+The [command]`rootpw` Kickstart command is required. It sets the system's root password to the __password__ argument.
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``rootpw [--iscrypted|--plaintext] [--lock] __password__``
+----
+
+.Options
+
+* [option]`--iscrypted` - If this option is present, the password argument is assumed to already be encrypted. This option is mutually exclusive with [option]`--plaintext`. To create an encrypted password, you can use python:
++
+[subs="quotes,macros"]
+----
+$ [command]`python -c 'import crypt,getpass;pw=getpass.getpass();print(crypt.crypt(pw) if (pw==getpass.getpass("Confirm: ")) else exit())'`
+----
++
+This generates a sha512 crypt-compatible hash of your password using a random salt.
+
+* [option]`--plaintext` - If this option is present, the password argument is assumed to be in plain text. This option is mutually exclusive with [option]`--iscrypted`.
+
+* [option]`--lock` - If this option is present, the root account is locked by default. This means that the root user will not be able to log in from the console. This option will also disable the [GUI]*Root Password* screens in both the graphical and text-based manual installation.
+

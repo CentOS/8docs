@@ -1,6 +1,6 @@
 :parent-context-of-post-installation-scripts-in-kickstart: {context}
 
-[id='post-installation-scripts-in-kickstart_{context}']
+[id="post-installation-scripts-in-kickstart_{context}"]
 = Post-installation scripts in Kickstart
 
 :context: post-installation-scripts-in-kickstart

@@ -15,11 +15,11 @@ This reference describes in detail the kickstart file format.
 
 include::ROOT:partial$installer/ref_kickstart-file-format.adoc[leveloffset=+1]
 
-include::assembly_package-selection-in-kickstart.adoc[leveloffset=+1]
+include::ROOT:partial$installer/assembly_package-selection-in-kickstart.adoc[leveloffset=+1]
 
-include::assembly_pre-installation-scripts-in-kickstart.adoc[leveloffset=+1]
+include::ROOT:partial$installer/assembly_pre-installation-scripts-in-kickstart.adoc[leveloffset=+1]
 
-include::assembly_post-installation-scripts-in-kickstart.adoc[leveloffset=+1]
+include::ROOT:partial$installer/assembly_post-installation-scripts-in-kickstart.adoc[leveloffset=+1]
 
 include::ROOT:partial$installer/ref_anaconda-configuration-section.adoc[leveloffset=+1]
 

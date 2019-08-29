@@ -27,9 +27,14 @@ Normally, on an AMD64 and Intel 64 system, only packages for this architecture (
 This only applies to packages explicitly specified in the `%packages` section. Packages which are only being installed as dependencies without being specified in the Kickstart file are only installed in architecture versions in which they are needed, even if they are available for more architectures. 
 
 [option]`--nocore`::
-Disables installation of the `@Core` package group which is otherwise always installed by default. Disabling the `@Core` package group should be only used for creating lightweight containers; installing a desktop or server system with [option]`--nocore` will result in an unusable system.
+Disables installation of the `@Core` package group which is otherwise always installed by default. Disabling the `@Core` package group with [option]`--nocore` should be only used for creating lightweight containers; installing a desktop or server system with [option]`--nocore` will result in an unusable system.
 +
-NOTE: Using `-@Core` to exclude packages in the `@Core` package group does not work. The only way to exclude the `@Core` package group is with the `--nocore` option.
+[NOTE]
+.Notes
+====
+* Using `-@Core` to exclude packages in the `@Core` package group does not work. The only way to exclude the `@Core` package group is with the `--nocore` option.
+* The `@Core` package group is defined as a minimal set of packages needed for installing a working system. It is not related in any way to core packages as defined in the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/package_manifest/chap-baseos-repository[Package Manifest] and link:https://access.redhat.com/support/offerings/production/scope_moredetail[Scope of Coverage Details].
+====
 
 [option]`--excludeWeakdeps`::
 Disables installation of packages from weak dependencies. These are packages linked to the selected package set by Recommends and Supplements flags. By default weak dependencies will be installed.

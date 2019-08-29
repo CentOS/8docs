@@ -1,0 +1,5 @@
+[id="mediacheck_{context}"]
+= mediacheck
+
+The [command]`mediacheck` Kickstart command is optional. This command forces the installation program to perform a media check ([option]`rd.live.check`) before starting the installation. This command requires that installations be attended, so it is disabled by default.
+

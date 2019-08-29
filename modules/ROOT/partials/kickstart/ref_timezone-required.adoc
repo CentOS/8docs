@@ -1,0 +1,32 @@
+[id="timezone-required_{context}"]
+= timezone (required)
+
+The [command]`timezone` Kickstart command is required. It sets the system time zone.
+
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``timezone __timezone__ [__options__]``
+----
+
+
+.Mandatory options
+
+* __timezone__ - the time zone to set for the system.
+
+
+.Optional options
+
+* [option]`--utc` - If present, the system assumes the hardware clock is set to UTC (Greenwich Mean) time.
+
+* [option]`--nontp` - Disable the NTP service automatic starting.
+
+* [option]`--ntpservers=` - Specify a list of NTP servers to be used as a comma-separated list without spaces.
+
+
+.Notes
+
+In {RHEL8}, time zone names are validated using the `pytz.all_timezones` list, provided by the [package]*pytz* package. In previous releases, the names were validated against `pytz.common_timezones`, which is a subset of the currently used list. Note that the graphical and text mode interfaces still use the more restricted `pytz.common_timezones` list; you must use a Kickstart file to use additional time zone definitions.
+

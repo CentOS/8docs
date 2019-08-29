@@ -1,0 +1,14 @@
+[id="poweroff_{context}"]
+= poweroff
+
+The [command]`poweroff` Kickstart command is optional. It shuts down and powers off the system after the installation has successfully completed. Normally during a manual installation, Anaconda displays a message and waits for the user to press a key before rebooting.
+
+
+.Notes
+
+* The [command]`poweroff` option is equivalent to the [command]`shutdown -P` command. For more details, see the _shutdown(8)_ man page.
+
+* For other completion methods, see the [command]`halt`, [command]`reboot`, and [command]`shutdown` Kickstart commands. The [command]`halt` option is the default completion method if no other methods are explicitly specified in the Kickstart file.
+
+* The [command]`poweroff` command is highly dependent on the system hardware in use. Specifically, certain hardware components such as the BIOS, APM (advanced power management), and ACPI (advanced configuration and power interface) must be able to interact with the system kernel. Consult your hardware documentation for more information on you system's APM/ACPI abilities.
+

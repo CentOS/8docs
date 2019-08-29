@@ -2,7 +2,7 @@ include::ROOT:partial$attributes.adoc[]
 include::partial$local-attributes.adoc[]
 :parent-context-of-maintaining-kickstart-files: {context}
 
-[id='maintaining-kickstart-files_{context}']
+[id="maintaining-kickstart-files_{context}"]
 = Maintaining Kickstart files
 
 :context: maintaining-kickstart-files

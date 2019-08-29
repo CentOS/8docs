@@ -1,0 +1,37 @@
+[id="install_{context}"]
+= install (deprecated)
+
+[IMPORTANT]
+====
+The [command]`install` Kickstart command is deprecated in {RHEL8}. Use its methods as separate commands.
+====
+
+The [command]`install` Kickstart command is optional. It specifies the default installation mode.
+
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]`install`
+[command]`__installation_method__`
+----
+
+
+.Notes
+
+* The [command]`install` command must be followed by an installation method command. The installation method command must be on a separate line.
+
+* The methods include:
++
+====
+* `cdrom`
+* `harddrive`
+* `hmc`
+* `nfs`
+* `liveimg`
+* `url`
+====
++
+For details about the methods, see their separate reference pages.
+

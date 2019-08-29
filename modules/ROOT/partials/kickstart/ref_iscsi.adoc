@@ -1,0 +1,44 @@
+[id="iscsi_{context}"]
+= iscsi
+
+The [command]`iscsi` Kickstart command is optional. It specifies additional iSCSI storage to be attached during installation.
+
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``iscsi --ipaddr=__address__ [__options__]``
+----
+
+
+.Mandatory options
+
+* [option]`--ipaddr=` (required) - the IP address of the target to connect to.
+
+
+.Optional options
+
+* [option]`--port=` (required) - the port number. If not present, [option]`--port=3260` is used automatically by default.
+
+* [option]`--target=` - the target IQN (iSCSI Qualified Name).
+
+* [option]`--iface=` - bind the connection to a specific network interface instead of using the default one determined by the network layer. Once used, it must be specified in all instances of the [command]`iscsi` command in the entire Kickstart file.
+
+* [option]`--user=` - the user name required to authenticate with the target
+
+* [option]`--password=` - the password that corresponds with the user name specified for the target
+
+* [option]`--reverse-user=` - the user name required to authenticate with the initiator from a target that uses reverse CHAP authentication
+
+* [option]`--reverse-password=` - the password that corresponds with the user name specified for the initiator
+
+
+.Notes
+
+* If you use the [command]`iscsi` command, you must also assign a name to the iSCSI node, using the [command]`iscsiname` command. The [command]`iscsiname` command must appear before the [command]`iscsi` command in the Kickstart file.
+
+* Wherever possible, configure iSCSI storage in the system BIOS or firmware (iBFT for Intel systems) rather than use the [command]`iscsi` command. Anaconda automatically detects and uses disks configured in BIOS or firmware and no special configuration is necessary in the Kickstart file.
+
+* If you must use the [command]`iscsi` command, ensure that networking is activated at the beginning of the installation, and that the [command]`iscsi` command appears in the Kickstart file __before__ you refer to iSCSI disks with commands such as [command]`clearpart` or [command]`ignoredisk`.
+

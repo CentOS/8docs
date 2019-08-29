@@ -2,7 +2,7 @@ include::ROOT:partial$attributes.adoc[]
 include::partial$local-attributes.adoc[]
 :parent-context-of-kickstart-installation-basics: {context}
 
-[id='kickstart-installation-basics_{context}']
+[id="kickstart-installation-basics_{context}"]
 = Kickstart installation basics
 
 :context: kickstart-installation-basics

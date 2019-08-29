@@ -1,0 +1,44 @@
+[id="syspurpose_{context}"]
+= syspurpose
+
+The [command]`syspurpose` Kickstart command is optional. Use it to set the system purpose which describes how the system will be used after installation. This information helps apply the correct subscription entitlement to the system.
+
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``syspurpose [__options__]``
+----
+
+
+.Options
+
+* [option]`--role=` - Set the intended system role. Available values are:
+** Red Hat Enterprise Linux Server
+** Red Hat Enterprise Linux Workstation
+** Red Hat Enterprise Linux Compute Node
+
+* [option]`--sla=` - Set the Service Level Agreement. Available values are:
+** Premium
+** Standard
+** Self-Support
+
+* [option]`--usage=` - The intended usage of the system. Available values are:
+** Production
+** Disaster Recovery
+** Development/Test
+
+* [option]`--addon=` - Specifies additional layered products or features. You can use this option multiple times.
+
+
+.Notes
+
+* Enter the values with spaces and enclose them in double quotes:
++
+----
+syspurpose --role="Red Hat Enterprise Linux Server"
+----
+
+* While it is strongly recommended that you configure System Purpose, it is an optional feature of the {RHEL} installation program. If you want to enable System Purpose after the installation completes, you can do so using the `syspurpose` command-line tool.
+

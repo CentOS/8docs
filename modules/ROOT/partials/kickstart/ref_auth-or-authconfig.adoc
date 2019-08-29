@@ -1,0 +1,25 @@
+[id="auth-or-authconfig-deprecated_{context}"]
+= auth or authconfig (deprecated)
+
+[IMPORTANT]
+Use the new [command]`authselect` command instead of the deprecated [command]`auth` or [command]`authconfig` Kickstart command. [command]`auth` and [command]`authconfig` are available only for limited backwards compatibility.
+
+The [command]`auth` or [command]`authconfig` Kickstart command is optional. It sets up the authentication options for the system using the [command]`authconfig` tool, which can also be run on the command line after the installation finishes.
+
+
+.Syntax
+
+[subs="quotes"]
+----
+authconfig [__options__]
+----
+
+
+.Notes
+
+* Previously, the [command]`auth` or [command]`authconfig` Kickstart commands called the [command]`authconfig` tool. This tool has been deprecated in {RHEL8}. These Kickstart commands now use the [command]`authselect-compat` tool to call the new [command]`authselect` tool. For a description of the compatibility layer and its known issues, see the manual page __authselect-migration(7)__. The installation program will automatically detect use of the deprecated commands and install on the system the [package]`authselect-compat` package to provide the compatibility layer.
+
+* Passwords are shadowed by default.
+
+* When using OpenLDAP with the `SSL` protocol for security, make sure that the `SSLv2` and `SSLv3` protocols are disabled in the server configuration. This is due to the POODLE SSL vulnerability (CVE-2014-3566). See link:https://access.redhat.com/solutions/1234843[] for details.
+

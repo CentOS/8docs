@@ -1,6 +1,6 @@
 :parent-context-of-kickstart-commands-for-addons-supplied-with-the-rhel-installation-program: {context}
 
-[id='kickstart-commands-for-addons-supplied-with-the-rhel-installation-program_{context}']
+[id="kickstart-commands-for-addons-supplied-with-the-rhel-installation-program_{context}"]
 = Kickstart commands for addons supplied with the RHEL installation program
 
 :context: kickstart-commands-for-addons-supplied-with-the-rhel-installation-program
@@ -8,8 +8,8 @@
 
 The Kickstart commands in this section are related to add-ons supplied by default with the {RHEL} installation program: Kdump and OpenSCAP.
 
-include::ROOT:partial$installer/kickstart/ref_addon-com_redhat_kdump.adoc[leveloffset=+1]
-include::ROOT:partial$installer/kickstart/ref_addon-org_fedora_oscap.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_addon-com_redhat_kdump.adoc[leveloffset=+1]
+include::ROOT:partial$kickstart/ref_addon-org_fedora_oscap.adoc[leveloffset=+1]
 
 
 :context: {parent-context-of-kickstart-commands-for-addons-supplied-with-the-rhel-installation-program}

@@ -2,7 +2,7 @@ include::ROOT:partial$attributes.adoc[]
 include::partial$local-attributes.adoc[]
 :parent-context-of-making-kickstart-files-available-to-the-installation-program: {context}
 
-[id='making-kickstart-files-available-to-the-installation-program_{context}']
+[id="making-kickstart-files-available-to-the-installation-program_{context}"]
 = Making Kickstart files available to the installation program
 
 :context: making-kickstart-files-available-to-the-installation-program

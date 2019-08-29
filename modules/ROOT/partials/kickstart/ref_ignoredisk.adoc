@@ -1,0 +1,84 @@
+[id="ignoredisk_{context}"]
+= ignoredisk
+
+The [command]`ignoredisk` Kickstart command is optional. It causes the installation program to ignore the specified disks.
+
+This is useful if you use automatic partitioning and want to be sure that some disks are ignored. For example, without [command]`ignoredisk`, attempting to deploy on a SAN-cluster the Kickstart would fail, as the installation program detects passive paths to the SAN that return no partition table.
+
+
+.Syntax
+
+[subs="quotes,macros"]
+----
+[command]``ignoredisk --drives=__drive1,drive2__,... | --only-use=_drive_``
+----
+
+
+.Options
+
+* [option]`--drives=__driveN__,...` - Replace __driveN__ with one of `sda`, `sdb`,..., `hda`,... and so on.
+
+* [option]`--only-use` - Specifies a list of disks for the installation program to use. All other disks are ignored. For example, to use disk `sda` during installation and ignore all other disks:
++
+[subs="quotes,macros"]
+----
+[command]`ignoredisk --only-use=sda`
+----
++
+To include a multipath device that does not use LVM:
++
+[subs="quotes,macros"]
+----
+[command]`ignoredisk --only-use=disk/by-id/dm-uuid-mpath-2416CD96995134CA5D787F00A5AA11017`
+----
++
+To include a multipath device that uses LVM:
++
+[subs="quotes,macros"]
+----
+[command]`ignoredisk --only-use=disk/by-id/scsi-58095BEC5510947BE8C0360F604351918`
+----
+
+You must specify one of the [option]`--drives` and [option]`--only-use`.
+
+.Notes
+
+* The [option]`--interactive` option is deprecated in {RHEL8}. This option allowed users to manually navigate the advanced storage screen.
+
+* To ignore a multipath device that does not use logical volume management (LVM), use the format ``disk/by-id/dm-uuid-mpath-__WWID__``, where __WWID__ is the world-wide identifier for the device. For example, to ignore a disk with WWID `2416CD96995134CA5D787F00A5AA11017`, use:
++
+[subs="quotes,macros"]
+----
+[command]`ignoredisk --drives=disk/by-id/dm-uuid-mpath-2416CD96995134CA5D787F00A5AA11017`
+----
+
+* Multipath devices that use LVM are not assembled until after Anaconda has parsed the Kickstart file. Therefore, you cannot specify these devices in the format `dm-uuid-mpath`. Instead, to ignore a multipath device that uses LVM, use the format ``disk/by-id/scsi-__WWID__``, where __WWID__ is the world-wide identifier for the device. For example, to ignore a disk with WWID `58095BEC5510947BE8C0360F604351918`, use:
++
+[subs="quotes,macros"]
+----
+[command]`ignoredisk --drives=disk/by-id/scsi-58095BEC5510947BE8C0360F604351918`
+----
+
+* Never specify multipath devices by device names like `mpatha`. Device names such as this are not specific to a particular disk. The disk named [filename]`/dev/mpatha` during installation might not be the one that you expect it to be. Therefore, the [command]`clearpart` command could target the wrong disk.
+
+* Device names in the ``sd__X__`` (or ``/dev/sd__X__``) format are not guaranteed to be consistent across reboots, which can complicate usage of some Kickstart commands. When a command calls for a device node name, you can instead use any item from [filename]`/dev/disk`. For example, instead of:
++
+[subs="quotes,macros"]
+----
+[command]`part / --fstype=xfs --onpart=sda1`
+----
++
+You can use an entry similar to one of the following:
++
+[subs="quotes,macros"]
+----
+[command]`part / --fstype=xfs --onpart=/dev/disk/by-path/pci-0000:00:05.0-scsi-0:0:0:0-part1`
+----
++
+[subs="quotes,macros"]
+----
+[command]`part / --fstype=xfs --onpart=/dev/disk/by-id/ata-ST3160815AS_6RA0C882-part1`
+----
++
+This way the command will always target the same storage device. This is especially useful in large storage environments. See the chapter link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_storage_devices/index#assembly_overview-of-persistent-naming-attributes_managing-storage-devices[Overview of persistent naming attributes] in the __Managing storage devices__ document for more in-depth information about different ways to consistently refer to storage devices.
+
