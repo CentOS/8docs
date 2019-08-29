@@ -27,6 +27,7 @@ include::ROOT:partial$installer/proc_starting-manual-partitioning.adoc[leveloffs
 include::ROOT:partial$installer/proc_adding-a-mount-point.adoc[leveloffset=+1]
 include::ROOT:partial$installer/proc_configuring-a-mount-point-file-system.adoc[leveloffset=+1]
 include::ROOT:partial$installer/proc_customizing-a-partition-or-volume.adoc[leveloffset=+1]
+include::ROOT:partial$installer/proc_preserving-the-home-directory.adoc[leveloffset=+1]
 include::ROOT:partial$installer/proc_creating-software-raid.adoc[leveloffset=+1]
 include::ROOT:partial$installer/proc_creating-lvm-logical-volume.adoc[leveloffset=+1]
 include::ROOT:partial$installer/proc_configuring-lvm-logical-volume.adoc[leveloffset=+1]

@@ -18,6 +18,5 @@ include::ROOT:partial$installer/proc_boot-loader-installation.adoc[leveloffset=+
 include::ROOT:partial$installer/proc_configuring-kdump.adoc[leveloffset=+1]
 include::ROOT:partial$installer/assembly_network-hostname.adoc[leveloffset=+1]
 include::ROOT:partial$installer/assembly_security-policy.adoc[leveloffset=+1]
-include::ROOT:partial$installer/assembly_configuring-system-purpose-standard.adoc[leveloffset=+1]
 
 :context: {parent-context-of-configuring-system-settings}

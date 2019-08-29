@@ -2,6 +2,7 @@ include::ROOT:partial$attributes.adoc[]
 include::partial$local-attributes.adoc[]
 [id="consoles-logging-during-install_{context}"]
 = Consoles and logging during installation
+:page-partial:
 
 The {ProductName} installer uses the [application]*tmux* terminal multiplexer to display and control several windows you can use in addition to the main interface. Each of these windows serves a different purpose - they display several different logs, which can be used to troubleshoot any issues during the installation, and one of the windows provides an interactive shell prompt with [systemitem]`root` privileges, unless this prompt was specifically disabled using a boot option or a Kickstart command.
 

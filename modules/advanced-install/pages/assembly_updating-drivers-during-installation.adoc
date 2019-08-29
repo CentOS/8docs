@@ -64,13 +64,6 @@ This section describes how to complete a driver update during the {productname} 
 This is an optional step of the installation process. Red Hat recommends that you do not perform a driver update unless it is necessary.
 ====
 
-
-[id='prerequisites-{context}']
-== Prerequisite
-
-You have been notified by Red Hat, your hardware vendor, or a trusted third-party vendor that a driver update is required during {productname} installation.
-
-
 include::ROOT:partial$installer/con_driver-overview.adoc[leveloffset=+1]
 include::ROOT:partial$installer/ref_types-of-driver-update.adoc[leveloffset=+1]
 include::ROOT:partial$installer/proc_preparing-a-driver-update-disc.adoc[leveloffset=+1]
