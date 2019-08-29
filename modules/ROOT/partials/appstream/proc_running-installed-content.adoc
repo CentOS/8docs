@@ -1,4 +1,4 @@
-[id='running-installed-content_{context}']
+[id="running-installed-content_{context}"]
 = Running installed content
 
 // User Story: As a sysadmin, I need to know how to run the RPMs, SCLs, and modules I've pulled from the AppStream.

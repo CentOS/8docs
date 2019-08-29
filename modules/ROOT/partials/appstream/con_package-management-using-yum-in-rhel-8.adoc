@@ -1,4 +1,4 @@
-[id='package-management-using-yum-in-rhel-8_{context}']
+[id="package-management-using-yum-in-rhel-8_{context}"]
 = Package management using YUM in {ProductShortName} {ProductNumber}
 
 // User Story: As a sysadmin, I need to know what is available through the AppStream so I can determine what RPMs, SCLs, and modules to download and install.

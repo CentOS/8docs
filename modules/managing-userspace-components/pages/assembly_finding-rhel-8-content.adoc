@@ -1,7 +1,7 @@
 include::ROOT:partial$attributes.adoc[]
 include::partial$local-attributes.adoc[]
 :parent-context-of-finding-rhel-8-content: {context}
-[id='finding-rhel-8-content_{context}']
+[id="finding-rhel-8-content_{context}"]
 = Finding {ProductShortName} {ProductNumber} content
 
 :context: finding-rhel-8-content

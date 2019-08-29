@@ -1,4 +1,4 @@
-[id='commands-for-installing-rhel-8-content_{context}']
+[id="commands-for-installing-rhel-8-content_{context}"]
 = Commands for installing RHEL 8 content
 
 This section lists commonly used commands for installing RHEL 8 content.

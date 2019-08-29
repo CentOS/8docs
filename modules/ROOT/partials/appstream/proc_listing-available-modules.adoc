@@ -1,4 +1,4 @@
-[id='listing-available-modules_{context}']
+[id="listing-available-modules_{context}"]
 = Listing available modules
 
 // User Story: As a sysadmin, I need to know what is available through the AppStream so I can determine what RPMs, SCLs, and modules to download and install.

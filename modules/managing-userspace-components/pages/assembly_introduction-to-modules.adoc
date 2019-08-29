@@ -2,7 +2,7 @@ include::ROOT:partial$attributes.adoc[]
 include::partial$local-attributes.adoc[]
 :parent-context-of-introduction-to-modules: {context}
 
-[id='introduction-to-modules_{context}']
+[id="introduction-to-modules_{context}"]
 = Introduction to modules
 
 :context: introduction-to-modules

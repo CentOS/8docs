@@ -1,4 +1,4 @@
-[id='installing-a-module-stream_{context}']
+[id="installing-a-module-stream_{context}"]
 = Installing a module stream
 
 // User Story: As a sysadmin, I need to know how to find and install RPMs, SCLs, and modules using AppStream so I can ensure that I have the modules I need.

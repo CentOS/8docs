@@ -1,4 +1,4 @@
-[id='example-installing-a-non-default-stream-of-an-application_{context}']
+[id="example-installing-a-non-default-stream-of-an-application_{context}"]
 = Example: Installing a non-default stream of an application
 
 // User Story: As a sysadmin, I need to know what is available through the AppStream so I can determine what RPMs, SCLs, and modules to download and install.
@@ -11,7 +11,7 @@ More specifically, this example shows how to install the [application]*PostgreSQ
 
 . List modules that provide the [package]*postgresql-server* package to see what streams are available:
 +
-[subs="quotes",options="nowrap"]
+[subs="quotes",options="nowrap,role=white-space-pre"]
 ----
 $ [command]`yum module list postgresql`
 Name        Stream  Profiles             Summary

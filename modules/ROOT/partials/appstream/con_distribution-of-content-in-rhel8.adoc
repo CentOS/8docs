@@ -1,4 +1,4 @@
-[id='distribution-of-content-in-rhel8_{context}']
+[id="distribution-of-content-in-rhel8_{context}"]
 = Distribution of content in RHEL 8
 
 RHEL 8 content is distributed through the two main repositories: *BaseOS* and *AppStream*.

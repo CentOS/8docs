@@ -1,0 +1,76 @@
+[id="switching-to-a-later-stream_{context}"]
+= Switching to a later stream
+
+When you switch to a later module stream, all packages from the module are replaced with their later versions.
+
+[IMPORTANT]
+====
+his procedure is feasible only under the conditions described below.
+//Currently, all Application Streams provided by Red Hat satisfy these conditions.
+====
+
+
+.Prerequisites
+
+* The system is fully updated.
+
+* No packages installed on the system are newer than the packages available in the repository.
+
+
+.Procedure
+
+// . Ensure the prerequisites are met.
+
+. Run the following command to determine if your system is prepared for switching to a later stream:
++
+----
+# yum distro-sync
+----
++
+This command must finish with the message __Nothing to do. Complete!__ If it instead proposes changes and asks for confirmation, refuse these changes and modify your system to a state where the command completes with no further action required.
++
+[NOTE]
+====
+By checking the [command]`yum distro-sync` result before switching the streams, you prevent making changes to the system that are unrelated to the stream switching because the same command is required as the last step of this procedure.
+====
+
+. Change the active stream to the later one:
++
+[subs="quotes"]
+----
+# yum module reset __module-name__
+# yum module enable __module-name__:__new-stream__
+----
+
+. Synchronize installed packages to perform the change between streams:
++
+----
+# yum distro-sync
+----
++
+If this action suggests changes to content outside the streams, review them carefully. 
++
+If certain installed packages depend on the earlier stream and there is no compatible version in the later stream, *yum* will report a dependency conflict. In this case, use the `--allowerasing` option to remove such packages because they cannot be installed together with the later stream due to missing dependencies. 
++
+[NOTE]
+====
+When switching *Perl* modules, the `--allowerasing` option is always required because certain packages in the base RHEL 8 installation depend on *Perl 5.26*.
+// Note that the --allowerasing option is also required when other non-modular packages are installed, for example with Ruby. -- redundant with the current wording according to vondruch
+====
+
+ifdef::appstream-book[]
+Alternatively, xref:removing-installed-modules_removing-rhel-8-content[remove all the module's content] installed from the current stream, xref:resetting-module-streams_removing-rhel-8-content[reset the module], and xref:installing-a-module-stream_installing-rhel-8-content[install the new stream].
+endif::[]
+ifndef::appstream-book[]
+Alternatively, link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user_space_components/index#removing-installed-modules_removing-rhel-8-content[remove all the module's content] installed from the current stream, link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user_space_components/index#resetting-module-streams_removing-rhel-8-content[reset the module], and link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user_space_components/index#installing-a-module-stream_installing-rhel-8-content[install the new stream].
+endif::[]
+
+.Additional resources
+
+ifdef::appstream-book[]
+* xref:switching-to-a-later-stream_managing-versions-of-appstream-content[]
+endif::[]
+ifndef::appstream-book[]
+* link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user_space_components/index#switching-to-a-later-stream_managing-versions-of-appstream-content[Switching to a later stream]
+endif::[]
+

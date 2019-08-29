@@ -2,7 +2,7 @@ include::ROOT:partial$attributes.adoc[]
 include::partial$local-attributes.adoc[]
 :parent-context-of-removing-rhel-8-content: {context}
 
-[id='removing-rhel-8-content_{context}']
+[id="removing-rhel-8-content_{context}"]
 = Removing RHEL 8 content
 
 :context: removing-rhel-8-content

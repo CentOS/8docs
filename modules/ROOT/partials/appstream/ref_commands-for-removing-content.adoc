@@ -1,4 +1,4 @@
-[id='commands-for-removing-content_{context}']
+[id="commands-for-removing-content_{context}"]
 = Commands for removing content
 
 This section lists commonly used commands for removing content.

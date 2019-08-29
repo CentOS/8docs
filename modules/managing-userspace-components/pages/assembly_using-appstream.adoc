@@ -1,7 +1,7 @@
 include::ROOT:partial$attributes.adoc[]
 include::partial$local-attributes.adoc[]
 :parent-context-of-using-appstream: {context}
-[id='using-appstream_{context}']
+[id="using-appstream_{context}"]
 = Using AppStream
 
 :context: using-appstream

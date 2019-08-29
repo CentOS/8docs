@@ -1,4 +1,4 @@
-[id='example-finding-out-details-about-a-module_{context}']
+[id="example-finding-out-details-about-a-module_{context}"]
 = Example: Finding out details about a module
 
 // User Story: As a sysadmin, I need to know what is available through the AppStream so I can determine what RPMs, SCLs, and modules to download and install.
@@ -12,7 +12,7 @@ NOTE: The outputs in this example have been edited for brevity. Actual outputs m
 
 . List available modules:
 +
-[subs="quotes",options="nowrap"]
+[subs="quotes",options="nowrap",role=white-space-pre]
 ----
 $ [command]`yum module list`
 Name        Stream  Profiles    Summary
@@ -28,7 +28,7 @@ Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 
 . Examine details of the *postgresql* module:
 +
-[subs="quotes",options="nowrap"]
+[subs="quotes",options="nowrap",role=white-space-pre]
 ----
 $ [command]`yum module info postgresql`
 
@@ -75,7 +75,7 @@ Each of the profiles installs a different set of packages, including their depen
 
 . Install the *postgresql* module using the default stream *10* and profile *server*:
 +
-[subs="quotes", options="nowrap"]
+[subs="quotes",options="nowrap",role=white-space-pre]
 ----
 # [command]`yum install @postgresql`
 Dependencies resolved.
@@ -88,9 +88,9 @@ Installing dependencies:
  libpq             10.5-1.el8                      appstream  188 k
  postgresql        10.6-1.module+el8+2469+5ecd5aae appstream  1.5 M
 Installing module profiles:
- postgresql/server                                                                          
+ postgresql/server
 Enabling module streams:
- postgresql               10                                                                
+ postgresql               10
 
 Transaction Summary
 ====================================================================
@@ -112,7 +112,7 @@ $ [command]`yum module list postgresql`
 Name       Stream    Profiles                Summary
 postgresql 10 [d][e] client, server [d] [i]  (...)
 postgresql 9.6       client, server [d]      (...)
- 
+
 Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 ----
 +

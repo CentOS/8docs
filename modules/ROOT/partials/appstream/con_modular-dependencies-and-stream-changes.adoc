@@ -1,4 +1,4 @@
-[id='modular-dependencies-and-stream-changes_{context}']
+[id="modular-dependencies-and-stream-changes_{context}"]
 = Modular dependencies and stream changes
 
 Traditionally, packages providing content depend on further packages, and usually specify the desired dependency versions. For packages contained in modules, this mechanism applies as well, but the grouping of packages and their particular versions into modules and streams provides further constraints. Additionally, module streams can declare dependencies on streams of other modules, independent of the packages contained and provided by them.

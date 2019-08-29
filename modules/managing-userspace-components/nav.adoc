@@ -29,4 +29,4 @@
 *** xref:assembly_managing-versions-of-appstream-content.adoc#interaction-of-modular-and-non-modular-dependencies_managing-versions-of-appstream-content[Interaction of modular and non-modular dependencies]
 *** xref:assembly_managing-versions-of-appstream-content.adoc#resetting-module-streams_managing-versions-of-appstream-content[Resetting module streams]
 *** xref:assembly_managing-versions-of-appstream-content.adoc#disabling-all-streams-of-a-module_managing-versions-of-appstream-content[Disabling all streams of a module]
-*** xref:assembly_managing-versions-of-appstream-content.adoc#switching-module-streams-to-install-a-different-version-of-content_managing-versions-of-appstream-content[Switching module streams to install a different version of content]
+*** xref:assembly_managing-versions-of-appstream-content.adoc#switching-to-a-later-stream_managing-versions-of-appstream-content[Switching to a later stream]
