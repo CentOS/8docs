@@ -54,6 +54,7 @@
 ***** xref:assembly_graphical-installation.adoc#adding-a-mount-point_manual-partitioning[Adding a mount point file system]
 ***** xref:assembly_graphical-installation.adoc#configuring-a-mount-point-file-system_manual-partitioning[Configuring a mount point file system]
 ***** xref:assembly_graphical-installation.adoc#customizing-a-partition-or-volume_manual-partitioning[Customizing a partition or volume]
+***** xref:assembly_graphical-installation.adoc#preserving-the-home-directory_manual-partitioning[Preserving the /home directory]
 ***** xref:assembly_graphical-installation.adoc#creating-software-raid_manual-partitioning[Creating software RAID]
 ***** xref:assembly_graphical-installation.adoc#creating-lvm-logical-volume_manual-partitioning[Creating an LVM logical volume]
 ***** xref:assembly_graphical-installation.adoc#configuring-lvm-logical-volume_manual-partitioning[Configuring an LVM logical volume]

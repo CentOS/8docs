@@ -1,0 +1,100 @@
+// Module included in the following assemblies:
+//
+// <List assemblies here, each on a new line>
+
+// This module can be included from assemblies using the following include statement:
+// include::<path>/proc_preserving-the-home-directory.adoc[leveloffset=+1]
+
+// The file name and the ID are based on the module title. For example:
+// * file name: proc_doing-procedure-a.adoc
+// * ID: [id='proc_doing-procedure-a_{context}']
+// * Title: = Doing procedure A
+//
+// The ID is used as an anchor for linking to the module. Avoid changing
+// it after the module has been published to ensure existing links are not
+// broken.
+//
+// The `context` attribute enables module reuse. Every module's ID includes
+// {context}, which ensures that the module has a unique ID even if it is
+// reused multiple times in a guide.
+//
+// Start the title with a verb, such as Creating or Create. See also
+// _Wording of headings_ in _The IBM Style Guide_.
+
+[id="preserving-the-home-directory_{context}"]
+= Preserving the /home directory
+
+In a RHEL 8 graphical installation, you can preserve the [filename]`/home` directory that was used on your RHEL 7 system.
+
+WARNING: Preserving [filename]`/home` is only possible if the [filename]`/home` directory is located on a separate `/home` partition on your RHEL 7 system. 
+
+Preserving the [filename]`/home` directory that includes various configuration settings, makes it possible that the GNOME Shell environment on the new RHEL 8 system is set in the same way as it was on your RHEL 7 system.
+Note that this applies only for users on RHEL 8 with the same user name and ID as on the previous RHEL 7 system.
+
+Complete this procedure to preserve the [filename]`/home` directory from your RHEL 7 system.
+
+[discrete]
+== Prerequisites
+
+* RHEL 7 system is installed on your computer.
+* The [filename]`/home` directory is located on a separate `/home` partition on your RHEL 7 system.
+* The RHEL 8 `Installation Summary` window is currently displayed. 
+// * You can also link to other modules or assemblies the user must follow before starting this assembly.
+// * Delete the section title and bullets if the assembly has no prerequisites.
+
+[discrete]
+== Procedure
+
+. Click `Installation Destination` to open the `Installation Destination` window. 
+
+. Under `Storage Configuration`, select the `Custom` radio button. Click `Done`.
+
+. Click `Done`, the `Manual Partitioning` window opens. 
+
+. Choose the `/home` partition, fill in `/home` under `Mount Point:` and clear the `Reformat` check box.
++
+[[figu-preserving-home-partition]]
+.Ensuring that /home is not formatted
+image::preserving-home-partition.png[]
+
+. Optional: You can also customize various aspects of the `/home` partition required for your RHEL 8 system as described in <<customizing-a-partition-or-volume_manual-partitioning>>. However, to preserve `/home` from your RHEL 7 system, it is necessary to clear the `Reformat` check box.
+
+. After you customized all partitions according to your requirements, click `Done`. The `Summary of changes` dialog box opens.
+
+. Verify that the `Summary of changes` dialog box does not show any change for `/home`. This means that the `/home` partition is preserved. 
+
+. Click `Accept Changes` to apply the changes, and return to the `Installation Summary` window.
+
+// [[figu-instal-destin-window]]
+// .Opening Installation Destination window
+// image::instal-destin-window.png[]
+
+// [[figu-storage-config-custom]]
+// .Choosing custom storage configuration
+// image::storage-config-custom.png[]
+
+// [[figu-finishing-manual-partitioning]]
+// .Finishing partitions customizing
+// image::ensuring-home-is-preserved.png[]
+
+// [[figu-instal-destin-window]]
+// .Opening Installation Destination window
+// image::instal-destin-window.png[]
+
+// [[figu-summary-of-changes-window]]
+// .The Summary of changes dialog box showing no changes for /home
+// image::summary_of_changes_window.png[]
+
+// [[figu-partitioning-accepting-changes]]
+// .Accepting partitioning changes
+// image::partitioning-accepting-changes.png[]
+
+// . Use an unnumbered bullet (*) if the procedure includes only one step.
+
+// [discrete]
+// == Additional resources
+
+// * A bulleted list of links to other material closely related to the contents of the procedure module.
+// * For more details on writing procedure modules, see the link:https://github.com/redhat-documentation/modular-docs#modular-documentation-reference-guide[Modular Documentation Reference Guide].
+// * Use a consistent system for file names, IDs, and titles. For tips, see _Anchor Names and File Names_ in link:https://github.com/redhat-documentation/modular-docs#modular-documentation-reference-guide[Modular Documentation Reference Guide].
+
