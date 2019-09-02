@@ -1,5 +1,3 @@
-include::ROOT:partial$attributes.adoc[]
-include::partial$local-attributes.adoc[]
 :parent-context-of-manual-partitioning: {context}
 
 [id='manual-partitioning_{context}']

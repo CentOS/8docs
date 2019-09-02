@@ -9,8 +9,8 @@
 :RHEL: {ProductName}
 :ProductShortName: {ProductName}
 // This is the version displayed under "Red Hat Enterprise Linux"
-:ProductNumber: 8
-:RHEL8: {RHEL}{nbsp}8
+:ProductNumber: 8.0.1905
+:RHEL8: {RHEL}{nbsp}{ProductNumber}
 :RHEL7: {RHEL}{nbsp}7
 //:ProductRelease: Beta
 

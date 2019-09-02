@@ -1,5 +1,3 @@
-include::ROOT:partial$attributes.adoc[]
-include::partial$local-attributes.adoc[]
 :parent-context-of-installing-to-a-nvdimm-device: {context}
 
 [id='installing-to-a-nvdimm-device_{context}']

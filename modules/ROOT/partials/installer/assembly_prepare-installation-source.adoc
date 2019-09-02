@@ -1,5 +1,3 @@
-include::ROOT:partial$attributes.adoc[]
-include::partial$local-attributes.adoc[]
 :parent-context-of-prepare-installation-source: {context}
 
 [id='prepare-installation-source_{context}']

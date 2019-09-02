@@ -1,5 +1,3 @@
-include::ROOT:partial$attributes.adoc[]
-include::partial$local-attributes.adoc[]
 :parent-context-of-security-policy: {context}
 
 [id='security-policy_{context}']

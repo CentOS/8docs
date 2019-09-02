@@ -1,5 +1,3 @@
-include::ROOT:partial$attributes.adoc[]
-include::partial$local-attributes.adoc[]
 :parent-context-of-final-installer-configuration: {context}
 
 [id='final-installer-configuration_{context}']

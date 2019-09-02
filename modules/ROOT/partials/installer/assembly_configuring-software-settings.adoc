@@ -1,5 +1,3 @@
-include::ROOT:partial$attributes.adoc[]
-include::partial$local-attributes.adoc[]
 :parent-context-of-configuring-software-settings: {context}
 
 [id='configuring-software-settings_{context}']

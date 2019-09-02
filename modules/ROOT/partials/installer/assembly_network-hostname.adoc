@@ -1,6 +1,3 @@
-include::ROOT:partial$attributes.adoc[]
-include::partial$local-attributes.adoc[]
-
 :parent-context-network-hostname: {context}
 
 [id='network-hostname_{context}']
