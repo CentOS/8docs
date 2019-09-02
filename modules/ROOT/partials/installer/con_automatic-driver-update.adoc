@@ -6,7 +6,7 @@ To have the installation program automatically recognize a driver update disc, c
 //[NOTE]
 //====
 
-//Starting with {ProductName}{nbsp}7.2, you can also use the `OEMDRV` block device to automatically load a Kickstart file. This file must be named `ks.cfg` and placed in the root of the device to be loaded. See <<chap-kickstart-installations>> for more information about Kickstart installations.
+//Starting with {ProductName}{nbsp}7.2, you can also use the `OEMDRV` block device to automatically load a Kickstart file. This file must be named `ks.cfg` and placed in the root of the device to be loaded. See chap-kickstart-installations for more information about Kickstart installations.
 
 //====
 

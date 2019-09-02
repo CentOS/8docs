@@ -9,5 +9,5 @@ modprobe.blacklist=ahci
 ....
 
 Note that the drivers blacklisted during installation using the [option]`modprobe.blacklist=` boot option will remain disabled on the installed system and appear in the `/etc/modprobe.d/anaconda-blacklist.conf` file. See
-//<<chap-anaconda-boot-options>>
+//chap-anaconda-boot-options
 for more information about blacklisting drivers and other boot options.

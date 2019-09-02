@@ -11,8 +11,8 @@ Besides individual RPM packages, the AppStream repository contains modules. A mo
 
 The subsequent sections describe further features for organization and handling of content within modules:
 
-* Streams - organization of content by version. For more details see xref:module-streams_{context}[].
-* Profiles - organization of content by purpose. For more details see xref:module-profiles_{context}[].
+* Streams - organization of content by version. For more details see xref:assembly_introduction-to-modules.adoc#module-streams_{context}[Module streams].
+* Profiles - organization of content by purpose. For more details see xref:assembly_introduction-to-modules.adoc#module-profiles_{context}[Module profiles].
 
 
 include::ROOT:partial$appstream/con_module-streams.adoc[leveloffset=+1]

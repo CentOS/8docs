@@ -7,12 +7,12 @@ include::partial$local-attributes.adoc[]
 :context: finding-rhel-8-content
 // User Story: As a sysadmin, I need to know what is available through the AppStream so I can determine what RPMs, SCLs, and modules to download and install.
 
-The following sections describe how to locate and examine content in the AppStream and BaseOS repositories in {RHEL8}.
+The following sections describe how to locate and examine content in the AppStream and BaseOS repositories in {ProductName}.
 
-* xref:searching-for-package_{context}[] describes how to search for packages providing desired content.
-* xref:listing-available-modules_{context}[] describes how to list available modules and find out details about them.
-* xref:example-finding-out-details-about-a-module_{context}[] contains an example of steps needed to examine a module in more detail.
-* xref:commands-for-listing-content_{context}[] provides a reference of the commands useful for inspecting content.
+* xref:assembly_finding-rhel-8-content.adoc#searching-for-package_{context}[Searching for a package] describes how to search for packages providing desired content.
+* xref:assembly_finding-rhel-8-content.adoc#listing-available-modules_{context}[Listing available modules] describes how to list available modules and find out details about them.
+* xref:assembly_finding-rhel-8-content.adoc#example-finding-out-details-about-a-module_{context}[Example: Finding out details about a module] contains an example of steps needed to examine a module in more detail.
+* xref:assembly_finding-rhel-8-content.adoc#commands-for-listing-content_{context}[Commands for listing content] provides a reference of the commands useful for inspecting content.
 
 
 include::ROOT:partial$appstream/proc_searching-for-package.adoc[leveloffset=+1]

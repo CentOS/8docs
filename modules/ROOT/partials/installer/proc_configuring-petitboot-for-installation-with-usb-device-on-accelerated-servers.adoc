@@ -1,7 +1,7 @@
 [id="configuring-petitboot-for-installation-with-usb-device-on-accelerated-servers_{context}"]
 = Configuring Petitboot for installation with USB device on accelerated servers
 
-After the system powers on, the Petitboot bootloader scans local boot devices and network interfaces to find boot options that are available to the system. For information about creating a bootable USB device, see <<create-bootable-usb-linux_installing-red-hat-enterprise-linux-on-ibm-power-system-lc-servers>>.
+After the system powers on, the Petitboot bootloader scans local boot devices and network interfaces to find boot options that are available to the system. For information about creating a bootable USB device, see xref:standard-install:assembly_installing-red-hat-enterprise-linux-on-ibm-power-system-lc-servers.adoc#create-bootable-usb-linux_installing-red-hat-enterprise-linux-on-ibm-power-system-lc-servers[Creating a bootable USB device on Linux].
 // Update this url when available to the RHEL 8 information
 
 Use one of the following USB devices:

@@ -96,7 +96,7 @@ inst.stage2=http://hostname3/path_to_install_tree/
 
 
 inst.dd=::
-The `inst.dd=` boot option is used to perform a driver update during the installation. See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/[_Performing an advanced RHEL installation_] document for information on how to update drivers during installation.
+The `inst.dd=` boot option is used to perform a driver update during the installation. See the xref:advanced-install:index.adoc[_Performing an advanced RHEL installation_] document for information on how to update drivers during installation.
 
 inst.repo=hmc::
 When booting from a Binary DVD, the installation program prompts you to enter additional kernel parameters. To set the DVD as an installation source, append `inst.repo=hmc` to the kernel parameters. The installation program then enables `SE` and `HMC` file access, fetches the images for stage2 from the DVD, and provides access to the packages on the DVD for software selection. This option eliminates the requirement of an external network setup and expands the installation options.

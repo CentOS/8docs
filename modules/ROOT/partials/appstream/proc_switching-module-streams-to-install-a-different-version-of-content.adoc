@@ -24,12 +24,7 @@ This sequence reduces the amount of actions where dependencies could prevent you
 
 * A module stream must be active, and another stream of the module must exist.
 
-ifdef::appstream-book[]
-* You must understand xref:modular-dependencies-and-stream-changes_{context}[modular dependency resolution].
-endif::[]
-ifndef::appstream-book[]
-* You must understand modular dependency resolution.
-endif::[]
+* You must understand xref:assembly_managing-versions-of-appstream-content.adoc#modular-dependencies-and-stream-changes_managing-versions-of-appstream-content[modular dependency resolution].
 
 * Keep notes of the changes you are making so that you can undo them.
 

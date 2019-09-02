@@ -11,7 +11,7 @@ Fedora Media Writer is a community product and is not supported by Red Hat. You 
 [discrete]
 == Prerequisites
 
-* You have downloaded an installation ISO image as described in <<downloading-beta-installation-images_preparing-for-your-installation>>.
+* You have downloaded an installation ISO image as described in xref:standard-install:assembly_preparing-for-your-installation.adoc#downloading-beta-installation-images_preparing-for-your-installation[Downloading the installation ISO image].
 * The *Binary DVD* ISO image is larger than 4.7 GB, so you must have a USB flash drive that is large enough to hold the ISO image.
 
 

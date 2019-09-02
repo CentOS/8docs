@@ -46,7 +46,7 @@ A VNC server is included in the installation program and doesn't need to be inst
 See *<add link to updated boot options when it is ready>*
 ////
 
-* *VNC in Kickstart installations:* You can use VNC-specific commands in Kickstart installations. Using only the `vnc` command runs a RHEL installation in Direct mode. Additional options are available to set up an installation using Connect mode. For more information about Kickstart installations, see <<what-are-kickstart-installations_kickstart-installation-basics>>.
+* *VNC in Kickstart installations:* You can use VNC-specific commands in Kickstart installations. Using only the `vnc` command runs a RHEL installation in Direct mode. Additional options are available to set up an installation using Connect mode. For more information about Kickstart installations, see xref:advanced-install:assembly_kickstart-installation-basics.adoc#what-are-kickstart-installations_kickstart-installation-basics[What are Kickstart installations].
 
 ////
 For more information about the vnc command and options used in Kickstart files, see *<add link to Kickstart boot options>*

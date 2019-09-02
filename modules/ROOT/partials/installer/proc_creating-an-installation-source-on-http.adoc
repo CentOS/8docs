@@ -7,16 +7,9 @@ Follow the steps in this procedure to create an installation source for a networ
 == Prerequisites
 
 * You have administor level access to a server with {RHEL8}, and this server is on the same network as the system to be installed.
-ifdef::installation-title[]
-* You have downloaded a Binary DVD ISO image. See <<downloading-beta-installation-images_preparing-for-your-installation>> for more information.
-* You have created a bootable CD, DVD, or USB device from the image file. See <<making-media_preparing-for-your-installation>> for more information.
-* You have verified that your firewall allows the system you are installing to access the remote installation source. See <<ports-for-network-based-installation_prepare-installation-source>> for more information.
-endif::[]
-ifndef::installation-title[]
-* You have downloaded a Binary DVD image. See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index#downloading-beta-installation-images_preparing-for-your-installation[Downloading the installation ISO image] from the _Performing a standard RHEL installation_ document for more information.
-* You have created a bootable CD, DVD, or USB device from the image file. See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index#making-media_preparing-for-your-installation[Creating installation media] from the _Performing a standard RHEL installation_ document for more information.
-* You have verified that your firewall allows the system you are installing to access the remote installation source. See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index#ports-for-network-based-installation_prepare-installation-source[Ports for network-based installation] from the _Performing a standard RHEL installation_ document for more information.
-endif::[]
+* You have downloaded a Binary DVD ISO image. See xref:standard-install:assembly_preparing-for-your-installation.adoc#downloading-beta-installation-images_preparing-for-your-installation[Downloading the installation ISO image] for more information.
+* You have created a bootable CD, DVD, or USB device from the image file. See xref:standard-install:assembly_preparing-for-your-installation.adoc#making-media_preparing-for-your-installation[Creating installation media] for more information.
+* You have verified that your firewall allows the system you are installing to access the remote installation source. See xref:standard-install:assembly_preparing-for-your-installation.adoc#ports-for-network-based-installation_prepare-installation-source[Ports for network-based installation] for more information.
 
 [discrete]
 == Procedure

@@ -36,10 +36,6 @@ $ yum module info --profile __module-name__
 $ yum module list __module-name__
 ----
 
-ifdef::appstream-book[]
-
 .Additional resources
 
-* xref:introduction-to-modules_using-appstream[]
-
-endif::[]
+* xref:assembly_introduction-to-modules.adoc[Introduction to modules]

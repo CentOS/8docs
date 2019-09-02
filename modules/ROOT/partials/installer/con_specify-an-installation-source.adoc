@@ -3,14 +3,8 @@
 
 You can specify the installation source using any of the following methods:
 
-ifdef::installation-title[]
-* *Graphical installation:* Select the installation source in the *Installation Source* window of the graphical installation. See <<configuring-installation-source_configuring-software-settings>> for more information.
-* *Boot option:* Configure a custom boot option to specify the installation source. See <<custom-boot-options_booting-the-installer>> for more information.
-endif::[]
-ifndef::installation-title[]
-* *Graphical installation:* Select the installation source in the *Installation Source* window of the graphical install.
-* *Boot option:* Configure a custom boot option to specify the installation source.
-endif::[]
-* *Kickstart file:* Use the install command in a Kickstart file to specify the installation source. See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/[_Performing an advanced RHEL installation_] document for more information.
+* *Graphical installation:* Select the installation source in the *Installation Source* window of the graphical installation. See xref:standard-install:assembly_graphical-installation.adoc#configuring-installation-source_configuring-software-settings[Configuring installation source] for more information.
+* *Boot option:* Configure a custom boot option to specify the installation source. See xref:standard-install:assembly_custom-boot-options.adoc[Boot options reference] for more information.
+* *Kickstart file:* Use the install command in a Kickstart file to specify the installation source. See the xref:advanced-install:index.adoc[Performing an advanced RHEL installation] document for more information.
 
 //Need to add links

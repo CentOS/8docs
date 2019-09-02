@@ -9,12 +9,12 @@ include::partial$local-attributes.adoc[]
 
 The following sections describe how to install content in {RHEL8}.
 
-* xref:installing-a-package_{context}[] includes steps for installing a package.
-* xref:selecting-a-stream-before-installation-of-packages_{context}[] describes how to select a stream for package installation.
-* xref:installing-a-module-stream_{context}[] describes steps to install sets of packages provided by modules.
-* xref:example-installing-a-non-default-stream-of-an-application_{context}[] shows an example of steps needed to install a set of packages in a non-default version.
-* xref:running-installed-content_{context}[] provides details for running {ProductShortName} {ProductNumber} installed content.
-* xref:commands-for-installing-rhel-8-content_{context}[] provides a reference of commands useful for installing {ProductShortName} {ProductNumber} content.
+* xref:assembly_installing-rhel-8-content.adoc#installing-a-package_{context}[Installing a package] includes steps for installing a package.
+* xref:assembly_installing-rhel-8-content.adoc#selecting-a-stream-before-installation-of-packages_{context}[Selecting a stream before installation of packages] describes how to select a stream for package installation.
+* xref:assembly_installing-rhel-8-content.adoc#installing-a-module-stream_{context}[Installing a module stream] describes steps to install sets of packages provided by modules.
+* xref:assembly_installing-rhel-8-content.adoc#example-installing-a-non-default-stream-of-an-application_{context}[Example: Installing a non-default stream of an application] shows an example of steps needed to install a set of packages in a non-default version.
+* xref:assembly_installing-rhel-8-content.adoc#running-installed-content_{context}[Running installed content] provides details for running {ProductShortName} {ProductNumber} installed content.
+* xref:assembly_installing-rhel-8-content.adoc#commands-for-installing-rhel-8-content_{context}[Commands for installing {ProductName} content] provides a reference of commands useful for installing {ProductShortName} {ProductNumber} content.
 
 
 include::ROOT:partial$appstream/proc_installing-a-package.adoc[leveloffset=+1]

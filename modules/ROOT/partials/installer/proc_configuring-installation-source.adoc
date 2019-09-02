@@ -5,19 +5,11 @@ Follow the steps in this procedure to configure the Binary DVD ISO image as the 
 
 .Prerequisites
 
-ifdef::installation-title[]
-// this is for within the title
-* You have downloaded the Binary DVD ISO image as detailed in <<downloading-beta-installation-images_preparing-for-your-installation>>.
-* You have created bootable installation media as detailed in <<making-media_preparing-for-your-installation>>.
-* The *Installation Summary* window is open.
-endif::[]
-ifndef::installation-title[]
-// this is for NOT within the title
-* You have downloaded the full installation image.
-* You have created a bootable physical media.
-* The *Installation Summary* window is open.
-endif::[]
 
+// this is for within the title
+* You have downloaded the Binary DVD ISO image as detailed in xref:standard-install:assembly_preparing-for-your-installation.adoc#downloading-beta-installation-images_preparing-for-your-installation[Downloading the installation ISO image].
+* You have created bootable installation media as detailed in xref:standard-install:assembly_preparing-for-your-installation.adoc#making-media_preparing-for-your-installation[Creating installation media].
+* The *Installation Summary* window is open.
 
 [NOTE]
 ====
@@ -45,8 +37,8 @@ When the *Installation Summary* window first opens, the installation program att
 +
 [NOTE]
 ====
-* If you do not want to download and install additional repositories from a network location, proceed to <<configuring-software-selection_configuring-software-settings>>.
-* This option is available only when a network connection is active. See <<network-hostname_configuring-system-settings>> for information about how to configure network connections in the GUI.
+* If you do not want to download and install additional repositories from a network location, proceed to xref:standard-install:assembly_graphical-installation.adoc#configuring-software-selection_configuring-software-settings[Configuring software selection].
+* This option is available only when a network connection is active. See xref:standard-install:assembly_graphical-installation.adoc#network-hostname_configuring-system-settings[Configuring network and host name options] for information about how to configure network connections in the GUI.
 ====
 
 .. Select the *On the network* drop-down menu to specify the protocol for downloading packages. This setting depends on the server that you want to use.

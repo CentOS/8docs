@@ -7,17 +7,9 @@ To complete this procedure you must be familiar with {productname} and your envi
 [discrete]
 == Prerequisites
 
-ifdef::installation-title[]
-* You have downloaded the required ISO image file. See <<downloading-beta-installation-images_preparing-for-your-installation>> for more information.
-* You have created bootable installation media. See <<making-media_preparing-for-your-installation>> for more information.
-* You have booted the installation program and the boot menu is displayed. See <<booting-the-installer_installing-RHEL>> for more information.
-endif::[]
-ifndef::installation-title[]
-* You have downloaded the required ISO image file.
-* You have created bootable installation media.
-* You have booted the installation program and the boot menu is displayed.
-endif::[]
-
+* You have downloaded the required ISO image file. See xref:standard-install:assembly_preparing-for-your-installation.adoc#downloading-beta-installation-images_preparing-for-your-installation[Downloading the installation ISO image] for more information.
+* You have created bootable installation media. See xref:standard-install:assembly_preparing-for-your-installation.adoc#making-media_preparing-for-your-installation[Creating installation media] for more information.
+* You have booted the installation program and the boot menu is displayed. See xref:standard-install:assembly_booting-installer.adoc[Booting the installation] for more information.
 
 [discrete]
 == Procedure
@@ -61,13 +53,9 @@ The *Installation Summary* window is the central hub that you can use to configu
 
 . From the *Initial Setup* window, accept the licensing agreement and register your system.
 
-ifdef::installation-title[]
-
 [discrete]
 == Additional resources
 
-* To learn more about how to prepare for your installation, see <<preparing-for-your-installation_installing-RHEL>>.
-* To learn more about installing {productname} using the graphical user interface, and customizing the interface settings, see <<graphical-installation-workflow_graphical-installation>>.
-* To learn more about how to register your system, see <<post-installation-tasks_installing-RHEL>>.
-
-endif::[]
+* To learn more about how to prepare for your installation, see xref:standard-install:assembly_preparing-for-your-installation.adoc[Preparing for your installation].
+* To learn more about installing {productname} using the graphical user interface, and customizing the interface settings, see xref:standard-install:con_installation-workflow.adoc[Installation workflow].
+* To learn more about how to register your system, see xref:standard-install:assembly_post-installation-tasks.adoc[Completing post-installation tasks].

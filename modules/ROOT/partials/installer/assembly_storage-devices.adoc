@@ -35,7 +35,7 @@ On IBM Z, this section contains activated Direct Access Storage Devices (DASDs).
 A known issue prevents DASDs configured as HyperPAV aliases from being automatically attached to the system after the installation is complete. These storage devices are available during the installation, but are not immediately accessible after you finish installing and reboot. To attach HyperPAV alias devices, add them manually to the `/etc/dasd.conf` configuration file of the system.
 ====
 
-//TODO: Add link to  <<sect-post-installation-dasds-setting-online-persistently-s390>>.
+//TODO: Add link to  sect-post-installation-dasds-setting-online-persistently-s390.
 
 
 include::ROOT:partial$installer/ref_storage-devices-selection.adoc[leveloffset=+1]

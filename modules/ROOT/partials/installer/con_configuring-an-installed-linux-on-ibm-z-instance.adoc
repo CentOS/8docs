@@ -1,4 +1,0 @@
-[id="configuring-an-installed-linux-on-ibm-z-instance_{context}"]
-= Configuring an installed Linux on IBM Z instance
-
-//For more information about Linux on IBM{nbsp}z, see the publications listed in <<chap-additional-references-s390>>. Some of the most common tasks are described here.

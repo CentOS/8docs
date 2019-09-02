@@ -6,12 +6,7 @@ You can start a Kickstart installation by putting a Kickstart file with a specif
 
 .Prerequisites
 
-ifdef::installation-advanced-title[]
-* You must have a volume prepared with xref:making-a-kickstart-file-available-on-a-local-volume-for-automatic-loading_making-kickstart-files-available-to-the-installation-program[label `OEMDRV` and the Kickstart file present in its root as `ks.cfg`].
-endif::[]
-ifndef::installation-advanced-title[]
-* You must have a volume prepared with label `OEMDRV` and the Kickstart file present in its root as `ks.cfg`.
-endif::[]
+* You must have a volume prepared with xref:assembly_making-kickstart-files-available-to-the-installation-program.adoc#making-a-kickstart-file-available-on-a-local-volume-for-automatic-loading_making-kickstart-files-available-to-the-installation-program[label `OEMDRV` and the Kickstart file present in its root as `ks.cfg`].
 
 * A drive containing this volume must be available on the system as the installation program boots.
 
@@ -26,7 +21,6 @@ endif::[]
 
 ..  In order to access a software source from which necessary packages will be installed, you may need to add the [option]`inst.repo=` option. If you do not specify this option, you must specify the installation source in the Kickstart file.
 
-.  Start the installation by confirming your added boot options. 
+.  Start the installation by confirming your added boot options.
 +
 The installation begins now, and the Kickstart file is automatically detected and used to start an automated Kickstart installation.
-

@@ -1,9 +1,7 @@
 [id="preparing-a-driver-disc_{context}"]
 = Preparing a driver disc
 
-You can create a driver update disc on a CD or DVD. See
-//<<sect-making-cd-dvd-media>>
-to learn more about burning discs from image files.
+You can create a driver update disc on a CD or DVD. See xref:standard-install:assembly_preparing-for-your-installation.adoc#making-an-installation-cd-or-dvd_preparing-for-your-installation[Creating a bootable DVD or CD] to learn more about burning discs from image files.
 
 After you burn a driver update disc CD or DVD, verify that the disc was created successfully by inserting it into your system and browsing to it using the file manager. You should see a single file named `rhdd3`, which is a signature file that contains the driver disc's description, and a directory named `rpms`, which contains the RPM packages with the actual drivers for various architectures.
 

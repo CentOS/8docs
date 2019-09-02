@@ -7,7 +7,7 @@ The following steps are generic. Consult your hardware manufacturer's documentat
 
 .Prerequisite
 
-You have created bootable installation media (USB, CD or DVD). See <<making-media_preparing-for-your-installation>> for more information.
+You have created bootable installation media (USB, CD or DVD). See xref:standard-install:assembly_preparing-for-your-installation.adoc#making-media_preparing-for-your-installation[Creating installation media] for more information.
 
 
 .Procedure
@@ -45,8 +45,6 @@ The installation program automatically begins if no action is performed in the b
 
 
 
-ifdef::installation-title[]
 .Additional Resources
-* For more information about installing {productname} using the Graphical User Interface, see <<graphical-installation_graphical-installation>>.
-* For more information about the list of available boot options you can use on the boot command line, see <<custom-boot-options_booting-the-installer>>.
-endif::[]
+* For more information about installing {productname} using the Graphical User Interface, see xref:standard-install:assembly_graphical-installation.adoc[Installing using the Graphical User Interface].
+* For more information about the list of available boot options you can use on the boot command line, see xref:standard-install:assembly_custom-boot-options.adoc[Boot options reference].

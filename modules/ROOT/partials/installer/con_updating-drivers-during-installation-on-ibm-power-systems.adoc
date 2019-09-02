@@ -16,11 +16,7 @@ In other situations, you might want to add drivers for a device during the insta
 
 . Place the ISO image file of the driver disc in a location accessible to the installation program, on a local hard drive, on a USB flash drive, or on a CD or DVD.
 
-. Create a driver disc by extracting the image file onto a CD or a DVD, or a USB flash drive. See the instructions for making installation discs in
-//<<sect-making-cd-dvd-media>>
-for more information on burning ISO image files to a CD or DVD, and
-//<<sect-making-usb-media>>
-for instructions on writing ISO images to USB drives.
+. Create a driver disc by extracting the image file onto a CD or a DVD, or a USB flash drive. See the instructions for making installation discs in xref:standard-install:assembly_preparing-for-your-installation.adoc#making-an-installation-cd-or-dvd_preparing-for-your-installation[Creating a bootable DVD or CD] for more information on burning ISO image files to a CD or DVD, and xref:standard-install:assembly_preparing-for-your-installation.adoc#create-bootable-usb-linux_preparing-for-your-installation[Creating a bootable USB device] for instructions on writing ISO images to USB drives.
 
 If Red{nbsp}Hat, your hardware vendor, or a trusted third party told you that you will require a driver update during the installation process, choose a method to supply the update from the methods described in this chapter and test it before beginning the installation. Conversely, do not perform a driver update during installation unless you are certain that your system requires it. The presence of a driver on a system for which it was not intended can complicate support.
 

@@ -11,13 +11,9 @@ This installation workflow contains the high-level steps for installing {product
 . Boot the installation program and install {productname} using the graphical user interface.
 . Complete post-installation tasks such as initial setup and system registration.
 
-ifdef::installation-title[]
-
 .Additional resources
 
-* For more information about preparing for your installation, see <<preparing-for-your-installation_installing-RHEL>>.
-* For more information about booting the installation program, see <<booting-the-installer_installing-RHEL>>.
-* For more information about installing {productname} using the graphical user interface, see <<graphical-installation_graphical-installation>>
-* For more information about completing post-installation tasks, see <<post-installation-tasks_installing-RHEL>>.
-
-endif::[]
+* For more information about preparing for your installation, see xref:standard-install:assembly_preparing-for-your-installation.adoc[Preparing for your installation].
+* For more information about booting the installation program, see xref:standard-install:assembly_booting-installer.adoc[Booting the installation].
+* For more information about installing {productname} using the graphical user interface, see xref:standard-install:assembly_graphical-installation.adoc[Installing using the Graphical User Interface]
+* For more information about completing post-installation tasks, see xref:standard-install:assembly_post-installation-tasks.adoc[Completing post-installation tasks].

@@ -8,12 +8,8 @@ This section describes using a module stream to install the recommended set of p
 
 .Prerequisites
 
-ifdef::appstream-book[]
-* You must understand the xref:module-streams_introduction-to-modules[concept of an _active module stream_].
-endif::[]
-ifndef::appstream-book[]
-* You must understand the concept of an _active module stream_.
-endif::[]
+
+* You must understand the xref:assembly_introduction-to-modules.adoc#module-streams_introduction-to-modules[concept of an _active module stream_].
 * You do not have any packages installed from another stream of the same module.
 
 
@@ -35,11 +31,7 @@ Additionally, omit :__stream__ to use the active stream. If there is no active s
 
 
 
-ifdef::appstream-book[]
-
 .Additional resources
 
-* xref:introduction-to-modules_using-appstream[]
-* xref:commands-for-installing-rhel-8-content_{context}[]
-
-endif::[]
+* xref:assembly_introduction-to-modules.adoc[Introduction to modules]
+* xref:assembly_installing-rhel-8-content.adoc#commands-for-installing-rhel-8-content_installing-rhel-8-content[Commands for installing {ProductName} content]

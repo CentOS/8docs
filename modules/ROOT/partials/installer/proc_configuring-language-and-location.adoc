@@ -4,17 +4,9 @@
 The installation program uses the language that you select during installation, and on the installed system.
 
 .Prerequisites
-ifdef::installation-title[]
-. You created installation media. See <<making-media_preparing-for-your-installation>> for more information.
-. You specified an installation source if you are using the Boot ISO image file. See <<prepare-installation-source_preparing-for-your-installation>> for more information.
-. You booted the installation. See <<booting-the-installer_installing-RHEL>> for more information.
-endif::[]
-ifndef::installation-title[]
-. You created installation media.
-. You specified an installation source if you are using the Boot ISO image file.
-. You booted the installation.
-endif::[]
-
+. You created installation media. See xref:standard-install:assembly_preparing-for-your-installation.adoc#making-media_preparing-for-your-installation[Creating installation media] for more information.
+. You specified an installation source if you are using the Boot ISO image file. See xref:standard-install:assembly_preparing-for-your-installation.adoc#prepare-installation-source_preparing-for-your-installation[Preparing an installation source] for more information.
+. You booted the installation. See xref:standard-install:assembly_booting-installer.adoc[Booting the installation] for more information.
 
 .Procedure
 
@@ -27,7 +19,7 @@ A language is pre-selected by default. If network access is configured, that is,
 
 . From the right-hand pane of the *Welcome to Red Hat Enterprise Linux* window, select a location specific to your region.
 
-. Click btn:[Continue] to proceed to the <<installation-summary_graphical-installation>> window.
+. Click btn:[Continue] to proceed to the xref:standard-install:assembly_graphical-installation.adoc#installation-summary_graphical-installation[The Installation Summary window] window.
 +
 [IMPORTANT]
 ====
@@ -37,4 +29,4 @@ If you are installing a pre-release version of {ProductName}, a warning message 
 
 .Additional resources
 
-For information about how to change language and location settings during the installation program, see <<configuring-localization-settings_graphical-installation>>
+For information about how to change language and location settings during the installation program, see xref:standard-install:assembly_graphical-installation.adoc#configuring-localization-settings_graphical-installation[Configuring localization options]

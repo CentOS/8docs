@@ -27,11 +27,7 @@ This section describes how to install packages.
 
 ====
 
-ifdef::appstream-book[]
-
 .Additional resources
 
-* xref:installing-a-module-stream_{context}[]
-* xref:package-management-using-yum-in-rhel-8_using-appstream[]
-
-endif::[]
+* xref:assembly_installing-rhel-8-content.adoc#installing-a-module-stream_installing-rhel-8-content[Installing a module stream]
+* xref:assembly_using-appstream.adoc#package-management-using-yum-in-rhel-8_using-appstream[Package management using YUM in {ProductName}]

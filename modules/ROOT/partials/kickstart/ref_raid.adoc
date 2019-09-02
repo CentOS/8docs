@@ -25,7 +25,7 @@ The default {RHEL}{nbsp}7 `mdadm` metadata version is not supported for the boot
 +
 // For a detailed example of [command]`raid` in action, see xnotref:sect-kickstart-partitioning-example[].
 
-* [option]`--level=` - RAID level to use (0, 1, 4, 5, 6, or 10). See xref:supported-raid-types_partitioning-reference[] for information about various available RAID levels.
+* [option]`--level=` - RAID level to use (0, 1, 4, 5, 6, or 10). See xref:assembly_partitioning-reference.adoc#supported-raid-types_partitioning-reference[Supported RAID types] for information about various available RAID levels.
 
 * [option]`--device=` - Name of the RAID device to use - for example, [option]`--device=root`.
 +
@@ -107,4 +107,3 @@ The following example shows how to create a RAID level 1 partition for [filename
 .Notes
 
 * If you lose the LUKS passphrase, any encrypted partitions and their data is completely inaccessible. There is no way to recover a lost passphrase. However, you can save encryption passphrases with the [option]`--escrowcert` and create backup encryption passphrases with the [option]`--backuppassphrase` options.
-

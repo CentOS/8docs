@@ -15,15 +15,12 @@ The automatically created partitions are: a root ([filename]`/`) partition (1 GB
 * `plain`: Regular partitions with no LVM.
 * `thinp`: The LVM Thin Provisioning partitioning scheme.
 ====
-ifdef::installation-advanced-title[]
 +
-For a description of the available partition schemes, see xref:supported-device-types_partitioning-reference[].
-endif::[]
+For a description of the available partition schemes, see xref:assembly_partitioning-reference.adoc#supported-device-types_partitioning-reference[Supported device types].
 
 * [option]`--fstype=` - Selects one of the available file system types. The available values are `ext2`, `ext3`, `ext4`, `xfs`, and `vfat`. The default file system is `xfs`.
-ifdef::installation-advanced-title[]
-For information about these file systems, see xref:supported-file-systems_partitioning-reference[].
-endif::[]
++
+For information about these file systems, see xref:assembly_partitioning-reference.adoc#supported-file-systems_partitioning-reference[Supported file systems].
 
 * [option]`--nohome` - Disables automatic creation of the `/home` partition.
 
@@ -72,4 +69,3 @@ The process can be sped up by interacting with the installation system (typing o
 * It is recommended to use the [option]`autopart --nohome` Kickstart option when installing on a single FBA DASD of the CMS type. This ensures that the installation program does not create a separate [filename]`/home` partition. The installation then proceeds successfully.
 
 * If you lose the LUKS passphrase, any encrypted partitions and their data is completely inaccessible. There is no way to recover a lost passphrase. However, you can save encryption passphrases with the [option]`--escrowcert` and create backup encryption passphrases with the [option]`--backuppassphrase` options.
-

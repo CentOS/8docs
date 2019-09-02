@@ -44,7 +44,7 @@ To determine the size of the swap partition automatically but also allow extra s
 +
 The size assigned will be equivalent to the swap space assigned by [option]`--recommended` plus the amount of RAM on your system.
 +
-For the swap sizes assigned by these commands, see xref:recommended-partitioning-scheme_partitioning-reference[] for AMD64, Intel 64, and 64-bit ARM systems.
+For the swap sizes assigned by these commands, see xref:assembly_partitioning-reference.adoc#recommended-partitioning-scheme_partitioning-reference[Recommended partitioning scheme] for AMD64, Intel 64, and 64-bit ARM systems.
 +
 //, xnotref:sect-recommended-partitioning-scheme-ppc[] for IBM Power{nbsp}Systems servers, and xnotref:sect-recommended-partitioning-scheme-s390[] for IBM{nbsp}Z.
 
@@ -69,7 +69,7 @@ An EFI System Partition. A 50 MiB EFI partition is necessary on UEFI-based AMD64
 +
 [IMPORTANT]
 ========
-If the [option]`--size` value is too small, the installation fails. Set the [option]`--size` value as the minimum amount of space you require. For size recommendations, see xref:recommended-partitioning-scheme_partitioning-reference[].
+If the [option]`--size` value is too small, the installation fails. Set the [option]`--size` value as the minimum amount of space you require. For size recommendations, see xref:assembly_partitioning-reference.adoc#recommended-partitioning-scheme_partitioning-reference[Recommended partitioning scheme].
 ========
 
 * [option]`--grow` - Tells the logical volume to grow to fill available space (if any), or up to the maximum size setting, if one is specified.
@@ -138,7 +138,7 @@ Never specify multipath devices by device names like `mpatha`. Device names such
 
 * [option]`--label=` - assign a label to an individual partition.
 
-* [option]`--recommended` - Determine the size of the partition automatically. For details about the recommended scheme, see xref:recommended-partitioning-scheme_partitioning-reference[] for AMD64, Intel 64, and 64-bit ARM.
+* [option]`--recommended` - Determine the size of the partition automatically. For details about the recommended scheme, see xref:assembly_partitioning-reference.adoc#recommended-partitioning-scheme_partitioning-reference[Recommended partitioning scheme] for AMD64, Intel 64, and 64-bit ARM.
 +
 //, xnotref:sect-recommended-partitioning-scheme-ppc[] for IBM Power{nbsp}Systems, and xnotref:sect-recommended-partitioning-scheme-s390[] for IBM{nbsp}Z.
 +
@@ -213,4 +213,3 @@ You could use an entry similar to one of the following:
 This way the command will always target the same storage device. This is especially useful in large storage environments. See the chapter link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_storage_devices/index#assembly_overview-of-persistent-naming-attributes_managing-storage-devices[Overview of persistent naming attributes] in the __Managing storage devices__ document for more in-depth information about different ways to consistently refer to storage devices.
 
 * If you lose the LUKS passphrase, any encrypted partitions and their data is completely inaccessible. There is no way to recover a lost passphrase. However, you can save encryption passphrases with the [option]`--escrowcert` and create backup encryption passphrases with the [option]`--backuppassphrase` options.
-

@@ -20,10 +20,6 @@ The *postgresql* module provides the [application]*PostgreSQL* database versions
 ====
 
 
-ifdef::appstream-book[]
-
 .Additional resources
 
-* For more information about modular dependencies, see xref:modular-dependencies-and-stream-changes_managing-versions-of-appstream-content[].
-
-endif::[]
+* For more information about modular dependencies, see xref:assembly_managing-versions-of-appstream-content.adoc#modular-dependencies-and-stream-changes_managing-versions-of-appstream-content[Modular dependencies and stream changes].

@@ -29,6 +29,6 @@ If you want to use the automatic driver update method, you must create a storage
 ////
 [IMPORTANT]
 ====
-Make sure to initialize the network using the [option]`ip=` option when loading a driver update from a network location. See <<sect-boot-options-installer>> for details.
+Make sure to initialize the network using the [option]`ip=` option when loading a driver update from a network location. See xref:advanced-install:assembly_kickstart-and-advanced-boot-options.adoc#network-boot-options_kickstart-and-advanced-boot-options[Network boot options] for details.
 ====
 ////

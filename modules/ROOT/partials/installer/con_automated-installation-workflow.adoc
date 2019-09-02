@@ -8,32 +8,14 @@
 
 Kickstart installations can be performed using a local DVD, a local hard drive, or a NFS, FTP, HTTP, or HTTPS server. This section provides a high level overview of Kickstart usage.
 
-ifdef::installation-advanced-title[]
+ . Create a Kickstart file. You can write it by hand, copy a Kickstart file saved after a manual installation, or use an online generator tool to create the file, and edit it afterward. See xref:assembly_creating-kickstart-files.adoc[Creating Kickstart files].
 
- . Create a Kickstart file. You can write it by hand, copy a Kickstart file saved after a manual installation, or use an online generator tool to create the file, and edit it afterward. See xref:creating-kickstart-files_installing-rhel-as-an-experienced-user[].
+ . Make the Kickstart file available to the installation program on removable media, a hard drive or a network location using an HTTP(S), FTP, or NFS server. See xref:assembly_making-kickstart-files-available-to-the-installation-program.adoc[Making Kickstart files available to the installation program].
 
- . Make the Kickstart file available to the installation program on removable media, a hard drive or a network location using an HTTP(S), FTP, or NFS server. See xref:making-kickstart-files-available-to-the-installation-program_installing-rhel-as-an-experienced-user[].
+ . Create the boot medium which will be used to begin the installation. See xref:standard-install:assembly_preparing-for-your-installation.adoc#making-media_preparing-for-your-installation[Creating installation media] and xref:assembly_preparing-for-a-network-install.adoc[Preparing to install from the network using PXE].
 
- . Create the boot medium which will be used to begin the installation. See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/preparing-for-your-installation_installing-rhel#making-media_preparing-for-your-installation[Creating installation media] and xref:preparing-for-a-network-install_installing-rhel-as-an-experienced-user[].
+ . Make the installation source available to the installation program. See xref:assembly_creating-installation-sources-for-kickstart-installations.adoc[Creating installation sources for Kickstart installations].
 
- . Make the installation source available to the installation program. See xref:creating-installation-sources-for-kickstart-installations_installing-rhel-as-an-experienced-user[].
-
- . Start the installation using the boot medium and the Kickstart file. See xref:starting-kickstart-installations_installing-rhel-as-an-experienced-user[].
- 
-endif::[]
-ifndef::installation-advanced-title[]
-
- . Create a Kickstart file. You can write it by hand, copy a Kickstart file saved after a manual installation, or use an online generator tool to create the file, and edit it afterward. See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_an_advanced_rhel_installation/creating-kickstart-files_installing-rhel-as-an-experienced-user[Creating Kickstart files].
-
- . Make the Kickstart file available to the installation program on removable media, a hard drive or a network location using an HTTP(S), FTP, or NFS server. See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_an_advanced_rhel_installation/making-kickstart-files-available-to-the-installation-program_installing-rhel-as-an-experienced-user[Making Kickstart files available to the installation program].
-
- . Create the boot medium which will be used to begin the installation. See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/preparing-for-your-installation_installing-rhel#making-media_preparing-for-your-installation[Creating installation media] and link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_an_advanced_rhel_installation/preparing-for-a-network-install_installing-rhel-as-an-experienced-user[Preparing to install from the network using PXE].
-
- . Make the installation source available to the installation program. See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_an_advanced_rhel_installation/creating-installation-sources-for-kickstart-installations_installing-rhel-as-an-experienced-user[Creating installation sources for Kickstart installations].
-
- . Start the installation using the boot medium and the Kickstart file. See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_an_advanced_rhel_installation/starting-kickstart-installations_installing-rhel-as-an-experienced-user[Starting Kickstart installations].
- 
-endif::[]
+ . Start the installation using the boot medium and the Kickstart file. See xref:assembly_starting-kickstart-installations.adoc[Starting Kickstart installations].
 
 If the Kickstart file contains all mandatory commands and sections, the installation finishes automatically. If one or more of these mandatory parts are missing, or if an error occurs, the installation requires manual intervention to finish.
-

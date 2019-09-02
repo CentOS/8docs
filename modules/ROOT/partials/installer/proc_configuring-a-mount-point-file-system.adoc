@@ -27,4 +27,4 @@ Click the *Rescan* button (circular arrow button) to refresh all local disks and
 . In the lower left-hand side of the *Manual Partitioning* window, click the *storage device selected* link to open the *Selected Disks* dialog and review disk information.
 
 +
-// At the bottom of the screen, a link states how many storage devices have been selected in `Installation Destination` (see <<sect-disk-partitioning-setup-x86>>). Clicking on this link opens the `Selected Disks` dialog, where you review the information about the disks. See <<sect-bootloader-x86>> for more information.
+// At the bottom of the screen, a link states how many storage devices have been selected in `Installation Destination` (see *sect-disk-partitioning-setup-x86*). Clicking on this link opens the `Selected Disks` dialog, where you review the information about the disks. See *sect-bootloader-x86* for more information.

@@ -4,13 +4,13 @@
 Complete the following steps to install {productname} using the graphical user interface:
 
 .Steps
-. Configure language and location settings. See <<installing-rhel-using-anaconda_graphical-installation>> for more information.
-. Configure localization settings. See <<configuring-localization-settings_graphical-installation>> for more information.
-. Select the installation source and software packages that you require. See <<configuring-software-settings_graphical-installation>> for more information.
-. Configure installation destination, KDUMP, network, security policy, and system purpose. See <<configuring-system-settings_graphical-installation>> for more information.
-. Configure storage. See <<storage-devices_graphical-installation>> for more information.
-. Start the installation and create a user account and password. See <<final-installer-configuration_graphical-installation>> for more information.
-. Complete the graphical installation. See <<installation-complete_final-installer-configuration>> for more information.
+. Configure language and location settings. See xref:standard-install:assembly_graphical-installation.adoc#installing-rhel-using-anaconda_graphical-installation[Configuring language and location settings] for more information.
+. Configure localization settings. See xref:standard-install:assembly_graphical-installation.adoc#configuring-localization-settings_graphical-installation[Configuring localization options] for more information.
+. Select the installation source and software packages that you require. See xref:standard-install:assembly_graphical-installation.adoc#configuring-software-settings_graphical-installation[Configuring software options] for more information.
+. Configure installation destination, KDUMP, network, security policy, and system purpose. See xref:standard-install:assembly_graphical-installation.adoc#configuring-system-settings_graphical-installation[Configuring system options] for more information.
+. Configure storage. See xref:standard-install:assembly_graphical-installation.adoc#storage-devices_graphical-installation[Configuring storage devices] for more information.
+. Start the installation and create a user account and password. See xref:standard-install:assembly_graphical-installation.adoc#configuring-a-root-password_final-installer-configuration[Configuring a root password] and xref:standard-install:assembly_graphical-installation.adoc#creating-a-user-account_final-installer-configuration[Creating a user account] for more information.
+. Complete the graphical installation. See xref:standard-install:assembly_graphical-installation.adoc#installation-complete_final-installer-configuration[Graphical installation complete] for more information.
 
 [NOTE]
 ====

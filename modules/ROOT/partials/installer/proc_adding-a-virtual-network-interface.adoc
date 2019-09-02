@@ -18,7 +18,7 @@ Follow the steps in this procedure to add a virtual network interface.
 * *Vlan* (_Virtual LAN_): A method to create multiple distinct broadcast domains which are mutually isolated.
 ====
 
-. Select the interface type and click *Add*. An editing interface dialog box opens, allowing you to edit any available settings for your chosen interface type. For more information see <<editing-network-interface-configuration_network-hostname>>.
+. Select the interface type and click *Add*. An editing interface dialog box opens, allowing you to edit any available settings for your chosen interface type. For more information see xref:standard-install:assembly_graphical-installation.adoc#network-hostname_configuring-system-settings[Configuring network and host name options].
 
 . Click btn:[Save] to confirm the virtual interface settings and return to the *Network & Host name* window.
 

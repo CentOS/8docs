@@ -14,7 +14,7 @@
 
 .. If you select *Manual*, enter the amount of memory (in megabytes) that you want to reserve in the *Memory to be reserved* field using the *+* and *-* buttons. The *Usable System Memory* readout below the reservation input field shows how much memory is accessible to your main system after reserving the amount of RAM that you select.
 
-. Click *Done* to apply the settings and return to <<installation-summary_graphical-installation>>.
+. Click *Done* to apply the settings and return to xref:standard-install:assembly_graphical-installation.adoc#installation-summary_graphical-installation[The Installation Summary window].
 
 [NOTE]
 ====
@@ -23,7 +23,7 @@ The amount of memory that you reserve is determined by your system architecture 
 
 //*TO DO: If you insist on manual settings, see the *LINK* for guidelines. This document also contains more in-depth information about how [application]*Kdump* works, how to configure additional settings, and how to analyze a saved crash dump.*
 //TODO: link to somewhere that talks abotu kdump memory reservation requirements
-//If you insist on manual settings, see the <<LINK>> for guidelines. This document also contains more in-depth information about how [application]*Kdump* works, how to configure additional settings, and how to analyze a saved crash dump.
+//If you insist on manual settings, see the *LINK* for guidelines. This document also contains more in-depth information about how [application]*Kdump* works, how to configure additional settings, and how to analyze a saved crash dump.
 
 [IMPORTANT]
 ====

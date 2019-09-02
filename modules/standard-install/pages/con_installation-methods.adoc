@@ -14,21 +14,11 @@ Install {productname} using the graphical user interface and customize the graph
 Automated install::
 Install {productname} using Kickstart. The automated installation allows you to perform unattended operating system installation tasks.
 
-
-ifdef::installation-title[]
 [discrete]
 == Additional resources
 
-* To perform a graphical installation on AMD64, Intel 64, and 64-bit ARM architectures using the graphical user interface, see <<installation-workflow_installing-RHEL>>.
-* To perform an installation on IBM Power System LC servers, see <<preparation-for-ibm-power-systems-servers_installing-red-hat-enterprise-linux-on-ibm-power-system-lc-servers>>.
-* To perform an installation on IBM Power System AC servers, see <<installing-red-hat-enterprise-linux-on-ibm-power-system-accelerated-servers_installing-on-ibm-power-system-accelerated-servers>>.
-* To perform an installation on IBM Power System L servers, see <<installing-red-hat-enterprise-linux-on-ibm-power-system-l-server_installing-red-hat-enterprise-linux-on-ibm-power-system-l-server>>.
-* To perform an installation on IBM Z, see <<overview-of-the-ibm-z-installation-process_preparing-for-installation-on-ibm-z>>.
-* To perform an automated install using Kickstart, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/[_Performing an advanced RHEL installation_] document.
-endif::[]
-ifndef::installation-title[]
-[discrete]
-== Additional resources
-* To perform a quick install on AMD64, Intel 64, and 64-bit ARM architectures using the graphical user interface, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index/[_Performing a standard RHEL installation_] document.
-* To perform a graphical install using the graphical user interface, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index/[_Performing a standard RHEL installation_] document.
-endif::[]
+* To perform a graphical installation on AMD64, Intel 64, and 64-bit ARM architectures using the graphical user interface, see xref:standard-install:con_installation-workflow.adoc[Installation workflow].
+* To perform an installation on IBM Power System LC servers, see xref:assembly_installing-red-hat-enterprise-linux-on-ibm-power-system-lc-servers.adoc[Installing on IBM Power System LC servers].
+* To perform an installation on IBM Power System AC servers, see xref:assembly_installing-on-ibm-power-system-accelerated-servers.adoc[Installing on IBM Power System accelerated servers].
+* To perform an installation on IBM Power System L servers, see xref:assembly_installing-red-hat-enterprise-linux-on-ibm-power-system-l-server.adoc[Installing on IBM Power System L server].
+* To perform an automated install using Kickstart, see the xref:advanced-install:index.adoc[_Performing an advanced RHEL installation_] document.

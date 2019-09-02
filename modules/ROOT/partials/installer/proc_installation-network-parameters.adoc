@@ -139,9 +139,7 @@ The installation program supports a comma-separated list of device bus IDs, or r
 +
 The only supported global option is [option]`autodetect`. This does not support the specification of non-existent DASDs to reserve kernel device names for later addition of DASDs. Use persistent DASD device names (for example `/dev/disk/by-path/...`) to enable transparent addition of disks later. Other global options such as [option]`probeonly`, [option]`nopav`, or [option]`nofcx` are not supported by the installation program.
 +
-Only specify those DASDs that you really need to install your system. All unformatted DASDs specified here must be formatted after a confirmation later on in the installation program
-//(see <<sect-storage-device-selection-dasd-formatting-s390>>).
-Add any data DASDs that are not needed for the root file system or the `/boot` partition after installation as described in <<sect-post-installation-dasds-no-root-s390>>.
+Only specify those DASDs that you really need to install your system. All unformatted DASDs specified here must be formatted after a confirmation later on in the installation program. Add any data DASDs that are not needed for the root file system or the `/boot` partition after installation.
 +
 For example:
 +

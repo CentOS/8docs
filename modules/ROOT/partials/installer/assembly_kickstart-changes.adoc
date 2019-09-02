@@ -18,11 +18,8 @@ Similarly to `authconfig` commands issued on command line, `authconfig` commands
 == Kickstart no longer supports Btrfs
 The Btrfs file system is not supported in {productname} 8. As a result, the Graphical User Interface (GUI) and the Kickstart commands no longer support Btrfs.
 
-ifndef::advanced-installation-title[]
-== Using Kickstart files from previous RHEL releases
-If you are using Kickstart files from previous RHEL releases, see the _Repositories_ section of this document for more information about the {productname} 8 BaseOS and AppStream repositories.
-endif::[]
-
+== Using Kickstart files from previous {ProductName} releases
+If you are using Kickstart files from previous RHEL releases, see the xref:managing-userspace-components:index.adoc[Installing, managing, and removing user space components] document for more information about the {productname} 8 BaseOS and AppStream repositories.
 
 include::ROOT:partial$installer/ref_deprecated-kickstart-comands-and-options.adoc[leveloffset=+1]
 

@@ -65,7 +65,7 @@ At the border between each range, for example, a system with 2{nbsp}GB, 8{nbsp}G
 Distributing swap space over multiple storage devices - particularly on systems with fast drives, controllers and interfaces - also improves swap space performance.
 
 Many systems have more partitions and volumes than the minimum required. Choose partitions based on your particular system needs.
-// See <<sect-partitioning-advice>> for more information.
+See xref:standard-install:assembly_partitioning-reference.adoc#recommended-partitioning-scheme_partitioning-reference[Recommended partitioning scheme] for more information.
 
 [NOTE]
 ====
@@ -76,5 +76,5 @@ Many systems have more partitions and volumes than the minimum required. Choose 
 `PReP` boot partition - recommended size of 4 to 8 MiB::
 When installing {productname} on IBM Power System servers, the first partition of the hard drive should include a `PReP` boot partition. This contains the GRUB2 boot loader, which allows other IBM Power Systems servers to boot {productname}.
 
-// ...as described in <<installation-destination_graphical-installation>>.
-// To learn about a more flexible method for storage management, see <<appe-lvm-overview>>.
+// ...as described in installation-destination_graphical-installation.
+// To learn about a more flexible method for storage management, see appe-lvm-overview.

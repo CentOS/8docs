@@ -18,7 +18,7 @@ For more information about Yum package manager, see the link:https://access.redh
 ====
 * The `yum group list` command lists all package groups from yum repositories. See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_basic_system_settings/index/[_Configuring basic system settings_] document for more information.
 
-* If you need to control which packages are installed, you can use a Kickstart file and define the packages in the `%packages` section. See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/[_Performing an advanced RHEL installation_] document for information about installing {productname} using Kickstart.
+* If you need to control which packages are installed, you can use a Kickstart file and define the packages in the `%packages` section. See the xref:advanced-install:index.adoc[_Performing an advanced RHEL installation_] document for information about installing {productname} using Kickstart.
 ====
 
 .Prerequisites
@@ -41,4 +41,4 @@ The *Server with GUI* base environment is the default base environment and it la
 
 . From the *Add-Ons for Selected Environment* pane, select one or more add-ons.
 
-. Click *Done* to apply the settings and return to <<installation-summary_graphical-installation>>.
+. Click *Done* to apply the settings and return to xref:standard-install:assembly_graphical-installation.adoc#installation-summary_graphical-installation[The Installation Summary window].

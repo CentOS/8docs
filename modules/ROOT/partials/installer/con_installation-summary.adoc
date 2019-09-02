@@ -31,12 +31,8 @@ A category can have a different status depending on where it is in the installat
 A warning message is displayed at the bottom of the *Installation Summary* window and the *Begin Installation* button is disabled  until you configure all of the required categories.
 ====
 
-ifdef::installation-title[]
-
 .Additional resources
 
-* For information about how to configure Localization settings, see <<configuring-localization-settings_graphical-installation>>
-* For information about how to configure Software settings, see <<configuring-software-settings_graphical-installation>>
-* For information about how to configure System settings, see <<configuring-system-settings_{context}>>
-
-endif::[]
+* For information about how to configure Localization settings, see xref:standard-install:assembly_graphical-installation.adoc#configuring-localization-settings_graphical-installation[Configuring localization options]
+* For information about how to configure Software settings, see xref:standard-install:assembly_graphical-installation.adoc#configuring-software-settings_graphical-installation[Configuring software options]
+* For information about how to configure System settings, see xref:standard-install:assembly_graphical-installation.adoc#configuring-system-settings_graphical-installation[Configuring system options]

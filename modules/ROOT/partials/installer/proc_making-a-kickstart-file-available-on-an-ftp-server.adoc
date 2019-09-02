@@ -8,13 +8,7 @@ This procedure describes how to store the Kickstart script file on an FTP server
 
 * You must have administrator level access to a server with {RHEL8} on the local network.
 * The system to be installed must be able to connect to the server.
-ifdef::installation-advanced-title[]
-* Firewall on the server must allow connections from the system you are installing to. See xref:ports-for-network-based-installation_making-kickstart-files-available-to-the-installation-program[] for more information.
-endif::[]
-ifndef::installation-advanced-title[]
-* Firewall on the server must allow connections from the system you are installing to.
-endif::[]
-
+* Firewall on the server must allow connections from the system you are installing to. See xref:assembly_making-kickstart-files-available-to-the-installation-program.adoc#ports-for-network-based-installation_making-kickstart-files-available-to-the-installation-program[Ports for network-based installation] for more information.
 
 .Procedure
 
@@ -89,4 +83,3 @@ The Kickstart file is now accessible and ready to be used for installations by s
 ====
 When configuring the installation source, use `ftp://` as the protocol, the server's host name or IP address, and the path of the Kickstart file, relative to the FTP server root. For example, if the server's host name is `myserver.example.com` and you have copied the file to `/var/ftp/my-ks.cfg`, specify `ftp://myserver.example.com/my-ks.cfg` as the installation source.
 ====
-

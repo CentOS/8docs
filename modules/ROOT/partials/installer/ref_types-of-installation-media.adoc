@@ -31,4 +31,4 @@ The following table contains information about the images that are available for
 [discrete]
 === Additional Resources
 
-* For instructions on how to access the Binary DVD ISO image repositories, see <<prepare-installation-source_preparing-for-your-installation>> for more information.
+* For instructions on how to access the Binary DVD ISO image repositories, see xref:standard-install:assembly_preparing-for-your-installation.adoc#prepare-installation-source_preparing-for-your-installation[Preparing an installation source] for more information.

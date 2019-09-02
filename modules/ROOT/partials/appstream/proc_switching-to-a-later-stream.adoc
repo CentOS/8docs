@@ -48,9 +48,9 @@ By checking the [command]`yum distro-sync` result before switching the streams, 
 # yum distro-sync
 ----
 +
-If this action suggests changes to content outside the streams, review them carefully. 
+If this action suggests changes to content outside the streams, review them carefully.
 +
-If certain installed packages depend on the earlier stream and there is no compatible version in the later stream, *yum* will report a dependency conflict. In this case, use the `--allowerasing` option to remove such packages because they cannot be installed together with the later stream due to missing dependencies. 
+If certain installed packages depend on the earlier stream and there is no compatible version in the later stream, *yum* will report a dependency conflict. In this case, use the `--allowerasing` option to remove such packages because they cannot be installed together with the later stream due to missing dependencies.
 +
 [NOTE]
 ====
@@ -58,19 +58,8 @@ When switching *Perl* modules, the `--allowerasing` option is always required be
 // Note that the --allowerasing option is also required when other non-modular packages are installed, for example with Ruby. -- redundant with the current wording according to vondruch
 ====
 
-ifdef::appstream-book[]
-Alternatively, xref:removing-installed-modules_removing-rhel-8-content[remove all the module's content] installed from the current stream, xref:resetting-module-streams_removing-rhel-8-content[reset the module], and xref:installing-a-module-stream_installing-rhel-8-content[install the new stream].
-endif::[]
-ifndef::appstream-book[]
-Alternatively, link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user_space_components/index#removing-installed-modules_removing-rhel-8-content[remove all the module's content] installed from the current stream, link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user_space_components/index#resetting-module-streams_removing-rhel-8-content[reset the module], and link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user_space_components/index#installing-a-module-stream_installing-rhel-8-content[install the new stream].
-endif::[]
+Alternatively, xref:assembly_removing-rhel-8-content.adoc#removing-installed-modules_removing-rhel-8-content[remove all the module's content] installed from the current stream, xref:assembly_removing-rhel-8-content.adoc#resetting-module-streams_removing-rhel-8-content[reset the module], and xref:assembly_installing-rhel-8-content.adoc#installing-a-module-stream_installing-rhel-8-content[install the new stream].
 
 .Additional resources
 
-ifdef::appstream-book[]
-* xref:switching-to-a-later-stream_managing-versions-of-appstream-content[]
-endif::[]
-ifndef::appstream-book[]
-* link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user_space_components/index#switching-to-a-later-stream_managing-versions-of-appstream-content[Switching to a later stream]
-endif::[]
-
+* xref:assembly_managing-versions-of-appstream-content.adoc#switching-to-a-later-stream_managing-versions-of-appstream-content[Switching to a later stream]

@@ -11,10 +11,10 @@ include::partial$local-attributes.adoc[]
 
 The following sections describe how to remove content in {RHEL8}:
 
-* xref:removing-installed-packages_{context}[] describes removing a package.
-* xref:removing-installed-modules_{context}[] describes removing content installed from a module stream.
-* xref:resetting-module-streams_{context}[] describes resetting module streams to initial state.
-* xref:commands-for-removing-content_{context}[] summarizes the commands for removing content.
+* xref:assembly_removing-rhel-8-content.adoc#removing-installed-packages_{context}[Removing installed packages] describes removing a package.
+* xref:assembly_removing-rhel-8-content.adoc#removing-installed-modules_{context}[Removing installed modules] describes removing content installed from a module stream.
+* xref:assembly_removing-rhel-8-content.adoc#resetting-module-streams_{context}[Resetting module streams] describes resetting module streams to initial state.
+* xref:assembly_removing-rhel-8-content.adoc#commands-for-removing-content_{context}[Commands for removing content] summarizes the commands for removing content.
 
 
 include::ROOT:partial$appstream/proc_removing-installed-packages.adoc[leveloffset=+1]

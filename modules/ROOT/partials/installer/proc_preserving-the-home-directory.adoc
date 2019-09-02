@@ -26,7 +26,7 @@
 
 In a RHEL 8 graphical installation, you can preserve the [filename]`/home` directory that was used on your RHEL 7 system.
 
-WARNING: Preserving [filename]`/home` is only possible if the [filename]`/home` directory is located on a separate `/home` partition on your RHEL 7 system. 
+WARNING: Preserving [filename]`/home` is only possible if the [filename]`/home` directory is located on a separate `/home` partition on your RHEL 7 system.
 
 Preserving the [filename]`/home` directory that includes various configuration settings, makes it possible that the GNOME Shell environment on the new RHEL 8 system is set in the same way as it was on your RHEL 7 system.
 Note that this applies only for users on RHEL 8 with the same user name and ID as on the previous RHEL 7 system.
@@ -38,18 +38,18 @@ Complete this procedure to preserve the [filename]`/home` directory from your RH
 
 * RHEL 7 system is installed on your computer.
 * The [filename]`/home` directory is located on a separate `/home` partition on your RHEL 7 system.
-* The RHEL 8 `Installation Summary` window is currently displayed. 
+* The RHEL 8 `Installation Summary` window is currently displayed.
 // * You can also link to other modules or assemblies the user must follow before starting this assembly.
 // * Delete the section title and bullets if the assembly has no prerequisites.
 
 [discrete]
 == Procedure
 
-. Click `Installation Destination` to open the `Installation Destination` window. 
+. Click `Installation Destination` to open the `Installation Destination` window.
 
 . Under `Storage Configuration`, select the `Custom` radio button. Click `Done`.
 
-. Click `Done`, the `Manual Partitioning` window opens. 
+. Click `Done`, the `Manual Partitioning` window opens.
 
 . Choose the `/home` partition, fill in `/home` under `Mount Point:` and clear the `Reformat` check box.
 +
@@ -57,11 +57,11 @@ Complete this procedure to preserve the [filename]`/home` directory from your RH
 .Ensuring that /home is not formatted
 image::preserving-home-partition.png[]
 
-. Optional: You can also customize various aspects of the `/home` partition required for your RHEL 8 system as described in <<customizing-a-partition-or-volume_manual-partitioning>>. However, to preserve `/home` from your RHEL 7 system, it is necessary to clear the `Reformat` check box.
+. Optional: You can also customize various aspects of the `/home` partition required for your RHEL 8 system as described in xref:standard-install:assembly_graphical-installation.adoc#customizing-a-partition-or-volume_manual-partitioning[Customizing a partition or volume]. However, to preserve `/home` from your RHEL 7 system, it is necessary to clear the `Reformat` check box.
 
 . After you customized all partitions according to your requirements, click `Done`. The `Summary of changes` dialog box opens.
 
-. Verify that the `Summary of changes` dialog box does not show any change for `/home`. This means that the `/home` partition is preserved. 
+. Verify that the `Summary of changes` dialog box does not show any change for `/home`. This means that the `/home` partition is preserved.
 
 . Click `Accept Changes` to apply the changes, and return to the `Installation Summary` window.
 
@@ -97,4 +97,3 @@ image::preserving-home-partition.png[]
 // * A bulleted list of links to other material closely related to the contents of the procedure module.
 // * For more details on writing procedure modules, see the link:https://github.com/redhat-documentation/modular-docs#modular-documentation-reference-guide[Modular Documentation Reference Guide].
 // * Use a consistent system for file names, IDs, and titles. For tips, see _Anchor Names and File Names_ in link:https://github.com/redhat-documentation/modular-docs#modular-documentation-reference-guide[Modular Documentation Reference Guide].
-

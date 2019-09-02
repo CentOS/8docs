@@ -20,7 +20,7 @@ The *Configure Volume Group* dialog box opens.
 +
 [NOTE]
 ====
-You cannot specify the size of the volume group's physical extents in the configuration dialog. The size is always set to the default value of 4 MiB. If you want to create a volume group with different physical extents, you must create it manually by switching to an interactive shell and using the [command]`vgcreate` command, or use a Kickstart file with the [command]`volgroup --pesize=pass:attributes[{blank}]_size_pass:attributes[{blank}]` command. See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/[_Performing an advanced RHEL installation_] document for more information about Kickstart.
+You cannot specify the size of the volume group's physical extents in the configuration dialog. The size is always set to the default value of 4 MiB. If you want to create a volume group with different physical extents, you must create it manually by switching to an interactive shell and using the [command]`vgcreate` command, or use a Kickstart file with the [command]`volgroup --pesize=pass:attributes[{blank}]_size_pass:attributes[{blank}]` command. See the xref:advanced-install:index.adoc[_Performing an advanced RHEL installation_] document for more information about Kickstart.
 ====
 
 . From the *RAID Level* drop-down menu, select the RAID level that you require.

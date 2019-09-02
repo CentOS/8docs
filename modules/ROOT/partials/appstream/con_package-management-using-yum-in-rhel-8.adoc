@@ -5,14 +5,13 @@
 
 The [application]*YUM* package management tool is now based on the DNF technology and it adds support for the new modular features.
 
-Usage of [application]*YUM* has not been changed when handling individual RPM packages. For handling the modular content, the [command]`yum module` command has been added. 
-ifdef::appstream-book[]
-See xref:installing-rhel-8-content_using-appstream[] for additional details.
-endif::[]
+Usage of [application]*YUM* has not been changed when handling individual RPM packages. For handling the modular content, the [command]`yum module` command has been added.
+
+See xref:assembly_installing-rhel-8-content.adoc[Installing {ProductName} Content] for additional details.
+
 
 Where required, the modular functionality automatically selects the appropriate combination of modules and streams to enable installation of logical sets of packages for convenient usage.
 
 // docs note - we are forbidden from mentioning "yum v4" in any forms, use "yum based on dnf tech in rhel8" vs. "yum v3 from rhel7"
 // also prefer YUM uppercase when referring to name, not tool
 // resource http://dnf.readthedocs.io/en/latest/cli_vs_yum.html
-

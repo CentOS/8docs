@@ -51,13 +51,13 @@ All storage changes that you make during the installation are lost when you clic
 
 . Optional: To add a specialized storage device, click *Add a disk...*.
 +
-The *Storage Device Selection* window opens and lists all storage devices that the installation program has access to. For information about how to add a specialized disk, see <<configuring-advanced-storage-options_storage-devices>>.
+The *Storage Device Selection* window opens and lists all storage devices that the installation program has access to. For information about how to add a specialized disk, see xref:standard-install:assembly_graphical-installation.adoc#configuring-advanced-storage-options_storage-devices[Using advanced storage options].
 
 . Optional: Under *Storage Configuration*, select the *Automatic* radio button.
 +
 [IMPORTANT]
 ====
-Automatic partitioning is the *recommended* method of partitioning your storage. You can also configure custom partitioning, for more details see <<manual-partitioning_graphical-installation>>
+Automatic partitioning is the *recommended* method of partitioning your storage. You can also configure custom partitioning, for more details see xref:standard-install:assembly_graphical-installation.adoc#manual-partitioning_graphical-installation[Configuring manual partitioning]
 ====
 
 . Optional: To reclaim space from an existing partitioning layout, select the *I would like to make additional space available* check box. For example, if a disk you want to use already contains a different operating system and you want to make this system's partitions smaller to allow more room for {ProductName}.
@@ -74,10 +74,10 @@ Automatic partitioning is the *recommended* method of partitioning your storage.
 +
 [WARNING]
 ====
-If you lose the LUKS passphrase, any encrypted partitions and their data is completely inaccessible. There is no way to recover a lost passphrase. However, if you perform a Kickstart installation, you can save encryption passphrases and create backup encryption passphrases during the installation. See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/[_Performing an advanced RHEL installation_] document for information.
+If you lose the LUKS passphrase, any encrypted partitions and their data is completely inaccessible. There is no way to recover a lost passphrase. However, if you perform a Kickstart installation, you can save encryption passphrases and create backup encryption passphrases during the installation. See the xref:advanced-install:index.adoc[_Performing an advanced RHEL installation_] document for information.
 ====
 
-. Optional: Click the *Full disk summary and bootloader* link in the lower left-hand side of the window to select which storage device contains the boot loader. For more information, see  <<boot-loader-installation_configuring-system-settings>>.
+. Optional: Click the *Full disk summary and bootloader* link in the lower left-hand side of the window to select which storage device contains the boot loader. For more information, see  xref:standard-install:assembly_graphical-installation.adoc#boot-loader-installation_configuring-system-settings[Configuring boot loader].
 +
 [NOTE]
 ====
@@ -103,7 +103,7 @@ If you *delete* a partition, all data on that partition is lost. If you want to 
 Alternatively, you can click *Delete all*, this deletes all existing partitions on all disks and makes this space available to {ProductName}. Existing data on all disks is lost.
 ====
 
-.. Click *Reclaim space* to apply the changes and return to <<installation-summary_graphical-installation>>.
+.. Click *Reclaim space* to apply the changes and return to xref:standard-install:assembly_graphical-installation.adoc#installation-summary_graphical-installation[The Installation Summary window].
 
 
 [IMPORTANT]

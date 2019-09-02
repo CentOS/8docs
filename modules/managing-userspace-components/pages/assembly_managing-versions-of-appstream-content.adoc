@@ -13,11 +13,11 @@ Content in the AppStream repository can be available in multiple versions, corre
 
 // IMPORTANT: {rh} designs versions and dependencies of packages, modules and streams in AppStream such that the complexity described below is minimized.
 
-* xref:modular-dependencies-and-stream-changes_{context}[] describes modular dependency rules.
-* xref:interaction-of-modular-and-non-modular-dependencies_{context}[] provides details for how the dependencies of module streams affect handling of package dependencies.
-* xref:resetting-module-streams_{context}[] provides steps for resetting modules to their initial state.
-* xref:disabling-all-streams-of-a-module_{context}[] provides steps for disabling completely a module and all its streams.
-* xref:switching-to-a-later-stream_{context}[] provides steps for changing to a later stream of a module.
+* xref:assembly_managing-versions-of-appstream-content.adoc#modular-dependencies-and-stream-changes_{context}[Modular dependencies and stream changes] describes modular dependency rules.
+* xref:assembly_managing-versions-of-appstream-content.adoc#interaction-of-modular-and-non-modular-dependencies_{context}[Interaction of modular and non-modular dependencies] provides details for how the dependencies of module streams affect handling of package dependencies.
+* xref:assembly_managing-versions-of-appstream-content.adoc#resetting-module-streams_{context}[Resetting module streams] provides steps for resetting modules to their initial state.
+* xref:assembly_managing-versions-of-appstream-content.adoc#disabling-all-streams-of-a-module_{context}[Disabling all streams of a module] provides steps for disabling completely a module and all its streams.
+* xref:assembly_managing-versions-of-appstream-content.adoc#switching-to-a-later-stream_{context}[Switching to a later stream] provides steps for changing to a later stream of a module.
 
 
 include::ROOT:partial$appstream/con_modular-dependencies-and-stream-changes.adoc[leveloffset=+1]

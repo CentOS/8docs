@@ -9,7 +9,7 @@ The {productname} installation program automatically detects and installs your s
 .Installing RHEL as an additional operating system on an existing system
 *Record:* Partitions used on the system. This information can include file system types, device node names, file system labels, and sizes, and allows you to identify specific partitions during the partitioning process. If one of the operating systems is a Unix operating system, {productname} may report the device names differently. Additional information can be found by executing the equivalent of the *mount* command and the *blkid* command, and in the */etc/fstab* file.
 
-If multiple operating systems are installed, the {productname} installation program attempts to automatically detect them, and to configure boot loader to boot them. You can manually configure additional operating systems if they are not detected automatically. See _Configuring boot loader_ in <<configuring-software-settings_graphical-installation>> for more information.
+If multiple operating systems are installed, the {productname} installation program attempts to automatically detect them, and to configure boot loader to boot them. You can manually configure additional operating systems if they are not detected automatically. See _Configuring boot loader_ in xref:standard-install:assembly_graphical-installation.adoc#configuring-software-settings_graphical-installation[Configuring software options] for more information.
 
 .Installing RHEL from an image on a local hard drive
 *Record:* The hard drive and directory that holds the image.

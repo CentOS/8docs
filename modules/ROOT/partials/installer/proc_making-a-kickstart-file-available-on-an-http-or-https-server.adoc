@@ -8,13 +8,7 @@ This procedure describes how to store the Kickstart script file on an HTTP or HT
 
 * You must have administrator level access to a server with {RHEL8} on the local network.
 * The system to be installed must be able to connect to the server.
-ifdef::installation-advanced-title[]
-* Firewall on the server must allow connections from the system you are installing to. See xref:ports-for-network-based-installation_making-kickstart-files-available-to-the-installation-program[] for more information.
-endif::[]
-ifndef::installation-advanced-title[]
-* Firewall on the server must allow connections from the system you are installing to.
-endif::[]
-
+* Firewall on the server must allow connections from the system you are installing to. See xref:assembly_making-kickstart-files-available-to-the-installation-program.adoc#ports-for-network-based-installation_making-kickstart-files-available-to-the-installation-program[Ports for network-based installation] for more information.
 
 .Procedure
 
@@ -44,4 +38,3 @@ NOTE: When specifying the location of the Kickstart file, use `http://` or `http
 .Additional resources
 
 * For more information about HTTP and FTP servers, see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/[Deploying different types of servers].
-

@@ -10,13 +10,7 @@ This procedure describes how to store the Kickstart script file on an NFS server
 
 * You must have administrator level access to a server with {RHEL8} on the local network.
 * The system to be installed must be able to connect to the server.
-ifdef::installation-advanced-title[]
-* Firewall on the server must allow connections from the system you are installing to. See xref:ports-for-network-based-installation_making-kickstart-files-available-to-the-installation-program[] for more information.
-endif::[]
-ifndef::installation-advanced-title[]
-* Firewall on the server must allow connections from the system you are installing to.
-endif::[]
-
+* Firewall on the server must allow connections from the system you are installing to. See xref:assembly_making-kickstart-files-available-to-the-installation-program.adoc#ports-for-network-based-installation_making-kickstart-files-available-to-the-installation-program[Ports for network-based installation] for more information.
 
 .Procedure
 
@@ -63,9 +57,4 @@ NOTE: When specifying the Kickstart source, use `nfs:` as the protocol, the serv
 
 .Additional resources
 
-ifdef::installation-advanced-title[]
-* For details on setting up TFTP server for PXE boot from network, see xref:preparing-for-a-network-install_installing-rhel-as-an-experienced-user[].
-endif::[]
-ifndef::installation-advanced-title[]
-* For details on setting up TFTP server for PXE boot from network, see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index#preparing-for-a-network-install_installing-rhel-as-an-experienced-user[Preparing to install from the network using PXE] in the _Performing an advanced RHEL installation_ document.
-endif::[]
+* For details on setting up TFTP server for PXE boot from network, see xref:assembly_preparing-for-a-network-install.adoc[Preparing to install from the network using PXE].

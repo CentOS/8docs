@@ -43,7 +43,7 @@ To determine the size of the swap partition automatically and also allow extra s
 +
 The size assigned will be equivalent to the swap space assigned by [option]`--recommended` plus the amount of RAM on your system.
 +
-For the swap sizes assigned by these commands, see xref:recommended-partitioning-scheme_partitioning-reference[] for AMD64, Intel 64, and 64-bit ARM systems.
+For the swap sizes assigned by these commands, see xref:assembly_partitioning-reference.adoc#recommended-partitioning-scheme_partitioning-reference[Recommended partitioning scheme] for AMD64, Intel 64, and 64-bit ARM systems.
 +
 //, xnotref:sect-recommended-partitioning-scheme-ppc[] for IBM Power{nbsp}Systems servers, and xnotref:sect-recommended-partitioning-scheme-s390[] for IBM{nbsp}Z.
 ======
@@ -82,7 +82,7 @@ When creating a new logical volume, you must either specify its size statically 
 
 * [option]`--maxsize=` - The maximum size in MiB when the logical volume is set to grow. Specify an integer value here such as `500` (do not include the unit).
 
-* [option]`--recommended` - Use this option when creating a logical volume to determine the size of this volume automatically, based on your system's hardware. For details about the recommended scheme, see xref:recommended-partitioning-scheme_partitioning-reference[] for AMD64, Intel 64, and 64-bit ARM systems.
+* [option]`--recommended` - Use this option when creating a logical volume to determine the size of this volume automatically, based on your system's hardware. For details about the recommended scheme, see xref:assembly_partitioning-reference.adoc#recommended-partitioning-scheme_partitioning-reference[Recommended partitioning scheme] for AMD64, Intel 64, and 64-bit ARM systems.
 +
 //, xnotref:sect-recommended-partitioning-scheme-ppc[] for IBM Power{nbsp}Systems, and xnotref:sect-recommended-partitioning-scheme-s390[] for IBM{nbsp}Z.
 
@@ -174,4 +174,3 @@ This limitation only applies to newly created logical volume and volume group na
 * For more information regarding LVM, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_logical_volumes/index[Configuring and managing logical volumes] document.
 
 * If you lose the LUKS passphrase, any encrypted partitions and their data is completely inaccessible. There is no way to recover a lost passphrase. However, you can save encryption passphrases with the [option]`--escrowcert` and create backup encryption passphrases with the [option]`--backuppassphrase` options.
-

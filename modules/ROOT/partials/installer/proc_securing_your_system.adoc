@@ -6,13 +6,7 @@ Complete the following security-related steps immediately after you install {pro
 [discrete]
 == Prerequisites
 
-ifdef::installation-title[]
-* You have completed the graphical installation according to the recommended workflow described in <<graphical-installation-workflow_graphical-installation>>.
-endif::[]
-ifndef::installation-title[]
-* You have completed the graphical installation.
-endif::[]
-
+* You have completed the graphical installation according to the recommended workflow described in xref:standard-install:con_installation-workflow.adoc[Installation workflow].
 
 [discrete]
 == Procedure

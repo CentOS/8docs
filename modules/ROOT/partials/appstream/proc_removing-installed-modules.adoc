@@ -10,13 +10,7 @@ Packages installed from this module stream not listed in any of its profiles rem
 
 * A module which you want removed must have already installed some profiles.
 
-ifdef::appstream-book[]
-* You must understand xref:modular-dependencies-and-stream-changes_managing-versions-of-appstream-content[modular dependency resolution].
-endif::[]
-ifndef::appstream-book[]
-* You must understand modular dependency resolution.
-endif::[]
-
+* You must understand xref:assembly_managing-versions-of-appstream-content.adoc#modular-dependencies-and-stream-changes_managing-versions-of-appstream-content[modular dependency resolution].
 
 .Procedure
 
@@ -48,4 +42,3 @@ Replace __package__ with the packages listed in previous step. You can supply mu
 The currently enabled module stream remains enabled.
 
 . Optionally, reset or disable the stream.
-

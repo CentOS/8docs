@@ -6,5 +6,4 @@
 You can press kbd:[Shift + Print Screen] at any time during the graphical installation to capture the current screen. These screenshots are saved to [filename]`/tmp/anaconda-screenshots`.
 
 //TODO: uncomment when available
-//Additionally, you can use the [command]#autostep --autoscreenshot# command in a Kickstart file to capture and save each step of the installation automatically. See xref:../appendixes/Kickstart_Syntax_Reference.adoc#sect-kickstart-commands-autostep[autostep (optional) - Go Through Every Screen] for details.
-
+//Additionally, you can use the [command]#autostep --autoscreenshot# command in a Kickstart file to capture and save each step of the installation automatically. See xref:appendixes/Kickstart_Syntax_Reference.adoc#sect-kickstart-commands-autostep[autostep (optional) - Go Through Every Screen] for details.

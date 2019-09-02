@@ -46,6 +46,4 @@ A `/boot` partition, a `/` (root) volume, and a `swap` volume proportionate to t
 
 .. Click *Done* to confirm any changes and return to the *Installation Summary* window.
 
-ifdef::installation-title[]
-Continue with xref:adding-a-mount-point_manual-partitioning[adding mount points], xref:configuring-a-mount-point-file-system_manual-partitioning[configuring the individual mount points], and xref:customizing-a-partition-or-volume_manual-partitioning[configuring the underlying partitions or volumes].
-endif::[]
+Continue with xref:assembly_graphical-installation.adoc#adding-a-mount-point_manual-partitioning[adding mount points], xref:assembly_graphical-installation.adoc#configuring-a-mount-point-file-system_manual-partitioning[configuring the individual mount points], and xref:assembly_graphical-installation.adoc#customizing-a-partition-or-volume_manual-partitioning[configuring the underlying partitions or volumes].

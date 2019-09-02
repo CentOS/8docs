@@ -39,7 +39,7 @@ This procedure uses *TigerVNC* as the VNC viewer. Specific instructions for othe
 # yum install tigervnc
 ----
 +
-* You have set up a network boot server to start the installation on the target system. For more information, see <<network-install-overview_preparing-for-a-network-install>>.
+* You have set up a network boot server to start the installation on the target system. For more information, see xref:advanced-install:assembly_preparing-for-a-network-install.adoc[Preparing to install from the network using PXE].
 
 * You have configured the target system to use the boot options for a VNC Connect installation. For more information, see *add link to updated boot options when they are ready*.
 

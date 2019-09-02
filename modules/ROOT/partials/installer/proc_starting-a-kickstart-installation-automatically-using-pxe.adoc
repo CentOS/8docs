@@ -36,11 +36,6 @@ kernel vmlinuz inst.ks=http://10.32.5.1/mnt/archive/RHEL-8/8.x/x86_64/kickstarts
 +
 The installation begins now, using the installation options specified in the Kickstart file. If the Kickstart file is valid and contains all required commands, the installation is completely automated.
 
-ifdef::installation-advanced-title[]
-
 .Additional resources
 
-* For information about setting up a PXE server, see xref:preparing-for-a-network-install_installing-rhel-as-an-experienced-user[].
-
-endif::[]
-
+* For information about setting up a PXE server, see xref:assembly_preparing-for-a-network-install.adoc[Preparing to install from the network using PXE].
