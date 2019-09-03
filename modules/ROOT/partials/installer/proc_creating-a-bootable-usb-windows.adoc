@@ -1,11 +1,11 @@
 [id="creating-a-bootable-usb-windows_{context}"]
 = Creating a bootable USB device on Windows
 
-Follow the steps in this procedure to create a bootable USB device on a Windows system. The procedure varies depending on the tool. Red Hat recommends using Fedora Media Writer, available for download at https://github.com/FedoraQt/MediaWriter/releases.
+Follow the steps in this procedure to create a bootable USB device on a Windows system. The procedure varies depending on the tool. {OrgName} recommends using Fedora Media Writer, available for download at https://github.com/FedoraQt/MediaWriter/releases.
 
 [NOTE]
 ====
-Fedora Media Writer is a community product and is not supported by Red Hat. You can report any issues with the tool at https://github.com/FedoraQt/MediaWriter/issues.
+Fedora Media Writer is a Fedora community product and is not supported by {OrgName}. You can report any issues with the tool at https://github.com/FedoraQt/MediaWriter/issues.
 ====
 
 [discrete]

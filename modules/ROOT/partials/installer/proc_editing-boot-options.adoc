@@ -34,7 +34,7 @@ The `boot:` prompt also accepts `dracut` kernel options. A list of options is av
 [discrete]
 == Editing the > prompt
 
-You can use the `>` prompt to edit predefined boot options. For example, select *Test this media and install Red Hat Enterprise Linux 8.0.0* from the boot menu to display a full set of options.
+You can use the `>` prompt to edit predefined boot options. For example, select *Test this media and install {ProductName}{nbsp}{ProductNumber}* from the boot menu to display a full set of options.
 
 [NOTE]
 ====

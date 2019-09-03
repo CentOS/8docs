@@ -56,7 +56,7 @@ YES/NO
 |===
 endif::[]
 
-This section contains instructions about downloading a {productname} installation image from the Red Hat Customer Portal or by using the [command]`curl` command.
+This section contains instructions about downloading a {productname} installation image from the Download page or by using the [command]`curl` command.
 
 //include::ROOT:partial$installer/proc_processing-your-subscription-request.adoc[leveloffset=+1]
 include::ROOT:partial$installer/proc_downloading-a-specific-beta-iso-image.adoc[leveloffset=+1]

@@ -1,7 +1,7 @@
 [id="preparing-for-a-driver-update-during-installation_{context}"]
 = Preparing for a driver update during installation
 
-If a driver update is necessary and available for your hardware, Red{nbsp}Hat, your hardware vendor, or another trusted third party will typically provide it in the form of an image file in ISO format. Once you obtain the ISO image, you must decide on the method you want to use to perform the driver update.
+If a driver update is necessary and available for your hardware, your hardware vendor or another trusted third party will typically provide it in the form of an image file in ISO format. Once you obtain the ISO image, you must decide on the method you want to use to perform the driver update.
 
 The available methods are:
 

@@ -30,7 +30,7 @@ include::partial$local-attributes.adoc[]
 [id="installing-red-hat-enterprise-linux-on-ibm-power-system-lc-servers_{context}"]
 = Installing {ProductName} on IBM Power System LC servers
 
-This guide helps you install Red Hat Enterprise Linux on a Linux on Power Systems LC server.  Use these instructions for the following IBM Power System servers:
+This guide helps you install {rel8} on a Linux on Power Systems LC server.  Use these instructions for the following IBM Power System servers:
 
 * 8335-GCA (IBM Power System S822LC)
 * 8335-GTA (IBM Power System S822LC)

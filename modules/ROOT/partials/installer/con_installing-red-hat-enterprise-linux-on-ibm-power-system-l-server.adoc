@@ -1,7 +1,7 @@
 [id="installing-red-hat-enterprise-linux-on-ibm-power-system-l-server_{context}"]
 =  Overview
 
-Use this information to install Red Hat Enterprise Linux on a non-virtualized or bare metal IBM Power System L server. This procedure follows these general steps:
+Use this information to install {rel8} on a non-virtualized or bare metal IBM Power System L server. This procedure follows these general steps:
 
 * Complete prerequisites
 
@@ -19,4 +19,4 @@ Use this information to install Red Hat Enterprise Linux on a non-virtualized or
 
 ** Connecting from Windows notebook
 
-* Configuring Petitboot and installing Red Hat Enterprise Linux
+* Configuring Petitboot and installing {rel8}

@@ -14,11 +14,11 @@ To complete this procedure you must be familiar with {productname} and your envi
 [discrete]
 == Procedure
 
-. From the boot menu, select *Install Red Hat Enterprise Linux 8.0*.
+. From the boot menu, select *Install {ProductName} {ProductNumber}*.
 
 . Press the *Enter* key on your keyboard.
 
-. From the *Welcome to Red Hat Enterprise Linux 8.0* window, select your language and location.
+. From the *Welcome to {ProductName} {ProductNumber}* window, select your language and location.
 
 . Click *Continue* to proceed to the *Installation Summary* window.
 +

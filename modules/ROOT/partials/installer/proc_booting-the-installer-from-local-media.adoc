@@ -29,10 +29,10 @@ You have created bootable installation media (USB, CD or DVD). See xref:standard
 You might need to press a specific key or combination of keys to boot from the media or configure the Basic Input/Output System (BIOS) of your system to boot from the media. For more information, see the documentation that came with your system.
 ====
 
-. The *{productname} boot* window opens and displays information about a variety of available boot options.
+. The *{rel8} boot* window opens and displays information about a variety of available boot options.
 
 . Use the arrow keys on your keyboard to select the boot option that you require, and press *Enter* to select the boot option.
-The *Welcome to Red Hat Enterprise Linux* window opens and you can install {productname} using the graphical user interface.
+The *Welcome to {rel8}* window opens and you can install {productname} using the graphical user interface.
 +
 [NOTE]
 ====

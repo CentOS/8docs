@@ -31,7 +31,7 @@ Select Rescan devices if the USB device does not appear. If your device is not d
 +
 . Record the UUID of the USB device. For example, the UUID of the USB device in the above example is 2015-10-30-11-05-03-00.
 +
-. Select CentOS 8.x (64-bit kernel) and press e (Edit) to open the Petitboot Option Editor window.
+. Select {ProductName} 8.x (64-bit kernel) and press e (Edit) to open the Petitboot Option Editor window.
 +
 
 . Move the cursor to the Boot arguments section and add the following information:
@@ -58,4 +58,4 @@ qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
 +
 . *Select* OK to save your options and return to the Main menu.
 
-. Verify that Install Red Hat Enterprise Linux 8.x (64-bit kernel) is selected and then *press* Enter to begin your installation.
+. Verify that Install {ProductName} 8.x (64-bit kernel) is selected and then *press* Enter to begin your installation.

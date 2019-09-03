@@ -30,7 +30,7 @@ include::partial$local-attributes.adoc[]
 [id="installing-red-hat-enterprise-linux-on-ibm-power-system-l-server_{context}"]
 = Installing {ProductName} on IBM Power System L server
 
-This guide helps you install Red Hat Enterprise Linux on an IBM Power System L server.  Use these instructions for the following IBM Power System servers:
+This guide helps you install {rel8} on an IBM Power System L server.  Use these instructions for the following IBM Power System servers:
 
 * 88247-22L (IBM Power System S822L)
 * 8247-21L (IBM Power System S812L)

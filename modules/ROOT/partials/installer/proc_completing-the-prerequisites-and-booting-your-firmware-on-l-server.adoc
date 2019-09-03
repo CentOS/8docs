@@ -1,7 +1,7 @@
 [id="completing-the-prerequisites-and-booting-your-firmware-on-l-server_{context}"]
 = Completing the prerequisites and booting your firmware on L server
 
-Before you install Red Hat Enterprise Linux, ensure that you have the following items:
+Before you install {rel8}, ensure that you have the following items:
 
 * Ethernet cable
 

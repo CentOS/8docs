@@ -21,7 +21,7 @@ If it is not a requirement to configure these disks during installation, disconn
 .NVDIMM devices
 To use a Non-Volatile Dual In-line Memory Module (NVDIMM) device as storage, the following conditions must be satisfied:
 
-* Version of Red Hat Enterprise Linux is 7.6 or later.
+* Version of {ProductName} is 7.6 or later.
 * The architecture of the system is Intel 64 or AMD64.
 * The device is configured to sector mode. Anaconda can reconfigure NVDIMM devices to this mode.
 * The device must be supported by the nd_pmem driver.
@@ -32,7 +32,7 @@ Booting from an NVDIMM device is possible under the following additional conditi
 * The device must be supported by firmware available on the system, or by a UEFI driver. The UEFI driver may be loaded from an option ROM of the device itself.
 * The device must be made available under a namespace.
 
-To take advantage of the high performance of NVDIMM devices during booting, place the `/boot` and `/boot/efi` directories on the device. 
+To take advantage of the high performance of NVDIMM devices during booting, place the `/boot` and `/boot/efi` directories on the device.
 
 [NOTE]
 ====

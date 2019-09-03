@@ -1,7 +1,7 @@
 [id="configuring-petitboot-for-network-installation_{context}"]
 = Configuring Petitboot for network installation
 
-After the system powers on, the Petitboot bootloader scans local boot devices and network interfaces to find boot options that are available to the system. To install Red Hat Enterprise Linux from a network server, you need to set up a network interface (that is not the BMC network interface).
+After the system powers on, the Petitboot bootloader scans local boot devices and network interfaces to find boot options that are available to the system. To install {rel8} from a network server, you need to set up a network interface (that is not the BMC network interface).
 
 Set up a network connection and provide the network boot detail to Petitboot by following these steps:
 
@@ -49,4 +49,3 @@ You can accept the defaults for the rest of the fields.
 .. After you set your netboot options, select OK and press Enter.
 
 .. On the Petitboot main window, select User Item 1 as your boot option and press Enter.
-

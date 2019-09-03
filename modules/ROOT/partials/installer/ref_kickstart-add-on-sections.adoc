@@ -11,6 +11,3 @@ To use an add-on in your Kickstart file, use the `%addon __addon_name__ __option
 ----
 
 The `%addon` command does not include any options of its own - all options are dependent on the actual add-on.
-// For more information about add-ons, see the Red Hat Enterprise Linux 7 Anaconda Customization Guide.
-
-

@@ -8,7 +8,7 @@ Follow the steps in this procedure to boot the {productname} installation from a
 
 * You have configured a TFTP server, and there is a network interface in your system that supports PXE. See *Additional resources* for more information.
 * You have configured your system to boot from the network interface. This option is in the BIOS, and can be labeled *Network Boot* or *Boot Services*.
-* You have verified that the BIOS is configured to boot from the specified network interface. Some BIOS systems specify the network interface as a possible boot device, but do not support the PXE standard. See your hardware's documentation for more information. When you have properly enabled PXE booting, the system can boot the Red Hat Enterprise Linux installation program without any other media.
+* You have verified that the BIOS is configured to boot from the specified network interface. Some BIOS systems specify the network interface as a possible boot device, but do not support the PXE standard. See your hardware's documentation for more information. When you have properly enabled PXE booting, the system can boot the {rel8} installation program without any other media.
 
 [discrete]
 == Procedure
@@ -30,10 +30,10 @@ Depending on your hardware, some network setup and diagnostic information can be
 ====
 In some instances, boot options are not displayed. If this occurs, press the *Enter* key on your keyboard or wait until the boot window opens.
 ====
-The *{productname} boot* window opens and displays information about a variety of available boot options.
+The *{rel8} boot* window opens and displays information about a variety of available boot options.
 +
 . Use the arrow keys on your keyboard to select the boot option that you require, and press *Enter* to select the boot option.
-The *Welcome to Red Hat Enterprise Linux* window opens and you can install {productname} using the graphical user interface.
+The *Welcome to {rel8}* window opens and you can install {productname} using the graphical user interface.
 +
 [NOTE]
 ====

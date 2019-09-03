@@ -5,6 +5,4 @@
 
 Components made available as Application Streams can be packaged as modules or RPM packages and are delivered through the AppStream repository in {rel8}. Each AppStream component has a given life cycle.
 
-// Too early to mention in 8 ga: In Red Hat Enterprise Linux 7, Application Stream components are typically packaged as Software Collections.
-
 NOTE: Not all modules are Application Streams. Dependencies of other modules are not considered AppStream components.

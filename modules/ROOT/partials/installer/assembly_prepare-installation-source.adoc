@@ -9,7 +9,7 @@ The Boot ISO image file does not include any repositories or software packages; 
 
 [IMPORTANT]
 ====
-Creating an installation source is required only for the Boot ISO image. Red Hat recommends the *Binary DVD* ISO image as the preferred method to install {productname}.
+Creating an installation source is required only for the Boot ISO image. {OrgName} recommends the *Binary DVD* ISO image as the preferred method to install {productname}.
 ====
 
 include::ROOT:partial$installer/con_types-of-installation-source.adoc[leveloffset=+1]

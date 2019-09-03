@@ -1,6 +1,11 @@
 [id="syspurpose_{context}"]
 = syspurpose
 
+[NOTE]
+====
+This command is only used in Red Hat Enterprise Linux. CentOS 8 has no concept of "system purpose".
+====
+
 The [command]`syspurpose` Kickstart command is optional. Use it to set the system purpose which describes how the system will be used after installation. This information helps apply the correct subscription entitlement to the system.
 
 
@@ -41,4 +46,3 @@ syspurpose --role="Red Hat Enterprise Linux Server"
 ----
 
 * While it is strongly recommended that you configure System Purpose, it is an optional feature of the {ProductName} installation program. If you want to enable System Purpose after the installation completes, you can do so using the `syspurpose` command-line tool.
-

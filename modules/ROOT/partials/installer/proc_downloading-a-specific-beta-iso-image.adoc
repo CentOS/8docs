@@ -4,7 +4,7 @@
 
 //TODO:Add list of packages available from the RHEL 8 manifest
 
-Follow this procedure to download a {productname} {productnumber} ISO image from the Red Hat Customer Portal.
+Follow this procedure to download a {productname} {productnumber} ISO image from the CentOS website.
 
 [NOTE]
 ====
@@ -18,7 +18,7 @@ See for more information.
 .Prerequisites
 
 * You have an active Red Hat subscription.
-* You are logged in to the *Product Downloads* section of the Red Hat Customer Portal at link:https://access.redhat.com/downloads[].
+* You are logged in to the *Product Downloads* section of the project website at link:https://wiki.centos.org/Download[].
 
 .Procedure
 

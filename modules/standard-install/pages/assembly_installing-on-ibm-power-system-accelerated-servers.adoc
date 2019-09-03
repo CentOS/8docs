@@ -30,7 +30,7 @@ include::partial$local-attributes.adoc[]
 [id="installing-on-ibm-power-system-accelerated-servers_{context}"]
 = Installing {ProductName} on IBM Power System accelerated servers
 
-This guide helps you install Red Hat Enterprise Linux on an IBM Power Systems accelerated server (AC).  Use these instructions for the following IBM Power System servers:
+This guide helps you install {rel8} on an IBM Power Systems accelerated server (AC).  Use these instructions for the following IBM Power System servers:
 
 * 8335-GTG (IBM Power System AC922)
 * 8335-GTH (IBM Power System AC922)

@@ -9,7 +9,7 @@ The target of the `inst.repo=` option must be one of the following installation 
 
 * an installable tree, which is a directory structure containing the installation program images, packages, and repository data as well as a valid `.treeinfo` file
 * a DVD (a physical disk present in the system DVD drive)
-* an ISO image of the full Red Hat Enterprise Linux installation DVD, placed on a hard drive or a network location accessible to the system.
+* an ISO image of the full {rel8} installation DVD, placed on a hard drive or a network location accessible to the system.
 +
 You can use the `inst.repo=` boot option to configure different installation methods using different formats. The following table contains details of the `inst.repo=` boot option syntax:
 +

@@ -15,9 +15,9 @@ Follow these steps to configure Petitboot:
 [literal,subs="+quotes,verbatim"]
 ----
 [USB: sdb1 / 2015-10-30-11-05-03-00]
-    Rescue a Red Hat Enterprise Linux system (64-bit kernel)
-    Test this media & install Red Hat Enterprise Linux 8.0  (64-bit kernel)
- *  Install Red Hat Enterprise Linux 8.0 (64-bit kernel)
+    Rescue a CentOS 8 system (64-bit kernel)
+    Test this media & install CentOS 8  (64-bit kernel)
+ *  Install CentOS 8 (64-bit kernel)
 ----
 +
 [NOTE]
@@ -27,7 +27,7 @@ Select Rescan devices if the USB device does not appear. If your device is not d
 +
 . Record the UUID of the USB device. For example, the UUID of the USB device in the above example is 2015-10-30-11-05-03-00.
 
-. Select Install Red Hat Enterprise Linux 8.0 (64-bit kernel) and press e (Edit) to open the Petitboot Option Editor window.
+. Select Install CentOS 8 (64-bit kernel) and press e (Edit) to open the Petitboot Option Editor window.
 
 . Move the cursor to the Boot arguments section and add the following information:
 +
@@ -52,4 +52,4 @@ qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
 
 . Select OK to save your options and return to the Main menu.
 
-. Verify that Install Red Hat Enterprise Linux 8.x (64-bit kernel) is selected and then press Enter to begin your installation.
+. Verify that Install CentOS 8.x (64-bit kernel) is selected and then press Enter to begin your installation.

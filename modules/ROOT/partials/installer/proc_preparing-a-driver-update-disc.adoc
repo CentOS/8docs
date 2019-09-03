@@ -6,7 +6,7 @@ This procedure describes how to prepare a driver update on a CD and DVD.
 [discrete]
 == Prerequisites
 
-* You received the driver update ISO image from Red Hat, your hardware vendor, or a trusted third-party vendor.
+* You received the driver update ISO image from your hardware vendor, or a trusted third-party vendor.
 * You burned the driver update ISO image to a CD or DVD.
 
 [WARNING]

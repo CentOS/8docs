@@ -3,6 +3,6 @@
 
 Remove any installation media if it is not ejected automatically upon reboot.
 
-{rel8} starts after your system's normal power-up sequence is complete. If your system was installed on a workstation with the X Window System, applications to configure your system are launched. These applications guide you through initial configuration and you can set your system time and date, register your system with Red{nbsp}Hat, and more. If the X Window System is not installed, a `login:` prompt is displayed.
+{rel8} starts after your system's normal power-up sequence is complete. If your system was installed on a workstation with the X Window System, applications to configure your system are launched. These applications guide you through initial configuration and you can set your system time and date, and more. If the X Window System is not installed, a `login:` prompt is displayed.
 
 To learn how to complete initial setup, register, and secure your system, see xref:standard-install:assembly_post-installation-tasks.adoc[Completing post-installation tasks].

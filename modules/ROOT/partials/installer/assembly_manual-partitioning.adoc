@@ -12,7 +12,7 @@ You can use manual partitioning to configure your disk partitions and mount poin
 Before installation, you should consider whether you want to use partitioned or unpartitioned disk devices. For more information, see the Knowledgebase article at https://access.redhat.com/solutions/163853.
 ====
 
-An installation of {ProductName} requires a minimum of one partition but Red{nbsp}Hat recommends using at least the following partitions or volumes: `PReP`, `/`, `/home`, `/boot`, and `swap`. You can also create additional partitions and volumes as you require.
+An installation of {ProductName} requires a minimum of one partition but {OrgName} recommends using at least the following partitions or volumes: `PReP`, `/`, `/home`, `/boot`, and `swap`. You can also create additional partitions and volumes as you require.
 
 [NOTE]
 ====

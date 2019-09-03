@@ -8,13 +8,11 @@ Before you power on the system, ensure that you have the following items:
 * USB Keyboard
 * Power cords and outlet for your system
 
-These instructions require that you have a network server set up with Red Hat Enterprise Linux 7.x. Download Red Hat Enterprise Linux 7.x LE ALT at link:https://wiki.centos.org/Download[].
+These instructions require that you have a network server set up with {ProductName} 7.x. Download {ProductName} 7.x LE ALT at link:https://wiki.centos.org/Download[].
 
-. Take the link for *Downloads for Red Hat Enterprise Linux for Power, little endian*.
+. Follow the link above to the CentOS Download page.
 
-. Log into your Red Hat account (if you have not already done so). Select *Red Hat Enterprise Linux for Power 9* from the Product Variant list.
-
-. Look for the Red Hat Enterprise Linux for Power 9 (v. 7.x for ppc64le) ISO file. The downloaded ISO file will include *_centos-alt......iso_* rather than *_centos....iso_* in the path name.
+. Under the *AltArch Releases* heading, look for the ISO file for version 7, architecture "power9", and download it.
 
 Complete these steps:
 

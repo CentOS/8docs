@@ -32,7 +32,7 @@ Use the `curl` command to download installation images directly from a specific 
 * If your Linux distribution does not use yum, dnf, or apt, or if you do not use Linux, download the most appropriate software package from the https://curl.haxx.se/download.html[curl web site].
 ====
 
-* You have navigated to the *Product Downloads* section of the Red Hat Customer Portal at link:https://access.redhat.com/downloads[], and selected the variant, version, and architecture that you require. You have right-clicked on the required ISO image file, and selected *Copy Link Location* to copy the URL of the ISO image file to your clipboard.
+* You have navigated to the *Download* section of the CentOS project website at link:https://wiki.centos.org/Download[], and located the variant, version, and architecture that you require. You have right-clicked on the required ISO image file, and selected *Copy Link Location* to copy the URL of the ISO image file to your clipboard.
 
 [discrete]
 == Procedure

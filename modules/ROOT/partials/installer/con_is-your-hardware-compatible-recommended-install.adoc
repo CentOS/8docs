@@ -1,8 +1,6 @@
 [id="is-your-hardware-compatible_{context}"]
 = Hardware compatibility
 
-Red Hat works closely with hardware vendors on supported hardware.
-
 * To verify that your hardware is supported, see the Red Hat Hardware Compatibility List, available at https://access.redhat.com/ecosystem/search/#/category/Server.
 
 * To view supported memory sizes or CPU counts, see https://access.redhat.com/articles/rhel-limits for information.

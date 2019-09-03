@@ -1,21 +1,21 @@
 [id="types-of-installation-media_{context}"]
 = Select the required installation image
 
-Two {productname} {productnumber} installation images are available from the Red Hat Customer Portal.
+Two {productname} {productnumber} installation images are available from the Downloads page.
 
-Binary DVD ISO image file::
+Everything DVD ISO image file::
 +
-A full installation program that contains the BaseOS and AppStream repositories and allows you to complete the installation without additional repositories. Installing {productname} from the Binary DVD ISO is the easiest and the recommended method of performing a standard {rel8} installation.
+A full installation program that contains the BaseOS and AppStream repositories and allows you to complete the installation without additional repositories. Installing {productname} from the Everything DVD ISO is the easiest and the recommended method of performing a standard {rel8} installation.
 //See [citetitle]_Using Application Stream_, which explains the difference between the BaseOS and AppStream repositories.
 +
 [IMPORTANT]
 ====
-* It is *recommended* that you use the Binary DVD ISO image file to install {rel8}.
+* It is *recommended* that you use the Everything DVD ISO image file to install {rel8}.
 ====
 
 Boot ISO image file::
 +
-The Boot ISO image is a minimal installation that requires access to the BaseOS and AppStream repositories to install software packages. The repositories are part of the Binary DVD ISO image that is available for download from https://access.redhat.com/home. Download and unpack the Binary DVD ISO image to access the repositories.
+The Boot ISO image is a minimal installation that requires access to the BaseOS and AppStream repositories to install software packages. The repositories are part of the Everything DVD ISO image that is available for download from https://wiki.centos.org/Download. Download and unpack the Everything DVD ISO image to access the repositories.
 
 The following table contains information about the images that are available for the supported architectures.
 
@@ -23,12 +23,12 @@ The following table contains information about the images that are available for
 [options="header"]
 |===
 | Architecture  | Installation DVD  | Boot DVD
-| AMD64 and Intel 64 | x86_64 Binary DVD ISO image file | x86_64 Boot ISO image file
-| ARM 64  | AArch64 Binary DVD ISO image file | AArch64 Boot ISO image file
-| IBM POWER | ppc64le Binary DVD ISO image file  | ppc64le Boot ISO image file
+| AMD64 and Intel 64 | x86_64 Everything DVD ISO image file | x86_64 Boot ISO image file
+| ARM 64  | AArch64 Everything DVD ISO image file | AArch64 Boot ISO image file
+| IBM POWER | ppc64le Everything DVD ISO image file  | ppc64le Boot ISO image file
 |===
 
 [discrete]
 === Additional Resources
 
-* For instructions on how to access the Binary DVD ISO image repositories, see xref:standard-install:assembly_preparing-for-your-installation.adoc#prepare-installation-source_preparing-for-your-installation[Preparing an installation source] for more information.
+* For instructions on how to access the Everything DVD ISO image repositories, see xref:standard-install:assembly_preparing-for-your-installation.adoc#prepare-installation-source_preparing-for-your-installation[Preparing an installation source] for more information.

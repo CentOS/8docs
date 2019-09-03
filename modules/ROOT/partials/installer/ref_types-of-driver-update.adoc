@@ -1,7 +1,7 @@
 [id="types-of-driver-update_{context}"]
 = Types of driver update
 
-Red Hat, your hardware vendor, or a trusted third party provides the driver update as an ISO image file. Once you receive the ISO image file, choose the type of driver update.
+Your hardware vendor or a trusted third party provides the driver update as an ISO image file. Once you receive the ISO image file, choose the type of driver update.
 
 .Types of driver update
 
@@ -19,6 +19,5 @@ Manual:: Manually specify a path to a driver update image or an RPM package. You
 ====
 
 .Limitations
-On UEFI systems with the Secure Boot technology enabled, all drivers must be signed with a valid certificate. Red Hat drivers are signed by one of Red Hat's private keys and authenticated by its corresponding public key in the kernel. If you load additional, separate drivers, verify that they are signed.
 
-//For more information about signing custom drivers, see the _Red Hat Enterprise Linux System Administrator's_ Guide.
+On UEFI systems with the Secure Boot technology enabled, all drivers must be signed with a valid certificate. {ProductName} drivers are signed by one of {OrgName}'s private keys and authenticated by its corresponding public key in the kernel. If you load additional, separate drivers, verify that they are signed.

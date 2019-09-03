@@ -8,7 +8,7 @@ This section contains information about how to complete initial setup on a {prod
 If you selected the *Server with GUI* base environment during installation, the *Initial Setup* window opens the first time you reboot your system after the installation process is complete.
 ====
 
-The information displayed in the *Initial Setup* window might vary depending on what was configured during installation. At a minimum, the *Licensing* and *Subscription Manager* options are displayed.
+The information displayed in the *Initial Setup* window might vary depending on what was configured during installation. At a minimum, the *License information* option is displayed.
 
 
 [discrete]
@@ -19,9 +19,9 @@ The information displayed in the *Initial Setup* window might vary depending on 
 [discrete]
 == Procedure
 
-. From the *Initial Setup* window, select *Licensing Information*.
+. From the *Initial Setup* window, select *License Information*.
 +
-The *License Agreement* window opens and displays the licensing terms for Red Hat Enterprise Linux.
+The *License Agreement* window opens and displays the licensing terms for {rel8}.
 
 . Review the license agreement and select the *I accept the license agreement* checkbox.
 +
@@ -31,9 +31,3 @@ You must accept the license agreement. Exiting *Initial Setup* without completin
 ====
 
 . Click *Done* to apply the settings and return to the *Initial Setup* window.
-+
-[NOTE]
-====
-If you did not configure network settings, you cannot register your system immediately. In this case, click *Finish Configuration*. {productname} 8 starts and you can login and activate access to the network
-If you configured network settings, as described in xref:standard-install:assembly_graphical-installation.adoc#network-hostname_configuring-system-settings[Configuring network and host name options], you can register your system immediately, as shown in the following steps:
-====

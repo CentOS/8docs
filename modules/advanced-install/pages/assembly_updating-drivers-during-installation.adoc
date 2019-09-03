@@ -61,7 +61,7 @@ This section describes how to complete a driver update during the {productname} 
 
 [NOTE]
 ====
-This is an optional step of the installation process. Red Hat recommends that you do not perform a driver update unless it is necessary.
+This is an optional step of the installation process. {OrgName} recommends that you do not perform a driver update unless it is necessary.
 ====
 
 include::ROOT:partial$installer/con_driver-overview.adoc[leveloffset=+1]

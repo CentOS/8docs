@@ -1,4 +1,4 @@
 [id="choose-your-installation-method-on-ibm-lc-servers_{context}"]
 = Choose your installation method on IBM LC servers
 
-You can either install Red Hat Enterprise Linux from a USB device or through virtual media.
+You can either install {rel8} from a USB device or through virtual media.

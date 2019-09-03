@@ -1,13 +1,13 @@
 :Year: 2019
 
-// Red Hat and divisions
+// Project
 :RH: CentOS Project
 :OrgName: {RH}
 
 // The product (CentOS)
 :ProductName: CentOS
 :ProductShortName: {ProductName}
-// This is the version displayed under "Red Hat Enterprise Linux"
+// This is the version displayed under "CentOS"
 :ProductNumber: 8.0.1905
 :rel8: {ProductName}{nbsp}8
 :rel7: {ProductName}{nbsp}7

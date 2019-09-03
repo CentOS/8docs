@@ -5,8 +5,7 @@ When you switch to a later module stream, all packages from the module are repla
 
 [IMPORTANT]
 ====
-his procedure is feasible only under the conditions described below.
-//Currently, all Application Streams provided by Red Hat satisfy these conditions.
+This procedure is feasible only under the conditions described below.
 ====
 
 
