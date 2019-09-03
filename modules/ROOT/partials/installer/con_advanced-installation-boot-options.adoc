@@ -8,7 +8,7 @@ The `inst.kexec` option allows the installation program to use the `kexec` syste
 +
 [IMPORTANT]
 ======
-This option is deprecated and available as a Technology Preview only. For information on Red Hat scope of support for Technology Preview features, see the link:https://access.redhat.com/support/offerings/techpreview[Technology Preview Features Support Scope] document.
+This option is deprecated and available as a Technology Preview only.
 
 When `kexec` is used, device registers which would normally be cleared during a full system reboot, might stay filled with data, which could potentially create issues for some device drivers.
 ======

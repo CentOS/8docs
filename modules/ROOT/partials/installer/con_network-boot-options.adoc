@@ -83,4 +83,4 @@ Using the `inst.waitfornet=SECONDS` boot option causes the installation system t
 [discrete]
 == Additional resources
 
-* For more information about networking, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/index/[_Configuring and managing networking_] document.
+* For more information about networking, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/index/[_Configuring and managing networking in RHEL 8_] document.

@@ -61,13 +61,11 @@ If you have an old (v0.90 metadata) array that you cannot assign a name to, you 
 When encrypting one or more partitions, Anaconda attempts to gather 256 bits of entropy to ensure the partitions are encrypted securely. Gathering entropy can take some time - the process will stop after a maximum of 10 minutes, regardless of whether sufficient entropy has been gathered.
 
 The process can be sped up by interacting with the installation system (typing on the keyboard or moving the mouse). If you are installing in a virtual machine, you can also attach a `virtio-rng` device (a virtual random number generator) to the guest.
-
-// as described in the link:https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Deployment_and_Administration_Guide/sect-Guest_virtual_machine_device_configuration-Random_number_generator_device.html[{RHEL}{nbsp}7 Virtualization Deployment and Administration Guide].
 ====
 
 * [option]`--luks-version=_LUKS_VERSION_` - Specifies which version of LUKS format should be used to encrypt the filesystem. This option is only meaningful if [option]`--encrypted` is specified.
 
-* [option]`--cipher=` - Specifies the type of encryption to use if the Anaconda default `aes-xts-plain64` is not satisfactory. You must use this option together with the [option]`--encrypted` option; by itself it has no effect. Available types of encryption are listed in the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/security_hardening/[Security hardening] document, but {RH} strongly recommends using either `aes-xts-plain64` or `aes-cbc-essiv:sha256`.
+* [option]`--cipher=` - Specifies the type of encryption to use if the Anaconda default `aes-xts-plain64` is not satisfactory. You must use this option together with the [option]`--encrypted` option; by itself it has no effect. Available types of encryption are listed in the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/index[Security hardening in RHEL 8] document, but {RH} strongly recommends using either `aes-xts-plain64` or `aes-cbc-essiv:sha256`.
 
 * [option]`--passphrase=` - Specifies the passphrase to use when encrypting this RAID device. You must use this option together with the [option]`--encrypted` option; by itself it has no effect.
 

@@ -14,7 +14,4 @@ include::ROOT:partial$installer/ref_post-installation-kickstart-section-options.
 
 include::ROOT:partial$installer/con_example-mounting-nfs-in-a-post-install-script.adoc[leveloffset=+1]
 
-include::ROOT:partial$installer/con_example-running-subscription-manager-as-a-post-install-script.adoc[leveloffset=+1]
-
-
 :context: {parent-context-of-post-installation-scripts-in-kickstart}

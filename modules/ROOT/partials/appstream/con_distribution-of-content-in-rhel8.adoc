@@ -9,5 +9,4 @@ Content in the BaseOS repository is intended to provide the core set of the unde
 AppStream::
 Content in the AppStream repository includes additional user space applications, runtime languages, and databases in support of the varied workloads and use cases. Content in AppStream is available in one of two formats - the familiar RPM format and an extension to the RPM format called _modules_.
 
-IMPORTANT: Both BaseOS and AppStream content sets are required for a basic RHEL installation, and are available with all RHEL subscriptions. For installation instructions, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/index[Installing and Deploying RHEL] document.
-
+IMPORTANT: Both BaseOS and AppStream content sets are required for a basic RHEL installation, and are available with all RHEL subscriptions. For installation instructions, see the xref:standard-install:index.adoc[Performing a standard installation] xref:advanced-install:index.adoc[Performing an advanced installation] documens.

@@ -136,8 +136,6 @@ The above command creates a bond device named `bond0` using the `em1` and `em2` 
 [command]`network --bondopts=mode=active-backup,balance-rr;primary=eth1`
 ----
 +
-// TODO wait for this to be in rhel8 docs again: Available optional parameters are listed in the [citetitle]__Working with Kernel Modules__ chapter of the link:https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/index.html[{RHEL}{nbsp}7 System Administrator's Guide].
-+
 [IMPORTANT]
 ========
 The [option]`--bondopts=mode=` parameter only supports full mode names such as `balance-rr` or `broadcast`, not their numerical representations such as `0` or `3`.
@@ -187,7 +185,7 @@ See also the [option]`--teamconfig=` option.
 
 * [option]`--bridgeopts=` - An optional comma-separated list of parameters for the bridged interface. Available values are `stp`, `priority`, `forward-delay`, `hello-time`, `max-age`, and `ageing-time`. For information about these parameters, see the [citetitle]__bridge setting__ table in the `nm-settings(5)` man page or at link:https://developer.gnome.org/NetworkManager/0.9/ref-settings.html[].
 +
-Also see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/[Configuring and managing networking] document for general information about network bridging.
+Also see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/index[Configuring and managing networking in RHEL 8] document for general information about network bridging.
 
 * [option]`--bindto=mac` - Bind the device configuration ([filename]`ifcfg`) file on the installed system to the device MAC address (`HWADDR`) instead of the default binding to the interface name (`DEVICE`). Note that this option is independent of the [option]`--device=` option - [option]`--bindto=mac` will be applied even if the same [command]`network` command also specifies a device name, `link`, or `bootif`.
 
@@ -195,9 +193,8 @@ Also see the link:https://access.redhat.com/documentation/en-us/red_hat_enterpri
 
 .Notes
 
-// * There are several types of network device naming standards used to identify network devices with persistent names such as `ens3` or `wl3sp0`. For information about these standards, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/[Configuring and managing networking] document.
+// * There are several types of network device naming standards used to identify network devices with persistent names such as `ens3` or `wl3sp0`. For information about these standards, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/[Configuring and managing networking] document.
 
 * The `ethN` device names such as `eth0` are no longer available in {RHEL8} due to changes in the naming scheme. For more information about the device naming scheme, see the upstream document link:https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/[Predictable Network Interface Names].
 
-* If you used a Kickstart option or a boot option to specify an installation repository on a network, but no network is available at the start of the installation, the installation program displays the [GUI]*Network Configuration* window to set up a network connection prior to displaying the [GUI]*Installation Summary* window. For more details, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/graphical-installation_graphical-installation#network-hostname_configuring-system-settings[Configuring network and host name options] section of the _Performing a standard RHEL installation_ document.
-
+* If you used a Kickstart option or a boot option to specify an installation repository on a network, but no network is available at the start of the installation, the installation program displays the [GUI]*Network Configuration* window to set up a network connection prior to displaying the [GUI]*Installation Summary* window. For more details, see the xref:standard-install:assembly_graphical-installation.adoc#network-hostname_configuring-system-settings[Configuring network and host name options] section of the _Performing a standard RHEL installation_ document.

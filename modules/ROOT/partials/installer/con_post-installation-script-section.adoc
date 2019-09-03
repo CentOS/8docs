@@ -5,10 +5,9 @@ You have the option of adding commands to run on the system once the installatio
 
 The `%post` section is useful for functions such as installing additional software or configuring an additional name server. The post-install script is run in a `chroot` environment, therefore, performing tasks such as copying scripts or RPM packages from the installation media do not work by default. You can change this behavior using the `--nochroot` option as described below. Then the `%post` script will run in the installation environment, not in `chroot` on the installed target system.
 
-Because post-install script runs in a `chroot` environment, most `systemctl` commands will refuse to perform any action. For more information, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-services-with-systemd_configuring-basic-system-settings#behavior_of_systemctl_in_a_chroot_environment[Behavior of systemctl in a chroot Environment] section of the _Configuring and managing system administration_ document.
+Because post-install script runs in a `chroot` environment, most `systemctl` commands will refuse to perform any action. For more information, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-services-with-systemd_configuring-basic-system-settings#behavior_of_systemctl_in_a_chroot_environment[Behavior of systemctl in a chroot Environment] section of the _Configuring and managing system administration in RHEL 8_ document.
 
 Note that during execution of the `%post` section, the installation media must be still inserted.
 
 [IMPORTANT]
 If you configured the network with static IP information, including a name server, you can access the network and resolve IP addresses in the `%post` section. If you configured the network for DHCP, the [filename]`/etc/resolv.conf` file has not been completed when the installation executes the `%post` section. You can access the network, but you cannot resolve IP addresses. Thus, if you are using DHCP, you must specify IP addresses in the `%post` section.
-

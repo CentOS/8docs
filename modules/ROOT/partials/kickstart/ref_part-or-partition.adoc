@@ -156,15 +156,13 @@ This option can only be used for partitions which result in a file system such a
 When encrypting one or more partitions, Anaconda attempts to gather 256 bits of entropy to ensure the partitions are encrypted securely. Gathering entropy can take some time - the process will stop after a maximum of 10 minutes, regardless of whether sufficient entropy has been gathered.
 
 The process can be sped up by interacting with the installation system (typing on the keyboard or moving the mouse). If you are installing in a virtual machine, you can also attach a `virtio-rng` device (a virtual random number generator) to the guest.
-
-// as described in the link:https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Deployment_and_Administration_Guide/sect-Guest_virtual_machine_device_configuration-Random_number_generator_device.html[{RHEL}{nbsp}7 Virtualization Deployment and Administration Guide].
 ====
 
 * [option]`--luks-version=_LUKS_VERSION_` - Specifies which version of LUKS format should be used to encrypt the filesystem. This option is only meaningful if [option]`--encrypted` is specified.
 
 * [option]`--passphrase=` - Specifies the passphrase to use when encrypting this partition. You must use this option together with the [option]`--encrypted` option; by itself it has no effect.
 
-* [option]`--cipher=` - Specifies the type of encryption to use if the Anaconda default `aes-xts-plain64` is not satisfactory. You must use this option together with the [option]`--encrypted` option; by itself it has no effect. Available types of encryption are listed in the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/security_hardening/[Security hardening] document, but {RH} strongly recommends using either `aes-xts-plain64` or `aes-cbc-essiv:sha256`.
+* [option]`--cipher=` - Specifies the type of encryption to use if the Anaconda default `aes-xts-plain64` is not satisfactory. You must use this option together with the [option]`--encrypted` option; by itself it has no effect. Available types of encryption are listed in the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/index[Security hardening in RHEL 8] document, but {RH} strongly recommends using either `aes-xts-plain64` or `aes-cbc-essiv:sha256`.
 
 * [option]`--escrowcert=__URL_of_X.509_certificate__` - Store data encryption keys of all encrypted partitions as files in [filename]`/root`, encrypted using the X.509 certificate from the URL specified with __URL_of_X.509_certificate__. The keys are stored as a separate file for each encrypted partition. This option is only meaningful if [option]`--encrypted` is specified.
 
@@ -210,6 +208,6 @@ You could use an entry similar to one of the following:
 [command]`part / --fstype=xfs --onpart=/dev/disk/by-id/ata-ST3160815AS_6RA0C882-part1`
 ----
 +
-This way the command will always target the same storage device. This is especially useful in large storage environments. See the chapter link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_storage_devices/index#assembly_overview-of-persistent-naming-attributes_managing-storage-devices[Overview of persistent naming attributes] in the __Managing storage devices__ document for more in-depth information about different ways to consistently refer to storage devices.
+This way the command will always target the same storage device. This is especially useful in large storage environments. See the chapter link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_storage_devices/assembly_overview-of-persistent-naming-attributes_managing-storage-devices[Overview of persistent naming attributes] in the __Managing storage devices in RHEL 8__ document for more in-depth information about different ways to consistently refer to storage devices.
 
 * If you lose the LUKS passphrase, any encrypted partitions and their data is completely inaccessible. There is no way to recover a lost passphrase. However, you can save encryption passphrases with the [option]`--escrowcert` and create backup encryption passphrases with the [option]`--backuppassphrase` options.

@@ -6,7 +6,7 @@ The recommended approach to creating Kickstart files is to use the file created 
 
 .Procedure
 
-. Install RHEL. For more details, see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/index[Performing a standard RHEL installation].
+. Install RHEL. For more details, see xref:standard-install:index.adoc[Performing a standard RHEL installation].
 +
 During the installation, create a user with administrator privileges.
 
@@ -33,5 +33,4 @@ CAUTION: The file contains information about users and passwords.
 
 .Additional resources
 
-* link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/index[Performing a standard RHEL installation]
-
+* xref:standard-install:index.adoc[Performing a standard RHEL installation]

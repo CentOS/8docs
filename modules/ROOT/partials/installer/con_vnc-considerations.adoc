@@ -39,7 +39,7 @@ A VNC server is included in the installation program and doesn't need to be inst
 
 * *Network and firewall:*
 ** If the target system is not allowed inbound connections by a firewall, then you must use Connect mode or disable the firewall. Disabling a firewall can have security implications.
-** If the system that is running the VNC viewer is not allowed incoming connections by a firewall, then you must use Direct mode, or disable the firewall. Disabling a firewall can have security implications. See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/security_hardening/index/[Security hardening] document for more information on configuring the firewall.
+** If the system that is running the VNC viewer is not allowed incoming connections by a firewall, then you must use Direct mode, or disable the firewall. Disabling a firewall can have security implications. See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/index[Security hardening in RHEL 8] document for more information on configuring the firewall.
 
 * *Custom Boot Options:* You must specify custom boot options to start a VNC installation and the installation instructions might differ depending on your system architecture.
 ////

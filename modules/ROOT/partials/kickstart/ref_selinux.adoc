@@ -20,5 +20,4 @@ The [command]`selinux` Kickstart command is optional. It sets the state of SELin
 
 .Additional resources
 
-For more information regarding SELinux, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/using_selinux/[Using SElinux] document.
-
+For more information regarding SELinux, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/index[Using SElinux in RHEL 8] document.

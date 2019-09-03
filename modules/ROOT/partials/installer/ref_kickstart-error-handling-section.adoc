@@ -19,8 +19,7 @@ Allows you to specify a different scripting language, such as Python. For exampl
 +
 Any scripting language available on the system can be used; in most cases, these are `/usr/bin/sh`, `/usr/bin/bash`, and `/usr/libexec/platform-python`.
 +
-Note that the `platform-python` interpreter uses Python version 3.6. You must change your Python scripts from previous RHEL versions for the new path and version. Additionally, `platform-python` is meant for system tools: Use the `python36` package outside the installation environment. For more details about Python in {RHEL8}, see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/using-python3_configuring-basic-system-settings#introduction-to-python_using-python3[Introduction to Python] in _Configuring basic system settings_.
+Note that the `platform-python` interpreter uses Python version 3.6. You must change your Python scripts from previous {ProductName} versions for the new path and version. Additionally, `platform-python` is meant for system tools: Use the `python36` package outside the installation environment. For more details about Python, see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/using-python3_configuring-basic-system-settings#introduction-to-python_using-python3[Introduction to Python in RHEL 8] in _Configuring basic system settings_.
 
 [option]`--log=`::
 Logs the script's output into the specified log file.
-

@@ -12,11 +12,11 @@ Use the *Software Selection* window to select the software packages that you req
 Use the predefined environments and add-ons to customize your system, but in a standard installation, you cannot select individual packages to install. To view the packages contained in a specific environment or add-on, see the [filename]`__repository__/repodata/*-comps-__repository__.__architecture__.xml` file on your installation source media (DVD, CD, USB). The XML file contains details of the packages installed as part of a base environment or add-on. Available environments are marked by the `<environment>` tag, and add-ons are marked by the `<group>` tag.
 
 If you are unsure about which packages to install, Red Hat recommends that you select the *Minimal Install* base environment. Minimal install installs a basic version of {productname} with only a minimal amount of additional software. After the system finishes installing and you log in for the first time, you can use the *Yum package manager* to install additional software.
-For more information about Yum package manager, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_basic_system_settings/index/[_Configuring basic system settings_] document.
+For more information about Yum package manager, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/index/[_Configuring basic system settings in RHEL 8_] document.
 
 [NOTE]
 ====
-* The `yum group list` command lists all package groups from yum repositories. See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_basic_system_settings/index/[_Configuring basic system settings_] document for more information.
+* The `yum group list` command lists all package groups from yum repositories. See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/index/[_Configuring basic system settings in RHEL 8_] document for more information.
 
 * If you need to control which packages are installed, you can use a Kickstart file and define the packages in the `%packages` section. See the xref:advanced-install:index.adoc[_Performing an advanced RHEL installation_] document for information about installing {productname} using Kickstart.
 ====

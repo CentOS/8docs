@@ -15,6 +15,6 @@ include::ROOT:partial$installer/proc_configuring-routes.adoc[leveloffset=+1]
 [id="additional-resources_{context}"]
 == Additional resources
 
-* To learn more about network configuration after installation, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/index/[_Configuring and managing networking_] document.
+* To learn more about network configuration after installation, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/index/[_Configuring and managing networking in RHEL 8_] document.
 
 :context: {parent-context-network-hostname}

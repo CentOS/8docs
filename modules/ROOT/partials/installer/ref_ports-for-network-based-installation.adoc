@@ -18,5 +18,4 @@ The following table lists the ports that must be open on the server providing th
 
 .Additional resources
 
-* See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/securing_networks/index/[_Securing networks_] document for more information.
-
+* See the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/securing_networks/index/[_Securing networks in RHEL 8_] document for more information.

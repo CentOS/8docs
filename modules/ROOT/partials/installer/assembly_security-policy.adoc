@@ -37,7 +37,7 @@ include::ROOT:partial$installer/proc_configuring-security-policy.adoc[leveloffse
 [id='related-information-{context}']
 == Related information
 * [literal]`scap-security-guide(8)` - The manual page for the [literal]`scap-security-guide` project contains information about SCAP security profiles, including examples on how to utilize the provided benchmarks using the OpenSCAP utility.
-* {productname} security compliance information is available in the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/security_hardening/index/[_Security hardening_] document.
+* {productname} security compliance information is available in the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/index[_Security hardening in RHEL 8_] document.
 
 //TODO: Add the Linux 8 doc link* The link:++https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/chap-Compliance_and_Vulnerability_Scanning.html++[Red{nbsp}Hat Enterprise{nbsp}Linux{nbsp}7 Security Guide] provides detailed information about security compliance including background information, practical examples, and additional resources.
 

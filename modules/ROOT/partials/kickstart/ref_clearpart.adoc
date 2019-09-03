@@ -88,7 +88,6 @@ You could use an entry similar to one of the following:
 [command]`part / --fstype=xfs --onpart=/dev/disk/by-id/ata-ST3160815AS_6RA0C882-part1`
 ----
 +
-This way the command will always target the same storage device. This is especially useful in large storage environments. See the chapter link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_storage_devices/index#assembly_overview-of-persistent-naming-attributes_managing-storage-devices[Overview of persistent naming attributes] in the __Managing storage devices__ document for more in-depth information about different ways to consistently refer to storage devices.
+This way the command will always target the same storage device. This is especially useful in large storage environments. See the chapter link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_storage_devices/assembly_overview-of-persistent-naming-attributes_managing-storage-devices[Overview of persistent naming attributes] in the __Managing storage devices in RHEL 8__ document for more in-depth information about different ways to consistently refer to storage devices.
 
 * If the [command]`clearpart` command is used, then the [command]`part --onpart` command cannot be used on a logical partition.
-

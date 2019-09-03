@@ -37,4 +37,4 @@ NOTE: When specifying the location of the Kickstart file, use `http://` or `http
 
 .Additional resources
 
-* For more information about HTTP and FTP servers, see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/[Deploying different types of servers].
+* For more information about HTTP and FTP servers, see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/[Deploying different types of servers in RHEL 8].

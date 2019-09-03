@@ -67,4 +67,4 @@ Use a temporary password for the `inst.vncpassword=` option. It should not be an
 [discrete]
 == Additional resources
 
-* For more information on how to perform a RHEL installation using the graphical user interface, see the _Installing RHEL using the Graphical User Interface_ section in the  link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index/[_Performing a standard RHEL installation_] document.
+* For more information on how to perform a RHEL installation using the graphical user interface, see the _Installing RHEL using the Graphical User Interface_ section in the xref:standard-install:assembly_graphical-installation.adoc[Installing {ProductName} using the Graphical User Interface] document.

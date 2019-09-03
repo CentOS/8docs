@@ -43,7 +43,7 @@ This procedure uses *TigerVNC* as the VNC viewer. Specific instructions for othe
 
 * You have configured the target system to use the boot options for a VNC Connect installation. For more information, see *add link to updated boot options when they are ready*.
 
-* You have verified that the remote system with the VNC viewer is configured to accept an incoming connection on the required port. Verification is dependent on your network and system configuration. For more information, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/security_hardening/index/[Security hardening] and https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/securing_networks/index/[Securing networks] documents.
+* You have verified that the remote system with the VNC viewer is configured to accept an incoming connection on the required port. Verification is dependent on your network and system configuration. For more information, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/index[Security hardening in RHEL 8] and https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/securing_networks/index/[Securing networks in RHEL 8] documents.
 
 
 [discrete]
@@ -87,4 +87,4 @@ Thu Jun 27 11:30:57 2019
 [discrete]
 == Additional resources
 
-* For more information on how to perform a RHEL installation using the graphical user interface, see the _Installing RHEL using the Graphical User Interface_ section in the  link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index/[_Performing a standard RHEL installation_] document.
+* For more information on how to perform a RHEL installation using the graphical user interface, see the xref:standard-install:assembly_graphical-installation.adoc[Installing RHEL using the Graphical User Interface] section in the _Performing a standard RHEL installation_ document.

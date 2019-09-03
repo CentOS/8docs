@@ -24,7 +24,7 @@ Configure the installed system for multilib packages (that is, to allow installi
 +
 Normally, on an AMD64 and Intel 64 system, only packages for this architecture (marked as `x86_64`) and packages for all architectures (marked as `noarch`) would be installed. When you use this option, packages for 32-bit AMD and Intel systems (marked as `i686`) are automatically installed as well, if available.
 +
-This only applies to packages explicitly specified in the `%packages` section. Packages which are only being installed as dependencies without being specified in the Kickstart file are only installed in architecture versions in which they are needed, even if they are available for more architectures. 
+This only applies to packages explicitly specified in the `%packages` section. Packages which are only being installed as dependencies without being specified in the Kickstart file are only installed in architecture versions in which they are needed, even if they are available for more architectures.
 
 [option]`--nocore`::
 Disables installation of the `@Core` package group which is otherwise always installed by default. Disabling the `@Core` package group with [option]`--nocore` should be only used for creating lightweight containers; installing a desktop or server system with [option]`--nocore` will result in an unusable system.
@@ -33,7 +33,7 @@ Disables installation of the `@Core` package group which is otherwise always ins
 .Notes
 ====
 * Using `-@Core` to exclude packages in the `@Core` package group does not work. The only way to exclude the `@Core` package group is with the `--nocore` option.
-* The `@Core` package group is defined as a minimal set of packages needed for installing a working system. It is not related in any way to core packages as defined in the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/package_manifest/chap-baseos-repository[Package Manifest] and link:https://access.redhat.com/support/offerings/production/scope_moredetail[Scope of Coverage Details].
+* The `@Core` package group is defined as a minimal set of packages needed for installing a working system.
 ====
 
 [option]`--excludeWeakdeps`::
@@ -44,4 +44,3 @@ Sets the number of times Yum will attempt to download packages (retries). The de
 
 [option]`--timeout=`::
 Sets the Yum timeout in seconds. The default value is 30. This option only applies during the installation, and will not affect Yum configuration on the installed system.
-

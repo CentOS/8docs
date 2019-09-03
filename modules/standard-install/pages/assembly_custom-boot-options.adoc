@@ -58,7 +58,7 @@ YES/NO
 |===
 endif::[]
 
-This section contains information about some of the boot options that you can use to modify the default behavior of the installation program. For Kickstart and advanced boot options, see the https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/[_Performing an advanced RHEL installation_] document.
+This section contains information about some of the boot options that you can use to modify the default behavior of the installation program. For Kickstart and advanced boot options, see _References_ section of the xref:advanced-install:index.adoc[_Performing an advanced installation_] document.
 
 //include::ROOT:partial$installer/con_types-of-boot-options.adoc[leveloffset=+1]
 //include::ROOT:partial$installer/proc_editing-boot-options.adoc[leveloffset=+1]

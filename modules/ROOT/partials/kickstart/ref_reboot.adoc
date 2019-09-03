@@ -12,7 +12,7 @@ The [command]`reboot` Kickstart command is optional. It instructs the installati
 +
 [IMPORTANT]
 ======
-This option is deprecated and available as a Technology Preview only. For information on Red Hat scope of support for Technology Preview features, see the link:https://access.redhat.com/support/offerings/techpreview[Technology Preview Features Support Scope] document.
+This option is deprecated.
 
 When `kexec` is used, device registers (which would normally be cleared during a full system reboot) might stay filled with data, which could potentially create issues for some device drivers.
 ======
@@ -27,4 +27,3 @@ When `kexec` is used, device registers (which would normally be cleared during a
 * Specify [command]`reboot` to automate installation fully when installing in command line mode on IBM{nbsp}Z.
 
 * For other completion methods, see the [command]`halt`, [command]`poweroff`, and [command]`shutdown` Kickstart options. The [command]`halt` option is the default completion method if no other methods are explicitly specified in the Kickstart file.
-

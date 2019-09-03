@@ -22,7 +22,7 @@ Kdump is a kernel crash dumping mechanism that allows you to save the contents o
 
 In case of a system crash, `kexec` boots into a second kernel (a capture kernel). This capture kernel resides in a reserved part of the system memory. Kdump then captures the contents of the crashed kernel's memory (a crash dump) and saves it to a specified location. The location cannot be configured using this Kickstart command; it must be configured after the installation by editing the [filename]`/etc/kdump.conf` configuration file.
 
-For more information about Kdump, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/managing_monitoring_and_updating_the_kernel/#installing-and-configuring-kdump_managing-monitoring-and-updating-the-kernel[Installing and configuring kdump] chapter of the __Managing, monitoring and updating the kernel__ document.
+For more information about Kdump, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/installing-and-configuring-kdump_managing-monitoring-and-updating-the-kernel[Installing and configuring kdump] chapter of the __Managing, monitoring and updating the kernel in RHEL 8__ document.
 
 .Options
 
@@ -38,12 +38,8 @@ For more information about Kdump, see the link:https://access.redhat.com/documen
 [command]`%end`
 ----
 +
-You can also specify `auto` instead of a numeric value. In that case, the installation program will determine the amount of memory automatically based on the criteria described in the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/managing_monitoring_and_updating_the_kernel/#memory-requirements-for-kdump_supported-kdump-configurations-and-targets[Memory requirements for kdump] section of the __Managing, monitoring and updating the kernel__ document.
+You can also specify `auto` instead of a numeric value. In that case, the installation program will determine the amount of memory automatically based on the criteria described in the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/installing-and-configuring-kdump_managing-monitoring-and-updating-the-kernel#memory-requirements-for-kdump_supported-kdump-configurations-and-targets[Memory requirements for kdump] section of the __Managing, monitoring and updating the kernel in RHEL 8__ document.
 +
 If you enable kdump and do not specify a [option]`--reserve-mb=` option, the value `auto` will be used.
 
 * [option]`--enablefadump` - Enable firmware-assisted dumping on systems which allow it (notably, IBM Power{nbsp}Systems servers).
-
-
-
-

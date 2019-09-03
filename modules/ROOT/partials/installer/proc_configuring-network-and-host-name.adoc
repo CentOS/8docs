@@ -26,7 +26,7 @@ Locally accessible interfaces are automatically detected by the installation pro
 +
 [NOTE]
 ====
-* There are several types of network device naming standards used to identify network devices with persistent names, for example, `em1` and `wl3sp0`. For information about these standards, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/index/[_Configuring and managing networking_] document.
+* There are several types of network device naming standards used to identify network devices with persistent names, for example, `em1` and `wl3sp0`. For information about these standards, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/index/[_Configuring and managing networking in RHEL 8_] document.
 
 * The host name can be either a fully-qualified domain name (FQDN) in the format hostname.domainname, or a short host name with no domain name. Many networks have a Dynamic Host Configuration Protocol (DHCP) service that automatically supplies connected systems with a domain name. To allow the DHCP service to assign the domain name to this machine, specify only the short host name. The value `localhost.localdomain` means that no specific static host name for the target system is configured, and the actual host name of the installed system is configured during the processing of the network configuration, for example, by NetworkManager using DHCP or DNS.
 ====
