@@ -1,12 +1,12 @@
 [id="creating-a-kickstart-file-by-performing-a-manual-installation_{context}"]
 = Creating a Kickstart file by performing a manual installation
 
-The recommended approach to creating Kickstart files is to use the file created by a manual installation of {RHEL}. After an installation completes, all choices made during the installation are saved into a Kickstart file named [filename]`anaconda-ks.cfg`, located in the [filename]`/root/` directory on the installed system. You can use this file to reproduce the installation in the same way as before. Alternatively, copy this file, make any changes you need, and use the resulting configuration file for further installations.
+The recommended approach to creating Kickstart files is to use the file created by a manual installation of {ProductName}. After an installation completes, all choices made during the installation are saved into a Kickstart file named [filename]`anaconda-ks.cfg`, located in the [filename]`/root/` directory on the installed system. You can use this file to reproduce the installation in the same way as before. Alternatively, copy this file, make any changes you need, and use the resulting configuration file for further installations.
 
 
 .Procedure
 
-. Install RHEL. For more details, see xref:standard-install:index.adoc[Performing a standard RHEL installation].
+. Install {rel8}. For more details, see xref:standard-install:index.adoc[Performing a standard installation].
 +
 During the installation, create a user with administrator privileges.
 
@@ -33,4 +33,4 @@ CAUTION: The file contains information about users and passwords.
 
 .Additional resources
 
-* xref:standard-install:index.adoc[Performing a standard RHEL installation]
+* xref:standard-install:index.adoc[Performing a standard installation]

@@ -30,7 +30,7 @@ When the *Installation Summary* window first opens, the installation program att
 [IMPORTANT]
 ====
 * *No additional configuration is necessary as the BaseOS and Appstream repositories are installed as part of the full installation image.*
-* *Do not disable the Appstream repository check box if you want a full {RHEL8} installation.*
+* *Do not disable the Appstream repository check box if you want a full {rel8} installation.*
 ====
 
 . Select the *On the network* option to download and install packages from a network location instead of local media.

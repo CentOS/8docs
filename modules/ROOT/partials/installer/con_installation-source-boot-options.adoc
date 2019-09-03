@@ -23,7 +23,7 @@ You can use the `inst.repo=` boot option to configure different installation met
 | HTTP Server | `inst.repo=http://__host/path__` .3+| Installation tree, which is a complete copy of the directories and files on the installation DVD.
 | HTTPS Server | `inst.repo=https://__host/path__`
 | FTP Server | `inst.repo=ftp://__username__:__password__@__host__/__path__`
-| HMC  | `inst.repo=hmc` | 
+| HMC  | `inst.repo=hmc` |
 |===
 +
 [NOTE]
@@ -34,7 +34,7 @@ The NFS Server option uses NFS protocol version 3 by default. To use a different
 You can set disk device names with the following formats:
 
 * Kernel device name, for example `/dev/sda1` or `sdb2`
-* File system label, for example `LABEL=Flash` or `LABEL=RHEL8`
+* File system label, for example `LABEL=Flash` or `LABEL=CENTOS8`
 * File system UUID, for example `UUID=8176c7bf-04ff-403a-a832-9557f94e61db`
 +
 Non-alphanumeric characters must be represented as `\xNN`, where _NN_ is the hexadecimal representation of the character. For example, `\x20` is a white space `(" ")`.
@@ -65,7 +65,7 @@ rogram looks for a valid installation ISO on the _<device>_. This installation m
 +
 
 inst.noverifyssl=::
-The `noverifyssl=` boot option prevents the installation program from verifying the SSL certificate for all HTTPS connections with the exception of the additional Kickstart repositories, where `--noverifyssl` can 
+The `noverifyssl=` boot option prevents the installation program from verifying the SSL certificate for all HTTPS connections with the exception of the additional Kickstart repositories, where `--noverifyssl` can
 be set per repository.
 
 
@@ -79,7 +79,7 @@ You should specify this option only for PXE boot. The installation DVD and Boot 
 +
 [NOTE]
 ====
-By default, the `inst.stage2=` boot option is used on the installation media and is set to a specific label, for example, `inst.stage2=hd:LABEL=RHEL-8-0-0-BaseOS-x86_64`. If you modify the default label of the file system containing the runtime image, or if you use a customized procedure to boot the installation system, you must verify that the `inst.stage2=` boot option is set to the correct value.
+By default, the `inst.stage2=` boot option is used on the installation media and is set to a specific label, for example, `inst.stage2=hd:LABEL={ProductName}-{ProductNumber}-BaseOS-x86_64`. If you modify the default label of the file system containing the runtime image, or if you use a customized procedure to boot the installation system, you must verify that the `inst.stage2=` boot option is set to the correct value.
 ====
 
 inst.stage2.all::
@@ -96,7 +96,7 @@ inst.stage2=http://hostname3/path_to_install_tree/
 
 
 inst.dd=::
-The `inst.dd=` boot option is used to perform a driver update during the installation. See the xref:advanced-install:index.adoc[_Performing an advanced RHEL installation_] document for information on how to update drivers during installation.
+The `inst.dd=` boot option is used to perform a driver update during the installation. See the xref:advanced-install:index.adoc[_Performing an advanced installation_] document for information on how to update drivers during installation.
 
 inst.repo=hmc::
 When booting from a Binary DVD, the installation program prompts you to enter additional kernel parameters. To set the DVD as an installation source, append `inst.repo=hmc` to the kernel parameters. The installation program then enables `SE` and `HMC` file access, fetches the images for stage2 from the DVD, and provides access to the packages on the DVD for software selection. This option eliminates the requirement of an external network setup and expands the installation options.
@@ -137,4 +137,3 @@ The `memcheck` boot option performs a check to verify that the system has enough
 
 nomemcheck::
 The `nomemcheck` boot option does not perform a check to verify if the system has enough RAM to complete the installation. Any attempt to perform the installation with less than the recommended minimum amount of memory is unsupported, and might result in the installation process failing.
-

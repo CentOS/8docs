@@ -7,7 +7,7 @@ include::partial$local-attributes.adoc[]
 
 :context: kickstart-installation-basics
 
-The following provides basic information about Kickstart and how to use it to automate installing {RHEL}.
+The following provides basic information about Kickstart and how to use it to automate installing {ProductName}.
 
 
 include::ROOT:partial$installer/con_what-are-kickstart-installations.adoc[leveloffset=+1]

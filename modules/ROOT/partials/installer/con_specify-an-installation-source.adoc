@@ -5,6 +5,6 @@ You can specify the installation source using any of the following methods:
 
 * *Graphical installation:* Select the installation source in the *Installation Source* window of the graphical installation. See xref:standard-install:assembly_graphical-installation.adoc#configuring-installation-source_configuring-software-settings[Configuring installation source] for more information.
 * *Boot option:* Configure a custom boot option to specify the installation source. See xref:standard-install:assembly_custom-boot-options.adoc[Boot options reference] for more information.
-* *Kickstart file:* Use the install command in a Kickstart file to specify the installation source. See the xref:advanced-install:index.adoc[Performing an advanced RHEL installation] document for more information.
+* *Kickstart file:* Use the install command in a Kickstart file to specify the installation source. See the xref:advanced-install:index.adoc[Performing an advanced installation] document for more information.
 
 //Need to add links

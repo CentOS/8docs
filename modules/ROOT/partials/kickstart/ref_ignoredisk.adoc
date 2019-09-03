@@ -43,7 +43,7 @@ You must specify one of the [option]`--drives` and [option]`--only-use`.
 
 .Notes
 
-* The [option]`--interactive` option is deprecated in {RHEL8}. This option allowed users to manually navigate the advanced storage screen.
+* The [option]`--interactive` option is deprecated in {rel8}. This option allowed users to manually navigate the advanced storage screen.
 
 * To ignore a multipath device that does not use logical volume management (LVM), use the format ``disk/by-id/dm-uuid-mpath-__WWID__``, where __WWID__ is the world-wide identifier for the device. For example, to ignore a disk with WWID `2416CD96995134CA5D787F00A5AA11017`, use:
 +

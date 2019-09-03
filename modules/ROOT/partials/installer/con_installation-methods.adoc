@@ -20,4 +20,4 @@ Install {productname} using Kickstart. The automated installation allows you to 
 * To perform an installation on IBM Power System LC servers, see xref:assembly_installing-red-hat-enterprise-linux-on-ibm-power-system-lc-servers.adoc[Installing on IBM Power System LC servers].
 * To perform an installation on IBM Power System AC servers, see xref:assembly_installing-on-ibm-power-system-accelerated-servers.adoc[Installing on IBM Power System accelerated servers].
 * To perform an installation on IBM Power System L servers, see xref:assembly_installing-red-hat-enterprise-linux-on-ibm-power-system-l-server.adoc[Installing on IBM Power System L server].
-* To perform an automated install using Kickstart, see the xref:advanced-install:index.adoc[_Performing an advanced RHEL installation_] document.
+* To perform an automated install using Kickstart, see the xref:advanced-install:index.adoc[_Performing an advanced installation_] document.

@@ -6,7 +6,7 @@ Follow the steps in this procedure to create an installation source for a networ
 [discrete]
 == Prerequisites
 
-* You have administor level access to a server with {RHEL8}, and this server is on the same network as the system to be installed.
+* You have administor level access to a server with {rel8}, and this server is on the same network as the system to be installed.
 * You have downloaded a Binary DVD ISO image. See xref:standard-install:assembly_preparing-for-your-installation.adoc#downloading-beta-installation-images_preparing-for-your-installation[Downloading the installation ISO image] for more information.
 * You have created a bootable CD, DVD, or USB device from the image file. See xref:standard-install:assembly_preparing-for-your-installation.adoc#making-media_preparing-for-your-installation[Creating installation media] for more information.
 * You have verified that your firewall allows the system you are installing to access the remote installation source. See xref:standard-install:assembly_preparing-for-your-installation.adoc#ports-for-network-based-installation_prepare-installation-source[Ports for network-based installation] for more information.
@@ -37,20 +37,20 @@ If you use an HTTPS server with a self-signed certificate, you must boot the ins
 +
 [subs="quotes, macros, attributes"]
 ----
-# mkdir /mnt/rhel8-install/
-# mount -o loop,ro -t iso9660 _/image_directory/image.iso_ /mnt/rhel8-install/
+# mkdir /mnt/centos8-install/
+# mount -o loop,ro -t iso9660 _/image_directory/image.iso_ /mnt/centos8-install/
 ----
 +
 Replace _/image_directory/image.iso_ with the path to the Binary DVD ISO image.
 
-. Copy the files from the mounted image to the HTTP(S) server root. This command creates the `/var/www/html/rhel8-install/` directory with the contents of the image.
+. Copy the files from the mounted image to the HTTP(S) server root. This command creates the `/var/www/html/centos8-install/` directory with the contents of the image.
 +
 [subs="quotes, macros, attributes"]
 ----
-# cp -r /mnt/rhel8-install/ /var/www/html/
+# cp -r /mnt/centos8-install/ /var/www/html/
 ----
 +
-This command creates the [literal]`/var/www/html/rhel8-install/` directory with the content of the image. Note that some copying methods can skip the `.treeinfo` file which is required for a valid installation source. Running the `cp` command for whole directories as shown in this procedure will copy `.treeinfo` correctly.
+This command creates the [literal]`/var/www/html/centos8-install/` directory with the content of the image. Note that some copying methods can skip the `.treeinfo` file which is required for a valid installation source. Running the `cp` command for whole directories as shown in this procedure will copy `.treeinfo` correctly.
 
 . Start the `httpd` service:
 +
@@ -63,7 +63,7 @@ The installation tree is now accessible and ready to be used as the installation
 +
 [NOTE]
 ====
-When configuring the installation source, use `http://` or `https://` as the protocol, the server host name or IP address, and the directory that contains the files from the ISO image, relative to the HTTP server root. For example, if you are using HTTP, the server host name is `myserver.example.com`, and you have copied the files from the image to `/var/www/html/rhel8-install/`, specify `http://myserver.example.com/rhel8-install/` as the installation source.
+When configuring the installation source, use `http://` or `https://` as the protocol, the server host name or IP address, and the directory that contains the files from the ISO image, relative to the HTTP server root. For example, if you are using HTTP, the server host name is `myserver.example.com`, and you have copied the files from the image to `/var/www/html/centos8-install/`, specify `http://myserver.example.com/centos8-install/` as the installation source.
 ====
 
 

@@ -17,7 +17,7 @@ This section describes how to install packages.
 +
 ====
 
-* If the package is not provided by any module stream, this procedure is identical to the procedure used on previous versions of {RHEL}.
+* If the package is not provided by any module stream, this procedure is identical to the procedure used on previous versions of {ProductName}.
 
 * If the package is provided by an module stream that is enabled, the package is installed without any further manipulation.
 

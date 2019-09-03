@@ -8,7 +8,7 @@ include::partial$local-attributes.adoc[]
 :context: kickstart-commands-and-options-reference
 
 
-This reference is a complete list of all Kickstart commands supported by the {RHEL} installation program program. The commands are sorted alphabetically in a few broad categories. If a command can fall under multiple categories, it is listed in all of them.
+This reference is a complete list of all Kickstart commands supported by the {ProductName} installation program program. The commands are sorted alphabetically in a few broad categories. If a command can fall under multiple categories, it is listed in all of them.
 
 
 include::ROOT:partial$installer/assembly_kickstart-changes.adoc[leveloffset=+1]

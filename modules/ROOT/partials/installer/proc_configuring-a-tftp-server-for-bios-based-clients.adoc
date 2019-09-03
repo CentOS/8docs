@@ -110,16 +110,16 @@ display boot.msg
 label linux
   menu label ^Install system
   menu default
-  kernel images/RHEL-8.0/vmlinuz
-  append initrd=images/RHEL-8.0/initrd.img ip=dhcp inst.repo=http://10.32.5.1/RHEL-8.0/x86_64/iso-contents-root/
+  kernel images/{ProductName}-{ProductNumber}/vmlinuz
+  append initrd=images/{ProductName}-{ProductNumber}/initrd.img ip=dhcp inst.repo=http://10.32.5.1/{ProductName}-{ProductNumber}/x86_64/iso-contents-root/
 label vesa
   menu label Install system with ^basic video driver
-  kernel images/RHEL-8.0/vmlinuz
-  append initrd=images/RHEL-8.0/initrd.img ip=dhcp inst.xdriver=vesa nomodeset inst.repo=http://10.32.5.1/RHEL-8.0/x86_64/iso-contents-root/
+  kernel images/{ProductName}-{ProductNumber}/vmlinuz
+  append initrd=images/{ProductName}-{ProductNumber}/initrd.img ip=dhcp inst.xdriver=vesa nomodeset inst.repo=http://10.32.5.1/{ProductName}-{ProductNumber}/x86_64/iso-contents-root/
 label rescue
   menu label ^Rescue installed system
-  kernel images/RHEL-8.0/vmlinuz
-  append initrd=images/RHEL-8.0/initrd.img rescue
+  kernel images/{ProductName}-{ProductNumber}/vmlinuz
+  append initrd=images/{ProductName}-{ProductNumber}/initrd.img rescue
 label local
   menu label Boot from ^local drive
   localboot 0xffff
@@ -129,15 +129,15 @@ label local
 ====
  * The installation program cannot boot without its runtime image. Use the `inst.stage2` boot option to specify location of the image. Alternatively, you can use the `inst.repo=` option to specify the image as well as the installation source.
  * The installation source location used with `inst.repo` must contain a valid `.treeinfo` file.
- * When you select the RHEL8 installation DVD as the installation source,  the `.treeinfo` file points to the BaseOS and the AppStream repositories. You can use a single `inst.repo` option to load both repositories.
+ * When you select the {rel8} installation DVD as the installation source,  the `.treeinfo` file points to the BaseOS and the AppStream repositories. You can use a single `inst.repo` option to load both repositories.
 ====
 
-. Create a subdirectory to store the boot image files in the `/var/lib/tftpboot/` directory, and copy the boot image files to the directory. In this example, we use the directory `/var/lib/tftpboot/pxelinux/images/RHEL-8.0/`:
+. Create a subdirectory to store the boot image files in the `/var/lib/tftpboot/` directory, and copy the boot image files to the directory. In this example, we use the directory `/var/lib/tftpboot/pxelinux/images/{ProductName}-{ProductNumber}/`:
 +
-[subs="macros"]
+[subs="quotes, macros, attributes"]
 ----
-# mkdir -p /var/lib/tftpboot/pxelinux/images/RHEL-8.0/
-# cp /path_to_x86_64_images/pxeboot/{vmlinuz,initrd.img} /var/lib/tftpboot/pxelinux/images/RHEL-8.0/
+# mkdir -p /var/lib/tftpboot/pxelinux/images/{ProductName}-{ProductNumber}/
+# cp /path_to_x86_64_images/pxeboot/{vmlinuz,initrd.img} /var/lib/tftpboot/pxelinux/images/{ProductName}-{ProductNumber}/
 ----
 
 . Start and enable the `dhcpd` service:

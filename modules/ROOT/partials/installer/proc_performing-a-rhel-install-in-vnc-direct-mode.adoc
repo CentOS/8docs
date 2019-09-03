@@ -21,9 +21,9 @@
 // Start the title with a verb, such as Creating or Create. See also
 // _Wording of headings_ in _The IBM Style Guide_.
 [id="performing-a-rhel-install-in-vnc-direct-mode_{context}"]
-= Performing a remote RHEL installation in VNC Direct mode
+= Performing a remote installation in VNC Direct mode
 
-Use this procedure to perform a remote RHEL installation in VNC Direct mode. Direct mode expects the VNC viewer to initiate a connection to the target system that is being installed with RHEL. In this procedure, the system with the VNC viewer is called the *remote* system. You are prompted by the RHEL installation program to initiate the connection from the VNC viewer on the remote system to the target system.
+Use this procedure to perform a remote {productName} installation in VNC Direct mode. Direct mode expects the VNC viewer to initiate a connection to the target system that is being installed with {rel8}. In this procedure, the system with the VNC viewer is called the *remote* system. You are prompted by the {rel8} installation program to initiate the connection from the VNC viewer on the remote system to the target system.
 
 [NOTE]
 ====
@@ -45,7 +45,7 @@ This procedure uses *TigerVNC* as the VNC viewer. Specific instructions for othe
 [discrete]
 == Procedure
 
-. From the RHEL boot menu on the target system, press the `Tab` key on your keyboard to edit the boot options.
+. From the {rel8} boot menu on the target system, press the `Tab` key on your keyboard to edit the boot options.
 . Append the `inst.vnc` option to the end of the command line.
 .. If you want to restrict VNC access to the system that is being installed, add the `inst.vncpassword=PASSWORD` boot option to the end of the command line. Replace *PASSWORD* with the password you want to use for the installation. The VNC password must be between 6 and 8 characters long.
 +
@@ -62,9 +62,9 @@ Use a temporary password for the `inst.vncpassword=` option. It should not be an
 
 . Click *Connect*.
 
-. Enter the VNC password and click *OK*. A new window opens with the VNC connection established, displaying the RHEL installation menu. From this window, you can install RHEL on the target system using the graphical user interface.
+. Enter the VNC password and click *OK*. A new window opens with the VNC connection established, displaying the {rel8} installation menu. From this window, you can install {rel8} on the target system using the graphical user interface.
 
 [discrete]
 == Additional resources
 
-* For more information on how to perform a RHEL installation using the graphical user interface, see the _Installing RHEL using the Graphical User Interface_ section in the xref:standard-install:assembly_graphical-installation.adoc[Installing {ProductName} using the Graphical User Interface] document.
+* For more information on how to perform a {rel8} installation using the graphical user interface, see the xref:standard-install:assembly_graphical-installation.adoc[Installing using the Graphical User Interface] section in the _Performing a standard installation_  document.

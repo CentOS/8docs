@@ -9,5 +9,5 @@ The [command]`xconfig` Kickstart command is optional. It configures the X Window
 
 .Notes
 
-* Because {RHEL8} does not include the KDE Desktop Environment, do not use the [option]`--defaultdesktop=` documented in upstream.
+* Because {rel8} does not include the KDE Desktop Environment, do not use the [option]`--defaultdesktop=` documented in upstream.
 

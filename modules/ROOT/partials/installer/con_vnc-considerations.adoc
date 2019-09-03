@@ -25,9 +25,9 @@
 [id="vnc-considerations_{context}"]
 = Considerations
 
-Consider the following items when performing a remote RHEL installation using VNC:
+Consider the following items when performing a remote {ProductName} installation using VNC:
 
-* *VNC client application:* A VNC client application is required to perform both a VNC Direct and Connect installation. VNC client applications are available in the repositories of most Linux distributions, and free VNC client applications are also available for other operating systems such as Windows. The following VNC client applications are available in RHEL:
+* *VNC client application:* A VNC client application is required to perform both a VNC Direct and Connect installation. VNC client applications are available in the repositories of most Linux distributions, and free VNC client applications are also available for other operating systems such as Windows. The following VNC client applications are available in {rel8}:
 
 ** `tigervnc` is independent of your desktop environment and is installed as part of the `tigervnc` package.
 ** `vinagre` is part of the GNOME desktop environment and is installed as part of the `vinagre` package.
@@ -46,7 +46,7 @@ A VNC server is included in the installation program and doesn't need to be inst
 See *<add link to updated boot options when it is ready>*
 ////
 
-* *VNC in Kickstart installations:* You can use VNC-specific commands in Kickstart installations. Using only the `vnc` command runs a RHEL installation in Direct mode. Additional options are available to set up an installation using Connect mode. For more information about Kickstart installations, see xref:advanced-install:assembly_kickstart-installation-basics.adoc#what-are-kickstart-installations_kickstart-installation-basics[What are Kickstart installations].
+* *VNC in Kickstart installations:* You can use VNC-specific commands in Kickstart installations. Using only the `vnc` command runs a {rel8} installation in Direct mode. Additional options are available to set up an installation using Connect mode. For more information about Kickstart installations, see xref:advanced-install:assembly_kickstart-installation-basics.adoc#what-are-kickstart-installations_kickstart-installation-basics[What are Kickstart installations].
 
 ////
 For more information about the vnc command and options used in Kickstart files, see *<add link to Kickstart boot options>*

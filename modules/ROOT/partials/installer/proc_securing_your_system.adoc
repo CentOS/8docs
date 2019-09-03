@@ -18,7 +18,7 @@ Complete the following security-related steps immediately after you install {pro
 # yum update
 ----
 
-. Even though the firewall service, `firewalld`, is automatically enabled with the installation of {RHEL}, there are scenarios where it might be explicitly disabled, for example in a Kickstart configuration. In that scenario, it is recommended that you re-enable the firewall.
+. Even though the firewall service, `firewalld`, is automatically enabled with the installation of {ProductName}, there are scenarios where it might be explicitly disabled, for example in a Kickstart configuration. In that scenario, it is recommended that you re-enable the firewall.
 +
 To start `firewalld`, run the following commands as root:
 +

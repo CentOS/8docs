@@ -4,14 +4,13 @@
 :RH: CentOS Project
 :OrgName: {RH}
 
-// The product (RHEL)
+// The product (CentOS)
 :ProductName: CentOS
-:RHEL: {ProductName}
 :ProductShortName: {ProductName}
 // This is the version displayed under "Red Hat Enterprise Linux"
 :ProductNumber: 8.0.1905
-:RHEL8: {RHEL}{nbsp}{ProductNumber}
-:RHEL7: {RHEL}{nbsp}7
+:rel8: {ProductName}{nbsp}8
+:rel7: {ProductName}{nbsp}7
 //:ProductRelease: Beta
 
 :experimental:

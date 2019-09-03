@@ -3,7 +3,7 @@
 
 // User Story: As a sysadmin, I need to know how to run the RPMs, SCLs, and modules I've pulled from the AppStream.
 
-Usually, after you install content from RHEL 8 repositories, new commands will be enabled. If the commands originated from a RPM package or RPM packages enabled by a module the experience of using the command should be no different. To run the new commands use them directly:
+Usually, after you install content from {rel8} repositories, new commands will be enabled. If the commands originated from a RPM package or RPM packages enabled by a module the experience of using the command should be no different. To run the new commands use them directly:
 
 [subs="quotes"]
 ----

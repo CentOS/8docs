@@ -47,5 +47,5 @@ The installation program automatically begins if no action is performed in the b
 .Additional Resources
 
 * For information about installing {productname} using the Graphical User Interface, see xref:standard-install:assembly_graphical-installation.adoc[Installing using the Graphical User Interface].
-* For information about how to prepare to install {productname} from the network using PXE, see the xref:advanced-install:index.adoc[_Performing an advanced RHEL installation_] document.
+* For information about how to prepare to install {productname} from the network using PXE, see the xref:advanced-install:index.adoc[_Performing an advanced installation_] document.
 * For more information about the list of available boot options you can use on the boot command line, see xref:standard-install:assembly_custom-boot-options.adoc[Boot options reference].

@@ -28,5 +28,5 @@ The [command]`timezone` Kickstart command is required. It sets the system time z
 
 .Notes
 
-In {RHEL8}, time zone names are validated using the `pytz.all_timezones` list, provided by the [package]*pytz* package. In previous releases, the names were validated against `pytz.common_timezones`, which is a subset of the currently used list. Note that the graphical and text mode interfaces still use the more restricted `pytz.common_timezones` list; you must use a Kickstart file to use additional time zone definitions.
+In {rel8}, time zone names are validated using the `pytz.all_timezones` list, provided by the [package]*pytz* package. In previous releases, the names were validated against `pytz.common_timezones`, which is a subset of the currently used list. Note that the graphical and text mode interfaces still use the more restricted `pytz.common_timezones` list; you must use a Kickstart file to use additional time zone definitions.
 

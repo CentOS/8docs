@@ -1,12 +1,12 @@
 [id="distribution-of-content-in-rhel8_{context}"]
-= Distribution of content in RHEL 8
+= Distribution of content in {rel8}
 
 RHEL 8 content is distributed through the two main repositories: *BaseOS* and *AppStream*.
 
 BaseOS::
-Content in the BaseOS repository is intended to provide the core set of the underlying OS functionality that provides the foundation for all installations. This content is available in the RPM format and is subject to support terms similar to those in previous releases of {RHEL}.
+Content in the BaseOS repository is intended to provide the core set of the underlying OS functionality that provides the foundation for all installations. This content is available in the RPM format and is subject to support terms similar to those in previous releases of {ProductName}.
 
 AppStream::
 Content in the AppStream repository includes additional user space applications, runtime languages, and databases in support of the varied workloads and use cases. Content in AppStream is available in one of two formats - the familiar RPM format and an extension to the RPM format called _modules_.
 
-IMPORTANT: Both BaseOS and AppStream content sets are required for a basic RHEL installation, and are available with all RHEL subscriptions. For installation instructions, see the xref:standard-install:index.adoc[Performing a standard installation] xref:advanced-install:index.adoc[Performing an advanced installation] documens.
+IMPORTANT: Both BaseOS and AppStream content sets are required for a basic installation. For installation instructions, see the xref:standard-install:index.adoc[Performing a standard installation] xref:advanced-install:index.adoc[Performing an advanced installation] documents.

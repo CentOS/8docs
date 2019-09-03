@@ -1,7 +1,7 @@
 [id="removed-kickstart-comands-and-options_{context}"]
 = Removed Kickstart comands and options
 
-The following Kickstart commands and options have been completely removed in {RHEL8}. Using them in Kickstart files will cause an error.
+The following Kickstart commands and options have been completely removed in {rel8}. Using them in Kickstart files will cause an error.
 
 * [command]`upgrade` (This command had already previously been deprecated.)
 * [command]`btrfs`

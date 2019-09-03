@@ -1,12 +1,12 @@
 [id="what-are-kickstart-installations_{context}"]
 = What are Kickstart installations
 
-Kickstart provides a way to automate the RHEL installation process, either partially or fully.
+Kickstart provides a way to automate the {ProductName} installation process, either partially or fully.
 
-Kickstart files contain some or all of the RHEL installation options. For example, the time zone, how the drives should be partitioned, or which packages should be installed. Providing a prepared Kickstart file allows an installation without the need for any user intervention. This is especially useful when deploying {RHEL} on a large number of systems at once.
+Kickstart files contain some or all of the {rel8} installation options. For example, the time zone, how the drives should be partitioned, or which packages should be installed. Providing a prepared Kickstart file allows an installation without the need for any user intervention. This is especially useful when deploying {ProductName} on a large number of systems at once.
 
-Kickstart files also provide more options regarding software selection. When installing {RHEL} manually using the graphical installation interface, the software selection is limited to pre-defined environments and add-ons. A Kickstart file allows you to install or remove individual packages as well.
+Kickstart files also provide more options regarding software selection. When installing {ProductName} manually using the graphical installation interface, the software selection is limited to pre-defined environments and add-ons. A Kickstart file allows you to install or remove individual packages as well.
 
-Kickstart files can be kept on a single server system and read by individual computers during the installation. This installation method supports the use of a single Kickstart file to install {RHEL} on multiple machines, making it ideal for network and system administrators.
+Kickstart files can be kept on a single server system and read by individual computers during the installation. This installation method supports the use of a single Kickstart file to install {ProductName} on multiple machines, making it ideal for network and system administrators.
 
 All Kickstart scripts and log files of their execution are stored in the [filename]`/tmp` directory of the newly installed system to assist with debugging installation issues.

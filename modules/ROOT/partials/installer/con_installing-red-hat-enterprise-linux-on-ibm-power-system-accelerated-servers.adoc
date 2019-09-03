@@ -12,4 +12,4 @@ Use this information to install Red Hat Enterprise Linux on a non-virtualized, o
 [discrete]
 == Additional resources
 
-* For a list of supported {RHEL} versions, see link:https://www.ibm.com/support/knowledgecenter/linuxonibm/liaam/liaamdistros.htm[Supported Linux distributions for POWER8 and POWER9 Linux on Power systems].
+* For a list of supported {ProductName} versions, see link:https://www.ibm.com/support/knowledgecenter/linuxonibm/liaam/liaamdistros.htm[Supported Linux distributions for POWER8 and POWER9 Linux on Power systems].

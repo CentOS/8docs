@@ -16,7 +16,7 @@ authselect [__options__]
 
 * This command passes all options to the [command]`authselect` command. Refer to the __authselect(8)__ manual page and the [command]`authselect --help` command for more details.
 
-* This command replaces the deprecated [command]`auth` or [command]`authconfig` commands deprecated in {RHEL8} together with the [command]`authconfig` tool.
+* This command replaces the deprecated [command]`auth` or [command]`authconfig` commands deprecated in {rel8} together with the [command]`authconfig` tool.
 
 * Passwords are shadowed by default.
 

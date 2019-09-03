@@ -3,7 +3,7 @@
 
 [IMPORTANT]
 ====
-The [command]`install` Kickstart command is deprecated in {RHEL8}. Use its methods as separate commands.
+The [command]`install` Kickstart command is deprecated in {rel8}. Use its methods as separate commands.
 ====
 
 The [command]`install` Kickstart command is optional. It specifies the default installation mode.

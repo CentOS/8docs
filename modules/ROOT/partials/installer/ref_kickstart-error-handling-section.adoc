@@ -1,7 +1,7 @@
 [id="kickstart-error-handling-section_{context}"]
 = Kickstart error handling section
 
-Starting with {RHEL} 7, Kickstart installations can contain custom scripts which are run when the installation program encounters a fatal error. For example, an error in a package that has been requested for installation, failure to start VNC when specified, or an error when scanning storage devices. Installation cannot continue after such an error has occured. The installation program will run all `%onerror` scripts in the order they are provided in the Kickstart file. In addition, `%onerror` scripts will be run in the event of a traceback.
+Starting with {ProductName} 7, Kickstart installations can contain custom scripts which are run when the installation program encounters a fatal error. For example, an error in a package that has been requested for installation, failure to start VNC when specified, or an error when scanning storage devices. Installation cannot continue after such an error has occured. The installation program will run all `%onerror` scripts in the order they are provided in the Kickstart file. In addition, `%onerror` scripts will be run in the event of a traceback.
 
 Each `%onerror` script is required to end with `%end`.
 

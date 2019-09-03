@@ -1,13 +1,13 @@
 [id="completing-your-lc-server-installation_{context}"]
 = Completing your LC server installation
 
-After you select to boot the {RHEL}{NBSP}8 (RHEL) installer, the installer wizard walks you through the steps.
+After you select to boot the {rel8} installer, the installer wizard walks you through the steps.
 
-. Follow the installation wizard for RHEL to set up disk options, your user name and password, time zones, and so on. The last step is to restart your system.
+. Follow the installation wizard for {ProductName} to set up disk options, your user name and password, time zones, and so on. The last step is to restart your system.
 +
 [NOTE]
 ====
 While your system is restarting, remove the USB device.
 ====
 
-. After the system restarts, Petitboot displays the option to boot {RHEL}{NBSP}8. *Select* this option and press Enter.
+. After the system restarts, Petitboot displays the option to boot {rel8}. *Select* this option and press Enter.

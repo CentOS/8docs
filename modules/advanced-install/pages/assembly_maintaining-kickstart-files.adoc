@@ -14,7 +14,7 @@ You can run automated checks on Kickstart files. Typically, you will want to ver
 You can run automated checks on Kickstart files. Typically, you will want to:
 
 * Verify that a new or problematic Kickstart file is valid.
-* Generate a report of changes needed to adapt a Kickstart file you used to install a previous version of RHEL.
+* Generate a report of changes needed to adapt a Kickstart file you used to install a previous version of {ProductName}.
 ////
 // rhel7: 26.2.2. Maintaining the Kickstart File
 

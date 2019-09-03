@@ -11,6 +11,5 @@ The following sections cover various troubleshooting information which may be he
 
 include::advanced-install:page$con_consoles-logging-during-installation.adoc[leveloffset=+1]
 include::ROOT:partial$installer/con_saving-screenshots.adoc[leveloffset=+1]
-include::ROOT:partial$installer/proc_resuming-an-interrupted-download-attempt.adoc[leveloffset=+1]
 
 :context: {parent-context-of-installer-troubleshooting}

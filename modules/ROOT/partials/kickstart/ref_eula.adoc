@@ -1,7 +1,7 @@
 [id="eula_{context}"]
 = eula
 
-The [command]`eula` Kickstart command is optional. Use this option to accept the End User License Agreement (EULA) without user interaction. Specifying this option prevents Initial Setup from prompting you to accept the license agreement after you finish the installation and reboot the system for the first time. See the xref:standard-install:assembly_post-installation-tasks.adoc#completing-initial-setup_post-installation-tasks[Completing initial setup] section of the __Performing a standard RHEL installation__ document for more information.
+The [command]`eula` Kickstart command is optional. Use this option to accept the End User License Agreement (EULA) without user interaction. Specifying this option prevents Initial Setup from prompting you to accept the license agreement after you finish the installation and reboot the system for the first time. See the xref:standard-install:assembly_post-installation-tasks.adoc#completing-initial-setup_post-installation-tasks[Completing initial setup] section of the __Performing a standard installation__ document for more information.
 
 .Options
 

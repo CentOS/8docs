@@ -11,7 +11,7 @@ ifdef::internal[]
 | Included in |
 LIST OF ASSEMBLIES
 | User story |
-As an administrator, I want to utilize my NVDIMM device as a disk to install RHEL onto, so that my RHEL installation is more performant.
+As an administrator, I want to utilize my NVDIMM device as a disk to install CentOS onto, so that my CentOS installation is more performant.
 | Jira |
 https://projects.engineering.redhat.com/browse/RHELPLAN-6688
 | BZ |

@@ -74,7 +74,7 @@ Automatic partitioning is the *recommended* method of partitioning your storage.
 +
 [WARNING]
 ====
-If you lose the LUKS passphrase, any encrypted partitions and their data is completely inaccessible. There is no way to recover a lost passphrase. However, if you perform a Kickstart installation, you can save encryption passphrases and create backup encryption passphrases during the installation. See the xref:advanced-install:index.adoc[_Performing an advanced RHEL installation_] document for information.
+If you lose the LUKS passphrase, any encrypted partitions and their data is completely inaccessible. There is no way to recover a lost passphrase. However, if you perform a Kickstart installation, you can save encryption passphrases and create backup encryption passphrases during the installation. See the xref:advanced-install:index.adoc[Performing an advanced installation] document for information.
 ====
 
 . Optional: Click the *Full disk summary and bootloader* link in the lower left-hand side of the window to select which storage device contains the boot loader. For more information, see  xref:standard-install:assembly_graphical-installation.adoc#boot-loader-installation_configuring-system-settings[Configuring boot loader].

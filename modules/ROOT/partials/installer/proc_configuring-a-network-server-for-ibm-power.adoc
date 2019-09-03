@@ -52,10 +52,10 @@ The command's output informs you of the file name that needs to be configured in
 set default=0
 set timeout=5
 
-echo -e "\nWelcome to the Red Hat Enterprise Linux 8 installer!\n\n"
+echo -e "\nWelcome to the {rel8} installer!\n\n"
 
-menuentry 'Red Hat Enterprise Linux 8' {
-  linux grub2-ppc64/vmlinuz ro ip=dhcp inst.repo=http://10.32.5.1/RHEL-8.0/x86_64/iso-contents-root/
+menuentry '{productName} {ProductNumber}' {
+  linux grub2-ppc64/vmlinuz ro ip=dhcp inst.repo=http://10.32.5.1/{ProductName}-{ProductNumber}/x86_64/iso-contents-root/
   initrd grub2-ppc64/initrd.img
 }
 ----
@@ -64,7 +64,7 @@ menuentry 'Red Hat Enterprise Linux 8' {
 ====
  * The installation program cannot boot without its runtime image. Use the `inst.stage2` boot option to specify location of the image. Alternatively, you can use the `inst.repo=` option to specify the image as well as the installation source.
  * The installation source location used with `inst.repo` must contain a valid `.treeinfo` file.
- * When you select the RHEL8 installation DVD as the installation source,  the `.treeinfo` file points to the BaseOS and the AppStream repositories. You can use a single `inst.repo` option to load both repositories.
+ * When you select the {rel8} installation DVD as the installation source,  the `.treeinfo` file points to the BaseOS and the AppStream repositories. You can use a single `inst.repo` option to load both repositories.
 ====
 
 . Mount the Binary DVD ISO image using the command:

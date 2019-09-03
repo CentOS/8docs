@@ -1,7 +1,7 @@
 [id="preparation-for-ibm-power-systems-servers_{context}"]
 = Overview
 
-Use this information to install {RHEL}{NBSP}8 on a non-virtualized or bare metal IBM Power System LC server. This procedure follows these general steps:
+Use this information to install {ProductName}{NBSP}8 on a non-virtualized or bare metal IBM Power System LC server. This procedure follows these general steps:
 
 * Create a bootable USB device
 * Connect to the BMC firmware to set up network connection

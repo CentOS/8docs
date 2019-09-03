@@ -4,12 +4,12 @@
 
 AMD64, Intel 64, and 64-bit ARM systems and IBM Power Systems servers have the ability to boot using a PXE server. When you configure the PXE server, you can add the boot option into the boot loader configuration file, which in turn lets you start the installation automatically. Using this approach, it is possible to automate the installation completely, including the boot process.
 
-This procedure is intended as a general reference; detailed steps differ based on your system's architecture, and not all options are available on all architectures (for example, you cannot use PXE boot on IBM Z).
+This procedure is intended as a general reference; detailed steps differ based on your system's architecture, and not all options are available on all architectures.
 
 
 .Prerequisites
 
-* You must have a Kickstart file ready in a location accessible from the system to be installated.
+* You must have a Kickstart file ready in a location accessible from the system to be installed.
 * You must have a PXE server which can be used to boot the system and begin the installation.
 
 .Procedure
@@ -20,13 +20,13 @@ This procedure is intended as a general reference; detailed steps differ based o
 * On AMD64 and Intel 64 systems with BIOS, the file name can be either default or based on your system's IP address. In this case, add the [option]`inst.ks=` option to the append line in the installation entry. A sample append line in the configuration file looks similar to the following:
 +
 ----
-append initrd=initrd.img inst.ks=http://10.32.5.1/mnt/archive/RHEL-8/8.x/x86_64/kickstarts/ks.cfg
+append initrd=initrd.img inst.ks=http://10.32.5.1/mnt/archive/{ProductName}-8/8.x/x86_64/kickstarts/ks.cfg
 ----
 
 * On systems using the GRUB2 boot loader (AMD64, Intel 64, and 64-bit ARM systems with UEFI firmware and IBM Power Systems servers), the file name will be [filename]`grub.cfg`. In this file, append the [option]`inst.ks=` option to the kernel line in the installation entry. A sample kernel line in the configuration file will look similar to the following:
 +
 ----
-kernel vmlinuz inst.ks=http://10.32.5.1/mnt/archive/RHEL-8/8.x/x86_64/kickstarts/ks.cfg
+kernel vmlinuz inst.ks=http://10.32.5.1/mnt/archive/{ProductName}-8/8.x/x86_64/kickstarts/ks.cfg
 ----
 ====
 

@@ -1,7 +1,7 @@
 [id="deprecated-kickstart-comands-and-options_{context}"]
 = Deprecated Kickstart comands and options
 
-The following Kickstart commands and options have been deprecated in {RHEL8}. Using them in Kickstart files will print a warning in the logs.
+The following Kickstart commands and options have been deprecated in {rel8}. Using them in Kickstart files will print a warning in the logs.
 
 * [command]`auth` or [command]`authconfig` - use [command]`authselect instead`
 * [command]`device`

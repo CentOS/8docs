@@ -6,7 +6,7 @@ This procedure describes how to store the Kickstart script file on an HTTP or HT
 
 .Prerequisites
 
-* You must have administrator level access to a server with {RHEL8} on the local network.
+* You must have administrator level access to a server with {rel8} on the local network.
 * The system to be installed must be able to connect to the server.
 * Firewall on the server must allow connections from the system you are installing to. See xref:assembly_making-kickstart-files-available-to-the-installation-program.adoc#ports-for-network-based-installation_making-kickstart-files-available-to-the-installation-program[Ports for network-based installation] for more information.
 
@@ -32,7 +32,7 @@ IMPORTANT: If you use an HTTPS server with a self-signed certificate, you must b
 +
 The Kickstart file is now accessible and ready to be used for installation.
 +
-NOTE: When specifying the location of the Kickstart file, use `http://` or `https://` as the protocol, the server’s host name or IP address, and the path of the Kickstart file, relative to the HTTP server root. For example, if you are using HTTP, the server’s host name is `myserver.example.com`, and you have copied the Kickstart file as [filename]`/var/www/html/rhel8-install/my-ks.cfg`, specify `http://myserver.example.com/rhel8-install/my-ks.cfg` as the file location.
+NOTE: When specifying the location of the Kickstart file, use `http://` or `https://` as the protocol, the server’s host name or IP address, and the path of the Kickstart file, relative to the HTTP server root. For example, if you are using HTTP, the server’s host name is `myserver.example.com`, and you have copied the Kickstart file as [filename]`/var/www/html/centos8-install/my-ks.cfg`, specify `http://myserver.example.com/centos8-install/my-ks.cfg` as the file location.
 
 
 .Additional resources

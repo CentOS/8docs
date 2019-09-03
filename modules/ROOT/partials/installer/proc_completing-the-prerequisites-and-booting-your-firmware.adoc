@@ -14,7 +14,7 @@ These instructions require that you have a network server set up with Red Hat En
 
 . Log into your Red Hat account (if you have not already done so). Select *Red Hat Enterprise Linux for Power 9* from the Product Variant list.
 
-. Look for the Red Hat Enterprise Linux for Power 9 (v. 7.x for ppc64le) ISO file. The downloaded ISO file will include *_rhel-alt......iso_* rather than *_rhel....iso_* in the path name.
+. Look for the Red Hat Enterprise Linux for Power 9 (v. 7.x for ppc64le) ISO file. The downloaded ISO file will include *_centos-alt......iso_* rather than *_centos....iso_* in the path name.
 
 Complete these steps:
 

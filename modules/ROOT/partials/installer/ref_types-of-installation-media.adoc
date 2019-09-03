@@ -5,12 +5,12 @@ Two {productname} {productnumber} installation images are available from the Red
 
 Binary DVD ISO image file::
 +
-A full installation program that contains the BaseOS and AppStream repositories and allows you to complete the installation without additional repositories. Installing {productname} from the Binary DVD ISO is the easiest and the recommended method of performing a standard RHEL installation.
+A full installation program that contains the BaseOS and AppStream repositories and allows you to complete the installation without additional repositories. Installing {productname} from the Binary DVD ISO is the easiest and the recommended method of performing a standard {rel8} installation.
 //See [citetitle]_Using Application Stream_, which explains the difference between the BaseOS and AppStream repositories.
 +
 [IMPORTANT]
 ====
-* It is *recommended* that you use the Binary DVD ISO image file to install {productname} {productnumber}.
+* It is *recommended* that you use the Binary DVD ISO image file to install {rel8}.
 ====
 
 Boot ISO image file::

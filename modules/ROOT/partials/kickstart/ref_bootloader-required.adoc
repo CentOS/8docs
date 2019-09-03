@@ -40,10 +40,10 @@ Ensure your system is not at risk of attack before disabling any of the vulnerab
 +
 [IMPORTANT]
 ====
-The [option]`--boot-drive=` option is currently being ignored in {RHEL} installations on IBM{nbsp}Z systems using the `zipl` boot loader. When `zipl` is installed, it determines the boot drive on its own.
+The [option]`--boot-drive=` option is currently being ignored in {ProductName} installations on IBM{nbsp}Z systems using the `zipl` boot loader. When `zipl` is installed, it determines the boot drive on its own.
 ====
 
-* [option]`--leavebootorder` - The installation program will add {RHEL8} to the top of the list of installed systems in the boot loader, and preserve all existing entries as well as their order.
+* [option]`--leavebootorder` - The installation program will add {rel8} to the top of the list of installed systems in the boot loader, and preserve all existing entries as well as their order.
 
 * [option]`--driveorder=` - Specifies which drive is first in the BIOS boot order. For example:
 +
@@ -119,4 +119,4 @@ You can use an entry similar to one of the following:
 +
 This way the command will always target the same storage device. This is especially useful in large storage environments. See the chapter link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_storage_devices/assembly_overview-of-persistent-naming-attributes_managing-storage-devices[Overview of persistent naming attributes] in the __Managing storage devices in RHEL 8__ document for more in-depth information about different ways to consistently refer to storage devices.
 
-* The [option]`--upgrade` option is deprecated in {RHEL8}.
+* The [option]`--upgrade` option is deprecated in {rel8}.

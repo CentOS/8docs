@@ -1,7 +1,7 @@
 [id="commands-for-installing-rhel-8-content_{context}"]
-= Commands for installing RHEL 8 content
+= Commands for installing {rel8} content
 
-This section lists commonly used commands for installing RHEL 8 content.
+This section lists commonly used commands for installing {rel8} content.
 
 .Command list
 
@@ -24,7 +24,7 @@ Enable a module using its default stream::
 ----
 +
 Enable the module when you wish to make the packages available to the system but do not, at this time, wish to install any of them.
-//In prior versions of RHEL, this would be equivalent to adding a new yum repository but not actually installing any packages from it.
+//In prior versions of {ProductName}, this would be equivalent to adding a new yum repository but not actually installing any packages from it.
 +
 Some modules may not define default streams. In such case, you must explicitly specify the stream.
 
@@ -88,4 +88,3 @@ Alternatively:
 ----
 +
 // NOTE: This is the only fully defined/qualified variant of installation. Prefer this invocation in automation.
-

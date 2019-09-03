@@ -15,7 +15,7 @@ Installing [application]*GRUB2* may overwrite your existing boot loader.
 If an operating system is already installed, the {ProductName} installation program attempts to automatically detect and configure the boot loader to start the other operating system. If the boot loader is not detected, you can manually configure any additional operating systems after you finish the installation.
 //TODO: link to GRUB2 config docs for more details
 
-If you are installing a {RHEL} system with more than one disk, you might want to manually specify the disk where you want to install the boot loader.
+If you are installing a {ProductName} system with more than one disk, you might want to manually specify the disk where you want to install the boot loader.
 
 .Procedure
 

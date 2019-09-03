@@ -11,7 +11,3 @@ See xref:assembly_installing-rhel-8-content.adoc[Installing {ProductName} Conten
 
 
 Where required, the modular functionality automatically selects the appropriate combination of modules and streams to enable installation of logical sets of packages for convenient usage.
-
-// docs note - we are forbidden from mentioning "yum v4" in any forms, use "yum based on dnf tech in rhel8" vs. "yum v3 from rhel7"
-// also prefer YUM uppercase when referring to name, not tool
-// resource http://dnf.readthedocs.io/en/latest/cli_vs_yum.html

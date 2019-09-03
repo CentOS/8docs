@@ -7,12 +7,12 @@ include::partial$local-attributes.adoc[]
 :context: using-appstream
 // ustory: as an user or admin, I need to understand what is appstream and how it fits into the world of rpm/yum as I know it
 
-The following sections provide an overview of the concepts related to the AppStream repository in {RHEL}{nbsp}8.
+The following sections provide an overview of the concepts related to the AppStream repository in {ProductName}{nbsp}8.
 
-* xref:assembly_using-appstream.adoc#distribution-of-content-in-rhel8_{context}[Distribution of content in {ProductName}] describes how content in {RHEL}{nbsp}8 is split into BaseOS and AppStream.
+* xref:assembly_using-appstream.adoc#distribution-of-content-in-rhel8_{context}[Distribution of content in {ProductName}] describes how content in {ProductName}{nbsp}8 is split into BaseOS and AppStream.
 * xref:assembly_using-appstream.adoc#application-streams_{context}[Application Streams] describes the concept of Application Streams.
 * xref:assembly_using-appstream.adoc#packaging-methods-in-rhel-8_{context}[Packaging methods in {ProductName}] describes the types of content provided by AppStream.
-* xref:assembly_using-appstream.adoc#package-management-using-yum-in-rhel-8_{context}[Package management using YUM in {ProductName}] describes how the [application]*YUM* package manager provided in {RHEL8} combines the traditional and modular features.
+* xref:assembly_using-appstream.adoc#package-management-using-yum-in-rhel-8_{context}[Package management using YUM in {ProductName}] describes how the [application]*YUM* package manager provided in {rel8} combines the traditional and modular features.
 
 
 include::ROOT:partial$appstream/con_distribution-of-content-in-rhel8.adoc[leveloffset=+1]

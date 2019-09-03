@@ -3,7 +3,7 @@
 
 // ustory: as a sysadmin I need a different version of something installed on this machine and it's in these "modules"
 
-// This is the most hard-to-comprehend, delicate, advanced, failure-prone, and user-rage-inducing action mentioned in the whole book. It also deceives by sounding rather simple (see ustory definition). It deserves rightfully the position at the end of any assembly or guide, like a final boss to defeat: The similarity to a poorly designed game where earlier choice prevents winning at all is certainly not random. Whoever successfully switches a stream has de facto graduated RHEL 8.0 package management.
+// This is the most hard-to-comprehend, delicate, advanced, failure-prone, and user-rage-inducing action mentioned in the whole book. It also deceives by sounding rather simple (see ustory definition). It deserves rightfully the position at the end of any assembly or guide, like a final boss to defeat: The similarity to a poorly designed game where earlier choice prevents winning at all is certainly not random. Whoever successfully switches a stream has de facto graduated CentOS 8.0 package management.
 
 Switching to a different module stream usually means upgrading or downgrading the packages to a different version than the current version installed on your system.
 
@@ -28,7 +28,7 @@ This sequence reduces the amount of actions where dependencies could prevent you
 
 * Keep notes of the changes you are making so that you can undo them.
 
-* Remember that package and modular dependencies might prevent you from completing this procedure, just as package dependencies could do in previous versions of {RHEL}.
+* Remember that package and modular dependencies might prevent you from completing this procedure, just as package dependencies could do in previous versions of {ProductName}.
 
 
 .Procedure

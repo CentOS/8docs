@@ -24,21 +24,21 @@
 [id="preserving-the-home-directory_{context}"]
 = Preserving the /home directory
 
-In a RHEL 8 graphical installation, you can preserve the [filename]`/home` directory that was used on your RHEL 7 system.
+In a {rel8} graphical installation, you can preserve the [filename]`/home` directory that was used on your {rel7} system.
 
-WARNING: Preserving [filename]`/home` is only possible if the [filename]`/home` directory is located on a separate `/home` partition on your RHEL 7 system.
+WARNING: Preserving [filename]`/home` is only possible if the [filename]`/home` directory is located on a separate `/home` partition on your {rel7} system.
 
-Preserving the [filename]`/home` directory that includes various configuration settings, makes it possible that the GNOME Shell environment on the new RHEL 8 system is set in the same way as it was on your RHEL 7 system.
-Note that this applies only for users on RHEL 8 with the same user name and ID as on the previous RHEL 7 system.
+Preserving the [filename]`/home` directory that includes various configuration settings, makes it possible that the GNOME Shell environment on the new rel8 system is set in the same way as it was on your {rel7} system.
+Note that this applies only for users on {rel8} with the same user name and ID as on the previous {rel7} system.
 
-Complete this procedure to preserve the [filename]`/home` directory from your RHEL 7 system.
+Complete this procedure to preserve the [filename]`/home` directory from your {rel8} system.
 
 [discrete]
 == Prerequisites
 
-* RHEL 7 system is installed on your computer.
-* The [filename]`/home` directory is located on a separate `/home` partition on your RHEL 7 system.
-* The RHEL 8 `Installation Summary` window is currently displayed.
+* {rel7} system is installed on your computer.
+* The [filename]`/home` directory is located on a separate `/home` partition on your {rel7} system.
+* The {rel8} `Installation Summary` window is currently displayed.
 // * You can also link to other modules or assemblies the user must follow before starting this assembly.
 // * Delete the section title and bullets if the assembly has no prerequisites.
 
@@ -57,7 +57,7 @@ Complete this procedure to preserve the [filename]`/home` directory from your RH
 .Ensuring that /home is not formatted
 image::preserving-home-partition.png[]
 
-. Optional: You can also customize various aspects of the `/home` partition required for your RHEL 8 system as described in xref:standard-install:assembly_graphical-installation.adoc#customizing-a-partition-or-volume_manual-partitioning[Customizing a partition or volume]. However, to preserve `/home` from your RHEL 7 system, it is necessary to clear the `Reformat` check box.
+. Optional: You can also customize various aspects of the `/home` partition required for your {rel8} system as described in xref:standard-install:assembly_graphical-installation.adoc#customizing-a-partition-or-volume_manual-partitioning[Customizing a partition or volume]. However, to preserve `/home` from your {rel7} system, it is necessary to clear the `Reformat` check box.
 
 . After you customized all partitions according to your requirements, click `Done`. The `Summary of changes` dialog box opens.
 

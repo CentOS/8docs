@@ -7,7 +7,7 @@ include::partial$local-attributes.adoc[]
 
 // User Story: As a sysadmin, I need to know how to find and install RPMs, SCLs, and modules using AppStream so I can ensure that I have the modules I need.
 
-The following sections describe how to install content in {RHEL8}.
+The following sections describe how to install content in {rel8}.
 
 * xref:assembly_installing-rhel-8-content.adoc#installing-a-package_{context}[Installing a package] includes steps for installing a package.
 * xref:assembly_installing-rhel-8-content.adoc#selecting-a-stream-before-installation-of-packages_{context}[Selecting a stream before installation of packages] describes how to select a stream for package installation.

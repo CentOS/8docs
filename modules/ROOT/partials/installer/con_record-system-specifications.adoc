@@ -3,18 +3,18 @@
 
 The {productname} installation program automatically detects and installs your system's hardware, so you should not have to supply any specific system information. However, for certain {productname} installation scenarios, it is recommended that you record system specifications for future reference. These scenarios include:
 
-.Installing RHEL with a customized partition layout
+.Installing {productname} with a customized partition layout
 *Record:* The model numbers, sizes, types, and interfaces of the hard drives attached to the system. For example, Seagate ST3320613AS 320 GB on SATA0, Western Digital WD7500AAKS 750 GB on SATA1.
 
-.Installing RHEL as an additional operating system on an existing system
+.Installing {productname} as an additional operating system on an existing system
 *Record:* Partitions used on the system. This information can include file system types, device node names, file system labels, and sizes, and allows you to identify specific partitions during the partitioning process. If one of the operating systems is a Unix operating system, {productname} may report the device names differently. Additional information can be found by executing the equivalent of the *mount* command and the *blkid* command, and in the */etc/fstab* file.
 
 If multiple operating systems are installed, the {productname} installation program attempts to automatically detect them, and to configure boot loader to boot them. You can manually configure additional operating systems if they are not detected automatically. See _Configuring boot loader_ in xref:standard-install:assembly_graphical-installation.adoc#configuring-software-settings_graphical-installation[Configuring software options] for more information.
 
-.Installing RHEL from an image on a local hard drive
+.Installing {productname} from an image on a local hard drive
 *Record:* The hard drive and directory that holds the image.
 
-.Installing RHEL from a network location
+.Installing {productname} from a network location
 If the network has to be configured manually, that is, DHCP is not used.
 
 *Record:*
@@ -26,8 +26,8 @@ If the network has to be configured manually, that is, DHCP is not used.
 
 Contact your network administrator if you need assistance with networking requirements.
 
-.Installing RHEL on an iSCSI target
+.Installing {productname} on an iSCSI target
 *Record:* The location of the iSCSI target. Depending on your network, you may need a CHAP user name and password, and a reverse CHAP user name and password.
 
-.Installing RHEL if the system is part of a domain
+.Installing {productname} if the system is part of a domain
 Verify that the domain name is supplied by the DHCP server. If it is not, enter the domain name during installation.

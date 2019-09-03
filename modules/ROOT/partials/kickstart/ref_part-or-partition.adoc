@@ -183,7 +183,7 @@ The process can be sped up by interacting with the installation system (typing o
 
 * The [command]`part` command is not mandatory, but you must include either [command]`part`, [command]`autopart` or [command]`mount` in your Kickstart script.
 
-* The [option]`--active` option is deprecated in {RHEL8}.
+* The [option]`--active` option is deprecated in {rel8}.
 
 * If partitioning fails for any reason, diagnostic messages appear on virtual console 3.
 

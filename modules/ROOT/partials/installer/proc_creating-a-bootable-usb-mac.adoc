@@ -53,7 +53,7 @@ Unlocked Encrypted
 [subs="quotes, macros, attributes"]
 ----
 $ diskutil unmountDisk /dev/disknumber
-					Unmount of all volumes on disknumber was successful
+Unmount of all volumes on disknumber was successful
 ----
 +
 When the command completes, the icon for the flash drive disappears from your desktop. If the icon does not disappear, you may have selected the wrong disk. Attempting to unmount the system disk accidentally returns a *failed to unmount* error.
@@ -79,11 +79,11 @@ $ su -
 Mac OS X provides both a block (/dev/disk*) and character device (/dev/rdisk*) file for each storage device. Writing an image to the /dev/rdisknumber character device is faster than writing to the /dev/disknumber block device.
 ====
 
-. To write the _/Users/user_name/Downloads/rhel-8-x86_64-boot.iso_ file to the _/dev/rdisk2_ device, run the following command:
+. To write the _/Users/user_name/Downloads/{ProductName}-8-x86_64-boot.iso_ file to the _/dev/rdisk2_ device, run the following command:
 +
 [subs="quotes, macros, attributes"]
 ----
-# sudo dd if=/Users/user_name/Downloads/rhel-8-x86_64-boot.iso of=/dev/rdisk2
+# sudo dd if=/Users/user_name/Downloads/{ProductName}-8-x86_64-boot.iso of=/dev/rdisk2
 ----
 
 . Wait for the [command]`dd` command to finish writing the image to the device. The data transfer is complete when the *#* prompt appears. When the prompt is displayed, log out of the root account and unplug the USB drive. The USB drive is now ready to be used as a boot device.

@@ -26,7 +26,7 @@ To create a virtual CD/DVD, follow these steps:
 
 . In the Virtual Media wizard, *select* CD/DVD Media:1.
 
-. *Select* CD Image and the path to the Linux distribution ISO file. For example, `/tmp/RHEL-7.2-20151030.0-Server-ppc64el-dvd1.iso`. Click Connect CD/DVD. If the connection is successful, the message Device redirected in Read Only Mode is displayed.
+. *Select* CD Image and the path to the Linux distribution ISO file. For example, `/tmp/{ProductName}-{ProductNumber}-Server-ppc64el-dvd1.iso`. Click Connect CD/DVD. If the connection is successful, the message Device redirected in Read Only Mode is displayed.
 
 . Verify that CD/DVD is shown as an option in Petitboot as `sr0`:
 +

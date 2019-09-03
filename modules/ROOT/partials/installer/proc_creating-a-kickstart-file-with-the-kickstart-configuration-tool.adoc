@@ -18,7 +18,7 @@ NOTE: The tool currently does not support any advanced partitioning.
 
 . Click the [GUI]*Go to Application* button to the left of heading and wait for the next page to load.
 
-. Select [GUI]*{RHEL8}* in the drop-down menu and wait for the page to update.
+. Select [GUI]*{rel8}* in the drop-down menu and wait for the page to update.
 
 . Describe the system to be installed using the fields in the form.
 +

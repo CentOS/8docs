@@ -54,8 +54,7 @@ If certain installed packages depend on the earlier stream and there is no compa
 +
 [NOTE]
 ====
-When switching *Perl* modules, the `--allowerasing` option is always required because certain packages in the base RHEL 8 installation depend on *Perl 5.26*.
-// Note that the --allowerasing option is also required when other non-modular packages are installed, for example with Ruby. -- redundant with the current wording according to vondruch
+When switching *Perl* modules, the `--allowerasing` option is always required because certain packages in the base {rel8} installation depend on *Perl 5.26*.
 ====
 
 Alternatively, xref:assembly_removing-rhel-8-content.adoc#removing-installed-modules_removing-rhel-8-content[remove all the module's content] installed from the current stream, xref:assembly_removing-rhel-8-content.adoc#resetting-module-streams_removing-rhel-8-content[reset the module], and xref:assembly_installing-rhel-8-content.adoc#installing-a-module-stream_installing-rhel-8-content[install the new stream].

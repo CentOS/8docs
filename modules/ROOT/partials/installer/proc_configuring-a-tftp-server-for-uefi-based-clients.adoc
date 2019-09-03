@@ -110,9 +110,9 @@ You must rename the `shimx64.efi` file to `shim.efi` *after* it is copied.
 [subs="quotes, macros, attributes"]
 ----
 set timeout=60
-menuentry 'RHEL 8' {
-  linuxefi images/RHEL-8.0/vmlinuz ip=dhcp inst.repo=http://10.32.5.1/RHEL-8.0/x86_64/iso-contents-root/
-  initrdefi images/RHEL-8.0/initrd.img
+menuentry '{rel8}' {
+  linuxefi images/{ProductName}-{ProductNumber}/vmlinuz ip=dhcp inst.repo=http://10.32.5.1/{ProductName}-{ProductNumber}/x86_64/iso-contents-root/
+  initrdefi images/{ProductName}-{ProductNumber}/initrd.img
 }
 ----
 +
@@ -120,15 +120,15 @@ menuentry 'RHEL 8' {
 ====
  * The installation program cannot boot without its runtime image. Use the `inst.stage2` boot option to specify location of the image. Alternatively, you can use the `inst.repo=` option to specify the image as well as the installation source.
  * The installation source location used with `inst.repo` must contain a valid `.treeinfo` file.
- * When you select the RHEL8 installation DVD as the installation source,  the `.treeinfo` file points to the BaseOS and the AppStream repositories. You can use a single `inst.repo` option to load both repositories.
+ * When you select the {rel8} installation DVD as the installation source,  the `.treeinfo` file points to the BaseOS and the AppStream repositories. You can use a single `inst.repo` option to load both repositories.
 ====
 
-. Create a subdirectory to store the boot image files in the `/var/lib/tftpboot/` directory, and copy the boot image files to the directory. In this example, we use the directory `/var/lib/tftpboot/images/RHEL-8.0/`:
+. Create a subdirectory to store the boot image files in the `/var/lib/tftpboot/` directory, and copy the boot image files to the directory. In this example, we use the directory `/var/lib/tftpboot/images/{ProductName}-{ProductNumber}/`:
 +
-[subs="macros"]
+[subs="quotes, macros, attributes"]
 ----
-# mkdir -p /var/lib/tftpboot/images/RHEL-8.0/
-# cp /path_to_x86_64_images/pxeboot/{vmlinuz,initrd.img} /var/lib/tftpboot/images/RHEL-8.0/
+# mkdir -p /var/lib/tftpboot/images/{ProductName}-{ProductNumber}/
+# cp /path_to_x86_64_images/pxeboot/{vmlinuz,initrd.img} /var/lib/tftpboot/images/{ProductName}-{ProductNumber}/
 ----
 
 . Start and enable the `dhcpd` service:

@@ -41,8 +41,8 @@
 ** xref:assembly_performing-a-remote-installation-using-vnc.adoc[Performing a remote installation using VNC]
 *** xref:assembly_performing-a-remote-installation-using-vnc.adoc#vnc-overview_performing-a-remote-installation-using-vnc[Overview]
 *** xref:assembly_performing-a-remote-installation-using-vnc.adoc#vnc-considerations_performing-a-remote-installation-using-vnc[Considerations]
-*** xref:assembly_performing-a-remote-installation-using-vnc.adoc#performing-a-rhel-install-in-vnc-direct-mode_performing-a-remote-installation-using-vnc[Performing a remote RHEL installation in VNC Direct mode]
-*** xref:assembly_performing-a-remote-installation-using-vnc.adoc#performing-a-rhel-installation-in-vnc-connect-mode_performing-a-remote-installation-using-vnc[Performing a remote RHEL installation in VNC Connect mode]
+*** xref:assembly_performing-a-remote-installation-using-vnc.adoc#performing-a-rhel-install-in-vnc-direct-mode_performing-a-remote-installation-using-vnc[Performing a remote installation in VNC Direct mode]
+*** xref:assembly_performing-a-remote-installation-using-vnc.adoc#performing-a-rhel-installation-in-vnc-connect-mode_performing-a-remote-installation-using-vnc[Performing a remote installation in VNC Connect mode]
 
 ** Advanced configuration options
 
@@ -100,9 +100,9 @@
 
 *** xref:assembly_kickstart-commands-and-options-reference.adoc[Kickstart commands and options reference]
 **** xref:assembly_kickstart-commands-and-options-reference.adoc#kickstart-changes_kickstart-commands-and-options-reference[Kickstart changes]
-***** xref:assembly_kickstart-commands-and-options-reference.adoc#_auth_or_authconfig_is_deprecated_in_rhel_8[auth or authconfig is deprecated in RHEL 8]
+***** xref:assembly_kickstart-commands-and-options-reference.adoc#_auth_or_authconfig_is_deprecated_in_rhel_8[auth or authconfig is deprecated]
 ***** xref:assembly_kickstart-commands-and-options-reference.adoc#_kickstart_no_longer_supports_btrfs[Kickstart no longer supports Btrfs]
-***** xref:assembly_kickstart-commands-and-options-reference.adoc#_using_kickstart_files_from_previous_rhel_releases[Using Kickstart files from previous RHEL releases]
+***** xref:assembly_kickstart-commands-and-options-reference.adoc#_using_kickstart_files_from_previous_rhel_releases[Using Kickstart files from previous releases]
 ***** xref:assembly_kickstart-commands-and-options-reference.adoc#deprecated-kickstart-comands-and-options_kickstart-changes[Deprecated Kickstart commands and options]
 ***** xref:assembly_kickstart-commands-and-options-reference.adoc#removed-kickstart-comands-and-options_kickstart-changes[Removed Kickstart comands and options]
 ***** xref:assembly_kickstart-commands-and-options-reference.adoc#new-kickstart-comands-and-options_kickstart-changes[New Kickstart comands and options]

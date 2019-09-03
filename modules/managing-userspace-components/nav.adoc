@@ -18,7 +18,7 @@
 *** xref:assembly_installing-rhel-8-content.adoc#installing-a-module-stream_installing-rhel-8-content[Installing a module stream]
 *** xref:assembly_installing-rhel-8-content.adoc#example-installing-a-non-default-stream-of-an-application_installing-rhel-8-content[Example: Installing a non-default stream of an application]
 *** xref:assembly_installing-rhel-8-content.adoc#running-installed-content_installing-rhel-8-content[Running installed content]
-*** xref:assembly_installing-rhel-8-content.adoc#commands-for-installing-rhel-8-content_installing-rhel-8-content[Commands for installing RHEL 8 content]
+*** xref:assembly_installing-rhel-8-content.adoc#commands-for-installing-rhel-8-content_installing-rhel-8-content[Commands for installing content]
 ** xref:assembly_removing-rhel-8-content.adoc[Removing content]
 *** xref:assembly_removing-rhel-8-content.adoc#removing-installed-packages_removing-rhel-8-content[Removing installed packages]
 *** xref:assembly_removing-rhel-8-content.adoc#removing-installed-modules_removing-rhel-8-content[Removing installed modules]

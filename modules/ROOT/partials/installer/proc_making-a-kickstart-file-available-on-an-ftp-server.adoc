@@ -6,7 +6,7 @@ This procedure describes how to store the Kickstart script file on an FTP server
 
 .Prerequisites
 
-* You must have administrator level access to a server with {RHEL8} on the local network.
+* You must have administrator level access to a server with {rel8} on the local network.
 * The system to be installed must be able to connect to the server.
 * Firewall on the server must allow connections from the system you are installing to. See xref:assembly_making-kickstart-files-available-to-the-installation-program.adoc#ports-for-network-based-installation_making-kickstart-files-available-to-the-installation-program[Ports for network-based installation] for more information.
 

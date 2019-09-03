@@ -1,9 +1,9 @@
 [id="application-streams_{context}"]
 = Application Streams
 
-{RHEL8} introduces the concept of Application Streams - versions of user space components. Multiple versions of these components are now delivered and updated more frequently than the core operating system packages. This provides greater flexibility to customize {RHEL} without impacting the underlying stability of the platform or specific deployments.
+{rel8} introduces the concept of Application Streams - versions of user space components. Multiple versions of these components are now delivered and updated more frequently than the core operating system packages. This provides greater flexibility to customize {ProductName} without impacting the underlying stability of the platform or specific deployments.
 
-Components made available as Application Streams can be packaged as modules or RPM packages and are delivered through the AppStream repository in {RHEL8}. Each AppStream component has a given life cycle.
+Components made available as Application Streams can be packaged as modules or RPM packages and are delivered through the AppStream repository in {rel8}. Each AppStream component has a given life cycle.
 
 // Too early to mention in 8 ga: In Red Hat Enterprise Linux 7, Application Stream components are typically packaged as Software Collections.
 

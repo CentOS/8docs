@@ -61,11 +61,11 @@ $ su -
 # dd if=/image_directory/image.iso of=/dev/device
 ----
 +
-Replace _/image_directory/image.iso_ with the full path to the ISO image file that you downloaded, and replace _device_ with the device name that you retrieved with the `dmesg` command. In this example, the full path to the ISO image is `/home/testuser/Downloads/rhel-8-x86_64-boot.iso`, and the device name is `sdd`:
+Replace _/image_directory/image.iso_ with the full path to the ISO image file that you downloaded, and replace _device_ with the device name that you retrieved with the `dmesg` command. In this example, the full path to the ISO image is `/home/testuser/Downloads/{ProductName}-{ProductNumber}-x86_64-boot.iso`, and the device name is `sdd`:
 +
 [subs="quotes, macros, attributes"]
 ----
-# [command]#dd# if=/home/testuser/Downloads/rhel-8-x86_64-boot.iso of=/dev/sdd
+# [command]#dd# if=/home/testuser/Downloads/{ProductName}-{ProductNumber}-x86_64-boot.iso of=/dev/sdd
 ----
 +
 [NOTE]

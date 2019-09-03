@@ -28,7 +28,7 @@ include::partial$local-attributes.adoc[]
 // If the assembly covers a task, start the title with a verb in the gerund
 // form, such as Creating or Configuring.
 [id="installing-red-hat-enterprise-linux-on-ibm-power-system-l-server_{context}"]
-= Installing {RHEL} on IBM Power System L server
+= Installing {ProductName} on IBM Power System L server
 
 This guide helps you install Red Hat Enterprise Linux on an IBM Power System L server.  Use these instructions for the following IBM Power System servers:
 

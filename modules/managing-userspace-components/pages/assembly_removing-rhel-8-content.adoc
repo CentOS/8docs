@@ -3,13 +3,13 @@ include::partial$local-attributes.adoc[]
 :parent-context-of-removing-rhel-8-content: {context}
 
 [id="removing-rhel-8-content_{context}"]
-= Removing RHEL 8 content
+= Removing content
 
 :context: removing-rhel-8-content
 
-// ustory: As a system administrator, I want to remove content I have installed on my RHEL 8 system so that it is no longer present.
+// ustory: As a system administrator, I want to remove content I have installed on my system so that it is no longer present.
 
-The following sections describe how to remove content in {RHEL8}:
+The following sections describe how to remove content in {rel8}:
 
 * xref:assembly_removing-rhel-8-content.adoc#removing-installed-packages_{context}[Removing installed packages] describes removing a package.
 * xref:assembly_removing-rhel-8-content.adoc#removing-installed-modules_{context}[Removing installed modules] describes removing content installed from a module stream.

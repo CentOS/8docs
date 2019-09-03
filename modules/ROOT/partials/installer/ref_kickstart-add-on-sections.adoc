@@ -1,7 +1,7 @@
 [id="kickstart-add-on-sections_{context}"]
 = Kickstart add-on sections
 
-Starting with {RHEL} 7, Kickstart installations support add-ons. These add-ons can expand the basic Kickstart (and Anaconda) functionality in many ways.
+Starting with {ProductName} 7, Kickstart installations support add-ons. These add-ons can expand the basic Kickstart (and Anaconda) functionality in many ways.
 
 To use an add-on in your Kickstart file, use the `%addon __addon_name__ __options__` command, and finish the command with an `%end` statement, similar to pre-installation and post-installation script sections. For example, if you want to use the Kdump add-on, which is distributed with Anaconda by default, use the following commands:
 

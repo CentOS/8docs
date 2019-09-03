@@ -15,7 +15,7 @@ Use this for interactive installations if you cannot use a VNC client. Features 
 
 [IMPORTANT]
 ====
-{RHEL8} may be installed to FCP-attached SCSI devices in text mode, however, you cannot attach FCP-attached SCSI devices interactively in text mode. These devices need to be configured on the kernel command line, or in the CMS config file. It is recommended to use the graphical installation whenever possible.
+{rel8} may be installed to FCP-attached SCSI devices in text mode, however, you cannot attach FCP-attached SCSI devices interactively in text mode. These devices need to be configured on the kernel command line, or in the CMS config file. It is recommended to use the graphical installation whenever possible.
 ====
 
 

@@ -3,12 +3,12 @@
 
 This procedure describes how to store the Kickstart script file on an NFS server. This method enables you to install multiple systems from a single source without having to use physical media for the Kickstart file.
 
-// A network-based installation is convenient when combined with a TFTP server for PXE boot. This approach eliminates the need to create physical media and enables simultaneous deployment of {RHEL} on multiple systems.
+// A network-based installation is convenient when combined with a TFTP server for PXE boot. This approach eliminates the need to create physical media and enables simultaneous deployment of {ProductName} on multiple systems.
 
 
 .Prerequisites
 
-* You must have administrator level access to a server with {RHEL8} on the local network.
+* You must have administrator level access to a server with {rel8} on the local network.
 * The system to be installed must be able to connect to the server.
 * Firewall on the server must allow connections from the system you are installing to. See xref:assembly_making-kickstart-files-available-to-the-installation-program.adoc#ports-for-network-based-installation_making-kickstart-files-available-to-the-installation-program[Ports for network-based installation] for more information.
 
@@ -31,10 +31,10 @@ This procedure describes how to store the Kickstart script file on an NFS server
 
 . Replace __/exported_directory/__ with the full path to the directory holding the Kickstart file. Instead of __clients__, use the host name or IP address of the computer that is to be installed from this NFS server, the subnetwork from which all computers are to have access the ISO image, or the asterisk sign (`*`) if you want to allow any computer with network access to the NFS server to use the ISO image. See the __exports(5)__ man page for detailed information about the format of this field.
 +
-A basic configuration that makes the [filename]`/rhel8-install/` directory available as read-only to all clients is:
+A basic configuration that makes the [filename]`/centos8-install/` directory available as read-only to all clients is:
 +
 ----
-/rhel8-install *
+/centos-install *
 ----
 
 . Save the [filename]`/etc/exports` file and exit the text editor.
@@ -53,7 +53,7 @@ If the service was running before you changed the [filename]`/etc/exports` file,
 +
 The Kickstart file is now accessible over NFS and ready to be used for installation.
 
-NOTE: When specifying the Kickstart source, use `nfs:` as the protocol, the server’s host name or IP address, the colon sign (`:`), and the path inside directory holding the file. For example, if the server’s host name is `myserver.example.com` and you have saved the file in [filename]`/rhel8-install/my-ks.cfg`, specify `inst.ks=nfs:myserver.example.com:/rhel8-install/my-ks.cfg` as the installation source boot option.
+NOTE: When specifying the Kickstart source, use `nfs:` as the protocol, the server’s host name or IP address, the colon sign (`:`), and the path inside directory holding the file. For example, if the server’s host name is `myserver.example.com` and you have saved the file in [filename]`/centos8-install/my-ks.cfg`, specify `inst.ks=nfs:myserver.example.com:/centos8-install/my-ks.cfg` as the installation source boot option.
 
 .Additional resources
 

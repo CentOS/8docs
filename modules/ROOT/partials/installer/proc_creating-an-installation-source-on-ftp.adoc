@@ -6,7 +6,7 @@ Follow the steps in this procedure to create an installation source for a networ
 [discrete]
 == Prerequisites
 
-* You have administor level access to a server with {RHEL8}, and this server is on the same network as the system to be installed.
+* You have administor level access to a server with {rel8}, and this server is on the same network as the system to be installed.
 
 * You have downloaded a Binary DVD ISO image. See xref:standard-install:assembly_preparing-for-your-installation.adoc#downloading-beta-installation-images_preparing-for-your-installation[Downloading the installation ISO image] for more information.
 * You have created a bootable CD, DVD, or USB device from the image file. See xref:standard-install:assembly_preparing-for-your-installation.adoc#making-media_preparing-for-your-installation[Creating installation media] for more information.
@@ -64,8 +64,8 @@ Replace __min_port__-__max_port__ with the port numbers you entered into the [fi
 +
 [subs="quotes"]
 ----
-# mkdir /mnt/rhel8-install
-# mount -o loop,ro -t iso9660 __/image-directory/image.iso__ /mnt/rhel8-install
+# mkdir /mnt/centos8-install
+# mount -o loop,ro -t iso9660 __/image-directory/image.iso__ /mnt/centos8-install
 ----
 +
 Replace __/image-directory/image.iso__ with the path to the Binary DVD ISO image.
@@ -74,18 +74,18 @@ Replace __/image-directory/image.iso__ with the path to the Binary DVD ISO image
 +
 [subs="quotes"]
 ----
-# mkdir /var/ftp/rhel8-install
-# cp -r /mnt/rhel8-install/ /var/ftp/
+# mkdir /var/ftp/centos8-install
+# cp -r /mnt/centos8-install/ /var/ftp/
 ----
 +
-This command creates the [literal]`/var/ftp/rhel8-install/` directory with the content of the image. Note that some copying methods can skip the `.treeinfo` file which is required for a valid installation source. Running the `cp` command for whole directories as shown in this procedure will copy `.treeinfo` correctly.
+This command creates the [literal]`/var/ftp/centos8-install/` directory with the content of the image. Note that some copying methods can skip the `.treeinfo` file which is required for a valid installation source. Running the `cp` command for whole directories as shown in this procedure will copy `.treeinfo` correctly.
 
 . Make sure that the correct SELinux context and access mode is set on the copied content:
 +
 ----
-# restorecon -r /var/ftp/rhel8-install
-# find /var/ftp/rhel8-install -type f -exec chmod 444 {} \;
-# find /var/ftp/rhel8-install -type d -exec chmod 755 {} \;
+# restorecon -r /var/ftp/centos8-install
+# find /var/ftp/centos8-install -type f -exec chmod 444 {} \;
+# find /var/ftp/centos8-install -type d -exec chmod 755 {} \;
 ----
 
 . Start the `vsftpd` service:
@@ -104,5 +104,5 @@ The installation tree is now accessible and ready to be used as the installation
 +
 [NOTE]
 ====
-When configuring the installation source, use `ftp://` as the protocol, the server host name or IP address, and the directory in which you have stored the files from the ISO image, relative to the FTP server root. For example, if the server host name is `myserver.example.com` and you have copied the files from the image to `/var/ftp/rhel8-install/`, specify `ftp://myserver.example.com/rhel8-install/` as the installation source.
+When configuring the installation source, use `ftp://` as the protocol, the server host name or IP address, and the directory in which you have stored the files from the ISO image, relative to the FTP server root. For example, if the server host name is `myserver.example.com` and you have copied the files from the image to `/var/ftp/centos8-install/`, specify `ftp://myserver.example.com/centos8-install/` as the installation source.
 ====

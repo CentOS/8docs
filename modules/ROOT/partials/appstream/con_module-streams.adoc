@@ -7,7 +7,7 @@ Module streams can be active or inactive. Active streams give the system access 
 
 Only one stream of a particular module can be active at a given point in time. Thus only one version of a component can be installed on a system. Different versions can be used in separate containers.
 
-Each module may have a default stream which usually provides the latest or recommended version of the component. Default streams make it easy to consume RHEL packages the usual way without the need to learn about modules. The default stream is active, unless the whole module has been disabled or another stream of that module enabled.
+Each module may have a default stream which usually provides the latest or recommended version of the component. Default streams make it easy to consume {ProductName} packages the usual way without the need to learn about modules. The default stream is active, unless the whole module has been disabled or another stream of that module enabled.
 
 Certain module streams depend on other module streams. For example, the *perl-App-cpanminus*, *perl-DBD-MySQL*, *perl-DBD-Pg*, *perl-DBD-SQLite*, *perl-DBI*, *perl-YAML*, and *freeradius* module streams depend on certain *perl* module streams.
 

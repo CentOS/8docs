@@ -20,7 +20,7 @@ The [command]`raid` Kickstart command is optional. It assembles a software RAID 
 ====
 On IBM Power{nbsp}Systems, if a RAID device has been prepared and has not been reformatted during the installation, ensure that the RAID metadata version is `0.90` if you intend to put the [filename]`/boot` and [filename]`PReP` partitions on the RAID device.
 
-The default {RHEL}{nbsp}7 `mdadm` metadata version is not supported for the boot device.
+The default {ProductName}{nbsp}7 `mdadm` metadata version is not supported for the boot device.
 ====
 +
 // For a detailed example of [command]`raid` in action, see xnotref:sect-kickstart-partitioning-example[].
@@ -33,7 +33,7 @@ The default {RHEL}{nbsp}7 `mdadm` metadata version is not supported for the boot
 ====
 Do not use `mdraid` names in the form of `md0` - these names are not guaranteed to be persistent. Instead, use meaningful names such as `root` or `swap`. Using meaningful names creates a symbolic link from [filename]`/dev/md/__name__` to whichever [filename]`/dev/md__X__` node is assigned to the array.
 
-If you have an old (v0.90 metadata) array that you cannot assign a name to, you can specify the array by a filesystem label or UUID (for example, [option]`--device=rhel7-root --label=rhel7-root`).
+If you have an old (v0.90 metadata) array that you cannot assign a name to, you can specify the array by a filesystem label or UUID (for example, [option]`--device=centos-root --label=centos-root`).
 ====
 
 * [option]`--chunksize=` - Sets the chunk size of a RAID storage in KiB. In certain situations, using a different chunk size than the default ([option]`512 Kib`) can improve the performance of the RAID.
@@ -97,8 +97,8 @@ The following example shows how to create a RAID level 1 partition for [filename
 [command]`part raid.11 --size=1 --grow --ondisk=sda`
 [command]`part raid.12 --size=1 --grow --ondisk=sdb`
 [command]`part raid.13 --size=1 --grow --ondisk=sdc`
-[command]`raid / --level=1 --device=rhel7-root --label=rhel7-root raid.01 raid.02 raid.03`
-[command]`raid /home --level=5 --device=rhel7-home --label=rhel7-home raid.11 raid.12 raid.13`
+[command]`raid / --level=1 --device=centos8-root --label=centos8-root raid.01 raid.02 raid.03`
+[command]`raid /home --level=5 --device=centos8-home --label=centos8-home raid.11 raid.12 raid.13`
 ----
 
 

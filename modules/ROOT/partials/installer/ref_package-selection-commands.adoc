@@ -13,7 +13,7 @@ Specify an entire environment to be installed as a line starting with the `@^` s
 %end
 ----
 +
-This installs all packages which are part of the [GUI]`Infrastructure Server` environment. All available environments are described in the [filename]`__repository__/repodata/*-comps-__repository__.__architecture__.xml` file on the {RHEL8} Installation DVD.
+This installs all packages which are part of the [GUI]`Infrastructure Server` environment. All available environments are described in the [filename]`__repository__/repodata/*-comps-__repository__.__architecture__.xml` file on the {rel8} Installation DVD.
 +
 Only a single environment should be specified in the Kickstart file. If more environments are specified, only the last specified environment is used.
 
@@ -31,7 +31,7 @@ Specify groups, one entry to a line, starting with an `@` symbol, and then the f
 +
 The [GUI]`Core` group is always selected - it is not necessary to specify it in the `%packages` section.
 +
-// The [filename]`*-comps-__repository__.__architecture__.xml` file also defines groups called `Conflicts (__variant__)` for each variant of {RHEL}. This group contains all packages which are known to cause file conflicts, and is intended to be excluded.
+// The [filename]`*-comps-__repository__.__architecture__.xml` file also defines groups called `Conflicts (__variant__)` for each variant of {ProductName}. This group contains all packages which are known to cause file conflicts, and is intended to be excluded.
 +
 // TODO discuss the above with RTT if to be advertised, and fix names
 
@@ -71,7 +71,7 @@ This installs all packages listed in the specified profile of the module stream.
 +
 Modules and groups use the same syntax starting with the `@` symbol. When a module and a package group exist with the same name, the module takes precedence.
 +
-In {RHEL8}, modules are present only in the AppStream repository. To list available modules, use the [command]`yum module list` command on an installed {RHEL8} system.
+In {rel8}, modules are present only in the AppStream repository. To list available modules, use the [command]`yum module list` command on an installed {rel8} system.
 +
 It is also possible to enable module streams using the [command]`module` Kickstart command and then install packages contained in the module stream by naming them directly.
 
@@ -98,6 +98,6 @@ You can change the default behavior of the `%packages` section by using several 
 
 .Additional resources
 
-* For more information about handling packages, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/installing-software-with-yum_configuring-basic-system-settings[Installing software with yum in RHEL 8] chapter of the _Configuring basic system settings_ document.
+* For more information about handling packages, see the link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/installing-software-with-yum_configuring-basic-system-settings[Installing software with yum] chapter of the _Configuring basic system settings in RHEL 8_ document.
 
 * For more information about modules and streams, see the xref:managing-userspace-components:index.adoc[Installing, managing, and removing user space components] document.

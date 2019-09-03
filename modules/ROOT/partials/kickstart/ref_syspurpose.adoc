@@ -40,5 +40,5 @@ The [command]`syspurpose` Kickstart command is optional. Use it to set the syste
 syspurpose --role="Red Hat Enterprise Linux Server"
 ----
 
-* While it is strongly recommended that you configure System Purpose, it is an optional feature of the {RHEL} installation program. If you want to enable System Purpose after the installation completes, you can do so using the `syspurpose` command-line tool.
+* While it is strongly recommended that you configure System Purpose, it is an optional feature of the {ProductName} installation program. If you want to enable System Purpose after the installation completes, you can do so using the `syspurpose` command-line tool.
 

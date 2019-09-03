@@ -1,10 +1,10 @@
 [id="listing-kickstart-file-syntax-changes-between-rhel-versions_{context}"]
-= Listing Kickstart file syntax changes between RHEL versions
+= Listing Kickstart file syntax changes between {ProductName} versions
 
 // PROC
 // ksverdiff is broken in 8.0
 
-Use the [command]`ksverdiff` utility to list the changes in commands and options between major releases of {RHEL}. This is useful when updating an existing Kickstart file to be used with {RHEL8}.
+Use the [command]`ksverdiff` utility to list the changes in commands and options between major releases of {ProductName}. This is useful when updating an existing Kickstart file to be used with {rel8}.
 
 .Procedure
 
@@ -15,11 +15,10 @@ Use the [command]`ksverdiff` utility to list the changes in commands and options
 $ ksverdiff -f __RHEL7__ -t RHEL8
 ----
 +
-This displays changes between {RHEL} versions 7 and 8. Replace __RHEL7__ with __RHEL6__ to use version 6 instead.
+This displays changes between {ProductName} versions 7 and 8. Replace __RHEL7__ with __RHEL6__ to use version 6 instead.
 
 .Additional resources
 
 * The __ksverdiff(1)__ manual page.
 
 // rhel7: 26.2.2.2. Changes in Kickstart Syntax
-

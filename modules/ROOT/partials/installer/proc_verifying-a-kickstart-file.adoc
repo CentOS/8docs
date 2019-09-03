@@ -20,6 +20,3 @@ The validation tool cannot guarantee the installation will be successful. It ens
 .Additional resources
 
 * The __ksvalidator(1)__ manual page.
-
-// rhel7: 26.2.2.1. Verifying the Kickstart File
-

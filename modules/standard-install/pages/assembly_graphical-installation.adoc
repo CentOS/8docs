@@ -3,7 +3,7 @@ include::partial$local-attributes.adoc[]
 :parent-context-graphical-installation: {context}
 :context: graphical-installation
 [id="graphical-installation_{context}"]
-= Installing RHEL using the Graphical User Interface
+= Installing {rel8} using the Graphical User Interface
 
 This section contains information about installing {ProductName} using the Graphical User Interface (GUI). The GUI is the preferred method of installing {ProductName} when you boot the system from a CD, DVD, or USB flash drive, or from a network using PXE.
 
@@ -16,7 +16,7 @@ There may be some variance between the online help and the content that is publi
 If your system does not have the ability to use the graphical mode, you can:
 
 * Use Kickstart to automate the installation as described in xref:advanced-install:assembly_installation-introduction-experienced.adoc[Performing an automated installation using Kickstart]
-* Perform the graphical installation remotely by connecting to the installation system from another computer with a graphical display using the _VNC_ (Virtual Network Computing) protocol as described in xref:advanced-install:assembly_performing-a-remote-installation-using-vnc.adoc[Performing a remote RHEL installation using VNC]
+* Perform the graphical installation remotely by connecting to the installation system from another computer with a graphical display using the _VNC_ (Virtual Network Computing) protocol as described in xref:advanced-install:assembly_performing-a-remote-installation-using-vnc.adoc[Performing a remote installation using VNC]
 
 include::ROOT:partial$installer/con_graphical-installation-workflow.adoc[leveloffset=+1]
 include::ROOT:partial$installer/proc_configuring-language-and-location.adoc[leveloffset=+1]

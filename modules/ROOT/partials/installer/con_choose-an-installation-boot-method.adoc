@@ -18,4 +18,4 @@ A _preboot execution environment_ (PXE) server allows the installation program t
 
 * For instructions on how to create an installation DVD or USB flash drive, see xref:standard-install:assembly_preparing-for-your-installation.adoc#making-media_preparing-for-your-installation[Creating installation media] for more information.
 * For instructions on how to create a bootable DVD, CD, and USB flash drive, see xref:standard-install:assembly_preparing-for-your-installation.adoc#prepare-installation-source_preparing-for-your-installation[Preparing an installation source] for more information.
-* For more information about PXE servers, see the xref:advanced-install:index.adoc[_Performing an advanced RHEL installation_] document.
+* For more information about PXE servers, see the xref:advanced-install:index.adoc[Performing an advanced installation] document.

@@ -26,7 +26,7 @@ You do not need to specify this option for modules with a default stream defined
 
 * A single [command]`module` command can enable only a single module and stream combination. To enable multiple modules, use multiple [command]`module` commands. Enabling a module multiple times with different streams is not possible.
 
-* In {RHEL8}, modules are present only in the AppStream repository. To list available modules, use the [command]`yum module list` command on an installed {RHEL8} system with a valid subscription.
+* In {rel8}, modules are present only in the AppStream repository. To list available modules, use the [command]`yum module list` command on an installed {rel8} system with a valid subscription.
 
 .Additional resources
 
