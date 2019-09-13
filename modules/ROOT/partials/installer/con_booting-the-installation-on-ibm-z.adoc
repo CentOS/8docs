@@ -1,4 +1,0 @@
-[id="booting-the-installation-on-ibm-z_{context}"]
-= Booting the installation on IBM Z
-
-The steps to perform the initial program boot (IPL) of the [application]*Anaconda* installation program depend on the environment (either z/VM or LPAR) in which {ProductName} will run.

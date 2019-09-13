@@ -37,11 +37,6 @@ Ensure your system is not at risk of attack before disabling any of the vulnerab
 ====
 
 * [option]`--boot-drive=` - Specifies which drive the boot loader should be written to, and therefore which drive the computer will boot from. If you use a multipath device as the boot drive, specify only one member of the device.
-+
-[IMPORTANT]
-====
-The [option]`--boot-drive=` option is currently being ignored in {ProductName} installations on IBM{nbsp}Z systems using the `zipl` boot loader. When `zipl` is installed, it determines the boot drive on its own.
-====
 
 * [option]`--leavebootorder` - The installation program will add {rel8} to the top of the list of installed systems in the boot loader, and preserve all existing entries as well as their order.
 

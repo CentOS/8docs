@@ -13,12 +13,6 @@ Text-based Mode::
 +
 Use this for interactive installations if you cannot use a VNC client. Features such as customizing partition layout, or package add-on selection, are only available with the graphical user interface installation.
 
-[IMPORTANT]
-====
-{rel8} may be installed to FCP-attached SCSI devices in text mode, however, you cannot attach FCP-attached SCSI devices interactively in text mode. These devices need to be configured on the kernel command line, or in the CMS config file. It is recommended to use the graphical installation whenever possible.
-====
-
-
 Command-line Mode::
 +
 This is intended for automated and non-interactive installations on System{nbsp}z. Note that if the installation program encounters an invalid or missing kickstart command, the system will reboot.

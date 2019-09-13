@@ -16,5 +16,3 @@ Other SAN Devices::  Devices available on a Storage Area Network (SAN).
 Firmware RAID::  Storage devices attached to a firmware RAID controller.
 
 NVDIMM Devices:: Under specific circumstances, {productname} {productnumber} can boot and run from (NVDIMM) devices in sector mode on the Intel 64 and AMD64 architectures.
-
-System z Devices:: Storage devices, or Logical Units (LUNs), attached through the zSeries Linux FCP (Fiber Channel Protocol) driver.

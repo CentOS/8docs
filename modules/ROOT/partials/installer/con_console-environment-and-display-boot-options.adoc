@@ -73,7 +73,7 @@ inst.xtimeout=::
 Use the `inst.xtimeout=` option to specify the timeout in seconds for starting X server.
 
 inst.sshd::
-Use the `inst.sshd` option to start the `sshd` service during installation, so that you can connect to the system during the installation using SSH, and monitor the installation progress. For more information about SSH, see the `ssh(1)` man page. By default, the `sshd` option is automatically started only on the IBM Z architecture. On other architectures, `sshd` is not started unless you use the `inst.sshd` option.
+Use the `inst.sshd` option to start the `sshd` service during installation, so that you can connect to the system during the installation using SSH, and monitor the installation progress. For more information about SSH, see the `ssh(1)` man page. By default, `sshd` is not started unless you use the `inst.sshd` option.
 +
 [NOTE]
 ====

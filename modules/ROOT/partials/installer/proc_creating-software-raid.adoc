@@ -5,11 +5,6 @@ Follow the steps in this procedure to create a Redundant Arrays of Independent D
 
 A RAID device is created in one step and disks are added or removed as necessary. You can configure one RAID partition for each physical disk in your system, so the number of disks available to the installation program determines the levels of RAID device available. For example, if your system has two hard drives, you cannot create a RAID10 device, as it requires 4 separate partitions.
 
-[NOTE]
-====
-On IBM Z, the storage subsystem uses RAID transparently. There is no need to configure a software RAID manually.
-====
-
 .Prerequisites
 
 * You have selected two or more disks for installation before RAID configuration options are visible. At least two disks are required to create a RAID device.
