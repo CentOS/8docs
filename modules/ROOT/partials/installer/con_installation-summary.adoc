@@ -5,7 +5,7 @@ The *Installation Summary* window is the central location for the {ProductName} 
 
 .Installation summary
 
-image::anaconda-summary-hub-rhel8.png["The Installation Summary window, showing most of the options configured. The Installation Destination icon has a warning sign, which means it requires  user attention before the installation can proceed."]
+image::anaconda-summary-hub-centos8.png["The Installation Summary window, showing most of the options configured. The Installation Destination icon has a warning sign, which means it requires  user attention before the installation can proceed."]
 
 
 The *Installation Summary* window contains three categories:
