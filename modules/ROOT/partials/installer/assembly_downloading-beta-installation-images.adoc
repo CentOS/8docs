@@ -1,75 +1,36 @@
-// This assembly is included in the following assemblies:
-//
-// <List assemblies here, each on a new line>
-
-// This assembly can be included from other assemblies using the following
-// include statement:
-// include::<path>/assembly_downloading-beta-installation-images.adoc[leveloffset=+1]
-
-// The following line is necessary to allow assemblies be included in other
-// assemblies. It restores the `context` variable to its previous state.
-:parent-context-of-downloading-beta-installation-images: {context}
-
-// The file name and the ID are based on the assembly title.
-// For example:
-// * file name: assembly_my-assembly-a.adoc
-// * ID: [id='assembly_my-assembly-a_{context}']
-// * Title: = My assembly A
-//
-// The ID is used as an anchor for linking to the module.
-// Avoid changing it after the module has been published
-// to ensure existing links are not broken.
-//
-// In order for  the assembly to be reusable in other assemblies in a guide,
-// include {context} in the ID: [id='a-collection-of-modules_{context}'].
-//
-// If the assembly covers a task, start the title with a verb in the gerund
-// form, such as Creating or Configuring.
 [id='downloading-beta-installation-images_{context}']
 
 = Downloading the installation ISO image
 
-// The `context` attribute enables module reuse. Every module's ID
-// includes {context}, which ensures that the module has a unique ID even if
-// it is reused multiple times in a guide.
-:context: downloading-beta-installation-images
+Before you start installing {rel8}, you must download an installation ISO image. Images are available from the {ProductName} website at link:++https://www.centos.org/download/++[]. The following basic types of media are available:
 
-// The following block is rendered only if the `internal` variable is set.
-// The table shows various metadata useful when editing this file.
-ifdef::internal[]
-[cols="1,4"]
-|===
-| Included in |
-LIST OF ASSEMBLIES
-| User story |
-USER STORY
-| Jira |
-JIRA LINK
-| BZ |
-BUGZILLA LINK
-| SMEs |
-SME NAMES
-| SME Ack |
-YES/NO
-| Peer Ack |
-YES/NO
-|===
-endif::[]
+DVD ISO::
+This image contains the installer as well as a set of all packages that can be installed during an interactive installation. This is the recommended download for most users.
 
-This section contains instructions about downloading a {productname} installation image from the Download page or by using the [command]`curl` command.
+Everything ISO::
+Contains the installer and all packages available for {rel8}. This ISO image can be used to install the system with extra packages (using a Kickstart file and specifying extra packages in the [command]`%packages` section); it can also be used to set up a local mirror for downloading packages. Note that this image is very large and requires an at least 16 GB flash drive or other storage.
 
-//include::ROOT:partial$installer/proc_processing-your-subscription-request.adoc[leveloffset=+1]
-include::ROOT:partial$installer/proc_downloading-a-specific-beta-iso-image.adoc[leveloffset=+1]
-include::ROOT:partial$installer/proc_downloading-an-iso-image-with-curl.adoc[leveloffset=+1]
-//include::ROOT:partial$installer/proc_resuming-an-interrupted-download-attempt.adoc[leveloffset=+1]
+Minimal ISO::
+Contains the installer and a minimal set of packages which can be used to install a very basic {rel8} system. You can then use [application]*Yum* to download additional packages from update repositories.
 
-// include::ROOT:partial$installer/subsystem/proc_doing_one_procedure.adoc[leveloffset=+1]
+The images listed on the page linked above are for the AMD64/Intel&nbsp;64 (`x86_64`) architecture, which is the {rel8} basic distribution. Images for additional architectures are available for download from the link:++https://wiki.centos.org/Download++[CentOS Wiki download page].
 
-// [leveloffset=+1] ensures that when a module starts with a level-1 heading
-// (= Heading), the heading will be interpreted as a level-2 heading
-// (== Heading) in the assembly.
+Optionally, you can use a checksum utility such as [application]*sha256sum* to verify the integrity of the image file after the download finishes. All downloads are provided with their checksums for reference:
 
+[literal,subs="+quotes,attributes,verbatim,macros"]
+....
+$ sha256sum {ProductName}-server-{ProductNumber}-x86_64-dvd.iso
+`85a...46c  {ProductName}-server-{ProductNumber}-x86_64-dvd.iso`
+....
 
-// The following line is necessary to allow assemblies be included in other
-// assemblies. It restores the `context` variable to its previous state.
-:context: {parent-context-of-downloading-beta-installation-images}
+Similar tools are available for link:++http://www.labtestproject.com/files/win/sha256sum/sha256sum.exe++[Microsoft Windows] and link:++https://itunes.apple.com/us/app/hashtab/id517065482++[Mac OS X]. You can also use the `rd.live.check` option on the boot command line; see xref:standard-install:assembly_booting-installer.adoc#editing-boot-options_booting-the-installer[Editing boot options] for details.
+
+After you have downloaded an ISO image file from the Customer Portal, you can:
+
+* Burn it to a CD or DVD as described in xref:standard-install:assembly_preparing-for-your-installation.adoc#making-an-installation-cd-or-dvd_preparing-for-your-installation[Creating a bootable DVD or CD].
+
+* Use it to create a bootable USB drive; see xref:standard-install:assembly_preparing-for-your-installation.adoc#create-bootable-usb-linux_preparing-for-your-installation[Creating a bootable USB device on Linux], xref:standard-install:assembly_preparing-for-your-installation.adoc#creating-a-bootable-usb-windows_preparing-for-your-installation[Creating a bootable USB device on Windows], and xref:standard-install:assembly_preparing-for-your-installation.adoc#creating-a-bootable-usb-mac_preparing-for-your-installation[Creating a bootable USB device on Mac OS X].
+
+* Place it on a local hard drive or a network location to use as an installation source. For specific instructions, see xref:standard-install:assembly_preparing-for-your-installation.adoc#prepare-installation-source_preparing-for-your-installation[Preparing an installation source].
+
+* Use it to prepare a _Preboot Execution Environment_ (PXE) server, which allows you to boot the installation system over a network. See xref:advanced-install:assembly_preparing-for-a-network-install.adoc[Preparing to install from the network using PXE] for instructions.

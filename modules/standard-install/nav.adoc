@@ -10,8 +10,6 @@
 **** xref:assembly_preparing-for-your-installation.adoc#choose-an-installation-boot-method_preparing-for-your-installation[Choose an installation boot method]
 **** xref:assembly_preparing-for-your-installation.adoc#types-of-installation-media_preparing-for-your-installation[Select the required installation image]
 **** xref:assembly_preparing-for-your-installation.adoc#downloading-beta-installation-images_preparing-for-your-installation[Downloading the installation ISO image]
-***** xref:assembly_preparing-for-your-installation.adoc#downloading-a-specific-beta-iso-image_downloading-beta-installation-images[Downloading an ISO image from the Customer Portal]
-***** xref:assembly_preparing-for-your-installation.adoc#downloading-an-iso-image-with-curl_downloading-beta-installation-images[Downloading an ISO image using curl]
 **** xref:assembly_preparing-for-your-installation.adoc#making-media_preparing-for-your-installation[Creating installation media]
 ***** xref:assembly_preparing-for-your-installation.adoc#making-an-installation-cd-or-dvd_preparing-for-your-installation[Creating a bootable DVD or CD]
 ***** xref:assembly_preparing-for-your-installation.adoc#create-bootable-usb-linux_preparing-for-your-installation[Creating a bootable USB device on Linux]
