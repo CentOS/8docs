@@ -1,6 +1,21 @@
-# Fedora Docs Template
+# CentOS 8 Documentation
 
-This repository contains a minimal source structure for a new Fedora Docs source.
+This repository contains sources that comprise the CentOS 8 documentation published on https://docs.centos.org/en-US/docs/.
+Please report Issues and submit Pull Requests for **Content Fixes** here. For other issues or fixes, use:
+
+* [CentOS_Docs](https://github.com/CentOS/docs) - the builder repository for the entire website, including for example structure configuration
+* [CentOS_Docs_Web_UI](https://github.com/CentOS/docs-web-ui) - the website's user interface (e.g. CSS styling) sources
+
+## Repository structure
+
+The documentation is broken into four modules, placed in the `modules` directory.
+Three of them correspond to separate "titles":
+
+* `standard-install` - Performing a standard CentOS 8 installation - covers mostly installation using Anaconda's GUI
+* `advanced-install` - Performing an advanced CentOS 8 installation - covers advanced install topics like Kickstart, remote access during installation, and PXE boot
+* `managing-userspace-components` - Installing, managing, and removing user space components - information about modules and streams
+
+Each of these modules contains sources which are rendered as separate pages. However, those sources use `include::` statements to include so-called "partials" - smaller bits of content that are not rendered separately. These partials, as well as global attributes used throughout this set of docs and the splash page, are stored in the `ROOT` module.
 
 ## Structure
 
@@ -45,8 +60,6 @@ Antora introduces two new terms:
 
 This repo includes scripts to build and preview the contents of this repository.
 
-**NOTE**: Please note that if you reference pages from other repositoreis, such links will be broken in this local preview as it only builds this repository. If you want to rebuild the whole Fedora Docs site, please see [the Fedora Docs build repository](https://pagure.io/fedora-docs/docs-fp-o/) for instructions.
-
 Both scripts work on Fedora (using Podman) and macOS (using Docker).
 
 To build and preview the site, run:
@@ -56,66 +69,3 @@ $ ./build.sh && ./preview.sh
 ```
 
 The result will be available at http://localhost:8080
-
-### Installing Podman on Fedora
-
-Fedora Workstation doesn't come with Podman preinstalled by default — so you might need to install it using the following command:
-
-```
-$ sudo dnf install podman
-```
-
-### Preview as a part of the whole Fedora Docs site
-
-You can also build the whole Fedora Docs site locally to see your changes in the whole context.
-This is especially useful for checking if your `xref` links work properly.
-
-To do this, you need to clone the main [Fedora Docs build repository](https://pagure.io/fedora-docs/docs-fp-o), modify the `site.yml` file to reference a repo with your changes, and build it.
-Steps:
-
-Clone the main repository and cd into it:
-
-```
-$ git clone https://pagure.io/fedora-docs/docs-fp-o.git
-$ cd docs-fp-o
-```
-
-Find a reference to the repository you're changing in the `site.yml` file, and change it so it points to your change.
-So for example, if I made a modification to the Modularity docs, I would find:
-
-```
-...
-   - url: https://pagure.io/fedora-docs/modularity.git
-     branches:
-       - master
-...
-```
-
-And replaced it with a pointer to my fork:
-```
-...
-   - url: https://pagure.io/forks/asamalik/fedora-docs/modularity.git
-     branches:
-       - master
-...
-```
-
-I could also point to a local repository, using `HEAD` as a branch to preview the what's changed without the need of making a commit.
-
-**Note:** I would need to move the repository under the `docs-fp-o` directory, because the builder won't see anything above.
-So I would need to create a `repositories` directory in `docs-fp-o` and copy my repository into it.
-
-```
-...
-   - url: ./repositories/modularity
-     branches:
-       - HEAD
-...
-```
-
-To build the whole site, I would run the following in the `docs-fp-o` directory.
-
-```
-$ ./build.sh && ./preview.sh
-```
-
