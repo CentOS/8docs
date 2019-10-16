@@ -141,7 +141,7 @@ For more information about cached logical volumes and their modes, see the `lvmc
 
 .Notes
 
-* Do not use the dash (`-`) character in logical volume and volume group names when installing {ProductName} using Kickstart. If this character is used, the installation finishes normally, but the [filename]`/dev/mapper/` directory will list these volumes and volume groups with every dash doubled. For example, a volume group named `volgrp-01` containing a logical volume named `logvol-01` will be listed as [filename]`/dev/mapper/volgrp--01-logvol--01`.
+* Do not use the dash (`-`) character in logical volume and volume group names when installing {ProductName} using Kickstart. If this character is used, the installation finishes normally, but the [filename]`/dev/mapper/` directory will list these volumes and volume groups with every dash doubled. For example, a volume group named `volgrp-01` containing a logical volume named `logvol-01` will be listed as [filename]`/dev/mapper/volgrp\--01-logvol\--01`.
 +
 This limitation only applies to newly created logical volume and volume group names. If you are reusing existing ones using the [option]`--noformat` option, their names will not be changed.
 
