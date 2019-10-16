@@ -1,13 +1,13 @@
 [id="creating-an-installation-source-on-http_{context}"]
 = Creating an installation source using HTTP or HTTPS
 
-Follow the steps in this procedure to create an installation source for a network-based installation using an installation tree, which is a directory containing extracted contents of the Binary DVD ISO image and a valid [filename]`.treeinfo` file. The installation source is accessed over HTTP or HTTPS.
+Follow the steps in this procedure to create an installation source for a network-based installation using an installation tree, which is a directory containing extracted contents of the DVD1 ISO image and a valid [filename]`.treeinfo` file. The installation source is accessed over HTTP or HTTPS.
 
 [discrete]
 == Prerequisites
 
 * You have administor level access to a server with {rel8}, and this server is on the same network as the system to be installed.
-* You have downloaded a Binary DVD ISO image. See xref:standard-install:assembly_preparing-for-your-installation.adoc#downloading-beta-installation-images_preparing-for-your-installation[Downloading the installation ISO image] for more information.
+* You have downloaded a DVD1 ISO image. See xref:standard-install:assembly_preparing-for-your-installation.adoc#downloading-beta-installation-images_preparing-for-your-installation[Downloading the installation ISO image] for more information.
 * You have created a bootable CD, DVD, or USB device from the image file. See xref:standard-install:assembly_preparing-for-your-installation.adoc#making-media_preparing-for-your-installation[Creating installation media] for more information.
 * You have verified that your firewall allows the system you are installing to access the remote installation source. See xref:standard-install:assembly_preparing-for-your-installation.adoc#ports-for-network-based-installation_prepare-installation-source[Ports for network-based installation] for more information.
 
@@ -31,9 +31,9 @@ If your Apache web server configuration enables SSL security, verify that you en
 If you use an HTTPS server with a self-signed certificate, you must boot the installation program with the [option]`noverifyssl` option.
 ====
 
-. Copy the Binary DVD ISO image to the HTTP(S) server.
+. Copy the DVD1 ISO image to the HTTP(S) server.
 
-. Mount the Binary DVD ISO image, using the [command]`mount` command, to a suitable directory:
+. Mount the DVD1 ISO image, using the [command]`mount` command, to a suitable directory:
 +
 [subs="quotes, macros, attributes"]
 ----
@@ -41,7 +41,7 @@ If you use an HTTPS server with a self-signed certificate, you must boot the ins
 # mount -o loop,ro -t iso9660 _/image_directory/image.iso_ /mnt/centos8-install/
 ----
 +
-Replace _/image_directory/image.iso_ with the path to the Binary DVD ISO image.
+Replace _/image_directory/image.iso_ with the path to the DVD1 ISO image.
 
 . Copy the files from the mounted image to the HTTP(S) server root. This command creates the `/var/www/html/centos8-install/` directory with the contents of the image.
 +

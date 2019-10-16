@@ -3,12 +3,12 @@
 
 You can use one of the following installation sources for minimal boot images:
 
-* *DVD:* Burn the Binary DVD ISO image to a DVD. The installation program will automatically install the software packages from the DVD.
+* *DVD:* Burn the DVD1 ISO image to a DVD. The installation program will automatically install the software packages from the DVD.
 
-* *Hard drive or USB drive:* Copy the Binary DVD ISO image to the drive and configure the installation program to install the software packages from the drive. If you use a USB drive, verify that it is connected to the system before the installation begins. The installation program cannot detect media after the installation begins.
+* *Hard drive or USB drive:* Copy the DVD1 ISO image to the drive and configure the installation program to install the software packages from the drive. If you use a USB drive, verify that it is connected to the system before the installation begins. The installation program cannot detect media after the installation begins.
 +
 ======
- ** *Hard drive limitation*: The Binary DVD ISO image on the hard drive must be on a partition with a file system that the installation program can mount. The supported file systems are `xfs`, `ext2`, `ext3`, `ext4`, and `vfat (FAT32)`.
+ ** *Hard drive limitation*: The DVD1 ISO image on the hard drive must be on a partition with a file system that the installation program can mount. The supported file systems are `xfs`, `ext2`, `ext3`, `ext4`, and `vfat (FAT32)`.
 
 [WARNING]
 ====
@@ -19,6 +19,6 @@ In {rel8}, you can enable installation from a directory on a local hard drive. T
 ====
 ======
 
-* *Network location:* Copy the Binary DVD ISO image or the installation tree (extracted contents of the Binary DVD ISO image) to a network location and perform the installation over the network using the following protocols:
-    ** *NFS:* The Binary DVD ISO image is in a Network File System (NFS) share.
+* *Network location:* Copy the DVD1 ISO image or the installation tree (extracted contents of the DVD1 ISO image) to a network location and perform the installation over the network using the following protocols:
+    ** *NFS:* The DVD1 ISO image is in a Network File System (NFS) share.
     ** *HTTPS, HTTP or FTP:* The installation tree is on a network location that is accessible over HTTP, HTTPS or FTP.

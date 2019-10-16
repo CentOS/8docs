@@ -1,13 +1,13 @@
 [id="configuring-installation-source_{context}"]
 = Configuring installation source
 
-Follow the steps in this procedure to configure the Binary DVD ISO image as the installation source, which is the *recommended* method of installing {productname}.
+Follow the steps in this procedure to configure the DVD1 ISO image as the installation source, which is the *recommended* method of installing {productname}.
 
 .Prerequisites
 
 
 // this is for within the title
-* You have downloaded the Binary DVD ISO image as detailed in xref:standard-install:assembly_preparing-for-your-installation.adoc#downloading-beta-installation-images_preparing-for-your-installation[Downloading the installation ISO image].
+* You have downloaded the DVD1 ISO image as detailed in xref:standard-install:assembly_preparing-for-your-installation.adoc#downloading-beta-installation-images_preparing-for-your-installation[Downloading the installation ISO image].
 * You have created bootable installation media as detailed in xref:standard-install:assembly_preparing-for-your-installation.adoc#making-media_preparing-for-your-installation[Creating installation media].
 * The *Installation Summary* window is open.
 

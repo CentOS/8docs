@@ -99,7 +99,7 @@ inst.dd=::
 The `inst.dd=` boot option is used to perform a driver update during the installation. See the xref:advanced-install:index.adoc[_Performing an advanced installation_] document for information on how to update drivers during installation.
 
 inst.repo=hmc::
-When booting from a Binary DVD, the installation program prompts you to enter additional kernel parameters. To set the DVD as an installation source, append `inst.repo=hmc` to the kernel parameters. The installation program then enables `SE` and `HMC` file access, fetches the images for stage2 from the DVD, and provides access to the packages on the DVD for software selection. This option eliminates the requirement of an external network setup and expands the installation options.
+When booting from a DVD1, the installation program prompts you to enter additional kernel parameters. To set the DVD as an installation source, append `inst.repo=hmc` to the kernel parameters. The installation program then enables `SE` and `HMC` file access, fetches the images for stage2 from the DVD, and provides access to the packages on the DVD for software selection. This option eliminates the requirement of an external network setup and expands the installation options.
 
 inst.proxy::
 The `inst.proxy` boot option is used when performing an installation from a HTTP, HTTPS, FTP source. For example:

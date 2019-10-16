@@ -54,7 +54,7 @@ subnet 10.0.0.0 netmask 255.255.255.0 {
 }
 ----
 
-. Access the `shim.efi` file from the `shim` package, and the `grubx64.efi` file from the `grub2-efi` package in the Binary DVD ISO image file:
+. Access the `shim.efi` file from the `shim` package, and the `grubx64.efi` file from the `grub2-efi` package in the DVD1 ISO image file:
 +
 [subs="macros"]
 ----

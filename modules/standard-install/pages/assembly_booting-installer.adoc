@@ -10,7 +10,7 @@ include::partial$local-attributes.adoc[]
 = Booting the installation
 :context: booting-the-installer
 
-Installing {productname} from the Binary DVD ISO is the easiest and the recommended method of performing a standard RHEL installation. Other installation methods require additional setup and configuration. For example, when installing {productname} on a large number of systems simultaneously, the best approach is to boot from a PXE server and install from a source in a shared network location.
+Installing {productname} from the DVD1 ISO is the easiest and the recommended method of performing a standard RHEL installation. Other installation methods require additional setup and configuration. For example, when installing {productname} on a large number of systems simultaneously, the best approach is to boot from a PXE server and install from a source in a shared network location.
 
 After you have created a bootable USB, DVD, or CD you are ready to boot the {productname} installation.
 

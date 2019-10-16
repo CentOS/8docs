@@ -67,14 +67,14 @@ menuentry '{productName} {ProductNumber}' {
  * When you select the {rel8} installation DVD as the installation source,  the `.treeinfo` file points to the BaseOS and the AppStream repositories. You can use a single `inst.repo` option to load both repositories.
 ====
 
-. Mount the Binary DVD ISO image using the command:
+. Mount the DVD1 ISO image using the command:
 +
 [subs="quotes, macros, attributes"]
 ----
 # mount -t iso9660 /path_to_image/name_of_iso/ /mount_point -o loop,ro
 ----
 
-. Create a directory and copy the `initrd.img` and `vmlinuz` files from Binary DVD ISO image into it, for example:
+. Create a directory and copy the `initrd.img` and `vmlinuz` files from DVD1 ISO image into it, for example:
 +
 [subs="quotes, macros, attributes"]
 ----

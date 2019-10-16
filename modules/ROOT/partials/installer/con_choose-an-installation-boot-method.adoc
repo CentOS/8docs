@@ -4,7 +4,7 @@
 There are several methods to boot the {productname} installation program. The method you choose depends on your installation media.
 
 Full installation DVD or USB flash drive::
-Create a full installation DVD or USB flash drive using the *Binary DVD ISO* image. The DVD or USB flash drive can be used as a boot device and as an installation source for installing software packages. Due to the size of the Binary DVD ISO image, a DVD or USB flash drive are the recommended media types.
+Create a full installation DVD or USB flash drive using the *DVD1 ISO* image. The DVD or USB flash drive can be used as a boot device and as an installation source for installing software packages. Due to the size of the DVD1 ISO image, a DVD or USB flash drive are the recommended media types.
 
 Minimal installation DVD, CD, or USB flash drive::
 Create a minimal installation CD, DVD, or USB flash drive using the *Boot ISO* image, which contains only the minimum files necessary to boot the system and start the installation program. The *Boot ISO* image requires an installation source that contains the required software packages.

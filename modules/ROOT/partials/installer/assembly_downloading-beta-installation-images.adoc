@@ -4,23 +4,18 @@
 
 Before you start installing {rel8}, you must download an installation ISO image. Images are available from the {ProductName} website at link:++https://www.centos.org/download/++[]. The following basic types of media are available:
 
-DVD ISO::
-This image contains the installer as well as a set of all packages that can be installed during an interactive installation. This is the recommended download for most users.
+DVD1 ISO::
+This image contains the installer as well as a set of all packages that can be installed during an interactive installation. Also sometimes referred to as the "Binary DVD" or "Binary ISO image". This is the recommended download for most users.
 
-Everything ISO::
-Contains the installer and all packages available for {rel8}. This ISO image can be used to install the system with extra packages (using a Kickstart file and specifying extra packages in the [command]`%packages` section); it can also be used to set up a local mirror for downloading packages. Note that this image is very large and requires an at least 16 GB flash drive or other storage.
-
-Minimal ISO::
-Contains the installer and a minimal set of packages which can be used to install a very basic {rel8} system. You can then use [application]*Yum* to download additional packages from update repositories.
-
-The images listed on the page linked above are for the AMD64/Intel&nbsp;64 (`x86_64`) architecture, which is the {rel8} basic distribution. Images for additional architectures are available for download from the link:++https://wiki.centos.org/Download++[CentOS Wiki download page].
+Boot ISO::
+Contains only the installer, but not any installable packages. This image will allow you to start the installation, but you must xref:standard-install:assembly_preparing-for-your-installation.adoc#prepare-installation-source_preparing-for-your-installation[prepare a package source] and enter its URL in the xref:standard-install:assembly_graphical-installation.adoc#configuring-installation-source_configuring-software-settings[Package Selection screen], using a xref:standard-install:assembly_custom-boot-options.adoc#installation-source-boot-options_custom-boot-options[boot option], or using a xref:advanced-install:assembly_kickstart-commands-and-options-reference.adoc#repo_kickstart-commands-for-system-configuration[Kickstart command] in order to finish the installation.
 
 Optionally, you can use a checksum utility such as [application]*sha256sum* to verify the integrity of the image file after the download finishes. All downloads are provided with their checksums for reference:
 
 [literal,subs="+quotes,attributes,verbatim,macros"]
 ....
-$ sha256sum {ProductName}-server-{ProductNumber}-x86_64-dvd.iso
-`85a...46c  {ProductName}-server-{ProductNumber}-x86_64-dvd.iso`
+$ sha256sum {ProductName}-8-x86_64-dvd.iso
+`85a...46c  {ProductName}-8-x86_64-dvd.iso`
 ....
 
 Similar tools are available for link:++http://www.labtestproject.com/files/win/sha256sum/sha256sum.exe++[Microsoft Windows] and link:++https://itunes.apple.com/us/app/hashtab/id517065482++[Mac OS X]. You can also use the `rd.live.check` option on the boot command line; see xref:standard-install:assembly_booting-installer.adoc#editing-boot-options_booting-the-installer[Editing boot options] for details.

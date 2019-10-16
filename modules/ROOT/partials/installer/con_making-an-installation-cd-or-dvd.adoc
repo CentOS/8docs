@@ -6,5 +6,5 @@ You can create a bootable installation DVD or CD using burning software and a CD
 
 [WARNING]
 ====
-You can create a bootable DVD or CD using either the Binary DVD ISO image (full install), or the Boot ISO image (minimal install). However, the Binary DVD ISO image is larger than 4.7{nbsp}GB, and as a result, it might not fit on a single-layer DVD. A dual-layer DVD or USB key is recommended when using the Binary DVD ISO image to create bootable installation media.
+You can create a bootable DVD or CD using either the DVD1 ISO image (contains installer and packages), or the Boot ISO image (only contains the installer, requires an additional package source). However, the DVD1 ISO image is larger than 4.7{nbsp}GB, and as a result, it might not fit on a single-layer DVD. A dual-layer DVD or USB key is recommended when using the DVD1 ISO image to create bootable installation media.
 ====

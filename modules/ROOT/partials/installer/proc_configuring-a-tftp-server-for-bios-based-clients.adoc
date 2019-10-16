@@ -54,7 +54,7 @@ subnet 10.0.0.0 netmask 255.255.255.0 {
 }
 ----
 
-. Access the `pxelinux.0` file from the `SYSLINUX` package in the Binary DVD ISO image file:
+. Access the `pxelinux.0` file from the `SYSLINUX` package in the DVD1 ISO image file:
 +
 [subs="macros"]
 ----

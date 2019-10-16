@@ -7,7 +7,7 @@ Follow the steps in this procedure to place the installation source on an NFS se
 == Prerequisites
 
 * You have administor level access to a server with {rel8}, and this server is on the same network as the system to be installed.
-* You have downloaded a Binary DVD ISO image. See xref:standard-install:assembly_preparing-for-your-installation.adoc#downloading-beta-installation-images_preparing-for-your-installation[Downloading the installation ISO image] for more information.
+* You have downloaded a DVD1 ISO image. See xref:standard-install:assembly_preparing-for-your-installation.adoc#downloading-beta-installation-images_preparing-for-your-installation[Downloading the installation ISO image] for more information.
 * You have created a bootable CD, DVD, or USB device from the image file. See xref:standard-install:assembly_preparing-for-your-installation.adoc#making-media_preparing-for-your-installation[Creating installation media] for more information.
 * You have verified that your firewall allows the system you are installing to access the remote installation source. See xref:standard-install:assembly_preparing-for-your-installation.adoc#ports-for-network-based-installation_prepare-installation-source[Ports for network-based installation] for more information.
 
@@ -21,7 +21,7 @@ Follow the steps in this procedure to place the installation source on an NFS se
 # yum install nfs-utils
 ----
 
-. Copy the Binary DVD ISO image to a directory on the NFS server.
+. Copy the DVD1 ISO image to a directory on the NFS server.
 
 . Open the [filename]`/etc/exports` file using a text editor and add a line with the following syntax:
 +

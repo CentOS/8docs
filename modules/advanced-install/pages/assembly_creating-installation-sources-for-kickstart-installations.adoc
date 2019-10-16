@@ -7,7 +7,7 @@ include::partial$local-attributes.adoc[]
 
 :context: creating-installation-sources-for-kickstart-installations
 
-This section describes how to create an installation source for the Boot ISO image using the Binary DVD ISO image that contains the required repositories and software packages.
+This section describes how to create an installation source for the Boot ISO image using the DVD1 ISO image that contains the required repositories and software packages.
 
 include::ROOT:partial$installer/con_types-of-installation-source.adoc[leveloffset=+1]
 
