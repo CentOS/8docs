@@ -1,4 +1,4 @@
-:Year: 2019
+:Year: 2021
 
 // Project
 :RH: CentOS Project
@@ -8,7 +8,7 @@
 :ProductName: CentOS
 :ProductShortName: {ProductName}
 // This is the version displayed under "CentOS"
-:ProductNumber: 8.0.1905
+:ProductNumber: 8
 :rel8: {ProductName}{nbsp}8
 :rel7: {ProductName}{nbsp}7
 //:ProductRelease: Beta
