@@ -7,7 +7,7 @@ content:
      branches: HEAD
 ui:
   bundle:
-    url: http://file.brq.redhat.com/~pbokoc/ui-bundle.zip
+    url: https://docs.centos.org/_bundle/ui-bundle.zip
     snapshot: true
   default_layout: default
 output:
