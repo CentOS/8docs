@@ -28,7 +28,7 @@ include::partial$local-attributes.adoc[]
 // If the assembly covers a task, start the title with a verb in the gerund
 // form, such as Creating or Configuring.
 [id='performing-a-remote-installation-using-vnc_{context}']
-= Performing a remote {ProductName}} installation using VNC
+= Performing a remote {ProductName} installation using VNC
 
 // The `context` attribute enables module reuse. Every module's ID
 // includes {context}, which ensures that the module has a unique ID even if
