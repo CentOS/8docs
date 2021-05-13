@@ -11,7 +11,7 @@ You have connected a block device without an `OEMDRV` volume label to your syste
 [NOTE]
 ====
 If you burned an ISO image file to a CD or DVD but it does not have the `OEMDRV` volume label, you can use the `inst.dd` option with no arguments. The installation program provides an option to scan and select drivers from the CD or DVD. In this scenario, the installation program does not prompt you to select a driver update ISO image.
-Another scenario is to use the CD or DVD with the `inst.dd=location` boot option; this allows the installation program to automatically scan the CD or DVD for driver updates. For more information, see <xref:advanced-install:assembly_updating-drivers-during-installation.adoc#performing-a-manual-driver-update_updating-drivers-during-installation[Performing a manual driver update].
+Another scenario is to use the CD or DVD with the `inst.dd=location` boot option; this allows the installation program to automatically scan the CD or DVD for driver updates. For more information, see xref:advanced-install:assembly_updating-drivers-during-installation.adoc#performing-a-manual-driver-update_updating-drivers-during-installation[Performing a manual driver update].
 ====
 
 
