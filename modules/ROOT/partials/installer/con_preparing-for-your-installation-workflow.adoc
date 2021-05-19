@@ -15,8 +15,8 @@ Preparing for your installation consists of several steps.
 . Choose an installation boot method.
 . Select and download the installation image.
 . Create bootable installation media.
-. Prepare the installation source*
+. Prepare the *installation source*
 
 
 
-*Only required for the Boot ISO (minimal install) image.
+* Only required for the Boot ISO (minimal install) image.
